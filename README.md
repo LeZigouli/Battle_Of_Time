@@ -12,7 +12,7 @@ Description du projet :
 
 Date de creation du projet : 23/01/2024
 
-Date de fin de projet :
+Date de fin de projet : semaine(17)
 
 Temps de travail :
 
