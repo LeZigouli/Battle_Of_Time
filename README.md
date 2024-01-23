@@ -2,7 +2,7 @@
 
 Nom : Victor Poirier / Thomas Wolter / Louison Roquain / Vincent Proudy
 
-Nature du projet : Projet fin d'études L2 informatique 2023-2024
+Nature du projet : Projet de fin d'études L2 informatique 2023-2024
 
 Titre du projet : Age of War
 
