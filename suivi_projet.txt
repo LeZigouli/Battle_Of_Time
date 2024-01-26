@@ -48,7 +48,12 @@ Choix des modes de jeu & Menu du jeu :
 
 Définition des fonctionnalité du jeu :
 
-
+Les différentes évolutions possibles:
+	-Préhistoire (Se battre avec des pierres + Dinosaure)
+	-Antiquité (Se battre avec des épées + fronde + Chevaux)
+	-Moyen-Âge (Se battre avec épées avec armures + Chevaux avec armures)
+	-Ère moderne (Se battre des armes à feu + char d'assault)
+	-Ère Futuriste (Se battre avec Laser + Vasseau spatial)
 
 
 
