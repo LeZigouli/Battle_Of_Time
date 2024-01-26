@@ -2,8 +2,6 @@
 -------------------------------------------------------------------------------------------------
 
 Interface graphique :
-	démarrage:
-		-Ecran d'acceuil: -Titre + img ; -en attente d'action du joueur;
 
 	
 	
@@ -15,14 +13,9 @@ Choix des modes de jeu & Menu du jeu :
 
 	-> Menu :
 		
-		<Jouer>
-			<mode>
-				<solo>
-					<facile>
-					<moyen>
-					<difficil>
-				<multi>
-					
+		< Commencer la partie >
+		< Difficulté >
+		< effet sonore >
 		
 		( fonctionalité en jeu pour sauvegarde ca partie et la reprendre
 		plus tard )
@@ -48,12 +41,7 @@ Choix des modes de jeu & Menu du jeu :
 
 Définition des fonctionnalité du jeu :
 
-Les différentes évolutions possibles:
-	-Préhistoire (Se battre avec des pierres + Dinosaure)
-	-Antiquité (Se battre avec des épées + fronde + Chevaux)
-	-Moyen-Âge (Se battre avec épées avec armures + Chevaux avec armures)
-	-Ère moderne (Se battre des armes à feu + char d'assault)
-	-Ère Futuriste (Se battre avec Laser + Vasseau spatial)
+
 
 
 
