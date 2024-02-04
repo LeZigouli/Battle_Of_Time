@@ -1,0 +1,7 @@
+FONCTIONS JOUEUR :
+
+    recuperer XP + GOLD a la mort d'un personnage ennemi;
+
+FONCTIONS PERSONNAGE :
+
+    gestion du spawn;
