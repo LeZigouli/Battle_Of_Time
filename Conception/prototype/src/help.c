@@ -35,7 +35,7 @@ booleen_t afficher_player(player_t * player)
         return FALSE;
     }
     printf("<----- Player ----->\n");
-	printf("Nom : %s\nPV : %d\nXP : %d\nGOLD : %d\nOwner : %d\n\n",player->name,player->pv,player->xp,player->gold,player->owner);
+	printf("Nom : %s\nPV : %d\nXP : %d\nGOLD : %f\nOwner : %d\n\n",player->name,player->pv,player->xp,player->gold,player->owner);
 
     return TRUE;
 

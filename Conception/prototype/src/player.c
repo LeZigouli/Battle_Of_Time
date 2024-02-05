@@ -31,6 +31,7 @@ booleen_t get_ressources(player_t ** player1, player_t ** player2, character_t *
 		 * et les ressources vont donc au player2
 		*/
 		(*player1)->gold += ( character->cost * character->ratio_ressources );
+		printf("%f gold vont a Player1",( character->cost * character->ratio_ressources ));
 	}
 	else if ( character->owner == (*player2)->owner )
 	{
@@ -39,6 +40,8 @@ booleen_t get_ressources(player_t ** player1, player_t ** player2, character_t *
 		 * et les ressources vont donc au player1
 		*/
 		(*player2)->gold += ( character->cost * character->ratio_ressources );
+		printf("%f gold vont a Player2",( character->cost * character->ratio_ressources ));
+
 	}
 	else
 	{

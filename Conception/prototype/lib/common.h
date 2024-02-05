@@ -95,7 +95,7 @@ typedef struct{
 	char name[MAX_STR];
 	int pv;
 	int xp;
-	int gold; 
+	float gold; 
 	tab_charactere_t * characters;
 	int owner;
 	building_t * building;
