@@ -28,7 +28,7 @@ LINKER = gcc
 #Si sous mac avec installation SDL --> homebrew
 ifeq ($(ARCH),apple)
     #Option de l'éditeur de liens
-    LFLAGS = -Wall -ansi $(shell sdl2-config --libs) -lSDL2_image -lSDL2_ttf -I.
+    LFLAGS = -Wall $(shell sdl2-config --libs) -lSDL2_image -lSDL2_ttf -I.
 
     #Chemin vers SDL_image
     SDL_IMAGE_INCLUDE := /opt/homebrew/Cellar/sdl2_image/2.8.2/include 
@@ -42,9 +42,9 @@ ifeq ($(ARCH),apple)
     #Pour l'option de dégogage
     #Option de compilation
     ifeq ($(DEBUG),yes)
-	      CFLAGS = -Wall -std=c99 -ansi -g -D_DEBUG_ -D_APPLE_ $(shell sdl2-config --cflags) -I.
+	      CFLAGS = -Wall -std=c99 -g -D_DEBUG_ -D_APPLE_ $(shell sdl2-config --cflags) -I.
 	else
-	      CFLAGS= -Wall -std=c99 -ansi -D_APPLE_ $(shell sdl2-config --cflags) -I.
+	      CFLAGS= -Wall -std=c99 -D_APPLE_ $(shell sdl2-config --cflags) -I.
 	endif
 endif
 
@@ -57,13 +57,13 @@ ifeq ($(ARCH),linux)
     A VERIFIER ET TESTER !!
 
     #Option de l'éditeur de liens
-    LFLAGS = -Wall -ansi $(shell sdl2-config --libs) -I.    
+    LFLAGS = -Wall $(shell sdl2-config --libs) -I.    
 
 ###########################
 
 	ifeq ($(DEBUG),yes)
-	      CFLAGS= -Wall -std=c99 -ansi -g -D_DEBUG_ -D_LINUX_ $(shell sdl2-config --cflags) -I. 
+	      CFLAGS= -Wall -std=c99 -g -D_DEBUG_ -D_LINUX_ $(shell sdl2-config --cflags) -I. 
 	else
-	      CFLAGS= -Wall -std=c99 -ansi -D_LINUX_ $(shell sdl2-config --cflags) -I.
+	      CFLAGS= -Wall -std=c99 -D_LINUX_ $(shell sdl2-config --cflags) -I.
 	endif
 endif
