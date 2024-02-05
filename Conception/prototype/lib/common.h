@@ -27,6 +27,10 @@
 /* LIMITE DU NOMBRE DE FOIS QU'ON PEUT AMELIORER LE BUILDING */
 #define MAX_LEVEL_UP 5
 
+/* NUMERO OWNER */
+#define OWNER_1 1
+#define OWNER_2 2
+
 typedef enum age_s { Prehistoire, Antiquite, Moyen_Age, Ere_Moderne, Ere_Futuriste }age_t;
 typedef enum monstre_Prehistoire_s { combattant_massue, combattant_caillou, gorille, combattant_dinosaure }monstre_Prehistoire_t;
 typedef enum monstre_Antiquite_s { legionnaire_epee, legionnauire_lance, legionnaire_cheval, legionnaire_hippopotame }monstre_Antiquite_t;
@@ -60,7 +64,7 @@ struct character_s{
 	int time; 
 	int cost; 
 	int max_pv;
-	float ratio_resources;
+	float ratio_ressources;
 	int dammage;
 	int owner; 
 	char description[MAX_DESCRIPTION];

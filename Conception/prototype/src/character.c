@@ -64,7 +64,7 @@ character_t * initcharacter()
         tab[Prehistoire * NB_CHARACTER + combattant_massue].time = 5;
         tab[Prehistoire * NB_CHARACTER + combattant_massue].cost = 100;
         tab[Prehistoire * NB_CHARACTER + combattant_massue].pv = 100;
-        tab[Prehistoire * NB_CHARACTER + combattant_massue].ratio_resources = 1.25;
+        tab[Prehistoire * NB_CHARACTER + combattant_massue].ratio_ressources = 1.25;
         tab[Prehistoire * NB_CHARACTER + combattant_massue].dammage = 20;
         tab[Prehistoire * NB_CHARACTER + combattant_massue].owner = -1;
         strcpy(tab[Prehistoire * NB_CHARACTER + combattant_massue].description,"Ceci est la description");
@@ -84,7 +84,7 @@ character_t * initcharacter()
         tab[Prehistoire * NB_CHARACTER + combattant_caillou].time = 7;
         tab[Prehistoire * NB_CHARACTER + combattant_caillou].cost = 150;
         tab[Prehistoire * NB_CHARACTER + combattant_caillou].pv = 125;
-        tab[Prehistoire * NB_CHARACTER + combattant_massue].ratio_resources = 1.25;
+        tab[Prehistoire * NB_CHARACTER + combattant_massue].ratio_ressources = 1.25;
         tab[Prehistoire * NB_CHARACTER + combattant_caillou].dammage = 33;
         tab[Prehistoire * NB_CHARACTER + combattant_caillou].owner = -1;
         strcpy(tab[Prehistoire * NB_CHARACTER + combattant_caillou].description,"Ceci est la description");
@@ -104,7 +104,7 @@ character_t * initcharacter()
         tab[Prehistoire * NB_CHARACTER + gorille].time = 7;
         tab[Prehistoire * NB_CHARACTER + gorille].cost = 150;
         tab[Prehistoire * NB_CHARACTER + gorille].pv = -125;
-        tab[Prehistoire * NB_CHARACTER + gorille].ratio_resources = 1.25;
+        tab[Prehistoire * NB_CHARACTER + gorille].ratio_ressources = 1.25;
         tab[Prehistoire * NB_CHARACTER + gorille].dammage = 33;
         tab[Prehistoire * NB_CHARACTER + gorille].owner = -1;
         strcpy(tab[Prehistoire * NB_CHARACTER + gorille].description,"Ceci est la description");
@@ -124,7 +124,7 @@ character_t * initcharacter()
         tab[Prehistoire * NB_CHARACTER + combattant_dinosaure].time = 7;
         tab[Prehistoire * NB_CHARACTER + combattant_dinosaure].cost = 150;
         tab[Prehistoire * NB_CHARACTER + combattant_dinosaure].pv = 125;
-        tab[Prehistoire * NB_CHARACTER +combattant_dinosaure].ratio_resources = 1.25;
+        tab[Prehistoire * NB_CHARACTER +combattant_dinosaure].ratio_ressources = 1.25;
         tab[Prehistoire * NB_CHARACTER + combattant_dinosaure].dammage = 33;
         tab[Prehistoire * NB_CHARACTER + combattant_dinosaure].owner = -1;
         strcpy(tab[Prehistoire * NB_CHARACTER + combattant_dinosaure].description,"Ceci est la description");
@@ -148,7 +148,7 @@ character_t * initcharacter()
         tab[Antiquite * NB_CHARACTER + legionnaire_epee].time = 7;
         tab[Antiquite * NB_CHARACTER + legionnaire_epee].cost = 150;
         tab[Antiquite * NB_CHARACTER + legionnaire_epee].pv = 125;
-        tab[Antiquite * NB_CHARACTER +legionnaire_epee].ratio_resources = 1.25;
+        tab[Antiquite * NB_CHARACTER +legionnaire_epee].ratio_ressources = 1.25;
         tab[Antiquite * NB_CHARACTER + legionnaire_epee].dammage = 33;
         tab[Antiquite * NB_CHARACTER + legionnaire_epee].owner = -1;
         strcpy(tab[Antiquite * NB_CHARACTER + legionnaire_epee].description,"Ceci est la description");
@@ -168,7 +168,7 @@ character_t * initcharacter()
         tab[Antiquite * NB_CHARACTER + legionnauire_lance].time = 7;
         tab[Antiquite * NB_CHARACTER + legionnauire_lance].cost = 150;
         tab[Antiquite * NB_CHARACTER + legionnauire_lance].pv = 125;
-        tab[Antiquite * NB_CHARACTER + legionnauire_lance].ratio_resources = 1.25;
+        tab[Antiquite * NB_CHARACTER + legionnauire_lance].ratio_ressources = 1.25;
         tab[Antiquite * NB_CHARACTER + legionnauire_lance].dammage = 33;
         tab[Antiquite * NB_CHARACTER + legionnauire_lance].owner = -1;
         strcpy(tab[Antiquite * NB_CHARACTER + legionnauire_lance].description,"Ceci est la description");
@@ -188,7 +188,7 @@ character_t * initcharacter()
         tab[Antiquite * NB_CHARACTER + legionnaire_cheval].time = 7;
         tab[Prehistoire * NB_CHARACTER + legionnaire_cheval].cost = 150;
         tab[Antiquite * NB_CHARACTER + legionnaire_cheval].pv = 125;
-        tab[Antiquite * NB_CHARACTER + legionnaire_cheval].ratio_resources = 1.25;
+        tab[Antiquite * NB_CHARACTER + legionnaire_cheval].ratio_ressources = 1.25;
         tab[Antiquite * NB_CHARACTER + legionnaire_cheval].dammage = 33;
         tab[Antiquite * NB_CHARACTER + legionnaire_cheval].owner = -1;
         strcpy(tab[Antiquite * NB_CHARACTER + legionnaire_cheval].description,"Ceci est la description");
@@ -208,7 +208,7 @@ character_t * initcharacter()
         tab[Antiquite * NB_CHARACTER + legionnaire_hippopotame].time = 7;
         tab[Antiquite * NB_CHARACTER + legionnaire_hippopotame].cost = 150;
         tab[Antiquite * NB_CHARACTER + legionnaire_hippopotame].pv = 125;
-        tab[Antiquite * NB_CHARACTER + legionnaire_hippopotame].ratio_resources = 1.25;
+        tab[Antiquite * NB_CHARACTER + legionnaire_hippopotame].ratio_ressources = 1.25;
         tab[Antiquite * NB_CHARACTER + legionnaire_hippopotame].dammage = 33;
         tab[Antiquite * NB_CHARACTER + legionnaire_hippopotame].owner = -1;
         strcpy(tab[Antiquite * NB_CHARACTER + legionnaire_hippopotame].description,"Ceci est la description");
@@ -232,7 +232,7 @@ character_t * initcharacter()
         tab[Moyen_Age * NB_CHARACTER + chevalier_epee_bouclier].time = 7;
         tab[Moyen_Age * NB_CHARACTER + chevalier_epee_bouclier].cost = 150;
         tab[Moyen_Age * NB_CHARACTER + chevalier_epee_bouclier].pv = 125;
-        tab[Moyen_Age * NB_CHARACTER + chevalier_epee_bouclier].ratio_resources = 1.25;
+        tab[Moyen_Age * NB_CHARACTER + chevalier_epee_bouclier].ratio_ressources = 1.25;
         tab[Moyen_Age * NB_CHARACTER + chevalier_epee_bouclier].dammage = 33;
         tab[Moyen_Age * NB_CHARACTER + chevalier_epee_bouclier].owner = -1;
         strcpy(tab[Moyen_Age * NB_CHARACTER + chevalier_epee_bouclier].description,"Ceci est la description");
@@ -252,7 +252,7 @@ character_t * initcharacter()
         tab[Moyen_Age * NB_CHARACTER + chevalier_fronde].time = 7;
         tab[Moyen_Age * NB_CHARACTER + chevalier_fronde].cost = 150;
         tab[Moyen_Age * NB_CHARACTER + chevalier_fronde].pv = 125;
-        tab[Moyen_Age * NB_CHARACTER + chevalier_fronde].ratio_resources = 1.25;
+        tab[Moyen_Age * NB_CHARACTER + chevalier_fronde].ratio_ressources = 1.25;
         tab[Moyen_Age * NB_CHARACTER + chevalier_fronde].dammage = 33;
         tab[Moyen_Age * NB_CHARACTER + chevalier_fronde].owner = -1;
         strcpy(tab[Moyen_Age * NB_CHARACTER + chevalier_fronde].description,"Ceci est la description");
@@ -272,7 +272,7 @@ character_t * initcharacter()
         tab[Moyen_Age * NB_CHARACTER + chevalier_tortue].time = 7;
         tab[Moyen_Age * NB_CHARACTER + chevalier_tortue].cost = 150;
         tab[Moyen_Age * NB_CHARACTER + chevalier_tortue].pv = 125;
-        tab[Moyen_Age * NB_CHARACTER + chevalier_tortue].ratio_resources = 1.25;
+        tab[Moyen_Age * NB_CHARACTER + chevalier_tortue].ratio_ressources = 1.25;
         tab[Moyen_Age * NB_CHARACTER + chevalier_tortue].dammage = 33;
         tab[Moyen_Age * NB_CHARACTER + chevalier_tortue].owner = -1;
         strcpy(tab[Moyen_Age * NB_CHARACTER + chevalier_tortue].description,"Ceci est la description");
@@ -292,7 +292,7 @@ character_t * initcharacter()
         tab[Moyen_Age * NB_CHARACTER + chevalier_poulet].time = 7;
         tab[Moyen_Age * NB_CHARACTER + chevalier_poulet].cost = 150;
         tab[Moyen_Age * NB_CHARACTER + chevalier_poulet].pv = 125;
-        tab[Moyen_Age * NB_CHARACTER + chevalier_poulet].ratio_resources = 1.25;
+        tab[Moyen_Age * NB_CHARACTER + chevalier_poulet].ratio_ressources = 1.25;
         tab[Moyen_Age * NB_CHARACTER + chevalier_poulet].dammage = 33;
         tab[Moyen_Age * NB_CHARACTER + chevalier_poulet].owner = -1;
         strcpy(tab[Moyen_Age * NB_CHARACTER + chevalier_poulet].description,"Ceci est la description");
@@ -316,7 +316,7 @@ character_t * initcharacter()
         tab[Ere_Moderne * NB_CHARACTER + samurai].time = 7;
         tab[Ere_Moderne * NB_CHARACTER + samurai].cost = 150;
         tab[Ere_Moderne * NB_CHARACTER + samurai].pv = 125;
-        tab[Ere_Moderne * NB_CHARACTER + samurai].ratio_resources = 1.25;
+        tab[Ere_Moderne * NB_CHARACTER + samurai].ratio_ressources = 1.25;
         tab[Ere_Moderne * NB_CHARACTER + samurai].dammage = 33;
         tab[Ere_Moderne * NB_CHARACTER + samurai].owner = -1;
         strcpy(tab[Ere_Moderne * NB_CHARACTER + samurai].description,"Ceci est la description");
@@ -336,7 +336,7 @@ character_t * initcharacter()
         tab[Ere_Moderne * NB_CHARACTER + soldat_militaire].time = 7;
         tab[Ere_Moderne * NB_CHARACTER + soldat_militaire].cost = 150;
         tab[Ere_Moderne * NB_CHARACTER + soldat_militaire].pv = 125;
-        tab[Ere_Moderne * NB_CHARACTER + soldat_militaire].ratio_resources = 1.25;
+        tab[Ere_Moderne * NB_CHARACTER + soldat_militaire].ratio_ressources = 1.25;
         tab[Ere_Moderne * NB_CHARACTER + soldat_militaire].dammage = 33;
         tab[Ere_Moderne * NB_CHARACTER + soldat_militaire].owner = -1;
         strcpy(tab[Ere_Moderne * NB_CHARACTER + soldat_militaire].description,"Ceci est la description");
@@ -356,7 +356,7 @@ character_t * initcharacter()
         tab[Ere_Moderne * NB_CHARACTER + avatar].time = 7;
         tab[Ere_Moderne * NB_CHARACTER + avatar].cost = 150;
         tab[Ere_Moderne * NB_CHARACTER + avatar].pv = 125;
-        tab[Ere_Moderne * NB_CHARACTER + avatar].ratio_resources = 1.25;
+        tab[Ere_Moderne * NB_CHARACTER + avatar].ratio_ressources = 1.25;
         tab[Ere_Moderne * NB_CHARACTER + avatar].dammage = 33;
         tab[Ere_Moderne * NB_CHARACTER + avatar].owner = -1;
         strcpy(tab[Ere_Moderne * NB_CHARACTER + avatar].description,"Ceci est la description");
@@ -376,7 +376,7 @@ character_t * initcharacter()
         tab[Ere_Moderne * NB_CHARACTER + panzer].time = 7;
         tab[Ere_Moderne * NB_CHARACTER + panzer].cost = 150;
         tab[Ere_Moderne * NB_CHARACTER + panzer].pv = 125;
-        tab[Ere_Moderne * NB_CHARACTER + panzer].ratio_resources = 1.25;
+        tab[Ere_Moderne * NB_CHARACTER + panzer].ratio_ressources = 1.25;
         tab[Ere_Moderne * NB_CHARACTER + panzer].dammage = 33;
         tab[Ere_Moderne * NB_CHARACTER + panzer].owner = -1;
         strcpy(tab[Ere_Moderne * NB_CHARACTER + panzer].description,"Ceci est la description");
@@ -400,7 +400,7 @@ character_t * initcharacter()
         tab[Ere_Futuriste * NB_CHARACTER + soldat_sabre_laser].time = 7;
         tab[Ere_Futuriste * NB_CHARACTER + soldat_sabre_laser].cost = 150;
         tab[Ere_Futuriste * NB_CHARACTER + soldat_sabre_laser].pv = 125;
-        tab[Ere_Futuriste * NB_CHARACTER + soldat_sabre_laser].ratio_resources = 1.25;
+        tab[Ere_Futuriste * NB_CHARACTER + soldat_sabre_laser].ratio_ressources = 1.25;
         tab[Ere_Futuriste * NB_CHARACTER + soldat_sabre_laser].dammage = 33;
         tab[Ere_Futuriste * NB_CHARACTER + soldat_sabre_laser].owner = -1;
         strcpy(tab[Ere_Futuriste * NB_CHARACTER + soldat_sabre_laser].description,"Ceci est la description");
@@ -420,7 +420,7 @@ character_t * initcharacter()
         tab[Ere_Futuriste * NB_CHARACTER + gros_poulet].time = 7;
         tab[Ere_Futuriste * NB_CHARACTER + gros_poulet].cost = 150;
         tab[Ere_Futuriste * NB_CHARACTER + gros_poulet].pv = 125;
-        tab[Ere_Futuriste * NB_CHARACTER + gros_poulet].ratio_resources = 1.25;
+        tab[Ere_Futuriste * NB_CHARACTER + gros_poulet].ratio_ressources = 1.25;
         tab[Ere_Futuriste * NB_CHARACTER + gros_poulet].dammage = 33;
         tab[Ere_Futuriste * NB_CHARACTER + gros_poulet].owner = -1;
         strcpy(tab[Ere_Futuriste * NB_CHARACTER + gros_poulet].description,"Ceci est la description");
@@ -440,7 +440,7 @@ character_t * initcharacter()
         tab[Ere_Futuriste * NB_CHARACTER + banane_geante].time = 7;
         tab[Ere_Futuriste * NB_CHARACTER + banane_geante].cost = 150;
         tab[Ere_Futuriste * NB_CHARACTER + banane_geante].pv = 125;
-        tab[Ere_Futuriste * NB_CHARACTER + banane_geante].ratio_resources = 1.25;
+        tab[Ere_Futuriste * NB_CHARACTER + banane_geante].ratio_ressources = 1.25;
         tab[Ere_Futuriste * NB_CHARACTER + banane_geante].dammage = 33;
         tab[Ere_Futuriste * NB_CHARACTER + banane_geante].owner = -1;
         strcpy(tab[Ere_Futuriste * NB_CHARACTER + banane_geante].description,"Ceci est la description");
@@ -460,7 +460,7 @@ character_t * initcharacter()
         tab[Ere_Futuriste * NB_CHARACTER + alien].time = 7;
         tab[Ere_Futuriste * NB_CHARACTER + alien].cost = 150;
         tab[Ere_Futuriste * NB_CHARACTER + alien].pv = 125;
-        tab[Ere_Futuriste * NB_CHARACTER + alien].ratio_resources = 1.25;
+        tab[Ere_Futuriste * NB_CHARACTER + alien].ratio_ressources = 1.25;
         tab[Ere_Futuriste * NB_CHARACTER + alien].dammage = 33;
         tab[Ere_Futuriste * NB_CHARACTER + alien].owner = -1;
         strcpy(tab[Ere_Futuriste * NB_CHARACTER + alien].description,"Ceci est la description");

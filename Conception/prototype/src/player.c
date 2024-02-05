@@ -10,19 +10,69 @@
 /* fonction */
 /************/
 
+/* recuperer les gold et xp a la mort d'un character */
+booleen_t get_ressources(player_t ** player1, player_t ** player2, character_t * character)
+{
+	if ( (*player1) == NULL || (*player2) == NULL || character == NULL )
+	{
+		return FALSE;
+	}
+
+	if ( character->pv > 0 )
+	{
+		/* si le character n'est pas mort */
+		return FALSE;
+	}
+
+	if ( character->owner == (*player1)->owner )
+	{
+		/*
+		 * le character appartient au player1
+		 * et les ressources vont donc au player2
+		*/
+		(*player1)->gold += ( character->cost * character->ratio_ressources );
+	}
+	else if ( character->owner == (*player2)->owner )
+	{
+		/*
+		 * le character appartient au player2
+		 * et les ressources vont donc au player1
+		*/
+		(*player2)->gold += ( character->cost * character->ratio_ressources );
+	}
+	else
+	{
+		/* erreur dans la distribution des ressources sur la mort du character */
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
 /* verifier si les characters sont valides */
 booleen_t invalid_characters(player_t * player)
 {
-	return ( player->characters == NULL || player->characters->nb == 0 || player->characters->tab == NULL ) ? TRUE : FALSE;
+	return ( player->characters == NULL || player->characters->nb == 0) ? TRUE : FALSE;
 }
 
 /* initialisation du joueur */
-player_t * initplayer(int difficulty)
+player_t * initplayer(int difficulty, int owner)
 {
 	player_t * main_player = malloc(sizeof(player_t));
+	
+	char name[MAX_STR] = "Player ";
 
-	strcpy(main_player->name,"Player 1");
-	main_player->owner = 1;
+	if ( owner == OWNER_1 )
+	{
+		strcat(name,"1");
+	}
+	if ( owner == OWNER_2 )
+	{
+		strcat(name,"2");
+	}
+
+	strcpy(main_player->name,name);
+	main_player->owner = owner;
 	main_player->xp = 0;
 	main_player->characters = NULL;
 
@@ -176,15 +226,15 @@ booleen_t tasser_tab( player_t **  player, int indice_dep)
 }
 
 /* supprimer les personnages qui sont mort */
-booleen_t delete_character(player_t ** player)
+booleen_t delete_character(player_t ** player, player_t ** player2)
 {
 	/* verification préliminaire */
-	if( player == NULL || (*player) == NULL )
+	if( player == NULL || (*player) == NULL || player2==NULL || (*player2)==NULL )
 	{
 		return FALSE;
 	}
 
-	if( invalid_characters( (*player) ) )
+	if( invalid_characters( (*player) ) || invalid_characters( (*player2) ) )
 	{
 		return FALSE;
 	}
@@ -205,6 +255,15 @@ booleen_t delete_character(player_t ** player)
 			 * si un character est mort, on le free et on decremente le nb de character contenu
 			 * dans le tableau
  			 */
+
+			/* on apppelle juste avant la fonction pour donne les
+			 * ressources sur la mort du character
+			 */
+			if ( get_ressources( player,player2,(*player)->characters->tab[i] ) == FALSE)
+			{
+				printf("Erreur au retour de la fonction GET_RESSOURCES \n");
+			}
+
 			free((*player)->characters->tab[i]);
 			(*player)->characters->tab[i] = NULL;
 
@@ -222,7 +281,45 @@ booleen_t delete_character(player_t ** player)
 		}
 	}
 
-	return ( nb_avant == (*player)->characters->nb ) ? FALSE : TRUE;
+	int nb_avant2 = (*player2)->characters->nb;
+
+	/* on fais la meme chose pour le deuxieme player */
+
+	for( int i=0; i<(*player2)->characters->nb; i++ )
+	{
+		if ( (*player2)->characters->tab[i]->pv <= 0 )
+		{
+			/*
+			 * si un character est mort, on le free et on decremente le nb de character contenu
+			 * dans le tableau
+ 			 */
+
+			/* on apppelle juste avant la fonction pour donne les
+			 * ressources sur la mort du character
+			 */
+			if ( get_ressources( player,player2,(*player2)->characters->tab[i] ) == FALSE )
+			{
+				printf("Erreur au retour de la fonction GET_RESSOURCES \n");
+			}
+
+			free((*player2)->characters->tab[i]);
+			(*player2)->characters->tab[i] = NULL;
+
+			/* 
+			 * il faut penser a tasser le tableau pour pas perdre d'information car on s'arrete
+			 * sur le premier qui valide la condition
+			 */
+
+			if( tasser_tab(player2,i) )
+			{
+				printf("\nLe tableau a bien ete tasse !\n");
+			}	
+
+			(*player2)->characters->nb-=1;
+		}
+	}
+
+	return ( nb_avant == (*player)->characters->nb || nb_avant2 == (*player2)->characters->nb ) ? FALSE : TRUE;
 }
 
 
