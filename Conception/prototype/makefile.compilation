@@ -1,0 +1,69 @@
+#fichier pour facilité la portabilité 
+
+########!!!!!!!!!!!!!!########
+####-VARIABLES À MODIFIER-####
+########!!!!!!!!!!!!!!########
+
+#Nom du projet
+TARGET = prog
+
+# Valeurs possibles : apple , linux 
+ARCH=apple
+
+# Valeurs possibles : yes , no  
+DEBUG=yes
+
+
+
+
+######!!!!!!!!!!!!!######
+####-NE PAS TOUCHER-#####
+######!!!!!!!!!!!!!######
+
+#Compilateur utilisé
+CC = gcc
+#Éditeur de liens
+LINKER = gcc
+
+#Si sous mac avec installation SDL --> homebrew
+ifeq ($(ARCH),apple)
+    #Option de l'éditeur de liens
+    LFLAGS = -Wall -ansi $(shell sdl2-config --libs) -lSDL2_image -lSDL2_ttf -I.
+
+    #Chemin vers SDL_image
+    SDL_IMAGE_INCLUDE := /opt/homebrew/Cellar/sdl2_image/2.8.2/include 
+    SDL_IMAGE_LIB := /opt/homebrew/Cellar/sdl2_image/2.8.2/lib
+
+    #Chemin vers SDL_ttf
+    SDL_TTF_INCLUDE := /opt/homebrew/Cellar/sdl2_ttf/2.20.2/include
+    SDL_TTF_LIB := /opt/homebrew/Cellar/sdl2_ttf/2.20.2/lib
+
+
+    #Pour l'option de dégogage
+    #Option de compilation
+    ifeq ($(DEBUG),yes)
+	      CFLAGS = -Wall -std=c99 -ansi -g -D_DEBUG_ -D_APPLE_ $(shell sdl2-config --cflags) -I.
+	else
+	      CFLAGS= -Wall -std=c99 -ansi -D_APPLE_ $(shell sdl2-config --cflags) -I.
+	endif
+endif
+
+
+
+#Si sous linux
+ifeq ($(ARCH),linux)
+
+###########################
+    A VERIFIER ET TESTER !!
+
+    #Option de l'éditeur de liens
+    LFLAGS = -Wall -ansi $(shell sdl2-config --libs) -I.    
+
+###########################
+
+	ifeq ($(DEBUG),yes)
+	      CFLAGS= -Wall -std=c99 -ansi -g -D_DEBUG_ -D_LINUX_ $(shell sdl2-config --cflags) -I. 
+	else
+	      CFLAGS= -Wall -std=c99 -ansi -D_LINUX_ $(shell sdl2-config --cflags) -I.
+	endif
+endif
