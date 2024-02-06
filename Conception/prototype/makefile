@@ -34,11 +34,11 @@ rm = rm -f
 ################
 #Édition des liens
 $(EXEC) : $(OBJECTS)
-	@$(LINKER) $(OBJECTS) -L$(LIBDIR) -o $@  $(LFLAGS) -L$(SDL_IMAGE_LIB) -L$(SDL_TTF_LIB)
+	@$(LINKER) $(OBJECTS) -L$(LIBDIR) -o $@  $(LFLAGS)
 	@echo "Édition de liens terminée!"
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c | $(LIBDIR)
-	@$(CC) $(CFLAGS) -I$(LIBDIR) -I$(SDL_IMAGE_INCLUDE) -I$(SDL_TTF_INCLUDE) -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(LIBDIR) -c $< -o $@
 	@echo "Compilation "$<" réussie!"
 
 
