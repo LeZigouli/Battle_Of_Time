@@ -71,7 +71,7 @@ booleen_t upgrade_building(player_t ** player)
 	/* a chaque upgrade on augmente les stat par le coef_level_up */
     (*player)->building->dammage *= COEF_LEVEL_UP_DAMMAGE;
     (*player)->building->max_pv *= COEF_LEVEL_UP_MAX_PV;
-    (*player)->building->pv *= COEF_LEVEL_UP_MAX_PV;
+    (*player)->building->pv += (*player)->building->max_pv/2;
     (*player)->building->GOLD_cost *= COEF_LEVEL_UP_MAX_GOLD_COST;
 
     /* actualise le niveau du building */

@@ -93,7 +93,6 @@ typedef struct tab_charactere_s{
 typedef struct{
 
 	char name[MAX_STR];
-	int pv;
 	int xp;
 	float gold; 
 	tab_charactere_t * characters;

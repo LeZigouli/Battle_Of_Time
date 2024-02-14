@@ -488,6 +488,30 @@ booleen_t destroy_tab_character(character_t ** tab )
 }
 
 
+booleen_t copie_character(character_t ** destination, character_t * src)
+{
+    afficher_character(**destination);
+    //afficher_character(*src);
+    if((*destination) == NULL || src == NULL){
+        printf("Erreur : copie character un des pointeurs NULL \n");
+        return FALSE;
+    }
+    
+    (*destination)->pv = src->pv;
+    strcpy((*destination)->name,src->name);
+    (*destination)->time = src->time;
+    (*destination)->cost = src->cost;
+    (*destination)->max_pv = src->max_pv;
+    (*destination)->ratio_ressources = src->ratio_ressources;
+    (*destination)->dammage = src->dammage;
+    (*destination)->owner = src->owner;
+    strcpy((*destination)->description,src->description);
+    (*destination)->x = src->x;
+    (*destination)->y = src->y;
+    (*destination)->vector = src->vector;
+
+    return TRUE;
+}
 
 
 

@@ -6,11 +6,14 @@
  * \version 1.0
  * 
 */
+#ifndef _ORDINATEUR_H_
+#define _ORDINATEUR_H_
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include "../lib/common.h"
+#include "../lib/character.h"
 
 typedef struct 
 {
@@ -20,5 +23,9 @@ typedef struct
 	building_t * building;
 }ordi_t;
 
-
+booleen_t init_building_or(ordi_t ** ordi);
 ordi_t * init_ordi(int difficulte);
+int envoie_char(ordi_t ** ordi,age_t current , character_t * tab[]);
+booleen_t afficher_building_or(ordi_t * ordi);
+void afficher_ordi(ordi_t * ordi);
+#endif

@@ -4,6 +4,7 @@
 #include "common.h"
 
 character_t * initcharacter();
+booleen_t copie_character(character_t ** destination, character_t * src);
 booleen_t destroy_tab_character(character_t ** tab );
 
 booleen_t character_attack_character(character_t ** destination, character_t ** src);
