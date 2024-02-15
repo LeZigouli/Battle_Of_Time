@@ -9,7 +9,7 @@
 #include "../lib/ordinateur.h"
 
 
-/* fonction pour creer le batiment d'un joueur */
+/* fonction pour creer le batiment de l'ordinateur */
 booleen_t init_building_or(ordi_t ** ordi)
 {
 	/* verification préliminaire */
