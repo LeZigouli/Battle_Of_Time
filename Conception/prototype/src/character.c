@@ -490,8 +490,6 @@ booleen_t destroy_tab_character(character_t ** tab )
 
 booleen_t copie_character(character_t ** destination, character_t * src)
 {
-    afficher_character(**destination);
-    //afficher_character(*src);
     if((*destination) == NULL || src == NULL){
         printf("Erreur : copie character un des pointeurs NULL \n");
         return FALSE;

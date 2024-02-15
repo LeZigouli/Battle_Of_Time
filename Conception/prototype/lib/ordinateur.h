@@ -17,7 +17,6 @@
 
 typedef struct 
 {
-    /* data */
     int owner;
     tab_charactere_t * characters;
 	building_t * building;
@@ -25,7 +24,8 @@ typedef struct
 
 booleen_t init_building_or(ordi_t ** ordi);
 ordi_t * init_ordi(int difficulte);
-int envoie_char(ordi_t ** ordi,age_t current , character_t * tab[]);
+int detr_ordi(ordi_t ** ordi);
+int envoie_char(ordi_t ** ordi,age_t current , character_t * tab);
 booleen_t afficher_building_or(ordi_t * ordi);
 void afficher_ordi(ordi_t * ordi);
 #endif

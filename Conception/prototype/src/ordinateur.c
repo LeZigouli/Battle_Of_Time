@@ -8,6 +8,7 @@
 */
 #include "../lib/ordinateur.h"
 
+
 /* fonction pour creer le batiment d'un joueur */
 booleen_t init_building_or(ordi_t ** ordi)
 {
@@ -28,7 +29,7 @@ booleen_t init_building_or(ordi_t ** ordi)
 
 	/* affectation */
 	(*ordi)->building->dammage = 33;
-	(*ordi)->building->GOLD_cost = 500;
+	(*ordi)->building->GOLD_cost = 0;
 	(*ordi)->building->level = 1;
 	(*ordi)->building->pv = 300;
 	(*ordi)->building->max_pv = (*ordi)->building->pv;
@@ -48,29 +49,33 @@ ordi_t * init_ordi(int difficulte){
 
 int detr_ordi(ordi_t ** ordi){
     free((*ordi)->building);
-    if((*ordi)->characters!=NULL)
-        free((*ordi)->characters->tab);
+    if((*ordi)->characters!=NULL){
+        destroy_tab_character((*ordi)->characters->tab);
+        free((*ordi)->characters);
+    }
     free(*ordi);
     *ordi=NULL;
     return 0;
 }
 
-int envoie_char(ordi_t ** ordi,age_t current , character_t * tab[]){
-    character_t * new;
-    new=malloc(sizeof(character_t));
-    if(new==NULL){
-        printf("Looooooooooooooooooooooooooooooooool");
+int envoie_char(ordi_t ** ordi, age_t current , character_t * tab){
+    character_t * new=malloc(sizeof(character_t));
+    if(new!=NULL){
+        int newCha;
+        if((*ordi)->characters->nb < MAX_POSSESSED){
+            srand(time(NULL));
+            newCha=rand()%NB_CHARACTER;
+            copie_character(&new,&tab[current*NB_CHARACTER+newCha]);
+            (*ordi)->characters->tab[(*ordi)->characters->nb]=new;
+            (*ordi)->characters->nb++;
+            return EXIT_SUCCESS;
+        }
+        return EXIT_FAILURE;
     }
-    int newCha;
-    if((*ordi)->characters->nb < MAX_POSSESSED){
-        srand(time(NULL));
-        newCha=rand()%NB_CHARACTER;
-        copie_character(&new,tab[current*NB_CHARACTER+newCha]);
-        (*ordi)->characters->tab[(*ordi)->characters->nb]=new;
-        (*ordi)->characters->nb++;
-    }
-    return 0;
+    return EXIT_FAILURE;    
 }
+
+
 
 booleen_t afficher_building_or(ordi_t * ordi)
 {
@@ -79,7 +84,7 @@ booleen_t afficher_building_or(ordi_t * ordi)
         return FALSE;
     }
 
-    printf("<----- building ----->\n");
+    printf("Building :\n{\n");
     printf("Owner : %d \nDammage : %d\nPV : %d\nGOLD_cost : %d\nLevel : %d\n",ordi->building->owner, ordi->building->dammage,ordi->building->pv, ordi->building->GOLD_cost, ordi->building->level);
     printf("<-------------------->\n\n");
 
