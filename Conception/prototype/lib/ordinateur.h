@@ -8,12 +8,9 @@
 */
 #ifndef _ORDINATEUR_H_
 #define _ORDINATEUR_H_
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <time.h>
-#include "../lib/common.h"
-#include "../lib/character.h"
+#include "common.h"
+#include "character.h"
 
 typedef struct 
 {

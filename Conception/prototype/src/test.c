@@ -4,6 +4,8 @@
 #include "../lib/help.h"
 #include "../lib/building.h"
 #include "../lib/ordinateur.h"
+#include <SDL2/SDL.h>
+#include <stdbool.h>
 
 int main(){
 
@@ -90,8 +92,6 @@ int main(){
 
 
 
-    
-
 
 
 
@@ -99,7 +99,86 @@ int main(){
     /* on detruit la mémoire */
     destroy_player(&main_player);
     destroy_player(&main_player2);
-    destroy_tab_character(&tab_character);   
+     
 
+    printf("<------------------------- TEST FONCTION ORDINATEUR ------------------------->\n");
+    SDL_Window* window;
+    SDL_Renderer* renderer;
+    SDL_Event event;
+    bool quit = false;
+
+    // Initialisation de la SDL
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
+        return 1;
+    }
+
+    // Création de la fenêtre
+    window = SDL_CreateWindow("SDL NPC Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
+    if (window == NULL) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Window could not be created! SDL_Error: %s\n", SDL_GetError());
+        return 1;
+    }
+
+    // Création du renderer
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    if (renderer == NULL) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Renderer could not be created! SDL_Error: %s\n", SDL_GetError());
+        return 1;
+    }
+    /*
+    int rng_envoi=-1;
+    ordi_t * ordinateur = init_ordi(EASY);
+    player_t * player = initplayer(EASY,OWNER_1);
+    srand(time(NULL));
+    while (!quit) {
+        // Gestion des événements
+        while (SDL_PollEvent(&event) != 0) {
+            if (event.type == SDL_QUIT) {
+                quit = true;
+            }else if (event.type == SDL_KEYDOWN) {
+                switch (event.key.keysym.sym) {
+                    case SDLK_KP1:
+                        // Achat d'un charcter type 1
+                        buy_character(&player,tab_character,Antiquite,0,1);
+                        break;
+                    case SDLK_KP2:
+                        // Achat d'un charcter type 2
+                        buy_character(&player,tab_character,Antiquite,0,2);
+                        break;
+                    case SDLK_KP3:
+                        // Achat d'un charcter type 3
+                        buy_character(&player,tab_character,Antiquite,0,3);
+                        break;
+                    case SDLK_KP4:
+                        // Achat d'un charcter type 4
+                        buy_character(&player,tab_character,Antiquite,0,4);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        if(rng_envoi==-1)
+            rng_envoi=rand()%(10000/EASY);
+        if(!rng_envoi){
+            envoie_char(&ordinateur,Antiquite,tab_character);
+        }else{
+            rng_envoi--;
+        }
+
+
+        afficher_player(player);
+        afficher_ordi(ordinateur);
+    }
+    
+    detr_ordi(&ordinateur);
+    destroy_player(&player);
+    destroy_tab_character(&tab_character);  */
+
+    // Libération des ressources
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
     return TRUE;
 }

@@ -94,6 +94,17 @@ int envoie_char(ordi_t ** ordi, age_t current , character_t * tab){
 
 
 booleen_t give_ressources(player_t ** player,ordi_t ** ordi){
+    if((*ordi)->characters->tab[0]){
+        if((*ordi)->characters->tab[0]->pv <= 0){
+            (*player)->gold+=(*ordi)->characters->tab[0]->ratio_ressources * (*ordi)->characters->tab[0]->cost;
+            free((*ordi)->characters->tab[0]);
+            (*ordi)->characters->tab[0]=NULL;
+            for(int i=0;i+1<(*ordi)->characters->nb;i++)
+                (*ordi)->characters->tab[i]=(*ordi)->characters->tab[i+1];
+            (*ordi)->characters->nb--;
+            return TRUE;
+        }
+    }
     return FALSE;
 }
 
