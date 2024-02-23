@@ -38,6 +38,23 @@ booleen_t init_building_or(ordi_t ** ordi)
 	return TRUE;
 }
 
+booleen_t upgrade_building_or(ordi_t ** ordi){
+    if(ordi && (*ordi) && (*ordi)->building){
+        if((*ordi)->building->level<MAX_LEVEL_UP)
+        {
+            /* a chaque upgrade on augmente les stat par le coef_level_up */
+            (*ordi)->building->dammage *= COEF_LEVEL_UP_DAMMAGE;
+            (*ordi)->building->max_pv *= COEF_LEVEL_UP_MAX_PV;
+            (*ordi)->building->pv += (*ordi)->building->max_pv/2;
+
+            /* actualise le niveau du building */
+            (*ordi)->building->level ++;
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
 ordi_t * init_ordi(int difficulte){
     ordi_t * ordi=malloc(sizeof(ordi_t));
     ordi->owner=OWNER_2;
@@ -70,12 +87,15 @@ int envoie_char(ordi_t ** ordi, age_t current , character_t * tab){
             (*ordi)->characters->nb++;
             return EXIT_SUCCESS;
         }
-        return EXIT_FAILURE;
     }
     return EXIT_FAILURE;    
 }
 
 
+
+booleen_t give_ressources(player_t ** player,ordi_t ** ordi){
+    return FALSE;
+}
 
 booleen_t afficher_building_or(ordi_t * ordi)
 {

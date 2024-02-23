@@ -3,6 +3,7 @@
 #include "../lib/character.h"
 #include "../lib/help.h"
 #include "../lib/building.h"
+#include "../lib/ordinateur.h"
 
 int main(){
 
