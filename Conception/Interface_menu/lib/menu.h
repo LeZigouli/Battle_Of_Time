@@ -7,23 +7,30 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include <stdbool.h>
 
 /************/
 /*--Macros--*/
 /************/
 #define WINDOW_WIDTH 1080
 #define WINDOW_HEIGHT 720
-#define MENU_WIDTH 400
+#define MENU_WIDTH 250
 #define MENU_HEIGHT 60
+#define MENU_DECALAGE 50 /*Décalage pour abaisser le menu*/
 #define SPACING 30   /*Espace entre chaque sous-menu*/
 
-#define MENU_D_WIDTH 200
-#define MENU_D_HEIGHT 400
-#define MENU_ITEM_HEIGHT 50
-#define MENU_ITEM_WIDTH 150
+#define MENU_ITEM_HEIGHT 30
+#define MENU_ITEM_PADDING 10
+
+/*Structure pour stocker les informations sur les éléments du menu*/
+typedef struct {
+    SDL_Rect rect;
+    char text[100];
+    bool isHovered;
+} MenuItem;
 
 /*Code couleur */
-#define COLOR (SDL_Color){255, 255, 255}
+#define COLOR (SDL_Color){0, 0, 0}
 
 /*Énumération des états de menu*/
 enum MenuState {
@@ -38,23 +45,26 @@ enum MenuState {
     MENU_SOUS_QUITTER
 };
 
+
+
 /*Structure pour un élément de menu déroulant*/
 typedef struct {
-    const char* label;
+    const char label[100];
     SDL_Rect rect;
-} MenuItem;
+} Resolu_Item;
 
 /***************/
 /*--Fonctions--*/
 /***************/
-void afficherMenu(SDL_Renderer*, TTF_Font*, const char*, int, int, int, int);
-void afficherSousMenu(SDL_Renderer* , TTF_Font*, const char*, const char*, const char*, const char*,const char*);
-void afficherSousMenuResolution(SDL_Renderer* rendu, MenuItem* item, TTF_Font* police, const char* texte1, const char* texte2, int currentIndexItem);
-void mettreAJourPositionMenu(int*, int*);
-void mettreAJourPositionSousMenu(int*, int*);
-void initMenuItem(MenuItem* item, const char* label, int x, int y);
-void afficherMenuDeroulant(SDL_Renderer* renderer, MenuItem* item, TTF_Font* police, int currentIndexItem);
-
+void afficherMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte, int x, int y, int largeur, int hauteur);
+void afficherSousMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte1, const char* texte2, const char* texte3, const char* texte4,const char* texte5);
+void afficherSousMenuResolution(SDL_Renderer* rendu, Resolu_Item* item, TTF_Font* police, SDL_Window* fenetre, const char* texte1, const char* texte2, int currentIndexItem);
+void initMenuItem(Resolu_Item* item, const char* label, int x, int y);
+void afficherMenuDeroulant(SDL_Renderer* renderer, Resolu_Item* item, TTF_Font* police, int currentIndexItem);
+void afficherTitre(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, int x, int y, int largeur, int hauteur);
+MenuItem* creerMenu(SDL_Window* fenetre, const char* item1, const char* item2, const char* item3, const char* item4, const char* item5);
+void detruireMenu(MenuItem ** items);
+void ligneHorizontale(int x, int y, int w, Uint32 coul);
 
 
 
