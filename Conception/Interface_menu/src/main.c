@@ -112,8 +112,10 @@ int main(int argc, char* argv[]) {
     Uint32 frameCount = 0;
     float fps = 0.0f;
 
-    /*Pour le soulignage */
+    /*Pour le soulignage 
     SDL_Point ligne = {100, 100};
+*/
+    
 
     /*Création du menu principale*/
     MenuItem* menu = creerMenu(fenetre, "Jouer", "Reprendre Partie", "Options", "Credits", "Quitter");
@@ -266,7 +268,7 @@ int main(int argc, char* argv[]) {
 
                     break;
                 
-                case SDL_MOUSEMOTION:
+                /*case SDL_MOUSEMOTION:
                     mouseX = evenement.motion.x;
                     mouseY = evenement.motion.y;
                     // Vérifier si la souris survole un élément du menu
@@ -278,7 +280,7 @@ int main(int argc, char* argv[]) {
                             SDL_SetRenderDrawColor(rendu, 255, 255, 255, SDL_ALPHA_OPAQUE);
                         }
                     }
-                break;
+                break;*/
 
                 default:
                     break;
