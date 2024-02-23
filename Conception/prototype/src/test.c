@@ -126,31 +126,31 @@ int main(){
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Renderer could not be created! SDL_Error: %s\n", SDL_GetError());
         return 1;
     }
-    /*
+    /**/
     int rng_envoi=-1;
     ordi_t * ordinateur = init_ordi(EASY);
     player_t * player = initplayer(EASY,OWNER_1);
     srand(time(NULL));
     while (!quit) {
         // Gestion des événements
-        while (SDL_PollEvent(&event) != 0) {
+        while (SDL_PollEvent(&event) != 0 && rng_envoi>0) {
             if (event.type == SDL_QUIT) {
                 quit = true;
             }else if (event.type == SDL_KEYDOWN) {
                 switch (event.key.keysym.sym) {
-                    case SDLK_KP1:
+                    case SDLK_KP_1:
                         // Achat d'un charcter type 1
                         buy_character(&player,tab_character,Antiquite,0,1);
                         break;
-                    case SDLK_KP2:
+                    case SDLK_KP_2:
                         // Achat d'un charcter type 2
                         buy_character(&player,tab_character,Antiquite,0,2);
                         break;
-                    case SDLK_KP3:
+                    case SDLK_KP_3:
                         // Achat d'un charcter type 3
                         buy_character(&player,tab_character,Antiquite,0,3);
                         break;
-                    case SDLK_KP4:
+                    case SDLK_KP_4:
                         // Achat d'un charcter type 4
                         buy_character(&player,tab_character,Antiquite,0,4);
                         break;
@@ -166,7 +166,16 @@ int main(){
         }else{
             rng_envoi--;
         }
-
+        if(player->characters->tab[0] && !ordinateur->characters->tab[0])
+            character_attack_building(&ordinateur->building,&player->characters->tab[0]);
+        else if(!player->characters->tab[0] && ordinateur->characters->tab[0])
+            character_attack_building(&player->building,&ordinateur->characters->tab[0]);
+        else{
+            character_attack_character(&ordinateur->characters->tab[0],&player->characters->tab[0]);
+            character_attack_character(&player->characters->tab[0],&ordinateur->characters->tab[0]);
+        }
+        give_ressources(&player,&ordinateur);
+        delete_character(&player,NULL);
 
         afficher_player(player);
         afficher_ordi(ordinateur);
@@ -174,7 +183,7 @@ int main(){
     
     detr_ordi(&ordinateur);
     destroy_player(&player);
-    destroy_tab_character(&tab_character);  */
+    destroy_tab_character(&tab_character);  
 
     // Libération des ressources
     SDL_DestroyRenderer(renderer);
