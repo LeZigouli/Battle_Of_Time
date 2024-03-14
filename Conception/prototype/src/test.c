@@ -102,14 +102,20 @@ int main(){
      
 
     printf("<------------------------- TEST FONCTION ORDINATEUR ------------------------->\n");
-    
-   //ordi_t * ordin =init_ordi(EASY);
+    int k=0;
+    ordi_t * ordin = init_ordi(EASY);
     player_t *player = initplayer(EASY,OWNER_1);
-    printf("okay\n");
     
+    for(int i=0; i<6;i++)
+        buy_character(&player,tab_character,Prehistoire,Prehistoire,combattant_massue);
+    
+    jeu_ordi(ordin,player,tab_character);
+    afficher_ordi(ordin);
+    afficher_characters_player(player->characters);
+    character_attack_character(&ordin->characters->tab[0],&player->characters->tab[0]);
+    character_attack_character(&player->characters->tab[0],&ordin->characters->tab[0]);
 
-
-    //detr_ordi(&ordin);
+    detr_ordi(&ordin);
     destroy_player(&player);
     return TRUE;
 }

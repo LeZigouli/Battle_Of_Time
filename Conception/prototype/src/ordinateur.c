@@ -98,7 +98,7 @@ int envoie_char(ordi_t ** ordi, character_t * tab){
 
 
 booleen_t give_ressources(player_t ** player,ordi_t ** ordi){
-    if((*ordi)->characters->tab[0]){
+    if((*ordi)->characters->tab[0]!=NULL){
         if((*ordi)->characters->tab[0]->pv <= 0){
             (*player)->gold+=(*ordi)->characters->tab[0]->ratio_ressources * (*ordi)->characters->tab[0]->cost;
             free((*ordi)->characters->tab[0]);
@@ -109,8 +109,8 @@ booleen_t give_ressources(player_t ** player,ordi_t ** ordi){
             return TRUE;
         }
     }
-    if((*player)->characters->tab[0]){
-         if((*player)->characters->tab[0]){
+    if((*player)->characters->tab[0]!=NULL){
+         if((*player)->characters->tab[0]->pv <= 0){
             free((*player)->characters->tab[0]);
             (*player)->characters->tab[0]=NULL;
             (*player)->characters->nb--;
@@ -155,7 +155,7 @@ void afficher_ordi(ordi_t * ordi){
 }
 
 
-void jeux_ordi(ordi_t * o, player_t * p, character_t * tab){
+void jeu_ordi(ordi_t * o, player_t * p, character_t * tab){
     srand(time(NULL));
     if(o->delai < 0){
         o->delai=rand()%(MAX_DELAI/(o->difficulte+1));
@@ -171,5 +171,5 @@ void jeux_ordi(ordi_t * o, player_t * p, character_t * tab){
         o->delai=rand()%(MAX_DELAI/(o->difficulte+1));
     }
 
-    give_ressources(&p,&o);
+    //give_ressources(&p,&o);
 }

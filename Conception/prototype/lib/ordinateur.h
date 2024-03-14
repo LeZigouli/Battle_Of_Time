@@ -31,6 +31,6 @@ int envoie_char(ordi_t ** ordi, character_t * tab);
 booleen_t afficher_building_or(ordi_t * ordi);
 void afficher_ordi(ordi_t * ordi);
 
-void jeux_ordi(ordi_t * o, player_t * p, character_t * tab);
+void jeu_ordi(ordi_t * o, player_t * p, character_t * tab);
 
 #endif
