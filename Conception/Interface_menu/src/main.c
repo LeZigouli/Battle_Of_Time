@@ -86,7 +86,7 @@ int main(int argc, char* argv[]) {
         SDL_Quit();
         return 1;
     }
-    TTF_SetFontHinting(police_fps, TTF_HINTING_LIGHT_SUBPIXEL);
+    TTF_SetFontHinting(police_fps, TTF_HINTING_NORMAL);
     
 
 
