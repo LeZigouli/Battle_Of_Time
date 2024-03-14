@@ -7,7 +7,8 @@
  * 
 */
 #include "../lib/ordinateur.h"
-
+#define MAX_DELAI 15 /*en secondes*/
+unsigned long int debut,fin;
 
 /* fonction pour creer le batiment de l'ordinateur */
 booleen_t init_building_or(ordi_t ** ordi)
@@ -29,7 +30,7 @@ booleen_t init_building_or(ordi_t ** ordi)
 
 	/* affectation */
 	(*ordi)->building->dammage = 33;
-	(*ordi)->building->GOLD_cost = 0;
+	(*ordi)->building->GOLD_cost = 500;
 	(*ordi)->building->level = 1;
 	(*ordi)->building->pv = 300;
 	(*ordi)->building->max_pv = (*ordi)->building->pv;
@@ -45,7 +46,8 @@ booleen_t upgrade_building_or(ordi_t ** ordi){
             /* a chaque upgrade on augmente les stat par le coef_level_up */
             (*ordi)->building->dammage *= COEF_LEVEL_UP_DAMMAGE;
             (*ordi)->building->max_pv *= COEF_LEVEL_UP_MAX_PV;
-            (*ordi)->building->pv += (*ordi)->building->max_pv/2;
+            (*ordi)->building->GOLD_cost *= COEF_LEVEL_UP_MAX_GOLD_COST;
+            (*ordi)->building->pv += (*ordi)->building->max_pv*((COEF_LEVEL_UP_MAX_PV-1)/COEF_LEVEL_UP_MAX_PV);
 
             /* actualise le niveau du building */
             (*ordi)->building->level ++;
@@ -61,6 +63,9 @@ ordi_t * init_ordi(int difficulte){
     init_building_or(&ordi);
     ordi->characters=malloc(sizeof(tab_charactere_t)*MAX_POSSESSED);
     ordi->characters->nb=0;
+    ordi->difficulte=difficulte;
+    ordi->delai=-1;
+    ordi->gold=0;
     return ordi;
 }
 
@@ -75,14 +80,13 @@ int detr_ordi(ordi_t ** ordi){
     return 0;
 }
 
-int envoie_char(ordi_t ** ordi, age_t current , character_t * tab){
+int envoie_char(ordi_t ** ordi, character_t * tab){
     character_t * new=malloc(sizeof(character_t));
     if(new!=NULL){
         int newCha;
         if((*ordi)->characters->nb < MAX_POSSESSED){
-            srand(time(NULL));
             newCha=rand()%NB_CHARACTER;
-            copie_character(&new,&tab[current*NB_CHARACTER+newCha]);
+            copie_character(&new,&tab[((*ordi)->building->level-1) *NB_CHARACTER+newCha]);
             (*ordi)->characters->tab[(*ordi)->characters->nb]=new;
             (*ordi)->characters->nb++;
             return EXIT_SUCCESS;
@@ -99,11 +103,21 @@ booleen_t give_ressources(player_t ** player,ordi_t ** ordi){
             (*player)->gold+=(*ordi)->characters->tab[0]->ratio_ressources * (*ordi)->characters->tab[0]->cost;
             free((*ordi)->characters->tab[0]);
             (*ordi)->characters->tab[0]=NULL;
-            for(int i=0;i+1<(*ordi)->characters->nb;i++)
-                (*ordi)->characters->tab[i]=(*ordi)->characters->tab[i+1];
             (*ordi)->characters->nb--;
+            for(int i=0;i<(*ordi)->characters->nb;i++)
+                (*ordi)->characters->tab[i]=(*ordi)->characters->tab[i+1];
             return TRUE;
         }
+    }
+    if((*player)->characters->tab[0]){
+         if((*player)->characters->tab[0]){
+            free((*player)->characters->tab[0]);
+            (*player)->characters->tab[0]=NULL;
+            (*player)->characters->nb--;
+            for(int i=0;i<(*player)->characters->nb;i++)
+                (*player)->characters->tab[i]=(*player)->characters->tab[i+1];
+            return TRUE;
+         }
     }
     return FALSE;
 }
@@ -138,4 +152,24 @@ void afficher_ordi(ordi_t * ordi){
     printf("}\n");
     afficher_building_or(ordi);
     printf("}\n");
+}
+
+
+void jeux_ordi(ordi_t * o, player_t * p, character_t * tab){
+    srand(time(NULL));
+    if(o->delai < 0){
+        o->delai=rand()%(MAX_DELAI/(o->difficulte+1));
+        debut=time(NULL);
+    }
+    if(o->gold > o->building->GOLD_cost-((o->difficulte*10)/100)*o->building->GOLD_cost)
+        upgrade_building_or(&o);
+
+    fin=time(NULL);
+    if(difftime(fin,debut) > o->delai){
+        envoie_char(&o,tab);
+        debut=time(NULL);
+        o->delai=rand()%(MAX_DELAI/(o->difficulte+1));
+    }
+
+    give_ressources(&p,&o);
 }

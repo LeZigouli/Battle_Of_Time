@@ -15,6 +15,9 @@
 typedef struct 
 {
     int owner;
+    int difficulte;
+    int delai;
+    int gold;
     tab_charactere_t * characters;
 	building_t * building;
 }ordi_t;
@@ -24,7 +27,10 @@ booleen_t upgrade_building_or(ordi_t ** ordi);
 booleen_t give_ressources(player_t ** player,ordi_t ** ordi);
 ordi_t * init_ordi(int difficulte);
 int detr_ordi(ordi_t ** ordi);
-int envoie_char(ordi_t ** ordi,age_t current , character_t * tab);
+int envoie_char(ordi_t ** ordi, character_t * tab);
 booleen_t afficher_building_or(ordi_t * ordi);
 void afficher_ordi(ordi_t * ordi);
+
+void jeux_ordi(ordi_t * o, player_t * p, character_t * tab);
+
 #endif

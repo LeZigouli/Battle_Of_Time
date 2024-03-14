@@ -186,6 +186,7 @@ booleen_t buy_character(player_t ** player, character_t tab_character[NB_AGE*NB_
 /* libérer la memoire... */
 void destroy_player(player_t ** player)
 {
+	/*Mettre vérif tableau vide !*/
 	/* on detruit chaque pointeurs sur character_t contenu dans le tab */
 	for ( int i=0; i< (*player)->characters->nb ;i++)
 	{
