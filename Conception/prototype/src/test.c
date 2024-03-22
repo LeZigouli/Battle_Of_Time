@@ -102,23 +102,93 @@ int main(){
      
 
     printf("<------------------------- TEST FONCTION ORDINATEUR ------------------------->\n");
-    int k=0;
+    
     ordi_t * ordin = init_ordi(EASY);
-    player_t *player = initplayer(EASY,OWNER_1);
-    
-    for(int i=0; i<6;i++)
-        buy_character(&player,tab_character,Prehistoire,Prehistoire,combattant_massue);
+    player_t * player = initplayer(EASY,OWNER_1);
     
     
-    upgrade_building_or(&ordin);
+    for(int i=0;i<12;i++){
+        envoie_char(&ordin,tab_character);
+        upgrade_building_or(&ordin);
+    }
     afficher_ordi(ordin);
-    envoie_char(&ordin,tab_character);
-    character_attack_character(&ordin->characters->tab[0],&player->characters->tab[0]);
-    character_attack_character(&player->characters->tab[0],&ordin->characters->tab[0]);
-    afficher_ordi(ordin);
+    
+    detr_ordi(&ordin);
+    destroy_player(&player);
+
+    printf("<------------------------- TEST JEU SANS GRAPHISME ------------------------->\n");
+
+    ordi_t * ordin = init_ordi(EASY);
+    player_t * player = initplayer(EASY,OWNER_1);
+
+    // Déclaration des variables globales
+    SDL_Window* window = NULL;
+    SDL_Renderer* renderer = NULL;
+    SDL_Event event;
+
+    // Initialisation de SDL
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+        printf("Erreur lors de l'initialisation de SDL : %s\n", SDL_GetError());
+        return 1;
+    }
+
+    // Création de la fenêtre
+    window = SDL_CreateWindow("Detection de touche", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
+    if (window == NULL) {
+        printf("Erreur lors de la création de la fenêtre : %s\n", SDL_GetError());
+        SDL_Quit();
+        return 1;
+    }
+
+    // Création du renderer
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    if (renderer == NULL) {
+        printf("Erreur lors de la création du renderer : %s\n", SDL_GetError());
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+        return 1;
+    }
+
+    // Boucle principale
+    int quit = 0;
+    while (!quit) {
+        while (SDL_PollEvent(&event) != 0) {
+            if(event.type==SDL_KEYDOWN){
+                switch (event.key.keysym.sym)
+                {
+                case SDLK_q:
+                    quit=1;
+                    break;
+
+                case SDLK_a:
+                    afficher_ordi(ordin);
+                    break;
+                
+                case SDLK_KP_1:
+                    buy_character(player,tab_character,Antiquite,1,0);
+                
+                default:
+                    break;
+                }
+                
+                jeu_ordi(ordin,player,tab_character);
+            }
+        }
+
+        // Nettoyage et mise à jour du renderer
+        SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+        SDL_RenderClear(renderer);
+        SDL_RenderPresent(renderer);
+    }
+
+    // Libération des ressources
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
 
     detr_ordi(&ordin);
     destroy_player(&player);
     destroy_tab_character(&tab_character);
+
     return TRUE;
 }

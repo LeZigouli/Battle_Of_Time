@@ -121,7 +121,7 @@ booleen_t buy_character(player_t ** player, character_t tab_character[NB_AGE*NB_
 	/* si les characters n'a pas été encore initialiser, alors on le fait ici */
 	if( !exist((*player)->characters) )
 	{
-		(*player)->characters = malloc(sizeof(character_t *) * MAX_POSSESSED);
+		(*player)->characters = malloc(sizeof(tab_charactere_t));
 		(*player)->characters->nb = 0;
 
 		if( (*player)->characters == NULL )
@@ -187,6 +187,7 @@ booleen_t buy_character(player_t ** player, character_t tab_character[NB_AGE*NB_
 void destroy_player(player_t ** player)
 {
 	/*Mettre vérif tableau vide !*/
+	
 	/* on detruit chaque pointeurs sur character_t contenu dans le tab */
 	for ( int i=0; i< (*player)->characters->nb ;i++)
 	{

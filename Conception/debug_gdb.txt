@@ -1,28 +1,8 @@
-<------------------------- TEST FONCTION ORDINATEUR ------------------------->
-Erreur de segmentation
-s2202705@ic2s120-16:~/Documents/Projet/Battle_Of_Time/Conception/prototype$ gdb ./bin/prog
-GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.1) 9.2
-Copyright (C) 2020 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type "show copying" and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-<http://www.gnu.org/software/gdb/bugs/>.
-Find the GDB manual and other documentation resources online at:
-    <http://www.gnu.org/software/gdb/documentation/>.
-
-For help, type "help".
-Type "apropos word" to search for commands related to "word"...
-Reading symbols from ./bin/prog...
-(gdb) b test.c:130
-Breakpoint 1 at 0x437f: file src/test.c, line 130.
-(gdb) r
-Starting program: /info/etu/l2info/s2202705/Documents/Projet/Battle_Of_Time/Conception/prototype/bin/prog 
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+=21168== Memcheck, a memory error detector
+==21168== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==21168== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==21168== Command: ./bin/prog
+==21168== 
 <----- Player ----->
 Nom : Player 1
 PV : 300
@@ -76,247 +56,45 @@ GOLD : 675.000000
 Owner : 2
 
 <------------------------- TEST FONCTION ORDINATEUR ------------------------->
-[New Thread 0x7fffee271700 (LWP 4969)]
-[New Thread 0x7fffeda30700 (LWP 4970)]
-[Thread 0x7fffeda30700 (LWP 4970) exited]
-[New Thread 0x7fffeda30700 (LWP 4971)]
-[Thread 0x7fffeda30700 (LWP 4971) exited]
-[New Thread 0x7fffeda30700 (LWP 4973)]
-[Thread 0x7fffeda30700 (LWP 4973) exited]
-[New Thread 0x7fffeda30700 (LWP 4974)]
+{
+Troupe :
+{}
+Building :
+{
+Owner : 2 
+Dammage : 49
+PV : 600
+GOLD_cost : 750
+Level : 2
+<-------------------->
 
-Thread 1 "prog" hit Breakpoint 1, main () at src/test.c:130
-130	    int rng_envoi=-1;
-(gdb) s
-131	    ordi_t * ordinateur = init_ordi(EASY);
-(gdb) n
-132	    player_t * player = initplayer(EASY,OWNER_1);
-(gdb) 
-133	    srand(time(NULL));
-(gdb) 
-134	    while (!quit) {
-(gdb) 
-136	        while (SDL_PollEvent(&event) != 0 || rng_envoi>0) {
-(gdb) 
-137	            if (event.type == SDL_QUIT) {
-(gdb) 
-139	            }else if (event.type == SDL_KEYDOWN) {
-(gdb) 
-160	            }
-(gdb) 
-136	        while (SDL_PollEvent(&event) != 0 || rng_envoi>0) {
-(gdb) 
-137	            if (event.type == SDL_QUIT) {
-(gdb) 
-139	            }else if (event.type == SDL_KEYDOWN) {
-(gdb) 
-160	            }
-(gdb) 
-136	        while (SDL_PollEvent(&event) != 0 || rng_envoi>0) {
-(gdb) 
-137	            if (event.type == SDL_QUIT) {
-(gdb) 
-139	            }else if (event.type == SDL_KEYDOWN) {
-(gdb) 
-160	            }
-(gdb) 
-136	        while (SDL_PollEvent(&event) != 0 || rng_envoi>0) {
-(gdb) 
-137	            if (event.type == SDL_QUIT) {
-(gdb) 
-139	            }else if (event.type == SDL_KEYDOWN) {
-(gdb) 
-160	            }
-(gdb) 
-136	        while (SDL_PollEvent(&event) != 0 || rng_envoi>0) {
-(gdb) 
-137	            if (event.type == SDL_QUIT) {
-(gdb) 
-139	            }else if (event.type == SDL_KEYDOWN) {
-(gdb) 
-160	            }
-(gdb) 2
-Undefined command: "2".  Try "help".
-(gdb) 
-Undefined command: "2".  Try "help".
-(gdb) n
-136	        while (SDL_PollEvent(&event) != 0 || rng_envoi>0) {
-(gdb) 
-137	            if (event.type == SDL_QUIT) {
-(gdb) 
-139	            }else if (event.type == SDL_KEYDOWN) {
-(gdb) 
-140	                switch (event.key.keysym.sym) {
-(gdb) 
-158	                        break;
-(gdb) 
-136	        while (SDL_PollEvent(&event) != 0 || rng_envoi>0) {
-(gdb) c
-Continuing.
-double free or corruption (out)
+}
+{
+Troupe :
+{{pv: 105
+nom: legionnaire hippopotame
+temps: 7
+}}
+Building :
+{
+Owner : 2 
+Dammage : 49
+PV : 600
+GOLD_cost : 750
+Level : 2
+<-------------------->
 
-Thread 1 "prog" received signal SIGABRT, Aborted.
-__GI_raise (sig=sig@entry=6) at ../sysdeps/unix/sysv/linux/raise.c:50
-50	../sysdeps/unix/sysv/linux/raise.c: Aucun fichier ou dossier de ce type.
-(gdb) c
-Continuing.
-Couldn't get registers: Aucun processus de ce type.
-Couldn't get registers: Aucun processus de ce type.
-(gdb) [Thread 0x7fffeda30700 (LWP 4974) exited]
-[Thread 0x7fffee271700 (LWP 4969) exited]
-
-Program terminated with signal SIGABRT, Aborted.
-The program no longer exists.
+}
+==21168== 
+==21168== HEAP SUMMARY:
+==21168==     in use at exit: 0 bytes in 0 blocks
+==21168==   total heap usage: 27 allocs, 27 frees, 9,640 bytes allocated
+==21168== 
+==21168== All heap blocks were freed -- no leaks are possible
+==21168== 
+==21168== For lists of detected and suppressed errors, rerun with: -s
+==21168== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
 The program is not being run.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<------------------------- TEST FONCTION ORDINATEUR ------------------------->
-Erreur de segmentation
-s2202705@ic2s120-16:~/Documents/Projet/Battle_Of_Time/Conception/prototype$ gdb ./bin/prog
-GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.1) 9.2
-Copyright (C) 2020 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type "show copying" and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-<http://www.gnu.org/software/gdb/bugs/>.
-Find the GDB manual and other documentation resources online at:
-    <http://www.gnu.org/software/gdb/documentation/>.
-
-For help, type "help".
-Type "apropos word" to search for commands related to "word"...
-Reading symbols from ./bin/prog...
-(gdb) b test.c:130
-Breakpoint 1 at 0x437f: file src/test.c, line 130.
-(gdb) r
-Starting program: /info/etu/l2info/s2202705/Documents/Projet/Battle_Of_Time/Conception/prototype/bin/prog 
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
-<----- Player ----->
-Nom : Player 1
-PV : 300
-XP : 0
-GOLD : 800.000000
-Owner : 1
-
-<----- Player ----->
-Nom : Player 2
-PV : 300
-XP : 0
-GOLD : 800.000000
-Owner : 2
-
-187.500000 gold vont a Player1
-Le tableau a bien ete tasse !
-187.500000 gold vont a Player2
-Le tableau a bien ete tasse !
-<----- Player ----->
-Nom : Player 1
-PV : 300
-XP : 0
-GOLD : 737.500000
-Owner : 1
-
-<----- Player ----->
-Nom : Player 2
-PV : 300
-XP : 0
-GOLD : 737.500000
-Owner : 2
-
-<----- characters possedees ----->
-[0] :: combattant massue
-[1] :: gorille
-[2] :: combattant massue
-<-------------------------------->
-
-187.500000 gold vont a Player2
-Le tableau a bien ete tasse !
-<----- characters possedees ----->
-[0] :: combattant massue
-[1] :: combattant massue
-<-------------------------------->
-
-<----- Player ----->
-Nom : Player 2
-PV : 300
-XP : 0
-GOLD : 675.000000
-Owner : 2
-
-<------------------------- TEST FONCTION ORDINATEUR ------------------------->
-[New Thread 0x7fffee271700 (LWP 5292)]
-[New Thread 0x7fffeda30700 (LWP 5293)]
-[Thread 0x7fffeda30700 (LWP 5293) exited]
-[New Thread 0x7fffeda30700 (LWP 5294)]
-[Thread 0x7fffeda30700 (LWP 5294) exited]
-[New Thread 0x7fffeda30700 (LWP 5296)]
-[Thread 0x7fffeda30700 (LWP 5296) exited]
-[New Thread 0x7fffeda30700 (LWP 5297)]
-
-Thread 1 "prog" hit Breakpoint 1, main () at src/test.c:130
-130	    int rng_envoi=-1;
-(gdb) n
-131	    ordi_t * ordinateur = init_ordi(EASY);
-(gdb) 
-132	    player_t * player = initplayer(EASY,OWNER_1);
-(gdb) 
-133	    srand(time(NULL));
-(gdb) 
-134	    while (!quit) {
-(gdb) 
-136	        while (SDL_PollEvent(&event) != 0 && rng_envoi>0) {
-(gdb) 
-162	        if(rng_envoi==-1)
-(gdb) 
-163	            rng_envoi=rand()%(10000/EASY);
-(gdb) 
-164	        if(!rng_envoi){
-(gdb) 
-167	            rng_envoi--;
-(gdb) 
-169	        if(player->characters->tab[0] && !ordinateur->characters->tab[0])
-(gdb) 
-
-Thread 1 "prog" received signal SIGSEGV, Segmentation fault.
-main () at src/test.c:169
-169	        if(player->characters->tab[0] && !ordinateur->characters->tab[0])
-(gdb) q
-A debugging session is active.
-
-	Inferior 1 [process 5286] will be killed.
-
-Quit anyway? (y or n) n
-Not confirmed.
-(gdb) c
-Continuing.
-Couldn't get registers: Aucun processus de ce type.
-Couldn't get registers: Aucun processus de ce type.
-(gdb) [Thread 0x7fffeda30700 (LWP 5297) exited]
-[Thread 0x7fffee271700 (LWP 5292) exited]
-
-Program terminated with signal SIGSEGV, Segmentation fault.
-The program no longer exists.
-c
-The program is not being run.
-
+Vincent justifier. 
