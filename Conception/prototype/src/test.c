@@ -109,13 +109,16 @@ int main(){
     for(int i=0; i<6;i++)
         buy_character(&player,tab_character,Prehistoire,Prehistoire,combattant_massue);
     
-    jeu_ordi(ordin,player,tab_character);
+    
+    upgrade_building_or(&ordin);
     afficher_ordi(ordin);
-    afficher_characters_player(player->characters);
+    envoie_char(&ordin,tab_character);
     character_attack_character(&ordin->characters->tab[0],&player->characters->tab[0]);
     character_attack_character(&player->characters->tab[0],&ordin->characters->tab[0]);
+    afficher_ordi(ordin);
 
     detr_ordi(&ordin);
     destroy_player(&player);
+    destroy_tab_character(&tab_character);
     return TRUE;
 }

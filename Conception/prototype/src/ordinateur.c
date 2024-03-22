@@ -170,6 +170,5 @@ void jeu_ordi(ordi_t * o, player_t * p, character_t * tab){
         debut=time(NULL);
         o->delai=rand()%(MAX_DELAI/(o->difficulte+1));
     }
-
     //give_ressources(&p,&o);
 }
