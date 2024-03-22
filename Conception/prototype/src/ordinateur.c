@@ -150,7 +150,7 @@ void afficher_ordi(ordi_t * ordi){
         for(i=0;i<ordi->characters->nb;i++){
             if(ordi->characters->tab[i]!=NULL){
                 printf("{");
-                printf("pv: %d\tnom: %s}\n",ordi->characters->tab[i]->pv,ordi->characters->tab[i]->name);
+                printf("pv: %6d\tnom: %s}\n",ordi->characters->tab[i]->pv,ordi->characters->tab[i]->name);
             }
         }
     }

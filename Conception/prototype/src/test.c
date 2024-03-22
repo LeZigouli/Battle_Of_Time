@@ -104,7 +104,7 @@ int main(){
     printf("<------------------------- TEST FONCTION ORDINATEUR ------------------------->\n");
     
     ordi_t * ordin = init_ordi(EASY);
-    player_t * player = initplayer(EASY,OWNER_1);
+    
     
     
     for(int i=0;i<12;i++){
@@ -113,13 +113,13 @@ int main(){
     }
     afficher_ordi(ordin);
     
+    
     detr_ordi(&ordin);
-    destroy_player(&player);
 
     printf("<------------------------- TEST JEU SANS GRAPHISME ------------------------->\n");
 
-    ordi_t * ordin = init_ordi(EASY);
-    player_t * player = initplayer(EASY,OWNER_1);
+    ordin = init_ordi(HARD);
+    player_t * player = initplayer(HARD,OWNER_1);
 
     // Déclaration des variables globales
     SDL_Window* window = NULL;
@@ -165,12 +165,14 @@ int main(){
                     break;
                 
                 case SDLK_KP_1:
-                    buy_character(player,tab_character,Antiquite,1,0);
+                    buy_character(&player,tab_character,Antiquite,1,0);
                 
                 default:
                     break;
                 }
-                
+                if(player->characters->nb!=0){
+                    character_attack_character(&ordin->characters->tab[0],&player->characters->tab[0]);
+                }
                 jeu_ordi(ordin,player,tab_character);
             }
         }
