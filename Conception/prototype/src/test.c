@@ -170,13 +170,14 @@ int main(){
                 default:
                     break;
                 }
-                if(player->characters->nb!=0){
-                    character_attack_character(&ordin->characters->tab[0],&player->characters->tab[0]);
-                }
-                jeu_ordi(ordin,player,tab_character);
+                if(player!=NULL)
+                    if(player->characters !=NULL)
+                        if(player->characters->nb!=0){
+                        character_attack_character(&ordin->characters->tab[0],&player->characters->tab[0]);
+                        }
             }
         }
-
+        jeu_ordi(ordin,player,tab_character);
         // Nettoyage et mise à jour du renderer
         SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderClear(renderer);

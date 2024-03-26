@@ -64,7 +64,7 @@ ordi_t * init_ordi(int difficulte){
     ordi_t * ordi=malloc(sizeof(ordi_t));
     ordi->owner=OWNER_2;
     init_building_or(&ordi);
-    ordi->characters=malloc(sizeof(tab_charactere_t)*MAX_POSSESSED);
+    ordi->characters=malloc(sizeof(tab_charactere_t));
     ordi->characters->nb=0;
     ordi->difficulte=difficulte;
     ordi->delai=-1;
@@ -97,9 +97,9 @@ int envoie_char(ordi_t ** ordi, character_t * tab){
             (*ordi)->gold+= new->cost*new->ratio_ressources;
             return EXIT_SUCCESS;
         }
+        /*Liberation de l'espace mémoir dans le cas où (*ordi)->characters->nb == Max possesed*/
+        free(new);
     }
-    /*Liberation de l'espace mémoir dans le cas où (*ordi)->characters->nb == Max possesed*/
-    free(new);
     return EXIT_FAILURE;    
 }
 
@@ -112,19 +112,21 @@ booleen_t give_ressources(player_t ** player,ordi_t ** ordi){
             (*ordi)->characters->nb--;
             for(int i=0;i<(*ordi)->characters->nb;i++)
                 (*ordi)->characters->tab[i]=(*ordi)->characters->tab[i+1];
-            return TRUE;
+            
         }
     }
-    if((*player)->characters->tab[0]!=NULL){
-         if((*player)->characters->tab[0]->pv <= 0){
-            free((*player)->characters->tab[0]);
-            (*player)->characters->tab[0]=NULL;
-            (*player)->characters->nb--;
-            for(int i=0;i<(*player)->characters->nb;i++)
-                (*player)->characters->tab[i]=(*player)->characters->tab[i+1];
-            return TRUE;
-         }
-    }
+    if((*player)!=NULL)
+        if((*player)->characters !=NULL)
+            if((*player)->characters->tab[0]!=NULL){
+                if((*player)->characters->tab[0]->pv <= 0){
+                    free((*player)->characters->tab[0]);
+                    (*player)->characters->tab[0]=NULL;
+                    (*player)->characters->nb--;
+                    for(int i=0;i<(*player)->characters->nb;i++)
+                        (*player)->characters->tab[i]=(*player)->characters->tab[i+1];
+                    return TRUE;
+                }
+            }
     return FALSE;
 }
 
