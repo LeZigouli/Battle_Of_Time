@@ -23,6 +23,8 @@ booleen_t get_ressources(player_t ** player1, player_t ** player2, character_t *
 		/* si le character n'est pas mort */
 		return FALSE;
 	}
+	
+	int gain;
 
 	if ( character->owner == (*player1)->owner )
 	{
@@ -30,8 +32,9 @@ booleen_t get_ressources(player_t ** player1, player_t ** player2, character_t *
 		 * le character appartient au player1
 		 * et les ressources vont donc au player2
 		*/
-		(*player1)->gold += ( character->cost * character->ratio_ressources );
+		(*player1)->gold += gain =( character->cost * character->ratio_ressources );
 		printf("%f gold vont a Player1",( character->cost * character->ratio_ressources ));
+		(*player1)->xp+=gain;
 	}
 	else if ( character->owner == (*player2)->owner )
 	{
@@ -39,8 +42,9 @@ booleen_t get_ressources(player_t ** player1, player_t ** player2, character_t *
 		 * le character appartient au player2
 		 * et les ressources vont donc au player1
 		*/
-		(*player2)->gold += ( character->cost * character->ratio_ressources );
+		(*player2)->gold += gain =( character->cost * character->ratio_ressources );
 		printf("%f gold vont a Player2",( character->cost * character->ratio_ressources ));
+		(*player2)->xp+=gain;
 
 	}
 	else

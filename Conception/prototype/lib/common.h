@@ -22,7 +22,7 @@
 /* COEFF POUR LEVEL UP BUILDING */
 #define COEF_LEVEL_UP_DAMMAGE 1.5
 #define COEF_LEVEL_UP_MAX_PV 2.0
-#define COEF_LEVEL_UP_MAX_GOLD_COST 1.5
+#define COEF_LEVEL_UP_MAX_GOLD_COST 3
 
 /* LIMITE DU NOMBRE DE FOIS QU'ON PEUT AMELIORER LE BUILDING */
 #define MAX_LEVEL_UP 5
@@ -51,7 +51,7 @@ typedef struct building_s{
 	int owner;
 	int dammage;
 	int max_pv;
-	int GOLD_cost;
+	int XP_cost;
 	int level;
 
 }building_t;

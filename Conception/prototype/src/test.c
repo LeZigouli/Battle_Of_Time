@@ -108,8 +108,8 @@ int main(){
     
     
     for(int i=0;i<12;i++){
-        envoie_char(&ordin,tab_character);
-        upgrade_building_or(&ordin);
+        envoie_char(ordin,tab_character);
+        upgrade_building_or(ordin);
     }
     afficher_ordi(ordin);
     
@@ -158,6 +158,7 @@ int main(){
                 {
                 case SDLK_q:
                     quit=1;
+                    printf("ici");
                     break;
 
                 case SDLK_a:
@@ -177,13 +178,14 @@ int main(){
                         }
             }
         }
+        
         jeu_ordi(ordin,player,tab_character);
         // Nettoyage et mise à jour du renderer
         SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderClear(renderer);
         SDL_RenderPresent(renderer);
     }
-
+    
     // Libération des ressources
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);

@@ -30,7 +30,7 @@ booleen_t init_building(player_t ** player)
 
 	/* affectation */
 	(*player)->building->dammage = 33;
-	(*player)->building->GOLD_cost = 500;
+	(*player)->building->XP_cost = 5000;
 	(*player)->building->level = 1;
 	(*player)->building->pv = 300;
 	(*player)->building->max_pv = (*player)->building->pv;
@@ -51,9 +51,9 @@ booleen_t upgrade_building(player_t ** player)
 		return FALSE;
 	}
 
-    if ( (*player)->gold - (*player)->building->GOLD_cost < 0 )
+    if ( (*player)->xp - (*player)->building->XP_cost < 0 )
     {
-        printf("ERREUR : pas assez d'argent pour améliorer le batiment !\n");
+        printf("ERREUR : pas assez d'XP pour améliorer le batiment !\n");
         return FALSE;
     }
 
@@ -65,14 +65,14 @@ booleen_t upgrade_building(player_t ** player)
 
 	/* traitement */
 
-    /* on soustrait le cout au gold du joueur */
-    (*player)->gold -= (*player)->building->GOLD_cost;
+    /* on soustrait le cout en xp du joueur */
+    (*player)->xp -= (*player)->building->XP_cost;
 
-	/* a chaque upgrade on augmente les stat par le coef_level_up */
+	/* a chaque upgrade on augmente les states par le coef_level_up */
     (*player)->building->dammage *= COEF_LEVEL_UP_DAMMAGE;
     (*player)->building->max_pv *= COEF_LEVEL_UP_MAX_PV;
     (*player)->building->pv += (*player)->building->max_pv*((COEF_LEVEL_UP_MAX_PV-1)/COEF_LEVEL_UP_MAX_PV);
-    (*player)->building->GOLD_cost *= COEF_LEVEL_UP_MAX_GOLD_COST;
+    (*player)->building->XP_cost *= COEF_LEVEL_UP_MAX_GOLD_COST;
 
     /* actualise le niveau du building */
     (*player)->building->level +=1;
