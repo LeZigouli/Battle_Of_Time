@@ -46,7 +46,7 @@ int initSDL() {
         return 0;
     }
 
-    gFont = TTF_OpenFont("../../Pixel Sans Serif.ttf", 28);
+    gFont = TTF_OpenFont("ttf/Pixel Sans Serif.ttf", 28);
     if (gFont == NULL) {
         printf("Failed to load font! SDL_ttf Error: %s\n", TTF_GetError());
         return 0;
