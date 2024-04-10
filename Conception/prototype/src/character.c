@@ -1,4 +1,4 @@
-#include "../lib/common.h"
+#include "../lib/character.h"
 
 /*******************/
 /* variable global */
@@ -26,7 +26,7 @@ booleen_t character_attack_character(character_t ** destination, character_t ** 
 /* fonction où la src inflige ses degats a la destination building */
 booleen_t character_attack_building(building_t ** destination, character_t ** src)
 {
-    if( (*destination) == NULL || destination == NULL || src == NULL || (*src) == NULL )
+    if(destination == NULL || src == NULL || (*destination) == NULL || (*src) == NULL )
     {
         /* les pointeurs sont invalides */
         return FALSE;

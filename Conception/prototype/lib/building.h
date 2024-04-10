@@ -3,7 +3,19 @@
 
 #include "common.h"
 
-booleen_t init_building(player_t ** player);
-booleen_t upgrade_building(player_t ** player);
+typedef struct building_s{
+
+	int pv;
+	int owner;
+	int dammage;
+	int max_pv;
+	int XP_cost;
+	int level;
+
+}building_t;
+
+booleen_t init_building(building_t ** building, int owner);
+booleen_t upgrade_building(building_t ** building,int * xp);
+booleen_t afficher_building(building_t * building);
 
 #endif

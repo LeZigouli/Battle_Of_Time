@@ -8,9 +8,8 @@
 */
 #ifndef _ORDINATEUR_H_
 #define _ORDINATEUR_H_
-#include <time.h>
-#include "common.h"
-#include "character.h"
+
+#include "player.h"
 
 typedef struct 
 {
@@ -18,20 +17,19 @@ typedef struct
     int difficulte;
     int delai;
     int xp;
+    int delai_ulti;
     tab_charactere_t * characters;
 	building_t * building;
 }ordi_t;
 
-booleen_t init_building_or(ordi_t * ordi);
 ordi_t * init_ordi(int difficulte);
-int envoie_char(ordi_t * ordi, character_t * tab);
-
 int detr_ordi(ordi_t ** ordi);
+int envoie_char_ordi(ordi_t * ordi, character_t * tab);
+
 booleen_t give_ressources(player_t * player,ordi_t * ordi);
 
 void afficher_ordi(ordi_t * ordi);
 
-booleen_t upgrade_building_or(ordi_t * ordi);
 void jeu_ordi(ordi_t * o, player_t * p, character_t * tab);
 
 #endif

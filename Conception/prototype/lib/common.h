@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 /* NOMBRE D'AGE ET NOMBRE DE PERSONNAGE PAR AGE */
 #define NB_AGE 5
@@ -25,11 +26,15 @@
 #define COEF_LEVEL_UP_MAX_GOLD_COST 3
 
 /* LIMITE DU NOMBRE DE FOIS QU'ON PEUT AMELIORER LE BUILDING */
-#define MAX_LEVEL_UP 5
+#define MAX_LEVEL_UP 4
 
 /* NUMERO OWNER */
 #define OWNER_1 1
 #define OWNER_2 2
+#define ORDINATEUR 3
+
+/* INITIALISATION DU DÉLAI D'ATTENTE POUR FORMER LES TROUPES */
+#define DELAI_INITAL -1
 
 typedef enum age_s { Prehistoire, Antiquite, Moyen_Age, Ere_Moderne, Ere_Futuriste }age_t;
 typedef enum monstre_Prehistoire_s { combattant_massue, combattant_caillou, gorille, combattant_dinosaure }monstre_Prehistoire_t;
@@ -41,65 +46,6 @@ typedef enum class_character_s { melee, marksman, tank, specialist }class_charac
 
 /* definition d'un type booleen */
 typedef enum booleen_s { FALSE, TRUE } booleen_t;
-
-
-/* definition des structure */
-
-typedef struct building_s{
-
-	int pv;
-	int owner;
-	int dammage;
-	int max_pv;
-	int XP_cost;
-	int level;
-
-}building_t;
-
-typedef struct character_s character_t;
-struct character_s{
-
-	int pv;
-	char name[MAX_STR];
-	int time; 
-	int cost; 
-	int max_pv;
-	float ratio_ressources;
-	int dammage;
-	int owner; 
-	char description[MAX_DESCRIPTION];
-	int x;
-	int y;
-	int vector;
-
-	/* pointeur sur fonction pour le deplacement */
-	void (*deplacement_gauche)(character_t **);
-	void (*deplacement_droit)(character_t **);
-
-	/* pointeur sur fonction pour attaquer */
-	booleen_t (*attack_character)(character_t **, character_t **);
-	booleen_t (*attack_building)(building_t **, character_t **);
-
-};
-
-/* liste pour chaque joueur des personnages qu'ils possèdent */
-typedef struct tab_charactere_s{
-
-	character_t * tab[MAX_POSSESSED];
-	int nb;
-
-}tab_charactere_t;
-
-typedef struct{
-
-	char name[MAX_STR];
-	int xp;
-	float gold; 
-	tab_charactere_t * characters;
-	int owner;
-	building_t * building;
-
-}player_t;
 
 
 /* fonction */
