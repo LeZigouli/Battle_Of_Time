@@ -8,6 +8,7 @@ struct character_s{
 
 	int pv;
 	char name[MAX_STR];
+	int indice;
 	int time; 
 	int cost; 
 	int max_pv;

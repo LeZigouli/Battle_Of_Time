@@ -77,6 +77,7 @@ character_t * initcharacter()
         tab[Prehistoire * NB_CHARACTER + combattant_massue].deplacement_gauche = deplacement_gauche;
         tab[Prehistoire * NB_CHARACTER + combattant_massue].attack_character = character_attack_character;
         tab[Prehistoire * NB_CHARACTER + combattant_massue].attack_building = character_attack_building;
+        tab[Prehistoire * NB_CHARACTER + combattant_massue].indice = combattant_massue;
 
 
         /* combattant caillou */

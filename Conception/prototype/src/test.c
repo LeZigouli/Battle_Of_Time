@@ -1,5 +1,6 @@
 #include "../lib/help.h"
 #include "../lib/ordinateur.h"
+#include "../lib/save.h"
 #include <SDL2/SDL.h>
 #include <stdbool.h>
 #include <unistd.h>
@@ -85,13 +86,11 @@ int main(){
         afficher_player(main_player2);
 
 
-
-
-
-
         /* on detruit la mémoire */
         destroy_player(&main_player);
         destroy_player(&main_player2);
+
+
     }
     if(test_fct_ordi){
         printf("<------------------------- TEST FONCTION ORDINATEUR ------------------------->\n");
@@ -201,11 +200,13 @@ int main(){
             SDL_RenderClear(renderer);
             SDL_RenderPresent(renderer);
         }
-        
+    
         // Libération des ressources
         SDL_DestroyRenderer(renderer);
         SDL_DestroyWindow(window);
         SDL_Quit();
+
+        save(or,player);
 
         detr_ordi(&or);
         destroy_player(&player);

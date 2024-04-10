@@ -20,7 +20,7 @@ unsigned long int debut,fin,d_ulti,f_ulti;
 ordi_t * init_ordi(int difficulte){
     ordi_t * ordi=malloc(sizeof(ordi_t));
     if(ordi !=NULL){
-        ordi->owner=OWNER_2;
+        ordi->owner=ORDINATEUR;
         if(init_building(&ordi->building,ORDINATEUR)){
             ordi->characters=malloc(sizeof(tab_charactere_t));
             if(ordi->characters!=NULL){
