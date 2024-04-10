@@ -4,6 +4,7 @@
 #include <SDL2/SDL_image.h>
 
 #include "../lib/ordinateur.h"
+#include "../lib/help.h"
 
 SDL_Window* gWindow = NULL;
 SDL_Renderer* gRenderer = NULL;
@@ -132,18 +133,22 @@ int main(){
 
     image = IMG_LoadTexture(gRenderer,img_path);
 
-    SDL_Texture * Prehistoire = IMG_LoadTexture(gRenderer,"../../Fond/Préhistoire.jpg");
-    SDL_Texture * Antiquite = IMG_LoadTexture(gRenderer,"../../Fond/Antiquité.jpg");
-    SDL_Texture * Moyen_age = IMG_LoadTexture(gRenderer,"../..Fond/Moyen-Âge_base.jpg");
-    SDL_Texture * Ere_moderne = IMG_LoadTexture(gRenderer,"../../Fond/Moderne_base.jpg");
-    SDL_Texture * Ere_futuriste = IMG_LoadTexture(gRenderer,"../..Fond/Futuriste_base.jpg");
+    SDL_Texture * Prehistoire_texture = IMG_LoadTexture(gRenderer,"../../Fond/Préhistoire.jpg");
+    SDL_Texture * Antiquite_texture = IMG_LoadTexture(gRenderer,"../../Fond/Antiquité.jpg");
+    SDL_Texture * Moyen_age_texture = IMG_LoadTexture(gRenderer,"../..Fond/Moyen-Âge_base.jpg");
+    SDL_Texture * Ere_moderne_texture = IMG_LoadTexture(gRenderer,"../../Fond/Moderne_base.jpg");
+    SDL_Texture * Ere_futuriste_texture = IMG_LoadTexture(gRenderer,"../..Fond/Futuriste_base.jpg");
 
 
     int attaque = 0;
     int nb_attaque = 1;
 
-
+    character_t * tab_de_charactere = initcharacter();
     player_t * j1 = initplayer(EASY,OWNER_1);
+    afficher_player(j1);
+    buy_character(&j1,tab_de_charactere,legionnaire_epee);
+    sleep(4);
+    envoie_char(&j1);
     ordi_t * o = init_ordi(EASY);
 
     SDL_Rect Perso1 = {TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE};
@@ -216,7 +221,8 @@ int main(){
                     else {
                         playerImg.x+=TAILLE_SPRITE;//on passe a l'image suivante pour l'animation
                     }
-                    playerPosition.x+= 10;//on avance de 10 pixel 
+                    //playerPosition.x+= 10;//on avance de 10 pixel 
+                    deplacement_droit(&j1->characters->tab[0]);
 
                     lastMovement= SDL_GetTicks();
         }
@@ -238,7 +244,6 @@ int main(){
                     playerImg.x+=TAILLE_SPRITE*3;
                 }
                 
-
                 //éventuellement faire un random pour que les animations d'attaques soient diversifiées
                 
                 if(nb_attaque == 1) playerImg.y = (21*TAILLE_SPRITE)+3*(TAILLE_ATTAQUE);
@@ -253,7 +258,7 @@ int main(){
 
         SDL_SetRenderDrawColor(gRenderer, 100, 100, 100, 255);//couleur du fond
         SDL_RenderClear(gRenderer);//effacer l'ancien rendu
-        SDL_RenderCopy(gRenderer,Prehistoire,NULL,NULL);
+        SDL_RenderCopy(gRenderer,Prehistoire,NULL,NULL);//le fond 
         SDL_RenderCopy(gRenderer,image,&playerImg,&playerPosition);
 
         renderSquare(Perso1);
