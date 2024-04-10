@@ -72,7 +72,7 @@ character_t * initcharacter()
         tab[Prehistoire * NB_CHARACTER + combattant_massue].y = 0;
         tab[Prehistoire * NB_CHARACTER + combattant_massue].max_pv = tab[Prehistoire * NB_CHARACTER + combattant_massue].pv;
         tab[Prehistoire * NB_CHARACTER + combattant_massue].vector = 2;
-        tab[Prehistoire * NB_CHARACTER + combattant_massue].sprite = "../../sprite/Préhistoire/combattant massue.png";
+        strcpy(tab[Prehistoire * NB_CHARACTER + combattant_massue].sprite, "../../sprite/Préhistoire/combattant massue.png");
 
         /* pointeur sur fonction */
         tab[Prehistoire * NB_CHARACTER + combattant_massue].deplacement_droit = deplacement_droit;
@@ -96,7 +96,7 @@ character_t * initcharacter()
         tab[Prehistoire * NB_CHARACTER + combattant_caillou].y = 0;
         tab[Prehistoire * NB_CHARACTER + combattant_caillou].max_pv = tab[Prehistoire * NB_CHARACTER + combattant_caillou].pv;
         tab[Prehistoire * NB_CHARACTER + combattant_caillou].vector = 2;
-        tab[Prehistoire * NB_CHARACTER + combattant_caillou].sprite = "../../sprite/Préhistoire/combattant caillou.png";
+        strcpy(tab[Prehistoire * NB_CHARACTER + combattant_caillou].sprite, "../../sprite/Préhistoire/combattant caillou.png");
         /* pointeur sur fonction */
         tab[Prehistoire * NB_CHARACTER + combattant_caillou].deplacement_droit = deplacement_droit;
         tab[Prehistoire * NB_CHARACTER + combattant_caillou].deplacement_gauche = deplacement_gauche;
@@ -117,7 +117,7 @@ character_t * initcharacter()
         tab[Prehistoire * NB_CHARACTER + gorille].y = 0;
         tab[Prehistoire * NB_CHARACTER + gorille].max_pv = tab[Prehistoire * NB_CHARACTER + gorille].pv;
         tab[Prehistoire * NB_CHARACTER + gorille].vector = 2;
-        tab[Prehistoire * NB_CHARACTER + gorille].sprite = "../../sprite/Préhistoire/gorille.png";
+        strcpy(tab[Prehistoire * NB_CHARACTER + gorille].sprite, "../../sprite/Préhistoire/gorille.png");
         /* pointeur sur fonction */
         tab[Prehistoire * NB_CHARACTER + gorille].deplacement_droit = deplacement_droit;
         tab[Prehistoire * NB_CHARACTER + gorille].deplacement_gauche = deplacement_gauche;
@@ -138,7 +138,7 @@ character_t * initcharacter()
         tab[Prehistoire * NB_CHARACTER + combattant_dinosaure].y = 0;
         tab[Prehistoire * NB_CHARACTER + combattant_dinosaure].max_pv = tab[Prehistoire * NB_CHARACTER + combattant_dinosaure].pv;
         tab[Prehistoire * NB_CHARACTER + combattant_dinosaure].vector = 2;
-        tab[Prehistoire * NB_CHARACTER + combattant_dinosaure].sprite = "../../sprite/Préhistoire/dinosaure.png";
+        strcpy(tab[Prehistoire * NB_CHARACTER + combattant_dinosaure].sprite, "../../sprite/Préhistoire/dinosaure.png");
         /* pointeur sur fonction */
         tab[Prehistoire * NB_CHARACTER + combattant_dinosaure].deplacement_droit = deplacement_droit;
         tab[Prehistoire * NB_CHARACTER + combattant_dinosaure].deplacement_gauche = deplacement_gauche;
@@ -163,7 +163,7 @@ character_t * initcharacter()
         tab[Antiquite * NB_CHARACTER + legionnaire_epee].y = 0;
         tab[Antiquite * NB_CHARACTER + legionnaire_epee].max_pv = tab[Antiquite * NB_CHARACTER + legionnaire_epee].pv;
         tab[Antiquite * NB_CHARACTER + legionnaire_epee].vector = 2;
-        tab[Antiquite * NB_CHARACTER + legionnaire_epee].sprite = "../../sprite/Préhistoire/legionnaire epee.png";
+        strcpy(tab[Antiquite * NB_CHARACTER + legionnaire_epee].sprite,"../../sprite/Préhistoire/legionnaire epee.png");
         /* pointeur sur fonction */
         tab[Antiquite * NB_CHARACTER + legionnaire_epee].deplacement_droit = deplacement_droit;
         tab[Antiquite * NB_CHARACTER + legionnaire_epee].deplacement_gauche = deplacement_gauche;
