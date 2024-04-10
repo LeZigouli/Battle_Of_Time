@@ -18,7 +18,7 @@ struct character_s{
 	int x;
 	int y;
 	int vector;
-	char sprite[MAX_DESCRIPTION]="../img/";
+	char sprite[MAX_DESCRIPTION];
 
 	/* pointeur sur fonction pour le deplacement */
 	void (*deplacement_gauche)(character_t **);
