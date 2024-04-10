@@ -19,7 +19,7 @@ typedef struct sauvegardes_s
 
 
 booleen_t save_possible();
-booleent_t sauver_online(void * owner, booleen_t (*sauver)(void *));
+booleen_t sauver_online(ordi_t * o, player_t * p, sauvegardes_t ** save);
 
 
 #endif

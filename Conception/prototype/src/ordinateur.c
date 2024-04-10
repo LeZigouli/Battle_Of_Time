@@ -30,7 +30,7 @@ ordi_t * init_ordi(int difficulte){
                 ordi->difficulte=difficulte;
                 ordi->delai=DELAI_INITAL;
                 ordi->xp=0;
-                ordi->ult=DELAI_INITAL;
+                ordi->delai_ulti=DELAI_INITAL;
                 srand(time(NULL));
                 return ordi;
             }
