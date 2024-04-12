@@ -1,4 +1,4 @@
-#include "lib/commun.h"
+#include "lib/commun_SDL.h"
 
 /*Fonction d'initialisation*/
 int initialisation()

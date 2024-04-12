@@ -79,13 +79,16 @@ int main(int argc, char* argv[]) {
 
     /*État actuel de l'age*/
     age_t* etatAge = malloc(sizeof(age_t));
-    (*etatAge) = Antiquite;
+    (*etatAge) = Prehistoire;
 
     /*Variables pour la gestion de la souris*/
     int menuX = 0;
     int menuY = 0;
     int mouseX;
     int mouseY;
+    /*Calcul du milieu de l'écran*/
+    int x = WINDOW_WIDTH / 2;
+    int y = WINDOW_HEIGHT / 2;
 
     /*Variables pour le redimensionnement dynamique de la fenêtre*/
     int w;
@@ -96,11 +99,15 @@ int main(int argc, char* argv[]) {
     int* selecElement = malloc(sizeof(int)) ; //Indice de l'élément sélectionné
     (*selecElement) = 2;
     initElements(rendu, fenetre, elm_reso); //Initialisation des éléments pour le sous-menu de résolution
+    int* ancienReso = malloc(sizeof(int));
+    (*ancienReso) = MENU_SOUS_OPTIONS;
 
     /*Variables pour l'option "effet sonore"*/
     int* index_effet = malloc(sizeof(int)); 
     (*index_effet) = 0;
     char effet[15] = "Désactiver";
+    int* ancienSon = malloc(sizeof(int));
+    (*ancienSon) = MENU_SOUS_OPTIONS;
 
     /*Lecture de la musique en boucle*/
     //Mix_PlayChannel(0,music,-1);
@@ -154,7 +161,8 @@ int main(int argc, char* argv[]) {
 					/*Gestion des cliquable sur les éléments du menu*/
                     clic_menu(etatMenu, fenetre, evenement, elm_reso, click, mouseX, mouseY, w, h, 
                               (*widthFactor), (*heightFactor), menuX, menuY, index_effet, continuer, 
-                              selecElement, effet, isValide, textInput, ipPattern, textInputActive, keyCounts);
+                              selecElement, effet, isValide, textInput, ipPattern, textInputActive, keyCounts,
+                              x, y, ancienSon, ancienReso);
                     break;
 
                 /*Gestion du relachement du clic de la souris*/
@@ -174,30 +182,13 @@ int main(int argc, char* argv[]) {
                 /*Gestion des touches du clavier*/
                 case SDL_KEYDOWN:
                     
-                    /*Si la saisie du texte est activée*/
-                    if ((*textInputActive)) {
-                        /*Si la saisie de texte est active, gérer les événements de saisie*/
-                        if (evenement.key.keysym.sym == SDLK_RETURN) {
-                            /*Incrémenter le compteur pour la touche appuyée*/
-                            (*keyCounts)++;
-                            (*textInputActive) = SDL_FALSE; /*Désactiver la saisie de texte*/
-                            /*Validation de l'adresse IP*/
-                            (*isValide) = validateRegex(textInput, ipPattern);
-                        }
-                        else if (evenement.key.keysym.sym == SDLK_BACKSPACE && strlen(textInput) > 0) {
-                            /*Effacer le dernier caractère si la touche BACKSPACE est enfoncée*/
-                            textInput[strlen(textInput) - 1] = '\0';
-                        }
-                        
-                    }
-                    else{
-                        /*Saisie du texte activée en permanence*/
-                        (*textInputActive) = SDL_TRUE;
-                    }
+                    /*Gestion des touches pour l'adresse IP*/
+                    touches_menu(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern);
                     break;
 
                 /*Gestion du texte saisie*/
                 case SDL_TEXTINPUT:
+
                     /*Gérer les événements de texte saisi*/
                     if ((*textInputActive) && strlen(textInput) + strlen(evenement.text.text) < sizeof(textInput)) {
                         /*Ajouter le texte saisi au buffer*/
@@ -219,7 +210,9 @@ int main(int argc, char* argv[]) {
 
         /*Gestion de l'affichage en fonction de l'état*/
         affichage((*etatMenu), (*etatAge),rendu, fenetre, police, menuX, menuY, elm_reso, selecElement, effet, textInput, isValide, keyCounts);
-       
+
+
+
         /*Amélioration antialiasing*/
         SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"2");
 
@@ -231,7 +224,7 @@ int main(int argc, char* argv[]) {
     /*Libérer les ressources*/
 
 	/*Destruction des éléments du menu*/
-	destruction_menu(selecElement, index_effet, continuer, etatMenu, widthFactor, heightFactor, textInputActive, isValide, keyCounts);
+	destruction_menu(selecElement, index_effet, continuer, etatMenu, widthFactor, heightFactor, textInputActive, isValide, keyCounts, ancienSon, etatAge, ancienReso);
 
     /*****************************/
     /*-Libération des ressources-*/

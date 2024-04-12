@@ -5,10 +5,17 @@
 /*--Fonctions--*/
 /***************/
 /*Gestion du clic de la souris sur les éléments du menu*/
-void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, element_t* elm_reso, Mix_Chunk* click, int mouseX, int mouseY, int w, int h, float widthFactor, float heightFactor, int menuX, int menuY, int* index_effet, int* continuer, int* selecElement, char* effet, int* isValid, const char* textInput, const char* ipPattern, int* textInputActive, int* keyCounts)
+void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, element_t* elm_reso, Mix_Chunk* click, 
+               int mouseX, int mouseY, int w, int h, float widthFactor, float heightFactor, int menuX, int menuY, int* index_effet, 
+               int* continuer, int* selecElement, char* effet, int* isValid, const char* textInput, const char* ipPattern, 
+               int* textInputActive, int* keyCounts, int x, int y, int* ancienSon, int* ancienReso)
 {
     /*Gestion des clics sur les menus*/
     switch((*etatMenu)){
+
+        /***** ****/
+        /*--MENU--*/
+        /**********/
         /*Vérifier si le clic est dans la zone de la page d'acceuil*/
         case PAGE_ACCUEIL:
             /*Calcul de la position de x et y*/
@@ -87,6 +94,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                     if(!(*index_effet)){
                         Mix_PlayChannel(1, click, 0);
                     }
+                    (*ancienSon) = MENU_SOUS_OPTIONS;
                     /*Changement d'état du menu*/
                     (*etatMenu) = MENU_SOUS_SON;
                 }
@@ -96,6 +104,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                     if(!(*index_effet)){
                         Mix_PlayChannel(1, click, 0);
                     }
+                    (*ancienReso) = MENU_SOUS_OPTIONS;
                     /*Changement d'état du menu*/
                     (*etatMenu) = MENU_SOUS_RESOLUTION;
                 }
@@ -171,8 +180,13 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                     if(!(*index_effet)){
                         Mix_PlayChannel(1, click, 0);
                     }
-                    /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_SOUS_OPTIONS;
+                    /*Changement d'état du menu en fonction de la page précédente*/
+                    if((*ancienReso) == MENU_SOUS_OPTIONS){
+                        (*etatMenu) = MENU_SOUS_OPTIONS;
+                    }
+                    else if((*ancienReso) == OPTION_JEU){
+                        (*etatMenu) = OPTION_JEU;
+                    } 
                 }
             }
             break;
@@ -231,8 +245,13 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                     if(!(*index_effet)){
                         Mix_PlayChannel(1, click, 0);
                     }
-                    /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_SOUS_OPTIONS;
+                    /*Changement d'état du menu en fonction de la page précédente*/
+                    if((*ancienSon) == MENU_SOUS_OPTIONS){
+                        (*etatMenu) = MENU_SOUS_OPTIONS;
+                    }
+                    else if((*ancienSon) == OPTION_JEU){
+                        (*etatMenu) = OPTION_JEU;
+                    }
                 }
             }
             break;
@@ -290,7 +309,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_JOUER;
+                    (*etatMenu) = JOUER;
                 }
                 /*Clic sur le bouton "Reprendre Partie"*/
                 else if(mouseY >= menuY + 1.2 * (MENU_HEIGHT * heightFactor) + (SPACING * heightFactor) && mouseY <= menuY + 1.8 * (MENU_HEIGHT * heightFactor) + (SPACING * heightFactor)){
@@ -386,6 +405,82 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                 }
             }
             break;
+
+
+        /*********/
+        /*--JEU--*/
+        /*********/
+        /*Vérifier si le clic est dans la zone du Jeu*/   
+        case JOUER:
+            /*Clic sur la roue crantée*/
+            if(mouseX >= (WINDOW_WIDTH - 60) * widthFactor && mouseX <= (WINDOW_WIDTH - 10) * widthFactor &&
+               mouseY >= 10 * heightFactor && mouseY <= 60 * heightFactor){
+                //Bruit quand on clique sur l'élément
+                if(!(*index_effet)){
+                    Mix_PlayChannel(1, click, 0);
+                }
+                /*Changement d'état du menu*/
+                (*etatMenu) = OPTION_JEU;
+            }
+            break;
+
+        /*Vérifier si le clic est dans la zone du menu Option dans le jeu*/   
+        case OPTION_JEU:
+            /*Calcul de la position de x et y*/
+            menuX = (w - (MENU_WIDTH * widthFactor)) / 2; //Position horizontale
+            menuY = (h - ((MENU_HEIGHT * heightFactor) + (SPACING * heightFactor))) / 2; //Position verticale
+            
+            if(mouseX >= menuX && mouseX <= menuX + (MENU_WIDTH * widthFactor) + 15 &&
+               mouseY >= menuY - ((MENU_HEIGHT - 15) * heightFactor) && mouseY <= menuY + 4 * ((MENU_HEIGHT + SPACING) * heightFactor) - 5 * heightFactor){
+                /*Clic sur le bouton 'Reprendre'*/
+                if(mouseY >= menuY - ((MENU_HEIGHT - 15) * heightFactor) && mouseY <= menuY - 5 * heightFactor){
+                    //Bruit quand on clique sur l'élément
+                    if(!(*index_effet)){
+                        Mix_PlayChannel(1, click, 0);
+                    }
+                    /*Changement d'état du menu*/
+                    (*etatMenu) = JOUER;
+                }
+                /*Clic sur le bouton 'Sauvegarde'*/
+                else if(mouseY >= menuY + (SPACING + 10 * heightFactor) && mouseY <= menuY + (((MENU_HEIGHT + SPACING) - 10) * heightFactor)){
+                    //Bruit quand on clique sur l'élément
+                    if(!(*index_effet)){
+                        Mix_PlayChannel(1, click, 0);
+                    }
+                    /*Changement d'état du menu*/
+                    //(*etatMenu) = ;
+                }
+                /*Clic sur le bouton 'Musique/Son'*/
+                else if(mouseY >= menuY + ((MENU_HEIGHT + 2 * SPACING) + 10) * heightFactor && mouseY <= menuY + (( 2 * (MENU_HEIGHT + SPACING) - 10) * heightFactor) ){
+                    //Bruit quand on clique sur l'élément
+                    if(!(*index_effet)){
+                        Mix_PlayChannel(1, click, 0);
+                    }
+                    (*ancienSon) = OPTION_JEU;
+                    /*Changement d'état du menu*/
+                    (*etatMenu) = MENU_SOUS_SON;
+                    
+                }
+                /*Clic sur le bouton 'Résolution*/
+                else if(mouseY >= menuY + ((2 * MENU_HEIGHT + 3 * SPACING) + 10) * heightFactor && mouseY <= menuY + (( 3 * (MENU_HEIGHT + SPACING) - 10) * heightFactor) ){
+                    //Bruit quand on clique sur l'élément
+                    if(!(*index_effet)){
+                        Mix_PlayChannel(1, click, 0);
+                    }
+                    (*ancienReso) = OPTION_JEU;
+                    /*Changement d'état du menu*/
+                    (*etatMenu) = MENU_SOUS_RESOLUTION;
+                }
+                else if(mouseY >= menuY + ((3 * MENU_HEIGHT + 4 * SPACING) + 10) * heightFactor && mouseY <= menuY + (( 4 * (MENU_HEIGHT + SPACING) - 10) * heightFactor)){
+                    //Bruit quand on clique sur l'élément
+                    if(!(*index_effet)){
+                        Mix_PlayChannel(1, click, 0);
+                    }
+                    /*Changement d'état du menu*/
+                    (*etatMenu) = MENU_PRINCIPAL;
+                }
+            }
+            break;
         
         default : 
             break;
@@ -427,7 +522,7 @@ void deplacement_menu(Mix_Chunk* music, int mouseX, SDL_Event evenement, float* 
 }
 
 /*Fonction de destruction des variables pour le menu*/
-void destruction_menu(int* selecElement, int* index_effet, int* continuer, etatMenu_t* etatMenu, float* widthFactor, float* heightFactor, int* textInputActive, int* isValid, int* keyCounts)
+void destruction_menu(int* selecElement, int* index_effet, int* continuer, etatMenu_t* etatMenu, float* widthFactor, float* heightFactor, int* textInputActive, int* isValid, int* keyCounts, int* ancienSon, age_t* etatAge, int* ancienReso)
 {
     /*Destruction des variables allouée dynamiquement*/
     free(textInputActive);
@@ -436,6 +531,9 @@ void destruction_menu(int* selecElement, int* index_effet, int* continuer, etatM
     free(selecElement);
     free(volumeBar);
     free(volumeCursor);
+    free(ancienSon);
+    free(ancienReso);
+    free(etatAge);
     free(index_effet);
     free(continuer);
     free(etatMenu);
@@ -461,4 +559,27 @@ int validateRegex(const char *input, const char *pattern)
     valid = regexec(&regex, input, 0, NULL, 0);
     regfree(&regex);
     return valid == 0 ? 1 : 0;
+}
+
+void touches_menu(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern)
+{
+    /*Si la saisie du texte est activée*/
+    if ((*textInputActive)) {
+        /*Si la saisie de texte est active, gérer les événements de saisie*/
+        if (evenement.key.keysym.sym == SDLK_RETURN) {
+            /*Incrémenter le compteur pour la touche appuyée*/
+            (*keyCounts)++;
+            (*textInputActive) = SDL_FALSE; /*Désactiver la saisie de texte*/
+            /*Validation de l'adresse IP*/
+            (*isValid) = validateRegex(textInput, ipPattern);
+        }
+        else if (evenement.key.keysym.sym == SDLK_BACKSPACE && strlen(textInput) > 0) {
+            /*Effacer le dernier caractère si la touche BACKSPACE est enfoncée*/
+            textInput[strlen(textInput) - 1] = '\0';
+        }               
+    }
+    else{
+        /*Saisie du texte activée en permanence*/
+        (*textInputActive) = SDL_TRUE;
+    }
 }

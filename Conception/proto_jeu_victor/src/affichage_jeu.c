@@ -90,3 +90,18 @@ void gestionAffichageFondJeu(SDL_Renderer* rendu, SDL_Window* fenetre, age_t eta
             break;
     }
 }
+
+/*Fonction d'affichage du menu des options quand on est en jeu*/
+void afficherOptionJeu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre)
+{
+    /*Calcul des positions x et y*/
+    int menuX = (WINDOW_WIDTH - MENU_WIDTH) / 2;  // Position horizontale centrée pour le sous-menu
+    int menuY = (WINDOW_HEIGHT - (4 * MENU_HEIGHT) + SPACING) / 2;  // Position verticale centrée pour le sous-menu
+
+    /*Afficher les onglets du menu avec espacement*/
+    afficherMenu(rendu, police, fenetre, "Reprendre", menuX, menuY, MENU_WIDTH, MENU_HEIGHT);
+    afficherMenu(rendu, police, fenetre, "Sauvegarder", menuX, menuY + MENU_HEIGHT + SPACING, MENU_WIDTH, MENU_HEIGHT);
+    afficherMenu(rendu, police, fenetre, "Musique/Son", menuX, menuY + 2 * (MENU_HEIGHT + SPACING), MENU_WIDTH, MENU_HEIGHT);
+    afficherMenu(rendu, police, fenetre, "Résolution", menuX, menuY + 3 * (MENU_HEIGHT + SPACING), MENU_WIDTH, MENU_HEIGHT);
+    afficherMenu(rendu, police, fenetre, "Retour au menu principal", menuX, menuY + 4 * (MENU_HEIGHT + SPACING), MENU_WIDTH, MENU_HEIGHT);
+}

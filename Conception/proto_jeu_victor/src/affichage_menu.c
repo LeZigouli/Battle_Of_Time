@@ -57,15 +57,20 @@ void affichage(etatMenu_t etatMenu, age_t etatAge, SDL_Renderer* rendu, SDL_Wind
             afficherSousMenuRejoindre(rendu, fenetre, police, textInput, isValid, keyCounts);
             break;
         
-        case MENU_JOUER:
+        case JOUER:
             /*Effacement de l'ancien rendu*/
-            SDL_RenderClear(rendu);
+            SDL_RenderClear(rendu);   
             gestionAffichageFondJeu(rendu, fenetre, etatAge);
             afficherHUD(rendu, fenetre);
+
+            
+            break;
+
+        case OPTION_JEU:
+            afficherOptionJeu(rendu, police, fenetre);
             break;
     }
 }
-
 
 /*Fonction pour afficher le titre du jeu*/
 void afficherTitre(SDL_Renderer * rendu, TTF_Font* police, SDL_Window* fenetre, int x, int y, int largeur, int hauteur)
@@ -314,11 +319,16 @@ void afficherSousMenuRejoindre(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Fon
     if((*keyCounts) > 0){
         if (message) {
             SDL_Texture* messagetexture = SDL_CreateTextureFromSurface(rendu, message);
-            if (message) {
-                SDL_Rect messRect = creationRectangle(fenetre, menuX - 410, menuY + 70, message->w-40, message->h-20);
-                SDL_RenderCopy(rendu, messagetexture, NULL, &messRect);
-                SDL_DestroyTexture(messagetexture);
-            }
+            
+            /*Affichage de la zone de texte noir*/
+            SDL_SetRenderDrawColor(rendu, 0, 0, 0, 0);
+            SDL_Rect zone_texte = creationRectangle(fenetre, menuX - 410, menuY + 70, message->w-40, message->h-20);
+            SDL_RenderFillRect(rendu, &zone_texte); 
+            /*Affichage du message*/
+            SDL_Rect messRect = creationRectangle(fenetre, menuX - 410, menuY + 70, message->w-40, message->h-20);
+            SDL_RenderCopy(rendu, messagetexture, NULL, &messRect);
+            SDL_DestroyTexture(messagetexture);
+
             SDL_FreeSurface(message);
         }
     }

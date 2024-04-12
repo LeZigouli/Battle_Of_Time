@@ -55,7 +55,8 @@ typedef enum MenuState {
     MENU_SOUS_SOLO,
     MENU_SOUS_ENLIGNE,
     MENU_SOUS_REJOINDRE,
-    MENU_JOUER
+    JOUER,
+    OPTION_JEU
 }etatMenu_t;
 
 /*Énumération des ages du jeu*/

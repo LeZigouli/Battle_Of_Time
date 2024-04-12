@@ -4,7 +4,7 @@
 /**************/
 /*--Includes--*/
 /**************/
-#include "commun.h"
+#include "commun_SDL.h"
 #include "menu.h"
 
 /***************/
