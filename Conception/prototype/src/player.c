@@ -27,7 +27,7 @@ player_t * initplayer(int difficulty, int owner)
 
 	strcpy(main_player->name,name);
 	main_player->owner = owner;
-	main_player->xp = 0;
+	main_player->xp = 100000;
 	main_player->debut=DELAI_INITAL;
 	main_player->characters = malloc(sizeof(tab_charactere_t));
 	main_player->file_attente = malloc(sizeof(tab_charactere_t));
@@ -50,7 +50,7 @@ player_t * initplayer(int difficulty, int owner)
 
 	switch(difficulty){
 		case EASY:
-			main_player->gold = 800;
+			main_player->gold = 800000;
 			break;
 		case MEDIUM:
 			main_player->gold = 600;
@@ -230,9 +230,11 @@ booleen_t afficher_player(player_t * player)
         return FALSE;
     }
     printf("<----- Player ----->\n");
-	printf("Nom : %s\nPV : %d\nXP : %d\nGOLD : %f\nOwner : %d\n\n",player->name,player->building->pv,player->xp,player->gold,player->owner);
+	printf("Nom : %s\nPV : %d\nXP : %d\nGOLD : %f\nOwner : %d\n",player->name,player->building->pv,player->xp,player->gold,player->owner);
+	printf("debut : %ld, fin : %ld delai : %d difftime: %f\n\n",player->debut,player->fin,player->delai,difftime(player->fin,player->debut));
     afficher_building(player->building);
     afficher_characters(player->characters);
+	afficher_characters(player->file_attente);
     return TRUE;
 }
 

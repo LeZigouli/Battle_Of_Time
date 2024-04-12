@@ -17,5 +17,6 @@ typedef struct building_s{
 booleen_t init_building(building_t ** building, int owner);
 booleen_t upgrade_building(building_t ** building,int * xp);
 booleen_t afficher_building(building_t * building);
+int max(int a, int b);
 
 #endif

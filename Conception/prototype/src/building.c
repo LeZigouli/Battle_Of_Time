@@ -29,7 +29,7 @@ booleen_t init_building(building_t ** building, int owner)
 
 	/* affectation */
 	(*building)->dammage = 33;
-	(*building)->XP_cost = 1000;
+	(*building)->XP_cost = 10000;
 	(*building)->level = Prehistoire;
 	(*building)->pv = 300;
 	(*building)->max_pv = (*building)->pv;
@@ -90,4 +90,11 @@ booleen_t afficher_building(building_t * building)
     printf("<-------------------->\n\n");
 
     return TRUE;
+}
+
+int max(int a, int b){
+	if(a>=b)
+		return a;
+	else
+		return b;
 }

@@ -10,7 +10,10 @@
 #ifndef TAB_CHARACTER_H_
 #define TAB_CHARACTER_H_
 
+
 #include "character.h"
+
+
 /* liste pour chaque joueur des personnages qu'ils possèdent */
 typedef struct tab_charactere_s{
 
@@ -19,7 +22,7 @@ typedef struct tab_charactere_s{
 
 }tab_charactere_t;
 
-
+void deplacement(tab_charactere_t * characters, character_t * first_Adverser, int x_building_adverser);
 booleen_t delete_character(tab_charactere_t ** characters);
 booleen_t tasser_tab( tab_charactere_t **  characters, int nb_mort);
 booleen_t afficher_characters(tab_charactere_t * characters);

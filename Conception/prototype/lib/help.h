@@ -5,7 +5,7 @@
 #include "character.h"
 
 
-void afficher_character(character_t character);
+void afficher_character_tab_tab(character_t character);
 booleen_t afficher_all_character(character_t * tab);
 
 

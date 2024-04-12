@@ -69,7 +69,7 @@ booleen_t afficher_characters(tab_charactere_t * characters)
     for ( int i=0; i<characters->nb; i++)
     {
 		if(characters->tab[i] != NULL)
-        	printf("[%d] :: %s, owner : %d, pv: %4d\n",i,characters->tab[i]->name,characters->tab[i]->owner,characters->tab[i]->pv);
+        	printf("[%d] :: %s, owner : %d, pv: %4d x: %5d\n",i,characters->tab[i]->name,characters->tab[i]->owner,characters->tab[i]->pv,characters->tab[i]->x);
     }
     printf("<-------------------------------->\n\n");
 
@@ -84,4 +84,67 @@ booleen_t ulti(tab_charactere_t ** cible){
 		(*cible)->tab[i]->pv=0;
 	}
 	return TRUE;
+}
+
+booleen_t vide_devant(character_t * deriere,int devant_x,int owner){
+	int dist;
+	switch (owner)
+	{
+	case OWNER_1:
+		dist= devant_x - (deriere->vector + deriere->x) - TAILLE_SPRITE;
+		if(dist >= deriere->vector)
+			return TRUE;
+		else
+			return FALSE;
+		break;
+	
+	default:
+		dist= (deriere->x - deriere->vector) - devant_x - TAILLE_SPRITE;
+		if(dist >= deriere->vector)
+			return TRUE;
+		else
+			return FALSE;
+		break;
+	}
+	
+	
+}
+/* mouvement */
+void mouvement(character_t ** deriere,int devant_x){
+	if(vide_devant(*deriere,devant_x,(*deriere)->owner))
+		if((*deriere)->owner>1)
+			deplacement_gauche(deriere);
+		else
+			deplacement_droit(deriere);
+	else
+		if((*deriere)->owner>1){
+			(*deriere)->x -= ((*deriere)->x) - devant_x - TAILLE_SPRITE;
+			if((*deriere)->x < 0)
+				(*deriere)->x=0;
+			else
+				if((*deriere)->x>1500)
+					(*deriere)->x=1500;
+		}else{
+			(*deriere)->x += devant_x -  (*deriere)->x - TAILLE_SPRITE;
+			if((*deriere)->x < 0)
+				(*deriere)->x=0;
+			else
+				if((*deriere)->x>1500)
+					(*deriere)->x=1500;
+		}
+}
+
+void deplacement(tab_charactere_t * characters, character_t * first_Adverser, int x_building_adverser){
+    int i;
+	if(characters !=NULL)
+		if(characters->nb>0){
+			if(first_Adverser==NULL)
+				mouvement(&characters->tab[0],x_building_adverser);
+			else
+				mouvement(&characters->tab[0],first_Adverser->x);
+				
+			for(i=1;i<characters->nb;i++){
+				mouvement(&characters->tab[i],characters->tab[i-1]->x);
+			}
+		}
 }
