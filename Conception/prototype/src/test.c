@@ -95,7 +95,9 @@ void renderSquare(SDL_Rect squareRect) {
     SDL_RenderFillRect(gRenderer, &squareRect);
 }
 
-
+void init_jeu_solo(){
+    
+}
 void img_charactere_inser(tab_charactere_t * characters,building_t * building, SDL_Texture* img_c[], SDL_Texture* tab[]){
     int i;
     if(characters==NULL)
@@ -105,30 +107,30 @@ void img_charactere_inser(tab_charactere_t * characters,building_t * building, S
             {
             case melee:
                 if(characters->tab[i]->age < building->level)
-                    img_c[i]=tab[4];
+                    img_c[i]=tab[NB_CHARACTER+melee];
                 else
                     img_c[i]=tab[0];
                 break;
             
             case marksman:
                 if(characters->tab[i]->age < building->level)
-                    img_c[i]=tab[5];
+                    img_c[i]=tab[NB_CHARACTER+marksman];
                 else
-                    img_c[i]=tab[1];
+                    img_c[i]=tab[marksman];
                 break;
             
             case tank:
                 if(characters->tab[i]->age < building->level)
-                    img_c[i]=tab[6];
+                    img_c[i]=tab[NB_CHARACTER+tank];
                 else
-                    img_c[i]=tab[2];
+                    img_c[i]=tab[tank];
                 break;
             
             case specialist:
                 if(characters->tab[i]->age < building->level)
-                    img_c[i]=tab[7];
+                    img_c[i]=tab[NB_CHARACTER+specialist];
                 else
-                    img_c[i]=tab[3];
+                    img_c[i]=tab[specialist];
                 break;
             
             default:
@@ -154,7 +156,6 @@ int main(){
 
     int resize = 1;
 
-    char * img_path = "../../sprite/Antiquité/legionnaire epee.png";
 
     SDL_Rect playerImg = {TAILLE_SPRITE*0 , TAILLE_SPRITE*11, TAILLE_SPRITE*1, TAILLE_SPRITE*1};   //position sur le png avec tous les sprite
     SDL_Rect ordiImg = {TAILLE_SPRITE*0 , TAILLE_SPRITE*9, TAILLE_SPRITE*1, TAILLE_SPRITE*1};
@@ -167,11 +168,11 @@ int main(){
 
     
 
-    SDL_Texture * Prehistoire_texture = IMG_LoadTexture(gRenderer,"../../Fond/Préhistoire.jpg");
-    SDL_Texture * Antiquite_texture = IMG_LoadTexture(gRenderer,"../../Fond/Antiquité.png");
-    SDL_Texture * Moyen_age_texture = IMG_LoadTexture(gRenderer,"../../Fond/Moyen-Âge.jpg");
-    SDL_Texture * Ere_moderne_texture = IMG_LoadTexture(gRenderer,"../../Fond/Moderne.jpg");
-    SDL_Texture * Ere_futuriste_texture = IMG_LoadTexture(gRenderer,"../../Fond/Futuriste.jpg");
+    SDL_Texture * Prehistoire_texture = IMG_LoadTexture(gRenderer,"../../Fond/Préhistoire_v2.jpg");
+    SDL_Texture * Antiquite_texture = IMG_LoadTexture(gRenderer,"../../Fond/Antiquité_v2.jpg");
+    SDL_Texture * Moyen_age_texture = IMG_LoadTexture(gRenderer,"../../Fond/Moyen-Âge_v2.jpg");
+    SDL_Texture * Ere_moderne_texture = IMG_LoadTexture(gRenderer,"../../Fond/Moderne_v2.jpg");
+    SDL_Texture * Ere_futuriste_texture = IMG_LoadTexture(gRenderer,"../../Fond/Futuriste_v2.jpg");
 
 
     int attaque = 0;
@@ -189,10 +190,10 @@ int main(){
     SDL_Rect Perso3 = {TAILLE_SPRITE*3+16,TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE};
     SDL_Rect Perso4 = {TAILLE_SPRITE*4+24,TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE};
 
-    SDL_Texture* image[8]={IMG_LoadTexture(gRenderer,tab_de_charactere[Prehistoire+combattant_massue].sprite),
-                           IMG_LoadTexture(gRenderer,tab_de_charactere[Prehistoire+combattant_caillou].sprite),
-                           IMG_LoadTexture(gRenderer,tab_de_charactere[Prehistoire+gorille].sprite),
-                           IMG_LoadTexture(gRenderer,tab_de_charactere[Prehistoire+combattant_dinosaure].sprite),
+    SDL_Texture* image[8]={IMG_LoadTexture(gRenderer,tab_de_charactere[Prehistoire+melee].sprite),
+                           IMG_LoadTexture(gRenderer,tab_de_charactere[Prehistoire+marksman].sprite),
+                           IMG_LoadTexture(gRenderer,tab_de_charactere[Prehistoire+tank].sprite),
+                           IMG_LoadTexture(gRenderer,tab_de_charactere[Prehistoire+specialist].sprite),
                            NULL,NULL,NULL,NULL};
     SDL_Texture* img_char[MAX_POSSESSED];
     SDL_Texture * img_c_ordi[MAX_POSSESSED];
@@ -251,6 +252,7 @@ int main(){
                     
                     case SDLK_b:
                         upgrade_building(&j1->building,&j1->xp);
+                        upgarde_j++;
                         break;
                 }
 

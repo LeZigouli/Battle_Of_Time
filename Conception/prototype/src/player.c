@@ -27,7 +27,7 @@ player_t * initplayer(int difficulty, int owner)
 
 	strcpy(main_player->name,name);
 	main_player->owner = owner;
-	main_player->xp = 100000;
+	main_player->xp = 1000000;
 	main_player->debut=DELAI_INITAL;
 	main_player->characters = malloc(sizeof(tab_charactere_t));
 	main_player->file_attente = malloc(sizeof(tab_charactere_t));
@@ -163,18 +163,20 @@ booleen_t buy_character(player_t ** player, character_t tab_character[NB_AGE*NB_
 void envoie_char(player_t ** player){
 	/*Formation des troupes*/
 	if((*player)->file_attente->nb > 0){
+		unsigned long secondes=0; 
 		(*player)->delai=(*player)->file_attente->tab[0]->time;
-		if((*player)->debut<0)
+		if((*player)->debut==DELAI_INITAL)
 			(*player)->debut=time(NULL);
 		(*player)->fin=time(NULL);
-		if(difftime((*player)->fin,(*player)->debut)>= (*player)->delai){
+		secondes = difftime((*player)->fin,(*player)->debut);
+		if(secondes>= (*player)->delai){
 			(*player)->characters->tab[(*player)->characters->nb]=(*player)->file_attente->tab[0];
 			for(int i = 0; i<(*player)->file_attente->nb-1;i++){
 				(*player)->file_attente->tab[i]=(*player)->file_attente->tab[i+1];
 			}
 			(*player)->file_attente->nb--;
 			(*player)->characters->nb++;
-			(*player)->debut=time(NULL);
+			(*player)->debut=DELAI_INITAL;
 		}
 	}
 }

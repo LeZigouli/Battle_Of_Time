@@ -28,10 +28,10 @@ booleen_t init_building(building_t ** building, int owner)
 	}
 
 	/* affectation */
-	(*building)->dammage = 33;
+	(*building)->dammage = 330;
 	(*building)->XP_cost = 10000;
 	(*building)->level = Prehistoire;
-	(*building)->pv = 300;
+	(*building)->pv = 3000;
 	(*building)->max_pv = (*building)->pv;
 	(*building)->owner = owner;
 

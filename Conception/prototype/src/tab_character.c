@@ -69,7 +69,7 @@ booleen_t afficher_characters(tab_charactere_t * characters)
     for ( int i=0; i<characters->nb; i++)
     {
 		if(characters->tab[i] != NULL)
-        	printf("[%d] :: %s, owner : %d, pv: %4d x: %5d\n",i,characters->tab[i]->name,characters->tab[i]->owner,characters->tab[i]->pv,characters->tab[i]->x);
+        	printf("[%d] :: class : %d, owner : %d, pv: %4d x: %5d\n",i,characters->tab[i]->classe,characters->tab[i]->owner,characters->tab[i]->pv,characters->tab[i]->x);
     }
     printf("<-------------------------------->\n\n");
 

@@ -123,6 +123,5 @@ void jeu_ordi(ordi_t * o, player_t * p, character_t * tab){
         d_ulti=time(NULL);
     }
     give_ressources(p,o);
-    if(ulti_used)
-    return
+    
 }
