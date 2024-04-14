@@ -50,7 +50,7 @@ player_t * initplayer(int difficulty, int owner)
 
 	switch(difficulty){
 		case EASY:
-			main_player->gold = 800000;
+			main_player->gold = 80000;
 			break;
 		case MEDIUM:
 			main_player->gold = 600;

@@ -115,23 +115,23 @@ character_t * initcharacter()
                 switch (age)
                 {
                 case Prehistoire:
-                    strcpy(tab[age*NB_CHARACTER+classe].sprite,"../../sprite/Préhistoire/");
+                    strcpy(tab[age*NB_CHARACTER+classe].sprite,"img/sprite/Préhistoire/");
                     break;
                 
                 case Antiquite:
-                    strcpy(tab[age*NB_CHARACTER+classe].sprite,"../../sprite/Antiquité/");
+                    strcpy(tab[age*NB_CHARACTER+classe].sprite,"img/sprite/Antiquité/");
                     break;
                 
                 case Moyen_Age:
-                    strcpy(tab[age*NB_CHARACTER+classe].sprite,"../../sprite/Moyen age/");
+                    strcpy(tab[age*NB_CHARACTER+classe].sprite,"img/sprite/Moyen age/");
                     break;
 
                 case Ere_Moderne:
-                    strcpy(tab[age*NB_CHARACTER+classe].sprite,"../../sprite/Ere moderne/");
+                    strcpy(tab[age*NB_CHARACTER+classe].sprite,"img/sprite/Ere moderne/");
                     break;
                 
                 default:
-                    strcpy(tab[age*NB_CHARACTER+classe].sprite,"../../sprite/Ere futuriste/");
+                    strcpy(tab[age*NB_CHARACTER+classe].sprite,"img/sprite/Ere futuriste/");
                     break;
                 }
                 switch (classe)

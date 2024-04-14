@@ -1,17 +1,22 @@
-#include "lib/affichage_menu.h"
+#include "../lib/affichage_menu.h"
 
 /************************/
 /*--Affichage du menu--*/
 /***********************/
 
 /*Gestion de l'affichage des menus et sous-menus*/
-void affichage(etatMenu_t etatMenu, age_t etatAge, SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police , int menuX, int menuY, element_t* elm_reso, int* selecElement, const char* effet, char* textInput, int* isValid, int* keyCounts)
+void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police , TTF_Font* police_texte, 
+               int menuX, int menuY, element_t* elm_reso, int* selecElement, const char* effet, char* textInput, 
+               int* isValid, int* keyCounts, SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp,
+               SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age,
+               SDL_Texture* moderne, SDL_Texture* futuriste, player_t* joueur, SDL_Texture** image, SDL_Texture* upgrade,
+               ordi_t* ordi)
 {
     /*Affiche le titre du jeu*/
-    afficherTitre(rendu, police, fenetre, ((WINDOW_WIDTH - 800) / 2), ((WINDOW_HEIGHT - 1000) / 2), 800, 600);
+    afficherTitre(rendu, fenetre, ((WINDOW_WIDTH - 800) / 2), ((WINDOW_HEIGHT - 1000) / 2), 800, 600);
 
     /*Afficher le menu en fonction de l'état*/
-    switch(etatMenu){
+    switch(etat){
 
         case PAGE_ACCUEIL:
             menuX = (WINDOW_WIDTH - MENU_WIDTH ) / 2;
@@ -60,8 +65,8 @@ void affichage(etatMenu_t etatMenu, age_t etatAge, SDL_Renderer* rendu, SDL_Wind
         case JOUER:
             /*Effacement de l'ancien rendu*/
             SDL_RenderClear(rendu);   
-            gestionAffichageFondJeu(rendu, fenetre, etatAge);
-            afficherHUD(rendu, fenetre);
+            gestionAffichageFondJeu(rendu, fenetre, etatAge, prehistoire, antiquite, moyen_age, moderne, futuriste, joueur, ordi);
+            afficherHUD(rendu, fenetre, police_texte, parametre, upgrade, gold, xp, joueur, image);
 
             
             break;
@@ -73,7 +78,7 @@ void affichage(etatMenu_t etatMenu, age_t etatAge, SDL_Renderer* rendu, SDL_Wind
 }
 
 /*Fonction pour afficher le titre du jeu*/
-void afficherTitre(SDL_Renderer * rendu, TTF_Font* police, SDL_Window* fenetre, int x, int y, int largeur, int hauteur)
+void afficherTitre(SDL_Renderer * rendu, SDL_Window* fenetre, int x, int y, int largeur, int hauteur)
 {
     SDL_Texture* texture_titre = IMG_LoadTexture(rendu, "img/Battle_of_Time.png");
 
@@ -86,10 +91,8 @@ void afficherTitre(SDL_Renderer * rendu, TTF_Font* police, SDL_Window* fenetre, 
 /*Fonction d'affichage d'un élément du menu*/
 void afficherMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte, int x, int y, int largeur, int hauteur)
 {
-    SDL_Color couleurTexte = COLOR;/*Couleur du texte*/
-
     /*Création de la surface et de la texture avec le texte, la police et la couleur*/
-    SDL_Surface* surfaceTexte = TTF_RenderUTF8_Solid(police, texte, couleurTexte);
+    SDL_Surface* surfaceTexte = TTF_RenderUTF8_Solid(police, texte, BLACK);
     SDL_Texture* textureTexte = SDL_CreateTextureFromSurface(rendu, surfaceTexte);
 
     /*Création du rectangle et affichage de l'élément*/
@@ -221,7 +224,7 @@ void resolution(SDL_Renderer* rendu, SDL_Window* fenetre , TTF_Font* police, ele
     SDL_Rect shiftedRect = {elm_reso[(*selecElement)].rect.x, elm_reso[(*selecElement)].rect.y, elm_reso[(*selecElement)].rect.w, elm_reso[(*selecElement)].rect.h};
     
     /*Affichage le texte pour l'élément sélectionné*/
-    SDL_Surface* textSurface = TTF_RenderText_Solid(police, elm_reso[(*selecElement)].info, COLOR);
+    SDL_Surface* textSurface = TTF_RenderText_Solid(police, elm_reso[(*selecElement)].info, BLACK);
     SDL_Texture* textTexture = SDL_CreateTextureFromSurface(rendu, textSurface);
     SDL_Rect textRect = creationRectangle(fenetre, shiftedRect.x, shiftedRect.y, shiftedRect.w, shiftedRect.h);
     SDL_RenderCopy(rendu, textTexture, NULL, &textRect);
@@ -293,7 +296,7 @@ void afficherSousMenuRejoindre(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Fon
     SDL_RenderFillRect(rendu, &zone_texte); 
 
     /*Affichage du texte saisie par l'utilisateur*/
-    SDL_Surface* textSurface = TTF_RenderText_Solid(police, textInput, (SDL_Color){0, 0, 0, 255});
+    SDL_Surface* textSurface = TTF_RenderText_Solid(police, textInput, BLACK);
     if (textSurface) {
         SDL_Texture* textTexture = SDL_CreateTextureFromSurface(rendu, textSurface);
         if (textTexture) {
@@ -307,10 +310,10 @@ void afficherSousMenuRejoindre(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Fon
     /*Affecte le message de conformité de l'adresse IP*/
     SDL_Surface* message = NULL;
     if((*isValid)){
-        message = TTF_RenderText_Solid(police, "Adresse IP valide", (SDL_Color){0, 255, 0, 255});
+        message = TTF_RenderText_Solid(police, "Adresse IP valide", GREEN);
     }
     else{
-        message = TTF_RenderText_Solid(police, "Adresse IP invalide", (SDL_Color){255, 0, 0, 255});
+        message = TTF_RenderText_Solid(police, "Adresse IP invalide", RED);
     }
 
     /*Affichage du message de conformité de l'adresse IP

@@ -6,8 +6,11 @@
 /**************/
 /*--Includes--*/
 /**************/
-#include "lib/affichage_menu.h"
-#include "lib/menu.h"
+#include "../lib/affichage_menu.h"
+#include "../lib/gestion.h"
+#include "../lib/ordinateur.h"
+#include "../lib/help.h"
+#include "../lib/commun_SDL.h"
 
 
 /*************************/
@@ -54,7 +57,9 @@ int main(int argc, char* argv[]) {
     /*Police principale*/
     TTF_Font* police = chargementPolice(rendu, fenetre, textureFond, "font/Handjet/Handjet-SemiBold.ttf", 60);
     TTF_SetFontHinting(police, TTF_HINTING_NORMAL); 
-
+    /*Police texte*/
+    TTF_Font* police_texte = chargementPolice(rendu, fenetre, textureFond, "font/Handjet/Handjet-Medium.ttf", 60);
+    TTF_SetFontHinting(police_texte, TTF_HINTING_NORMAL); 
 
     /***********/
     /*-Musique-*/
@@ -73,12 +78,12 @@ int main(int argc, char* argv[]) {
     /*-Variables SDL-*/
     /*****************/
     /*État actuel du menu*/
-    etatMenu_t* etatMenu = malloc(sizeof(etatMenu_t));
+    etat_t* etat = malloc(sizeof(etat_t));
     /*Initialisation de l'état du menu*/
-    (*etatMenu) = PAGE_ACCUEIL;
+    (*etat) = PAGE_ACCUEIL;
 
     /*État actuel de l'age*/
-    age_t* etatAge = malloc(sizeof(age_t));
+    int* etatAge = malloc(sizeof(int));
     (*etatAge) = Prehistoire;
 
     /*Variables pour la gestion de la souris*/
@@ -130,12 +135,65 @@ int main(int argc, char* argv[]) {
     (*keyCounts) = 0;
 
 
+
+    
+    /**********/
+    /*-Images-*/
+    /**********/
+    SDL_Texture* parametre = chargementImg(rendu, fenetre, "img/HUD/parametre.png");
+    SDL_Texture* upgrade = chargementImg(rendu, fenetre, "img/HUD/upgrade.png");
+    SDL_Texture* gold = chargementImg(rendu, fenetre, "img/HUD/gold.png");
+    SDL_Texture* xp = chargementImg(rendu, fenetre, "img/HUD/xp.png");
+
+    /*Chargement des imges d'arrière plan*/
+    SDL_Texture* prehistoire = chargementImg(rendu, fenetre, "img/Fond/Préhistoire_v2.jpg");
+    SDL_Texture* antiquite = chargementImg(rendu, fenetre, "img/Fond/Antiquité_v2.jpg");
+    SDL_Texture* moyen_age = chargementImg(rendu, fenetre, "img/Fond/Moyen-Âge_v2.jpg");
+    SDL_Texture* moderne = chargementImg(rendu, fenetre, "img/Fond/Moderne_v2.jpg");
+    SDL_Texture* futuriste = chargementImg(rendu, fenetre, "img/Fond/Futuriste_v2.jpg");
+
+
+
+    /*****************/
+    /*-Variables jeu-*/
+    /*****************/
+    int attaque = 0;
+    int nb_attaque = 1;
+    int* upgarde_j = malloc(sizeof(int));
+    (*upgarde_j) = 0;
+    int i;
+
+    SDL_Rect playerImg = {TAILLE_SPRITE*0 , TAILLE_SPRITE*11, TAILLE_SPRITE*1, TAILLE_SPRITE*1};   //position sur le png avec tous les sprite
+    SDL_Rect ordiImg = {TAILLE_SPRITE*0 , TAILLE_SPRITE*9, TAILLE_SPRITE*1, TAILLE_SPRITE*1};
+    SDL_Rect playerPosition[MAX_POSSESSED]; // position et taille du sprite sur l'écran
+    SDL_Rect ordiPosition[MAX_POSSESSED];
+    Uint32 lastMovement = 0; //dernier mouvement du sprite
+
+    character_t * tab_de_charactere = initcharacter();
+    player_t * j1 = initplayer(EASY,OWNER_1);
+    ordi_t * o = init_ordi(EASY);
+
+
+
+    SDL_Texture* image[8]={IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+melee].sprite),
+                           IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+marksman].sprite),
+                           IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+tank].sprite),
+                           IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+specialist].sprite),
+                           NULL,NULL,NULL,NULL};
+
+    SDL_Texture* img_char[MAX_POSSESSED];
+    SDL_Texture * img_c_ordi[MAX_POSSESSED];
+
+
+
     /*********************/
     /*-Boucle Principale-*/
     /*********************/
     int* continuer = malloc(sizeof(int));
     (*continuer) = SDL_TRUE;
     while ((*continuer)) {
+        Uint32 currentTime = SDL_GetTicks();
+
         /*Récupération dimension fenêtre*/
         SDL_GetWindowSize(fenetre, &w, &h);
 
@@ -159,31 +217,33 @@ int main(int argc, char* argv[]) {
                     mouseY = evenement.button.y;
 
 					/*Gestion des cliquable sur les éléments du menu*/
-                    clic_menu(etatMenu, fenetre, evenement, elm_reso, click, mouseX, mouseY, w, h, 
+                    clic(etat, fenetre, evenement, elm_reso, click, mouseX, mouseY, w, h, 
                               (*widthFactor), (*heightFactor), menuX, menuY, index_effet, continuer, 
                               selecElement, effet, isValide, textInput, ipPattern, textInputActive, keyCounts,
-                              x, y, ancienSon, ancienReso);
+                              x, y, ancienSon, ancienReso, j1, upgarde_j, tab_de_charactere);
+
+                    
                     break;
 
                 /*Gestion du relachement du clic de la souris*/
                 case SDL_MOUSEBUTTONUP:
 
 					/*Gestion du relachement du clique de la souris sur les éléments du menu*/
-                	relachement_menu(etatMenu, menuX, menuY, w, h, widthFactor, heightFactor, mouseX, mouseY);
+                	relachement(etat, menuX, menuY, w, h, widthFactor, heightFactor, mouseX, mouseY);
                     break;
                 
                 /*Gestion du déplacement de la souris*/
                 case SDL_MOUSEMOTION:
                 
 					/*Gestion du déplacement de la souris sur les éléments du menu*/
-				   	deplacement_menu(music, mouseX, evenement, widthFactor);
+				   	deplacement_souris(music, mouseX, evenement, widthFactor);
                 	break;
 
                 /*Gestion des touches du clavier*/
                 case SDL_KEYDOWN:
                     
                     /*Gestion des touches pour l'adresse IP*/
-                    touches_menu(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern);
+                    touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern);
                     break;
 
                 /*Gestion du texte saisie*/
@@ -202,15 +262,22 @@ int main(int argc, char* argv[]) {
                     
             }
         }
-
         
         /*Afficher l'image du menu*/
         SDL_RenderCopy(rendu, textureFond, NULL, NULL);
 
 
         /*Gestion de l'affichage en fonction de l'état*/
-        affichage((*etatMenu), (*etatAge),rendu, fenetre, police, menuX, menuY, elm_reso, selecElement, effet, textInput, isValide, keyCounts);
+        affichage((*etat), etatAge,rendu, fenetre, police, police_texte, menuX, menuY, elm_reso, selecElement, 
+                  effet, textInput, isValide, keyCounts, parametre, gold, xp, prehistoire, antiquite,
+                  moyen_age, moderne, futuriste, j1, image, upgrade, o);
 
+        /*On appelle les fonctions du jeu si on est dans une partie*/
+        if((*etat) == JOUER){
+            envoie_char(&j1);
+            jeu_ordi(o,j1,tab_de_charactere);
+            afficher_player(j1);
+        }
 
 
         /*Amélioration antialiasing*/
@@ -224,22 +291,16 @@ int main(int argc, char* argv[]) {
     /*Libérer les ressources*/
 
 	/*Destruction des éléments du menu*/
-	destruction_menu(selecElement, index_effet, continuer, etatMenu, widthFactor, heightFactor, textInputActive, isValide, keyCounts, ancienSon, etatAge, ancienReso);
+	destruction(selecElement, index_effet, continuer, etat, widthFactor, heightFactor, textInputActive, isValide, keyCounts, ancienSon, etatAge, ancienReso);
+    free(upgarde_j);
 
+    destroy_player(&j1);
+    detr_ordi(&o);
     /*****************************/
     /*-Libération des ressources-*/
     /*****************************/
-    SDL_DestroyTexture(textureFond);
-    TTF_CloseFont(police);
-    SDL_DestroyRenderer(rendu);
-    SDL_DestroyWindow(fenetre);
-    Mix_FreeChunk(click);
-    Mix_FreeChunk(music);
-    Mix_CloseAudio();
-    TTF_Quit();
-    IMG_Quit();
-    Mix_Quit();
-    SDL_Quit();
+    destruction_SDL(parametre, gold, xp, textureFond, prehistoire, antiquite, moyen_age,
+                    moderne, futuriste, police, police_texte, rendu, fenetre, click, music);
 
     return EXIT_SUCCESS;
 }

@@ -6,6 +6,8 @@
 #include <string.h>
 #include <time.h>
 
+#include "commun_SDL.h"
+
 /* NOMBRE D'AGE ET NOMBRE DE PERSONNAGE PAR AGE */
 #define NB_AGE 5
 #define NB_CHARACTER 4
@@ -36,7 +38,7 @@
 /* INITIALISATION DU DÉLAI D'ATTENTE POUR FORMER LES TROUPES */
 #define DELAI_INITAL -1
 
-typedef enum age_s { Prehistoire, Antiquite, Moyen_Age, Ere_Moderne, Ere_Futuriste }age_t;
+//typedef enum age_s { Prehistoire, Antiquite, Moyen_Age, Ere_Moderne, Ere_Futuriste }age_t;
 typedef enum monstre_Prehistoire_s { combattant_massue, combattant_caillou, gorille, combattant_dinosaure }monstre_Prehistoire_t;
 typedef enum monstre_Antiquite_s { legionnaire_epee, legionnauire_lance, legionnaire_cheval, legionnaire_hippopotame }monstre_Antiquite_t;
 typedef enum monstre_Moyen_Age_s { chevalier_epee_bouclier,chevalier_fronde, chevalier_tortue, chevalier_poulet }monstre_Moyen_Age_t;

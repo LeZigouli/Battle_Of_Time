@@ -114,3 +114,31 @@ SDL_Rect creationRectangle(SDL_Window* fenetre, int x, int y, int largeur, int h
 
     return rect;
 }
+
+/*Destruction des variables SDL et fermeture de la SDL*/
+void destruction_SDL(SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp, SDL_Texture* textureFond, 
+                     SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age, SDL_Texture* moderne,
+                     SDL_Texture* futuriste, TTF_Font* police, TTF_Font* police_texte, SDL_Renderer* rendu,
+                     SDL_Window* fenetre, Mix_Chunk* click, Mix_Chunk* music)
+{
+    SDL_DestroyTexture(parametre);
+    SDL_DestroyTexture(gold);
+    SDL_DestroyTexture(xp);
+    SDL_DestroyTexture(textureFond);
+    SDL_DestroyTexture(prehistoire);
+    SDL_DestroyTexture(antiquite);
+    SDL_DestroyTexture(moyen_age);
+    SDL_DestroyTexture(moderne);
+    SDL_DestroyTexture(futuriste);
+    TTF_CloseFont(police);
+    TTF_CloseFont(police_texte);
+    SDL_DestroyRenderer(rendu);
+    SDL_DestroyWindow(fenetre);
+    Mix_FreeChunk(click);
+    Mix_FreeChunk(music);
+    Mix_CloseAudio();
+    TTF_Quit();
+    IMG_Quit();
+    Mix_Quit();
+    SDL_Quit();
+}

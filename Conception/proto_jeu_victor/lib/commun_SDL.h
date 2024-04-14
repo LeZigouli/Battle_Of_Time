@@ -8,7 +8,6 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
-#include <stdbool.h>
 #include <regex.h>
 
 /************/
@@ -18,7 +17,7 @@
 #define IMAGE_WIDTH 3840 
 #define IMAGE_HEIGHT 720
 /*Vitesse de du déplacement de la caméra*/
-#define SCROLL_SPEED 50
+#define SCROLL_SPEED 20
 /*Dimensions de base de la fenêtre*/
 #define WINDOW_WIDTH 1080
 #define WINDOW_HEIGHT 720
@@ -33,7 +32,10 @@
 #define ELEMENT_SPACING 20 // Espacement entre les éléments
 
 /*Code couleur */
-#define COLOR (SDL_Color){0, 0, 0}
+#define BLACK (SDL_Color){0, 0, 0}
+#define WHITE (SDL_Color){255, 255, 255}
+#define GREEN (SDL_Color){0, 255, 0}
+#define RED   (SDL_Color){255, 0, 0}
 
 /*Structure menu Resolution*/
 typedef struct {
@@ -44,7 +46,7 @@ typedef struct {
 } element_t;
 
 /*Énumération des états de menu*/
-typedef enum MenuState {
+typedef enum etat_s {
     PAGE_ACCUEIL,
     MENU_PRINCIPAL,
     MENU_SOUS_JOUER,
@@ -57,7 +59,7 @@ typedef enum MenuState {
     MENU_SOUS_REJOINDRE,
     JOUER,
     OPTION_JEU
-}etatMenu_t;
+}etat_t;
 
 /*Énumération des ages du jeu*/
 typedef enum age_s { Prehistoire, Antiquite, Moyen_Age, Ere_Moderne, Ere_Futuriste }age_t;
@@ -77,6 +79,11 @@ TTF_Font* chargementPolice(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture
 Mix_Chunk* chargementAudio(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* textureFond, char* path);
 SDL_Texture* chargementImg(SDL_Renderer* rendu, SDL_Window* fenetre, char* path);
 SDL_Rect creationRectangle(SDL_Window* fenetre, int x, int y, int largeur, int hauteur);
+
+void destruction_SDL(SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp, SDL_Texture* textureFond, 
+                     SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age, SDL_Texture* moderne,
+                     SDL_Texture* futuriste, TTF_Font* police, TTF_Font* police_texte, SDL_Renderer* rendu,
+                     SDL_Window* fenetre, Mix_Chunk* click, Mix_Chunk* music);
 
 
 #endif

@@ -1,17 +1,18 @@
-#include "lib/menu.h"
+#include "../lib/gestion.h"
 
 
 /***************/
 /*--Fonctions--*/
 /***************/
 /*Gestion du clic de la souris sur les éléments du menu*/
-void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, element_t* elm_reso, Mix_Chunk* click, 
+void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm_reso, Mix_Chunk* click, 
                int mouseX, int mouseY, int w, int h, float widthFactor, float heightFactor, int menuX, int menuY, int* index_effet, 
                int* continuer, int* selecElement, char* effet, int* isValid, const char* textInput, const char* ipPattern, 
-               int* textInputActive, int* keyCounts, int x, int y, int* ancienSon, int* ancienReso)
+               int* textInputActive, int* keyCounts, int x, int y, int* ancienSon, int* ancienReso, player_t* j1, int* upgarde_j,
+               character_t* tab_de_charactere)
 {
     /*Gestion des clics sur les menus*/
-    switch((*etatMenu)){
+    switch((*etat)){
 
         /***** ****/
         /*--MENU--*/
@@ -25,7 +26,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
             if (mouseX >= menuX && mouseX <= menuX + (MENU_WIDTH * widthFactor) &&
                 mouseY >= menuY && mouseY <= menuY + (MENU_HEIGHT * heightFactor)) {
                 /*Clic sur le bouton "Menu Principale"*/
-                (*etatMenu) = MENU_PRINCIPAL;
+                (*etat) = MENU_PRINCIPAL;
                 //Bruit quand on clique sur l'élément
                 if(!(*index_effet)){
                         Mix_PlayChannel(1, click, 0);
@@ -48,7 +49,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_SOUS_JOUER;
+                    (*etat) = MENU_SOUS_JOUER;
                 }
                 /*Clic sur le bouton "Options"*/
                 else if (mouseY >= menuY + ((SPACING/2) * heightFactor) && mouseY <= menuY + 0.9 * (MENU_HEIGHT * heightFactor)){
@@ -57,7 +58,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_SOUS_OPTIONS;
+                    (*etat) = MENU_SOUS_OPTIONS;
                 }
                 /*Clic sur le bouton "Crédits"*/
                 else if (mouseY >= menuY + 1.2 * (MENU_HEIGHT * heightFactor) + (SPACING * heightFactor) && mouseY <= menuY + 1.8 * (MENU_HEIGHT * heightFactor) + (SPACING * heightFactor)) {
@@ -66,7 +67,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_SOUS_CREDITS;
+                    (*etat) = MENU_SOUS_CREDITS;
                 }
                 /*Clic sur le bouton "Quitter"*/
                 else if (mouseY >= menuY + 2.7 * (MENU_HEIGHT  * heightFactor) + (SPACING * heightFactor) && mouseY <= menuY + 3.4 * (MENU_HEIGHT * heightFactor) + (SPACING * heightFactor)) {
@@ -96,7 +97,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                     }
                     (*ancienSon) = MENU_SOUS_OPTIONS;
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_SOUS_SON;
+                    (*etat) = MENU_SOUS_SON;
                 }
                 /*Clic sur le bouton "Résolution"*/
                 else if (mouseY >= menuY + ((MENU_HEIGHT + SPACING) * heightFactor) && mouseY <= menuY + 2 * ((MENU_HEIGHT + SPACING) * heightFactor) - SPACING) {
@@ -106,7 +107,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                     }
                     (*ancienReso) = MENU_SOUS_OPTIONS;
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_SOUS_RESOLUTION;
+                    (*etat) = MENU_SOUS_RESOLUTION;
                 }
                 /*Clic sur le bouton "Retour"*/
                 else if (mouseY >= menuY + 2 * ((MENU_HEIGHT + SPACING) * heightFactor) && mouseY <= menuY + 3 * ((MENU_HEIGHT + SPACING) * heightFactor) - SPACING) {
@@ -115,7 +116,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_PRINCIPAL;
+                    (*etat) = MENU_PRINCIPAL;
                 }
             }
             break;
@@ -182,10 +183,10 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                     }
                     /*Changement d'état du menu en fonction de la page précédente*/
                     if((*ancienReso) == MENU_SOUS_OPTIONS){
-                        (*etatMenu) = MENU_SOUS_OPTIONS;
+                        (*etat) = MENU_SOUS_OPTIONS;
                     }
                     else if((*ancienReso) == OPTION_JEU){
-                        (*etatMenu) = OPTION_JEU;
+                        (*etat) = OPTION_JEU;
                     } 
                 }
             }
@@ -205,7 +206,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_PRINCIPAL;
+                    (*etat) = MENU_PRINCIPAL;
                 }
             break;
         
@@ -247,10 +248,10 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                     }
                     /*Changement d'état du menu en fonction de la page précédente*/
                     if((*ancienSon) == MENU_SOUS_OPTIONS){
-                        (*etatMenu) = MENU_SOUS_OPTIONS;
+                        (*etat) = MENU_SOUS_OPTIONS;
                     }
                     else if((*ancienSon) == OPTION_JEU){
-                        (*etatMenu) = OPTION_JEU;
+                        (*etat) = OPTION_JEU;
                     }
                 }
             }
@@ -271,7 +272,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'éat du menu*/
-                    (*etatMenu) = MENU_SOUS_SOLO;
+                    (*etat) = MENU_SOUS_SOLO;
                 }
                 /*Clic sur le bouton "En ligne"*/
                 else if(mouseY >= menuY + 1.2 * (MENU_HEIGHT * heightFactor) + (SPACING * heightFactor) && mouseY <= menuY + 1.8 * (MENU_HEIGHT * heightFactor) + (SPACING * heightFactor)){
@@ -280,7 +281,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_SOUS_ENLIGNE;
+                    (*etat) = MENU_SOUS_ENLIGNE;
                 } 
                 /*Clic sur le bouton "Retour"*/
                 else if(mouseY >= menuY + 3 * ((MENU_HEIGHT + SPACING) * heightFactor) && mouseY <= menuY + 3 * ((MENU_HEIGHT + SPACING) * heightFactor) + MENU_HEIGHT){
@@ -289,7 +290,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_PRINCIPAL;
+                    (*etat) = MENU_PRINCIPAL;
                 }
                 }
             break;
@@ -309,7 +310,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    (*etatMenu) = JOUER;
+                    (*etat) = JOUER;
                 }
                 /*Clic sur le bouton "Reprendre Partie"*/
                 else if(mouseY >= menuY + 1.2 * (MENU_HEIGHT * heightFactor) + (SPACING * heightFactor) && mouseY <= menuY + 1.8 * (MENU_HEIGHT * heightFactor) + (SPACING * heightFactor)){
@@ -327,7 +328,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_SOUS_JOUER;
+                    (*etat) = MENU_SOUS_JOUER;
                 }
             }
             break;
@@ -355,7 +356,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état de menu*/
-                    (*etatMenu) = MENU_SOUS_REJOINDRE;
+                    (*etat) = MENU_SOUS_REJOINDRE;
                 } 
                 /*Clic sur le bouton "Retour"*/
                 else if(mouseY >= menuY + 3 * ((MENU_HEIGHT + SPACING) * heightFactor) && mouseY <= menuY + 3 * ((MENU_HEIGHT + SPACING) * heightFactor) + MENU_HEIGHT){
@@ -364,7 +365,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_SOUS_JOUER;
+                    (*etat) = MENU_SOUS_JOUER;
                 }
             }
             break;
@@ -401,7 +402,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                     /*Remet le compteur à 0*/
                     (*keyCounts) = 0;
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_SOUS_ENLIGNE;
+                    (*etat) = MENU_SOUS_ENLIGNE;
                 }
             }
             break;
@@ -420,9 +421,64 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                     Mix_PlayChannel(1, click, 0);
                 }
                 /*Changement d'état du menu*/
-                (*etatMenu) = OPTION_JEU;
+                (*etat) = OPTION_JEU;
             }
+            /*Clic sur le bouton d'upgrade*/
+            else if(mouseX >= (20 * widthFactor) && mouseX <= (70 * widthFactor) &&
+                    mouseY >= (105 * heightFactor) && mouseY <= (155 * heightFactor)){
+                //Bruit quand on clique sur l'élément
+                if(!(*index_effet)){
+                    Mix_PlayChannel(1, click, 0);
+                }
+                /*On change d'âge en appelant la fonction dédiée*/
+                upgrade_building(&j1->building,&j1->xp);
+                (*upgarde_j)++;
+            }
+            /*Clic sur le personnage 1*/
+            else if(mouseX >= (250 * widthFactor) && mouseX <= (314 * widthFactor) &&
+                    mouseY >= (36 * heightFactor) && mouseY <= (100 * heightFactor)){
+                //Bruit quand on clique sur l'élément
+                if(!(*index_effet)){
+                    Mix_PlayChannel(1, click, 0);
+                }
+                /*Le joueur achète un caractère*/
+                buy_character(&j1, tab_de_charactere, melee);
+            }
+            /*Clic sur le personnage 2*/
+            else if(mouseX >= (319 * widthFactor) && mouseX <= (383 * widthFactor) &&
+                    mouseY >= (36 * heightFactor) && mouseY <= (100 * heightFactor)){
+                //Bruit quand on clique sur l'élément
+                if(!(*index_effet)){
+                    Mix_PlayChannel(1, click, 0);
+                }
+                /*Le joueur achète un caractère*/
+                buy_character(&j1, tab_de_charactere, marksman);
+            }
+            /*Clic sur le personnage 3*/
+            else if(mouseX >= (388 * widthFactor) && mouseX <= (452 * widthFactor) &&
+                    mouseY >= (36 * heightFactor) && mouseY <= (100 * heightFactor)){
+                //Bruit quand on clique sur l'élément
+                if(!(*index_effet)){
+                    Mix_PlayChannel(1, click, 0);
+                }
+                /*Le joueur achète un caractère*/
+                buy_character(&j1, tab_de_charactere, tank);
+            }
+            /*Clic sur le personnage 4*/
+            else if(mouseX >= (457 * widthFactor) && mouseX <= (521 * widthFactor) &&
+                    mouseY >= (36 * heightFactor) && mouseY <= (100 * heightFactor)){
+                //Bruit quand on clique sur l'élément
+                if(!(*index_effet)){
+                    Mix_PlayChannel(1, click, 0);
+                }
+                /*Le joueur achète un caractère*/
+                buy_character(&j1, tab_de_charactere, specialist);
+            }
+            
+
+
             break;
+
 
         /*Vérifier si le clic est dans la zone du menu Option dans le jeu*/   
         case OPTION_JEU:
@@ -439,7 +495,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    (*etatMenu) = JOUER;
+                    (*etat) = JOUER;
                 }
                 /*Clic sur le bouton 'Sauvegarde'*/
                 else if(mouseY >= menuY + (SPACING + 10 * heightFactor) && mouseY <= menuY + (((MENU_HEIGHT + SPACING) - 10) * heightFactor)){
@@ -448,7 +504,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    //(*etatMenu) = ;
+                    //(*etat) = ;
                 }
                 /*Clic sur le bouton 'Musique/Son'*/
                 else if(mouseY >= menuY + ((MENU_HEIGHT + 2 * SPACING) + 10) * heightFactor && mouseY <= menuY + (( 2 * (MENU_HEIGHT + SPACING) - 10) * heightFactor) ){
@@ -458,7 +514,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                     }
                     (*ancienSon) = OPTION_JEU;
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_SOUS_SON;
+                    (*etat) = MENU_SOUS_SON;
                     
                 }
                 /*Clic sur le bouton 'Résolution*/
@@ -469,7 +525,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                     }
                     (*ancienReso) = OPTION_JEU;
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_SOUS_RESOLUTION;
+                    (*etat) = MENU_SOUS_RESOLUTION;
                 }
                 else if(mouseY >= menuY + ((3 * MENU_HEIGHT + 4 * SPACING) + 10) * heightFactor && mouseY <= menuY + (( 4 * (MENU_HEIGHT + SPACING) - 10) * heightFactor)){
                     //Bruit quand on clique sur l'élément
@@ -477,7 +533,7 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    (*etatMenu) = MENU_PRINCIPAL;
+                    (*etat) = MENU_PRINCIPAL;
                 }
             }
             break;
@@ -488,10 +544,10 @@ void clic_menu(etatMenu_t* etatMenu, SDL_Window* fenetre, SDL_Event evenement, e
 }
 
 /*Gestion du relachement du clic de la souris sur les éléments du menu*/
-void relachement_menu(etatMenu_t* etatMenu, int menuX, int menuY, int w, int h, float* widthFactor, float* heightFactor, int mouseX, int mouseY)
+void relachement(etat_t* etat, int menuX, int menuY, int w, int h, float* widthFactor, float* heightFactor, int mouseX, int mouseY)
 {
     /*Gestion du relachement du clique de la souris*/
-    if((*etatMenu) == MENU_SOUS_SON){
+    if((*etat) == MENU_SOUS_SON){
         /*Calcul de la position de x et y*/
         menuX = (w - (MENU_WIDTH * (*widthFactor))) / 2; //Position horizontale
         menuY = (h - ((MENU_HEIGHT * (*heightFactor)) + (SPACING * (*heightFactor)))) / 2; //Position verticale
@@ -505,7 +561,7 @@ void relachement_menu(etatMenu_t* etatMenu, int menuX, int menuY, int w, int h, 
 }
 
 /*Gestion du déplacement de la souris sur les éléments du menu*/
-void deplacement_menu(Mix_Chunk* music, int mouseX, SDL_Event evenement, float* widthFactor)
+void deplacement_souris(Mix_Chunk* music, int mouseX, SDL_Event evenement, float* widthFactor)
 {
     /*Déplacer le curseur si l'utilisateur déplace la souris tout en maintenant le bouton de la souris enfoncé*/
     if (estLache) {
@@ -522,7 +578,7 @@ void deplacement_menu(Mix_Chunk* music, int mouseX, SDL_Event evenement, float* 
 }
 
 /*Fonction de destruction des variables pour le menu*/
-void destruction_menu(int* selecElement, int* index_effet, int* continuer, etatMenu_t* etatMenu, float* widthFactor, float* heightFactor, int* textInputActive, int* isValid, int* keyCounts, int* ancienSon, age_t* etatAge, int* ancienReso)
+void destruction(int* selecElement, int* index_effet, int* continuer, etat_t* etat, float* widthFactor, float* heightFactor, int* textInputActive, int* isValid, int* keyCounts, int* ancienSon, age_t* etatAge, int* ancienReso)
 {
     /*Destruction des variables allouée dynamiquement*/
     free(textInputActive);
@@ -536,7 +592,7 @@ void destruction_menu(int* selecElement, int* index_effet, int* continuer, etatM
     free(etatAge);
     free(index_effet);
     free(continuer);
-    free(etatMenu);
+    free(etat);
     free(widthFactor);
     free(heightFactor);
 }
@@ -561,7 +617,7 @@ int validateRegex(const char *input, const char *pattern)
     return valid == 0 ? 1 : 0;
 }
 
-void touches_menu(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern)
+void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern)
 {
     /*Si la saisie du texte est activée*/
     if ((*textInputActive)) {
