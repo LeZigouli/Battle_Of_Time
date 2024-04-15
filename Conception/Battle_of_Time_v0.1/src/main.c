@@ -178,10 +178,8 @@ int main(int argc, char* argv[]) {
     SDL_Rect ordiPosition[MAX_POSSESSED];
 
     character_t * tab_de_charactere = initcharacter();
-    player_t * j1 = initplayer(EASY,OWNER_1);
-    ordi_t * o = init_ordi(EASY);
-
-
+    player_t * j1 = initplayer(OWNER_1);; 
+    ordi_t * o = init_ordi(); 
 
     SDL_Texture* image[8]={IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+melee].sprite),
                            IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+marksman].sprite),
@@ -240,9 +238,7 @@ int main(int argc, char* argv[]) {
                     clic(etat, fenetre, evenement, elm_reso, click, mouseX, mouseY, w, h, 
                               (*widthFactor), (*heightFactor), menuX, menuY, index_effet, continuer, 
                               selecElement, effet, isValide, textInput, ipPattern, textInputActive, keyCounts,
-                              x, y, ancienSon, ancienReso, j1, upgarde_j, tab_de_charactere);
-
-                    
+                              x, y, ancienSon, ancienReso, j1, upgarde_j, tab_de_charactere, o);
                     break;
 
                 /*Gestion du relachement du clic de la souris*/
@@ -293,39 +289,25 @@ int main(int argc, char* argv[]) {
         /*Afficher l'image du menu*/
         SDL_RenderCopy(rendu, textureFond, NULL, NULL);
 
-
         /*Gestion de l'affichage en fonction de l'état*/
         affichage((*etat), etatAge,rendu, fenetre, police, police_texte, menuX, menuY, elm_reso, selecElement, 
                   effet, textInput, isValide, keyCounts, parametre, gold, xp, prehistoire, antiquite,
                   moyen_age, moderne, futuriste, j1, image, upgrade, o, cameraX, cameraY);
-
-        /*
-        if(attaque == 0 && resize == 0){
-                //si le perso n'attaque plus on le remet a sa taille d'origine (car taille des sprite lors des animations différentes)
-                playerImg.h = TAILLE_SPRITE;
-                playerImg.w = TAILLE_SPRITE;
-                playerImg.x = 128;
-                playerImg.y = TAILLE_SPRITE*11;
-
-                playerPosition.h=128;
-                playerPosition.w=128;
-                playerPosition.x+=128;
-                playerPosition.y+=128;
-                
-                resize=1;
-
-        }*/
         
-
+    
         /*On appelle les fonctions du jeu si on est dans une partie*/
         if((*etat) == JOUER){
+            
             envoie_char(&j1);
             jeu_ordi(o,j1,tab_de_charactere);
-            afficher_player(j1);
+            //afficher_player(j1);
             affichageSprite(rendu, j1, o, &playerImg, &ordiImg, attaque, playerPosition, ordiPosition, upgarde_j, 
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY);
         }
 
+        if((*etat) == JOUER_RESEAU_CREER){
+
+        }
 
         /*Amélioration antialiasing*/
         SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"2");
@@ -333,6 +315,8 @@ int main(int argc, char* argv[]) {
         /*Actualiser l'affichage*/
         SDL_RenderPresent(rendu);
 
+        /*Limite le processeur*/
+        SDL_Delay(16);
     }
 
     /*Libérer les ressources*/
@@ -349,6 +333,7 @@ int main(int argc, char* argv[]) {
 
     free(cameraX);
     free(cameraY);
+    
 
     destruction_SDL(parametre, gold, xp, textureFond, prehistoire, antiquite, moyen_age,
                     moderne, futuriste, police, police_texte, rendu, fenetre, click, music);

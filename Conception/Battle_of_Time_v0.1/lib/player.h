@@ -19,7 +19,7 @@ typedef struct{
 
 }player_t;
 
-player_t * initplayer(int difficulty, int owner);
+player_t * initplayer(int owner);
 void destroy_player(player_t ** player);
 booleen_t buy_character(player_t ** player, character_t tab_character[NB_AGE*NB_CHARACTER], int newCha);
 void envoie_char(player_t ** player);

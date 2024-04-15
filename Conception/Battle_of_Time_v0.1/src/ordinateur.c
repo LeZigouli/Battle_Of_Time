@@ -17,7 +17,7 @@
 
 unsigned long int debut,fin,d_ulti,f_ulti;
 
-ordi_t * init_ordi(int difficulte){
+ordi_t * init_ordi(){
     ordi_t * ordi=malloc(sizeof(ordi_t));
     if(ordi !=NULL){
         ordi->owner=ORDINATEUR;
@@ -27,7 +27,6 @@ ordi_t * init_ordi(int difficulte){
                 ordi->characters->nb=0;
                 for(int i=0; i<MAX_POSSESSED;i++)
                     ordi->characters->tab[i]=NULL;
-                ordi->difficulte=difficulte;
                 ordi->delai=DELAI_INITAL;
                 ordi->xp=0;
                 ordi->delai_ulti=DELAI_INITAL;

@@ -22,7 +22,7 @@ typedef struct
 	building_t * building;
 }ordi_t;
 
-ordi_t * init_ordi(int difficulte);
+ordi_t * init_ordi();
 int detr_ordi(ordi_t ** ordi);
 int envoie_char_ordi(ordi_t * ordi, character_t * tab);
 

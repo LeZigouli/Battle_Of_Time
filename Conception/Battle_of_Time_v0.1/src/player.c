@@ -10,7 +10,7 @@
 /************/
 
 /* initialisation du joueur */
-player_t * initplayer(int difficulty, int owner)
+player_t * initplayer(int owner)
 {
 	player_t * main_player = malloc(sizeof(player_t));
 	
@@ -46,24 +46,6 @@ player_t * initplayer(int difficulty, int owner)
 	}
 	main_player->characters->nb=0;
 	main_player->file_attente->nb=0;
-		
-
-	switch(difficulty){
-		case EASY:
-			main_player->gold = 80000;
-			break;
-		case MEDIUM:
-			main_player->gold = 600;
-			break;
-
-		case HARD:
-			main_player->gold = 400;
-			break;
-		
-		default:
-			printf("Erreur a l'initialisation du JOUEUR ( difficulty )\n");
-			break;
-	}
 
 	init_building(&(main_player->building),owner);
 

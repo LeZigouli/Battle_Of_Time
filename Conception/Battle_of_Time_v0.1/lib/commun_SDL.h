@@ -57,8 +57,11 @@ typedef enum etat_s {
     MENU_SOUS_SOLO,
     MENU_SOUS_ENLIGNE,
     MENU_SOUS_REJOINDRE,
+    MENU_DIFFICULTE,
     JOUER,
-    OPTION_JEU
+    OPTION_JEU,
+    JOUER_RESEAU_CREER,
+    JOUER_RESEAU_REJOINDRE
 }etat_t;
 
 /*Énumération des ages du jeu*/

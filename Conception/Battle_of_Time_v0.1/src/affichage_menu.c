@@ -68,6 +68,10 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
         case MENU_SOUS_REJOINDRE:
             afficherSousMenuRejoindre(rendu, fenetre, police, textInput, isValid, keyCounts);
             break;
+
+        case MENU_DIFFICULTE:
+            afficherSousMenuDifficulte(rendu, fenetre, police);
+            break;
         
         case JOUER:
             /*Effacement de l'ancien rendu*/
@@ -77,6 +81,7 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
 
             
             break;
+
 
         case OPTION_JEU:
             afficherOptionJeu(rendu, police, fenetre);
@@ -309,7 +314,7 @@ void afficherSousMenuCredits(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font*
 /*Affichage du sous menu son*/
 void afficherSousMenuSon(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte)
 {
-    /*Calcul des dimensions de l'image */
+    /*Calcul des positions x et y*/
     int menuX = (WINDOW_WIDTH - MENU_WIDTH) / 2; //Position horizontale
     int menuY = (WINDOW_HEIGHT - (MENU_HEIGHT + SPACING)) / 2; //Position verticale
 
@@ -341,7 +346,7 @@ void afficherSousMenuSon(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fene
 /*Affichage du sous-menu 'Rejoindre partie' en ligne*/
 void afficherSousMenuRejoindre(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, char* textInput, int* isValid, int* keyCounts)
 {
-    /*Calcul des dimensions de l'image */
+    /*Calcul des positions x et y*/
     int menuX = (WINDOW_WIDTH - MENU_WIDTH) / 2; //Position horizontale
     int menuY = (WINDOW_HEIGHT - (MENU_HEIGHT + SPACING)) / 2; //Position verticale
 
@@ -402,3 +407,23 @@ void afficherSousMenuRejoindre(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Fon
     afficherMenu(rendu, police, fenetre, "Valider", menuX + 60, menuY + 130, 100, MENU_HEIGHT);
     afficherMenu(rendu, police, fenetre, "Retour", menuX + 50, menuY + 230, 130, MENU_HEIGHT);
 }
+
+/*Affichage du sous-menu 'Difficulté'*/
+void afficherSousMenuDifficulte(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
+{
+    /*Calcul des positions x et y*/
+    int menuX = (WINDOW_WIDTH - MENU_WIDTH) / 2; //Position horizontale
+    int menuY = (WINDOW_HEIGHT - (MENU_HEIGHT + SPACING)) / 2; //Position verticale
+
+    /*Affichage du rectangle translucide derrière le menu*/
+    SDL_SetRenderDrawColor(rendu, 255, 255, 255, 128);/*Couleur semi-transparente*/
+    SDL_Rect rect_menu = creationRectangle(fenetre, menuX, menuY, MENU_WIDTH, (3 * MENU_HEIGHT) + (2 * SPACING));
+    SDL_SetRenderDrawBlendMode(rendu, SDL_BLENDMODE_BLEND);
+    SDL_RenderFillRect(rendu, &rect_menu);
+
+    /*Affichage des différents boutons du sous-menu*/
+    afficherMenu(rendu, police, fenetre, "Facile", menuX, menuY, MENU_WIDTH, MENU_HEIGHT);
+    afficherMenu(rendu, police, fenetre, "Moyen", menuX, menuY + MENU_HEIGHT + SPACING, MENU_WIDTH, MENU_HEIGHT);
+    afficherMenu(rendu, police, fenetre, "Difficile", menuX, menuY + 2 * MENU_HEIGHT + 2 * SPACING, MENU_WIDTH, MENU_HEIGHT);
+}
+

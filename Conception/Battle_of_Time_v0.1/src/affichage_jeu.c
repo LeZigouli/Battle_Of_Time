@@ -236,11 +236,11 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
         deplacement(o->characters, j1->characters->tab[0], 0);
 
         for(i=0; i<j1->characters->nb; i++){
-            playerPosition[i].x = j1->characters->tab[i]->x - (*cameraX);//on avance
+            playerPosition[i].x = j1->characters->tab[i]->x ;//on avance
             playerPosition[i].y = h - (TAILLE_SPRITE * 2) - 16;
         }
         for(i=0; i<o->characters->nb; i++){
-            ordiPosition[i].x = o->characters->tab[i]->x - (*cameraX);
+            ordiPosition[i].x = o->characters->tab[i]->x;
             ordiPosition[i].y = h - (TAILLE_SPRITE * 2) - 16;
         }
 

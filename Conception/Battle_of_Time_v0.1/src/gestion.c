@@ -9,7 +9,7 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                int mouseX, int mouseY, int w, int h, float widthFactor, float heightFactor, int menuX, int menuY, int* index_effet, 
                int* continuer, int* selecElement, char* effet, int* isValid, const char* textInput, const char* ipPattern, 
                int* textInputActive, int* keyCounts, int x, int y, int* ancienSon, int* ancienReso, player_t* j1, int* upgarde_j,
-               character_t* tab_de_charactere)
+               character_t* tab_de_charactere, ordi_t* ordi)
 {
     /*Gestion des clics sur les menus*/
     switch((*etat)){
@@ -310,7 +310,7 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    (*etat) = JOUER;
+                    (*etat) = MENU_DIFFICULTE;
                 }
                 /*Clic sur le bouton "Reprendre Partie"*/
                 else if(mouseY >= menuY + 1.2 * (MENU_HEIGHT * heightFactor) + (SPACING * heightFactor) && mouseY <= menuY + 1.8 * (MENU_HEIGHT * heightFactor) + (SPACING * heightFactor)){
@@ -405,6 +405,51 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                     (*etat) = MENU_SOUS_ENLIGNE;
                 }
             }
+            break;
+
+        /*Vérifier si le clic est dans la zone du menu Difficulté*/
+        case MENU_DIFFICULTE:
+            /*Calcul de la position de x et y*/
+            menuX = (w - (MENU_WIDTH * widthFactor)) / 2; //Position horizontale
+            menuY = (h - ((MENU_HEIGHT * heightFactor) + (SPACING * heightFactor))) / 2; //Position verticale
+
+            if (mouseX >= menuX  && mouseX <= menuX + (MENU_WIDTH * widthFactor) &&
+                mouseY >= menuY && mouseY <= menuY + (((3 * MENU_HEIGHT) + (2 * SPACING))  * heightFactor) ){
+                /*Clic sur le bouton "Facile"*/
+                if(mouseY >= menuY + (10 * heightFactor) && mouseY <= menuY + ((MENU_HEIGHT - 10) * heightFactor)){
+                    //Bruit quand on clique sur l'élément
+                    if(!(*index_effet)){
+                      Mix_PlayChannel(1, click, 0);
+                    }
+                    /*Modifie la difficulté*/
+                    j1->gold = 80000;
+                    ordi->difficulte = EASY;
+                    (*etat) = JOUER;
+                }
+                /*Clic sur le bouton "Moyen"*/
+                else if(mouseY >= menuY + (((MENU_HEIGHT - 10) + SPACING) * heightFactor) && mouseY <= menuY + ((2 * MENU_HEIGHT + SPACING) * heightFactor) ){
+                    //Bruit quand on clique sur l'élément
+                    if(!(*index_effet)){
+                        Mix_PlayChannel(1, click, 0);
+                    }
+                    /*Modifie la difficulté*/
+                    j1->gold = 600;
+                    ordi->difficulte = MEDIUM;
+                    (*etat) = JOUER;
+                }
+                /*Clic sur le bouton "Difficile"*/
+                else if(mouseY >= menuY + ((2 * (MENU_HEIGHT) + 2 * SPACING) * heightFactor) && mouseY <= menuY + (( 3 * (MENU_HEIGHT) + 2 * SPACING) * heightFactor) ){
+                    //Bruit quand on clique sur l'élément
+                    if(!(*index_effet)){
+                        Mix_PlayChannel(1, click, 0);
+                    }
+                    /*Modifie la difficulté*/
+                    j1->gold = 400;
+                    ordi->difficulte = HARD;
+                    (*etat) = JOUER;
+                }
+            }
+
             break;
 
 
