@@ -15,7 +15,7 @@ LIBDIR = lib
 DIRS = $(OBJDIR) $(BINDIR)
 
 .PHONY: DIRS
-all: $(DIRS) $(BINDIR)/$(TARGET)
+all: $(OBJDIR)/serveur.o $(OBJDIR)/client.o $(DIRS) $(BINDIR)/$(TARGET)
 
 #Création des dossiers
 $(OBJDIR):
@@ -24,7 +24,6 @@ $(BINDIR):
 	mkdir -p $(BINDIR)
 $(LIBDIR):
 	mkdir -p $(LIBDIR)
-
 
 SOURCES := $(wildcard $(SRCDIR)/*.c)
 OBJECTS := $(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
@@ -35,14 +34,20 @@ rm = rm -f
 #--Programme--#
 ################
 #Édition des liens
-$(EXEC) : $(OBJECTS)
-	@$(LINKER) $(OBJECTS) -L$(LIBDIR) -o $@  $(LFLAGS)
+$(EXEC) : $(OBJECTS) $(OBJDIR)/client.o $(OBJDIR)/serveur.o
+	@$(LINKER) $(OBJECTS) $(OBJDIR)/client.o $(OBJDIR)/serveur.o -L$(LIBDIR) -o $@  $(LFLAGS)
 	@echo "Édition de liens terminée!"
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c | $(LIBDIR)
 	@$(CC) $(CFLAGS) -I$(LIBDIR) -c $< -o $@
 	@echo "Compilation "$<" réussie!"
 
+# POUR LE SOCKET
+$(OBJDIR)/client.o : socket/client.c socket/client.h
+	gcc -c $< -o $@
+
+$(OBJDIR)/serveur.o : socket/serveur.c socket/serveur.h
+	gcc -c $< -o $@
 
 #################
 #--Utilitaires--#
@@ -50,8 +55,10 @@ $(OBJDIR)/%.o : $(SRCDIR)/%.c | $(LIBDIR)
 #Supprime les fichiers intermidiaires (objets)
 .PHONY: clean
 clean:
-	@$(rm) $(OBJECTS)
+	@$(rm) $(OBJDIR)/*.o
+	
 	@echo "Fichiers objets effacés!"
+
 
 
 #clean + supprime l'exécutable

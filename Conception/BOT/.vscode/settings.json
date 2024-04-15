@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "client.h": "c",
+        "player.h": "c",
+        "common.h": "c",
+        "affichage_menu.h": "c"
+    }
+}

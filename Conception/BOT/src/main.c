@@ -11,6 +11,8 @@
 #include "../lib/ordinateur.h"
 #include "../lib/help.h"
 #include "../lib/commun_SDL.h"
+#include "../socket/serveur.h"
+#include "../socket/client.h"
 
 
 /*************************/
@@ -138,9 +140,6 @@ int main(int argc, char* argv[]) {
     /*Variable pour stocker le nombre de fois que la touche 'Enter' a été appuyée*/
     int* keyCounts = malloc(sizeof(int));
     (*keyCounts) = 0;
-
-
-
     
     /**********/
     /*-Images-*/
@@ -157,7 +156,8 @@ int main(int argc, char* argv[]) {
     SDL_Texture* moderne = chargementImg(rendu, fenetre, "img/Fond/Moderne_v2.jpg");
     SDL_Texture* futuriste = chargementImg(rendu, fenetre, "img/Fond/Futuriste_v2.jpg");
 
-
+    /* reseau */
+    int connection_reussi = FALSE;
 
     /*****************/
     /*-Variables jeu-*/
@@ -259,7 +259,7 @@ int main(int argc, char* argv[]) {
                 case SDL_KEYDOWN:
                     
                     /*Gestion des touches pour l'adresse IP*/
-                    touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern);
+                    touches(evenement, textInputActive, keyCounts, isValide, (char **)textInput, ipPattern);
                     break;
 
                 /*Gestion du texte saisie*/
@@ -306,6 +306,32 @@ int main(int argc, char* argv[]) {
         }
 
         if((*etat) == JOUER_RESEAU_CREER){
+            
+            /*================ RESEAU INITIALISATION ================*/
+            /* si le choix était de creer une partie */
+            /* et que on a pas deja reussi une connection */
+            if ( (*etat) == MENU_SOUS_CREER && !connection_reussi )
+            {
+                init_reseau_serveur();
+                connection_reussi = 1;
+            }
+            /* si le choix était de rejoindre une partie */
+            else if ( (*etat) == MENU_SOUS_REJOINDRE && !connection_reussi )
+            {
+                init_reseau_client(textInput);
+                connection_reussi = 1;
+                printf("%s",textInput);
+            }
+            /*=======================================================*/
+
+            /* jeu */
+
+            /*=============== RESEAU ENVOIE/RECEPTION ===============*/
+            // envoyer_structure()
+            // recevoir_structure()
+            /*=======================================================*/
+
+            /* traitement */
 
         }
 
@@ -324,6 +350,13 @@ int main(int argc, char* argv[]) {
 	/*Destruction des éléments du menu*/
 	destruction(selecElement, index_effet, continuer, etat, widthFactor, heightFactor, textInputActive, isValide, keyCounts, ancienSon, etatAge, ancienReso);
     free(upgarde_j);
+
+    /*================ RESEAU ================*/
+    /* on ferme la connection */
+    if ( (*etat) == MENU_SOUS_CREER      ) serveur_fermeture(&ma_socket);
+    if ( (*etat) == MENU_SOUS_REJOINDRE  ) client_fermeture(&to_server_socket);
+    connection_reussi = FALSE;
+    /*========================================*/
 
     destroy_player(&j1);
     detr_ordi(&o);

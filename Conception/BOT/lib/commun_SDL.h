@@ -57,6 +57,7 @@ typedef enum etat_s {
     MENU_SOUS_SOLO,
     MENU_SOUS_ENLIGNE,
     MENU_SOUS_REJOINDRE,
+    MENU_SOUS_CREER,
     MENU_DIFFICULTE,
     JOUER,
     OPTION_JEU,

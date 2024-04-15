@@ -662,7 +662,7 @@ int validateRegex(const char *input, const char *pattern)
     return valid == 0 ? 1 : 0;
 }
 
-void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern)
+void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char ** textInput,const char* ipPattern)
 {
     /*Si la saisie du texte est activée*/
     if ((*textInputActive)) {
@@ -672,11 +672,11 @@ void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isV
             (*keyCounts)++;
             (*textInputActive) = SDL_FALSE; /*Désactiver la saisie de texte*/
             /*Validation de l'adresse IP*/
-            (*isValid) = validateRegex(textInput, ipPattern);
+            (*isValid) = validateRegex(*textInput, ipPattern);
         }
-        else if (evenement.key.keysym.sym == SDLK_BACKSPACE && strlen(textInput) > 0) {
+        else if (evenement.key.keysym.sym == SDLK_BACKSPACE && strlen(*textInput) > 0) {
             /*Effacer le dernier caractère si la touche BACKSPACE est enfoncée*/
-            textInput[strlen(textInput) - 1] = '\0';
+            (*textInput[strlen(*textInput) - 1]) = '\0';
         }               
     }
     else{
