@@ -16,12 +16,13 @@
  * retour    : 1 si OK sinon 0
  */
 booleen_t save(ordi_t * ordi, player_t * player){
-    FILE * fd;
+
+    FILE * fd_player, * fd_ordi;
 
     /* on ouvre le fichier */
-    if ( (fd = fopen(FICHIER,"w")) == NULL)
+    if ( (fd_player = fopen(FICHIER_1,"w")) == NULL)
     {
-        fprintf(stderr,"Erreur Sauvegarde (chargement/creation fichier : %s)\n",FICHIER);
+        fprintf(stderr,"Erreur Sauvegarde (creation fichier : %s)\n",FICHIER_1);
         return FALSE;
     }
 
@@ -32,12 +33,18 @@ booleen_t save(ordi_t * ordi, player_t * player){
         return FALSE;
     }
 
+    if ( (fd_ordi = fopen(FICHIER_2,"w")) == NULL )
+    {
+        fprintf(stderr,"Erreur Sauvegarde (creation fichier : %s)\n",FICHIER_2);
+        return FALSE;
+    }
+
     /***************************/
     /* on sauvegarde le player */
     /***************************/
 
     /* on ecrit les informations contenus dans le player */
-    fprintf(fd,"%d %s %d %d %ld %ld\n",     player->owner,
+    fprintf(fd_player,"%d %s %d %d %ld %ld\n",     player->owner,
                                             player->name,  
                                             player->xp,
                                             player->delai,
@@ -45,7 +52,7 @@ booleen_t save(ordi_t * ordi, player_t * player){
                                             player->fin);
 
     /* ecriture des infos du building du player */
-    fprintf(fd,"%d %d %d %d %d\n",  player->building->dammage,
+    fprintf(fd_player,"%d %d %d %d %d\n",  player->building->dammage,
                                     player->building->level,
                                     player->building->max_pv,
                                     player->building->XP_cost,
@@ -57,42 +64,47 @@ booleen_t save(ordi_t * ordi, player_t * player){
      * tableau, ce qui va nous permettre apres de boucler dessus dans le 
      * chargement et la sauvegardes
      */
-    fprintf(fd,"%d\n",player->characters->nb);
+    fprintf(fd_player,"%d\n",player->characters->nb);
 
     /* on ecrit les characters */
     for( int i=0; i<player->characters->nb; i++ )
     {
-        fprintf(fd,"%d %s\n",   player->characters->tab[i]->age *NB_CHARACTER + player->characters->tab[i]->classe,
-                                player->characters->tab[i]->name);
+        if ( i == 0 )
+        {
+            /* pour le premier on sauvegarde ses pv */
+            fprintf(fd_player,"%d ",   player->characters->tab[i]->pv);
+        }
+        fprintf(fd_player,"%d\n",    player->characters->tab[i]->age *NB_CHARACTER + player->characters->tab[i]->classe);
     }
 
     /* puis le tableau de characters dans la file d'attente */
-    fprintf(fd,"%d\n",player->file_attente->nb);
+    fprintf(fd_player,"%d\n",player->file_attente->nb);
 
     /* on ecrit les characters contenus dans la file d'attente */
     for( int i=0; i<player->file_attente->nb; i++ )
     {
-        fprintf(fd,"%d %s\n",   player->file_attente->tab[i]->age *NB_CHARACTER + player->file_attente->tab[i]->classe,
-                                player->file_attente->tab[i]->name);
+        fprintf(fd_player,"%d\n",    (player->file_attente->tab[i]->age *NB_CHARACTER + player->file_attente->tab[i]->classe));
     }
+
+    fclose(fd_player);
 
     /************************/
     /* on sauvegarde l'ordi */
     /************************/
 
     /* ecriture la structure ordi */
-    fprintf(fd,"%d %d %d %d %d\n",  ordi->owner,
-                                    ordi->difficulte,
-                                    ordi->delai,
-                                    ordi->xp,
-                                    ordi->delai_ulti);
+    fprintf(fd_ordi,"%d %d %d %d %d\n", ordi->owner,
+                                        ordi->difficulte,
+                                        ordi->delai,
+                                        ordi->xp,
+                                        ordi->delai_ulti);
 
     /* ensuite on fait comme le joueur pour les deux tableaux */
-    fprintf(fd,"%d %d %d %d %d\n",  ordi->building->dammage,
-                                    ordi->building->level,
-                                    ordi->building->max_pv,
-                                    ordi->building->XP_cost,
-                                    ordi->building->pv);
+    fprintf(fd_ordi,"%d %d %d %d %d\n", ordi->building->dammage,
+                                        ordi->building->level,
+                                        ordi->building->max_pv,
+                                        ordi->building->XP_cost,
+                                        ordi->building->pv);
 
     /* on ecrit le tableau de characters */
 
@@ -100,18 +112,23 @@ booleen_t save(ordi_t * ordi, player_t * player){
      * tableau, ce qui va nous permettre apres de boucler dessus dans le 
      * chargement et la sauvegardes
      */
-    fprintf(fd,"%d\n",ordi->characters->nb);
+    fprintf(fd_ordi,"%d\n",ordi->characters->nb);
 
     /* on ecrit les characters */
     for( int i=0; i<ordi->characters->nb; i++ )
     {
-        fprintf(fd,"%d %s\n",   ordi->characters->tab[i]->age *NB_CHARACTER + ordi->characters->tab[i]->classe,
-                                ordi->characters->tab[i]->name);
+        if ( i == 0 )
+        {
+            /* pour le premier on sauvegarde ses pv */
+            fprintf(fd_ordi,"pv : %d ",ordi->characters->tab[i]->pv);
+        }
+
+        fprintf(fd_ordi,"%d\n",  (ordi->characters->tab[i]->age *NB_CHARACTER + ordi->characters->tab[i]->classe));
     }
 
     printf("\nSauvegarde terminée...\n");
     /* on oublie pas de fermé le fichier */
-    fclose(fd);
+    fclose(fd_ordi);
     return TRUE;
 }
 
@@ -121,14 +138,20 @@ booleen_t save(ordi_t * ordi, player_t * player){
  * Parametre resultat : 1 joueur et 1 ordinateur
  * retour             : 1 si OK sinon 0
 */
-booleen_t load(ordi_t ** ordi, player_t ** player){
+booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab){
 
-    FILE * fd;
+    FILE * fd_player, * fd_ordi;
 
     /* on ouvre le fichier */
-    if ( (fd = fopen(FICHIER,"r")) == NULL )
+    if ( (fd_player = fopen(FICHIER_1,"r")) == NULL )
     {
-        fprintf(stderr,"Erreur chargement (fichier %s ne peut pas etre lu)\n",FICHIER);
+        fprintf(stderr,"Erreur chargement (fichier %s ne peut pas etre lu)\n",FICHIER_1);
+        return FALSE;
+    }
+
+    if ( (fd_ordi = fopen(FICHIER_2,"r")) == NULL )
+    {
+        fprintf(stderr,"Erreur chargement (fichier %s ne peut pas etre lu)\n",FICHIER_2);
         return FALSE;
     }
 
@@ -184,6 +207,12 @@ booleen_t load(ordi_t ** ordi, player_t ** player){
         return FALSE; 
     }
 
+    if (((*ordi)->building = malloc(sizeof(building_t))) == NULL )
+    {
+        fprintf(stderr,"Erreur chargement (allocation dynamique)\n");
+        return FALSE; 
+    }
+
     if (((*ordi)->characters = malloc(sizeof(tab_charactere_t))) == NULL )
     {
         fprintf(stderr,"Erreur chargement (allocation dynamique)\n");
@@ -199,72 +228,98 @@ booleen_t load(ordi_t ** ordi, player_t ** player){
         /******************/
 
     /* on lit la structure player */
-    fscanf(fd, "%d %s %d %d %ld %ld\n",     &((*player)->owner),
-                                            (char *)(*player)->name,  
-                                            &((*player)->xp),
-                                            &((*player)->delai),
-                                            &((*player)->debut),
-                                            &((*player)->fin));
+    fscanf(fd_player, "%d %s %d %d %ld %ld\n",  &((*player)->owner),
+                                                (char *)(*player)->name,  
+                                                &((*player)->xp),
+                                                &((*player)->delai),
+                                                &((*player)->debut),
+                                                &((*player)->fin));
 
     /* on lit la structure building */
-    fscanf(fd,"%d %d %d %d %d\n",   &(*player)->building->dammage,
-                                    &(*player)->building->level,
-                                    &(*player)->building->max_pv,
-                                    &(*player)->building->XP_cost,
-                                    &(*player)->building->pv);
+    fscanf(fd_player,"%d %d %d %d %d\n",    &(*player)->building->dammage,
+                                            &(*player)->building->level,
+                                            &(*player)->building->max_pv,
+                                            &(*player)->building->XP_cost,
+                                            &(*player)->building->pv);
 
     /* on lit le nombre de de de personnage dans le tableau 
      * characters qui va nous permettre de boucler dessus
      * pour lire
      */
-    fscanf(fd,"%d\n",&(*player)->characters->nb);
-
+    fscanf(fd_player,"%d\n",&(*player)->characters->nb);
+    int pv;
     for (int i = 0; i < (*player)->characters->nb; i++) {
 
         (*player)->characters->tab[i] = malloc(sizeof(character_t)); // Allocation mémoire
+        
+        if ( i == 0 )
+        {
+            /* pour le premier on prend ses pv */
+            fscanf(fd_player,"%d",      &pv);
+        }
 
-        fscanf(fd, "%d %s\n",   &((*player)->characters->tab[i]->classe),
-                                (char *)(*player)->characters->tab[i]->name);
+        fscanf(fd_player, "%d\n",    &((*player)->characters->tab[i]->classe));
+        copie_character(&(*player)->characters->tab[i], &tab[(*player)->characters->tab[i]->classe]);
+        (*player)->characters->tab[i]->owner=OWNER_1;
+        (*player)->characters->tab[i]->pv = pv;
     }
 
-    fscanf(fd,"%d\n",&(*player)->file_attente->nb);
-    
+    fscanf(fd_player,"%d\n",&(*player)->file_attente->nb);
+
     for (int i = 0; i < (*player)->file_attente->nb; i++) {
 
         (*player)->file_attente->tab[i] = malloc(sizeof(character_t)); // Allocation mémoire
 
-        fscanf(fd, "%d %s\n",   &((*player)->file_attente->tab[i]->classe),
-                                (char *)(*player)->file_attente->tab[i]->name);
+        fscanf(fd_player, "%d\n",    &((*player)->file_attente->tab[i]->classe));
+
+        copie_character(&(*player)->file_attente->tab[i], &tab[(*player)->file_attente->tab[i]->classe]);
+        (*player)->file_attente->tab[i]->owner=OWNER_1;
+        
     }
+
+    fclose(fd_player);
 
         /***************/
         /* pour l'ordi */
         /***************/
 
     /* recuperation ordi */
-    fscanf(fd, "%d %d %d %d %d\n",  &((*ordi)->owner),
-                                    &((*ordi)->difficulte),
-                                    &((*ordi)->delai),
-                                    &((*ordi)->xp),
-                                    &((*ordi)->delai_ulti));
+    fscanf(fd_ordi, "%d %d %d %d %d\n", &((*ordi)->owner),
+                                        &((*ordi)->difficulte),
+                                        &((*ordi)->delai),
+                                        &((*ordi)->xp),
+                                        &((*ordi)->delai_ulti));
 
     /* recuperation building de l'ordi */
-    fscanf(fd,"%d %d %d %d %d\n",   &(*ordi)->building->dammage,
-                                    &(*ordi)->building->level,
-                                    &(*ordi)->building->max_pv,
-                                    &(*ordi)->building->XP_cost,
-                                    &(*ordi)->building->pv);
+    fscanf(fd_ordi,"%d %d %d %d %d\n",  &(*ordi)->building->dammage,
+                                        &(*ordi)->building->level,
+                                        &(*ordi)->building->max_pv,
+                                        &(*ordi)->building->XP_cost,
+                                        &(*ordi)->building->pv);
 
     /* on recupere les infos pour le tableau de character */
-    fscanf(fd,"%d\n", &(*ordi)->characters->nb);
-
+    fscanf(fd_ordi,"%d\n", &(*ordi)->characters->nb);
+    
     for (int i = 0; i < (*ordi)->characters->nb; i++) {
 
         (*ordi)->characters->tab[i] = malloc(sizeof(character_t)); // Allocation mémoire
 
-        fscanf(fd, "%d %s\n",   &((*ordi)->characters->tab[i]->classe),
-                                (char *)(*ordi)->characters->tab[i]->name);
+        if ( i == 0 )
+        {
+            /* pour le premier on prend ses pv */
+            fscanf(fd_ordi,"%d",&pv);
+        }
+        
+        fscanf(fd_ordi, "%d\n",   &((*ordi)->characters->tab[i]->classe));
+        copie_character(&(*ordi)->characters->tab[i], &tab[(*ordi)->characters->tab[i]->classe]);
+        (*ordi)->characters->tab[i]->owner=ORDINATEUR;
+        (*ordi)->characters->tab[i]->pv = pv;
     }
+
+    (*player)->building->owner = (*player)->owner;
+    (*ordi)->building->owner   = (*ordi)->owner;
+
+    fclose(fd_ordi);
 
     printf("\nChargement reussi...\n");
     return TRUE;
