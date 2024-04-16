@@ -10,10 +10,7 @@
 /* ulti + prev jeux*/
 
 #include "../lib/ordinateur.h"
-#define MAX_DELAI 15 /*en secondes*/
-#define MIN_DELAI 1
-#define MAX_DELAI_ULTI 900 /* 15 min*/
-#define MIN_DELAI_ULTI 300 /*  5 min*/
+
 
 unsigned long int debut,fin,d_ulti,f_ulti;
 
@@ -99,7 +96,7 @@ void afficher_ordi(ordi_t * ordi){
 
 void jeu_ordi(ordi_t * o, player_t * p, character_t * tab){
     if(o->delai == DELAI_INITIAL){
-        o->delai=rand()%(MAX_DELAI/(o->difficulte+MIN_DELAI))+MIN_DELAI;
+        o->delai=rand()%(MAX_DELAI/(o->difficulte))+MIN_DELAI;
         debut=time(NULL);
     }
     if(o->delai_ulti == DELAI_INITIAL){

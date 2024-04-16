@@ -232,12 +232,8 @@ int main(int argc, char* argv[]) {
     SDL_GetWindowSize(fenetre, &w, &h);
 
     for( i= 0; i < MAX_POSSESSED; i++){
-        playerPosition[i].x = 0;
-        playerPosition[i].y = h - (TAILLE_SPRITE * 2) - 16;
         playerPosition[i].w = 128;
         playerPosition[i].h = 128;
-        ordiPosition[i].x = w - 150;
-        ordiPosition[i].y = h - (TAILLE_SPRITE * 2) - 16;
         ordiPosition[i].w = 128;
         ordiPosition[i].h = 128;
     }

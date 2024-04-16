@@ -11,6 +11,11 @@
 
 #include "player.h"
 
+#define MAX_DELAI 20 /*en secondes*/
+#define MIN_DELAI 1
+#define MAX_DELAI_ULTI 900 /* 15 min*/
+#define MIN_DELAI_ULTI 300 /*  5 min*/
+
 typedef struct 
 {
     int owner;
