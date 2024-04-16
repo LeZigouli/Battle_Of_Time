@@ -352,24 +352,35 @@ void affichageBulding(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* bui
 
 void affichagePointDeVie(SDL_Renderer * rendu, TTF_Font * font, int pointsDeVie_1, int pointsDeVie_2, SDL_Window* fenetre, int cameraX, int cameraY)
 {
-    int w, h;
-    SDL_GetWindowSize(fenetre, &w, &h);
-
-    // Convertir le nombre de points de vie en chaîne de caractères
+    int w, h;    // Convertir le nombre de points de vie en chaîne de caractères
     char * pv_1 = malloc(sizeof(char) * 10000);
     char * pv_2 = malloc(sizeof(char) * 10000);
     sprintf(pv_1, "PV : %d", pointsDeVie_1);
     sprintf(pv_2, "PV : %d", pointsDeVie_2);
-
     SDL_Surface * pv_1_surface = TTF_RenderUTF8_Solid(font, pv_1, BLACK);
     SDL_Surface * pv_2_surface = TTF_RenderUTF8_Solid(font, pv_2, BLACK);
+
+    SDL_GetWindowSize(fenetre, &w, &h);
+    SDL_SetRenderDrawColor(rendu, 255, 255, 255, 128);
+    SDL_SetRenderDrawBlendMode(rendu, SDL_BLENDMODE_BLEND);
+    SDL_Rect fond_g = creationRectangle(fenetre, 30, h - 400, pv_1_surface->w-15 , 50);
+    SDL_Rect fond_d = creationRectangle(fenetre, IMAGE_WIDTH - 350,  h - 400, pv_2_surface->w-15, 50);
+
+    fond_g.x -= cameraX;
+    fond_g.y -= cameraY;
+
+    fond_d.x -= cameraX;
+    fond_d.y -= cameraY;
+
+    SDL_RenderFillRect(rendu, &fond_d);
+    SDL_RenderFillRect(rendu, &fond_g);
 
     SDL_Texture * pv_1_texture = SDL_CreateTextureFromSurface(rendu, pv_1_surface);
     SDL_Texture * pv_2_texture = SDL_CreateTextureFromSurface(rendu, pv_2_surface);
 
-    SDL_Rect rect_pv_1 = {30, h - 400, pv_1_surface->w , 50};
-    SDL_Rect rect_pv_2 = {IMAGE_WIDTH - 350,  h - 400, pv_2_surface->w, 50};
-
+    SDL_Rect rect_pv_1 = creationRectangle(fenetre,30, h - 400, pv_1_surface->w-20 , 50);
+    SDL_Rect rect_pv_2 = creationRectangle(fenetre, IMAGE_WIDTH - 350,  h - 400, pv_2_surface->w-20, 50);
+    
     // Ajouter la position de la caméra à la position de la base
     rect_pv_1.x -= cameraX;
     rect_pv_1.y -= cameraY;
