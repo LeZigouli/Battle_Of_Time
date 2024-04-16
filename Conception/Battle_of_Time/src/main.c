@@ -199,8 +199,8 @@ int main(int argc, char* argv[]) {
     /*-Variables jeu-*/
     /*****************/
     int attaque = 0;
-    int* upgarde_j = malloc(sizeof(int));
-    (*upgarde_j) = 0;
+    int* ancien_lvl = malloc(sizeof(int));
+    (*ancien_lvl) = 0;
     int i;
         int a_deja_lancer_partie = FALSE;
 
@@ -282,7 +282,7 @@ int main(int argc, char* argv[]) {
                     clic(etat, fenetre, evenement, elm_reso, click, mouseX, mouseY, w, h, 
                               (*widthFactor), (*heightFactor), menuX, menuY, index_effet, continuer, 
                               selecElement, effet, isValide, textInput, ipPattern, textInputActive, keyCounts,
-                              x, y, ancienSon, ancienReso, j1, upgarde_j, tab_de_charactere, o);
+                              x, y, ancienSon, ancienReso, j1, tab_de_charactere, o);
                     break;
 
                 /*Gestion du relachement du clic de la souris*/
@@ -346,6 +346,12 @@ int main(int argc, char* argv[]) {
         if ( a_deja_lancer_partie && (*etat) == MENU_PRINCIPAL )
         {
             reinitialiser_partie(&j1,&o);
+            for(i=0;i< NB_CHARACTER*2;i++)
+                if(i<4)
+                    image[i]=IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+i].sprite);
+                else
+                    image[i]=NULL;
+            (*ancien_lvl)=Prehistoire;
             a_deja_lancer_partie = FALSE;
         }
     
@@ -354,8 +360,7 @@ int main(int argc, char* argv[]) {
             
             envoie_char(&j1);
             jeu_ordi(o,j1,tab_de_charactere);
-            //afficher_player(j1);
-            affichageSprite(rendu, j1, o, &playerImg, &ordiImg, attaque, playerPosition, ordiPosition, upgarde_j, 
+            affichageSprite(rendu, j1, o, &playerImg, &ordiImg, attaque, playerPosition, ordiPosition, ancien_lvl, 
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY);
         }
 
@@ -388,7 +393,7 @@ int main(int argc, char* argv[]) {
 
 	/*Destruction des éléments du menu*/
 	destruction(selecElement, index_effet, continuer, etat, widthFactor, heightFactor, textInputActive, isValide, keyCounts, ancienSon, etatAge, ancienReso);
-    free(upgarde_j);
+    free(ancien_lvl);
 
     /*================ RESEAU ================*/
 

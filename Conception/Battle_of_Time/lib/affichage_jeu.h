@@ -25,10 +25,10 @@ void gestionAffichageFondJeu(SDL_Renderer* rendu, SDL_Window* fenetre, int* etat
 
 void afficherOptionJeu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre);
 
-void img_charactere_inser(tab_charactere_t * characters,building_t * building, SDL_Texture* img_c[], SDL_Texture* tab[]);
+void img_charactere_inser(tab_charactere_t * characters, int age, SDL_Texture* img_c[], SDL_Texture* tab[]);
 
 void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, int attaque,
-                     SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* upgrade_j, character_t* tab_de_charactere,
+                     SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* ancien_lvl, character_t* tab_de_charactere,
                      SDL_Texture* image[], SDL_Texture* img_char[], SDL_Texture* img_c_ordi[], Uint32 currentTime, Uint32* lastMovement,
                      int w, int h, int* cameraX, int* cameraY);
 

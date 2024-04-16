@@ -111,6 +111,7 @@ booleen_t vide_devant(character_t * deriere,int devant_x,int owner){
 }
 /* mouvement */
 void mouvement(character_t ** deriere,int devant_x){
+	(*deriere)->x_pred=(*deriere)->x;
 	if(vide_devant(*deriere,devant_x,(*deriere)->owner))
 		if((*deriere)->owner>1)
 			deplacement_gauche(deriere);

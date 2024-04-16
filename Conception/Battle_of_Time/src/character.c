@@ -110,6 +110,7 @@ character_t * initcharacter()
                 tab[age*NB_CHARACTER+classe].time             =temp_former(age*NB_CHARACTER+classe+1);
                 tab[age*NB_CHARACTER+classe].vector           =(age*NB_CHARACTER+classe+1)/4 + 4;
                 tab[age*NB_CHARACTER+classe].x                =0;
+                tab[age*NB_CHARACTER+classe].x_pred           =0;
                 tab[age*NB_CHARACTER+classe].y                =0;
 
                 switch (age)
@@ -188,6 +189,7 @@ booleen_t copie_character(character_t ** destination, character_t * src)
     (*destination)->time             = src->time;
     (*destination)->vector           = src->vector;
     (*destination)->x                = src->x;
+    (*destination)->x_pred           = src->x_pred;
     (*destination)->y                = src->y;
 
     return TRUE;

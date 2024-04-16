@@ -8,7 +8,7 @@
 void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm_reso, Mix_Chunk* click, 
                int mouseX, int mouseY, int w, int h, float widthFactor, float heightFactor, int menuX, int menuY, int* index_effet, 
                int* continuer, int* selecElement, char* effet, int* isValid, const char* textInput, const char* ipPattern, 
-               int* textInputActive, int* keyCounts, int x, int y, int* ancienSon, int* ancienReso, player_t* j1, int* upgarde_j,
+               int* textInputActive, int* keyCounts, int x, int y, int* ancienSon, int* ancienReso, player_t* j1,
                character_t* tab_de_charactere, ordi_t* ordi)
 {
     /*Gestion des clics sur les menus*/
@@ -487,7 +487,6 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                 }
                 /*On change d'âge en appelant la fonction dédiée*/
                 upgrade_building(&j1->building,&j1->xp);
-                (*upgarde_j)++;
             }
             /*Clic sur le personnage 1*/
             else if(mouseX >= (250 * widthFactor) && mouseX <= (314 * widthFactor) &&

@@ -202,7 +202,7 @@ void afficherOptionJeu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetr
     afficherMenu(rendu, police, fenetre, "Retour au menu principal", menuX, menuY + 4 * (MENU_HEIGHT + SPACING), MENU_WIDTH, MENU_HEIGHT);
 }
 
-void img_charactere_inser(tab_charactere_t * characters,building_t * building, SDL_Texture* img_c[], SDL_Texture* tab[])
+void img_charactere_inser(tab_charactere_t * characters, int age, SDL_Texture* img_c[], SDL_Texture* tab[])
 {
     int i;
     if(characters==NULL)
@@ -211,28 +211,28 @@ void img_charactere_inser(tab_charactere_t * characters,building_t * building, S
         switch (characters->tab[i]->classe)
         {
         case melee:
-            if(characters->tab[i]->age < building->level)
+            if(characters->tab[i]->age < age)
                 img_c[i]=tab[NB_CHARACTER+melee];
             else
                 img_c[i]=tab[0];
             break;
             
         case marksman:
-            if(characters->tab[i]->age < building->level)
+            if(characters->tab[i]->age < age)
                 img_c[i]=tab[NB_CHARACTER+marksman];
             else
                 img_c[i]=tab[marksman];
             break;
             
         case tank:
-            if(characters->tab[i]->age < building->level)
+            if(characters->tab[i]->age < age)
                 img_c[i]=tab[NB_CHARACTER+tank];
             else
                 img_c[i]=tab[tank];
             break;
             
         case specialist:
-            if(characters->tab[i]->age < building->level)
+            if(characters->tab[i]->age < age)
                 img_c[i]=tab[NB_CHARACTER+specialist];
             else
                 img_c[i]=tab[specialist];
@@ -250,11 +250,11 @@ float lerp(float a, float b, float t) {
 
 /*Affichage des sprite et gestion de leur déplacement*/
 void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, int attaque,
-                     SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* upgrade_j, character_t* tab_de_charactere,
+                     SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* ancien_lvl, character_t* tab_de_charactere,
                      SDL_Texture* image[], SDL_Texture* img_char[], SDL_Texture* img_c_ordi[], Uint32 currentTime, Uint32* lastMovement,
                      int w, int h, int* cameraX, int* cameraY)
 {
-    int i;
+    int i,level, frame_deplace;
 
     /*Calcul du temps écoulé depuis la dernière mise à jour*/
     float t = (float)(currentTime - *lastMovement) / MOVEMENT_DURATION;
@@ -331,24 +331,39 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
 
         (*lastMovement)= SDL_GetTicks();
     }
-
-    if((*upgrade_j)){
+    //afficher_player(j1);
+    level = max(o->building->level,j1->building->level);
+    if((*ancien_lvl) < level){
         for(i=0;i<NB_CHARACTER;i++)
-            image[i]= IMG_LoadTexture(rendu,tab_de_charactere[j1->building->level*NB_CHARACTER+i].sprite);
+            image[i]= IMG_LoadTexture(rendu,tab_de_charactere[level*NB_CHARACTER+i].sprite);
         for(i=0;i<NB_CHARACTER;i++)
-            image[i+NB_CHARACTER]= IMG_LoadTexture(rendu,tab_de_charactere[(j1->building->level-1)*NB_CHARACTER+i].sprite);
-        (*upgrade_j)=0;
+            image[i+NB_CHARACTER]= IMG_LoadTexture(rendu,tab_de_charactere[(*ancien_lvl)*NB_CHARACTER+i].sprite);
+        
+        (*ancien_lvl)=level;
     }
 
         
-    img_charactere_inser(j1->characters,j1->building,img_char,image);
-    img_charactere_inser(o->characters,o->building,img_c_ordi,image);
+    img_charactere_inser(j1->characters,level,img_char,image);
+    img_charactere_inser(o->characters,level,img_c_ordi,image);
         
     for(i=0;i<j1->characters->nb;i++){
-        SDL_RenderCopy(rendu, img_char[i], playerImg, &playerPosition[i]);
+        if(j1->characters->tab[i]->x == j1->characters->tab[i]->x_pred){
+            frame_deplace=playerImg->x;
+            playerImg->x=0;
+            SDL_RenderCopy(rendu, img_char[i], playerImg, &playerPosition[i]);
+            playerImg->x=frame_deplace;
+        }else
+            SDL_RenderCopy(rendu, img_char[i], playerImg, &playerPosition[i]);
+
     }
     for(i=0;i<o->characters->nb;i++){
-        SDL_RenderCopy(rendu, img_c_ordi[i], ordiImg, &ordiPosition[i]);
+        if(o->characters->tab[i]->x == o->characters->tab[i]->x_pred){
+            frame_deplace=ordiImg->x;
+            ordiImg->x=0;
+            SDL_RenderCopy(rendu, img_c_ordi[i], ordiImg, &ordiPosition[i]);
+            ordiImg->x=frame_deplace;
+        }else
+            SDL_RenderCopy(rendu, img_c_ordi[i], ordiImg, &ordiPosition[i]);
     }
 }
 
