@@ -299,7 +299,11 @@ int main(int argc, char* argv[]) {
                 case SDL_KEYDOWN:
                     
                     /*Gestion des touches pour l'adresse IP*/
-                    touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern);
+                    touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern, &connection_reussi);
+                    if ( connection_reussi )
+                    {
+                        (*etat) = JOUER_RESEAU_REJOINDRE;
+                    }
                     break;
 
                 /*Gestion du texte saisie*/
@@ -332,7 +336,7 @@ int main(int argc, char* argv[]) {
         /*Gestion de l'affichage en fonction de l'état*/
         affichage((*etat), etatAge,rendu, fenetre, police, police_texte, menuX, menuY, elm_reso, selecElement, 
                   effet, textInput, isValide, keyCounts, parametre, gold, xp, prehistoire, antiquite,
-                  moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building);
+                  moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building, j1->building->pv, o->building->pv);
         
     
         /*On appelle les fonctions du jeu si on est dans une partie*/
@@ -345,6 +349,10 @@ int main(int argc, char* argv[]) {
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY);
         }
 
+        if ( (*etat) == JOUER_RESEAU_REJOINDRE )
+        {
+            printf("Je joue en reseau !\n");
+        }
             
         /*================ RESEAU INITIALISATION ================*/
         /* si le choix était de creer une partie */

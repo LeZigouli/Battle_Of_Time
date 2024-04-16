@@ -1,4 +1,5 @@
 #include "../lib/gestion.h"
+#include "../socket/client.h"
 
 
 /***************/
@@ -669,10 +670,11 @@ int validateRegex(const char *input, const char *pattern)
     /*Vérification si la chaîne de caractères correspond à l'expression régulière*/
     valid = regexec(&regex, input, 0, NULL, 0);
     regfree(&regex);
+
     return valid == 0 ? 1 : 0;
 }
 
-void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern)
+void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern, int * connection_reussi)
 {
     /*Si la saisie du texte est activée*/
     if ((*textInputActive)) {
@@ -683,6 +685,16 @@ void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isV
             (*textInputActive) = SDL_FALSE; /*Désactiver la saisie de texte*/
             /*Validation de l'adresse IP*/
             (*isValid) = validateRegex(textInput, ipPattern);
+            printf("OUI");
+            if ( init_reseau_client(textInput) )
+            {
+                printf("Connecté !");
+                *connection_reussi =TRUE;
+            }
+            else
+            {
+                printf("Erreur connection\n");
+            }
         }
         else if (evenement.key.keysym.sym == SDLK_BACKSPACE && strlen(textInput) > 0) {
             /*Effacer le dernier caractère si la touche BACKSPACE est enfoncée*/
@@ -693,4 +705,5 @@ void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isV
         /*Saisie du texte activée en permanence*/
         (*textInputActive) = SDL_TRUE;
     }
+
 }

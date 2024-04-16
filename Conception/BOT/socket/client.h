@@ -27,7 +27,7 @@ long hostAddr;
 char buffer[512];
 int to_server_socket;
 
-void init_reseau_client(char serveurname[MAX_IP]);
+int init_reseau_client(char serveurname[MAX_IP]);
 void envoyer_structure( int to, player_t player1, player_t player2 );
 void recevoir_structure( int to, player_t * player1, player_t * player2 );
 void client_fermeture(int * socket);
