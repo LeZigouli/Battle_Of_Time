@@ -135,6 +135,12 @@ booleen_t buy_character(player_t ** player, character_t tab_character[NB_AGE*NB_
 	/* on affecte au character le numéro OWNER pour s'avoir qui est le propriétaire */
 	(*player)->file_attente->tab[nb_character]->owner = (*player)->owner;
 
+	if((*player)->owner == OWNER_2){
+		(*player)->file_attente->tab[nb_character]->x = POS_DEP_AD;
+	}else{
+		(*player)->file_attente->tab[nb_character]->x = POS_DEP;
+	}
+
 	/* on incremente le nombre de character dans le tableau */
 	(*player)->file_attente->nb++;
 	

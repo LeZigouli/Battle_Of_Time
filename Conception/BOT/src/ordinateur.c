@@ -60,7 +60,7 @@ int envoie_char_ordi(ordi_t * ordi, character_t * tab){
             copie_character(&new,&tab[(ordi->building->level)*NB_CHARACTER+newCha]);
             ordi->characters->tab[ordi->characters->nb]=new;
             ordi->characters->tab[ordi->characters->nb]->owner=ORDINATEUR;
-            ordi->characters->tab[ordi->characters->nb]->x=IMAGE_WIDTH;
+            ordi->characters->tab[ordi->characters->nb]->x= POS_DEP_AD;
             ordi->characters->nb++;
             ordi->xp+= new->cost*new->ratio_ressources;
             return EXIT_SUCCESS;

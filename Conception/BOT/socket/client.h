@@ -1,4 +1,4 @@
-#ifndef _CLIENT_H_
+#ifndef _CLIENT_H__
 #define _CLIENT_H__
 
 #include <stdio.h>
