@@ -27,7 +27,7 @@ player_t * initplayer(int owner)
 
 	strcpy(main_player->name,name);
 	main_player->owner = owner;
-	main_player->xp = 10000000;
+	main_player->xp = 100000;
 	main_player->debut=DELAI_INITIAL;
 	main_player->characters = malloc(sizeof(tab_charactere_t));
 	main_player->file_attente = malloc(sizeof(tab_charactere_t));

@@ -17,9 +17,9 @@ void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_text
     SDL_Rect rect_upgrade = creationRectangle(fenetre, 20, 105, 50, 50);
     SDL_RenderCopy(rendu, upgrade, NULL, &rect_upgrade);
 
-    /*Affichage du bouton d'ultim
+    /*Affichage du bouton d'ultim*/
     SDL_Rect rect_ultim = creationRectangle(fenetre, 80, 105, 50, 50);
-    SDL_RenderCopy(rendu, ultim, NULL, &rect_ultim);*/
+    SDL_RenderCopy(rendu, ultim, NULL, &rect_ultim);
 
     /*Affichage du rectangle translucide contenant l'or et l'xp*/
     SDL_SetRenderDrawColor(rendu, 0, 0, 0, 128);/*Couleur semi-transparente*/
@@ -244,7 +244,6 @@ void img_charactere_inser(tab_charactere_t * characters,building_t * building, S
     }
 }
 
-/*Fonction de linéarisation du mouvement*/
 float lerp(float a, float b, float t) {
     return a + t * (b - a);
 }
@@ -257,6 +256,53 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
 {
     int i;
 
+    // Calcul du temps écoulé depuis la dernière mise à jour
+    float t = (float)(currentTime - *lastMovement) / MOVEMENT_DURATION;
+    if (t > 1.0f) {
+        t = 1.0f;
+    }
+
+    // Calcul de la position cible de la caméra pour chaque sprite
+    int targetCameraX = *cameraX;
+    int targetCameraY = *cameraY;
+
+    // Interpolation linéaire entre la position actuelle de la caméra et la position cible
+    int interpolatedCameraX = lerp(*cameraX, targetCameraX, t);
+    int interpolatedCameraY = lerp(*cameraY, targetCameraY, t);
+
+    for(i=0; i<j1->characters->nb; i++){
+        // Calcul de la position cible du joueur en fonction de la caméra
+        int targetPlayerX = j1->characters->tab[i]->x - interpolatedCameraX;
+        int targetPlayerY = h - (TAILLE_SPRITE * 2) - 16;
+
+        // Interpolation linéaire entre la position actuelle du joueur et la position cible
+        int interpolatedPlayerX = lerp(playerPosition[i].x, targetPlayerX, t);
+        int interpolatedPlayerY = lerp(playerPosition[i].y, targetPlayerY, t);
+
+        // Mise à jour de la position du joueur
+        playerPosition[i].x = interpolatedPlayerX;
+        playerPosition[i].y = interpolatedPlayerY;
+    }
+
+    for(i=0; i<o->characters->nb; i++){
+        // Calcul de la position cible de l'ordinateur en fonction de la caméra
+        int targetOrdiX = o->characters->tab[i]->x - interpolatedCameraX;
+        int targetOrdiY = h - (TAILLE_SPRITE * 2) - 16;
+
+        // Interpolation linéaire entre la position actuelle de l'ordinateur et la position cible
+        int interpolatedOrdiX = lerp(ordiPosition[i].x, targetOrdiX, t);
+        int interpolatedOrdiY = lerp(ordiPosition[i].y, targetOrdiY, t);
+
+        // Mise à jour de la position de l'ordinateur
+        ordiPosition[i].x = interpolatedOrdiX;
+        ordiPosition[i].y = interpolatedOrdiY;
+    }
+
+    // Mise à jour de la position de la caméra
+    *cameraX = interpolatedCameraX;
+    *cameraY = interpolatedCameraY;
+
+    //*lastMovement = currentTime;
 
     if(currentTime - (*lastMovement) >= 100 && attaque == 0 && (j1->characters->nb > 0 || o->characters->nb > 0)){ //le sprite va avancer tout les 100 ms
         if(playerImg->x == TAILLE_SPRITE*8) 
@@ -306,8 +352,8 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
 }
 
 /*Affichage des buildings*/
-void affichageBulding(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* building[], int age,
-                      int cameraX, int cameraY)
+void affichageBulding(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* building[],
+                      int cameraX, int cameraY, int joueur_level, int ordi_level)
 {
     int w, h;
     SDL_GetWindowSize(fenetre, &w, &h);
@@ -315,44 +361,56 @@ void affichageBulding(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* bui
     SDL_Rect rect_build = {0, h - 300, 350, 291};
     SDL_Rect rect_build_ad = {IMAGE_WIDTH - 350, h - 300, 350, 291}; 
 
-    // Ajouter la position de la caméra à la position de la base
+    /*Ajouter la position de la caméra à la position des bases*/
+    /*Pour le déplacement de la caméra*/
     rect_build.x -= cameraX;
     rect_build.y -= cameraY;
 
     rect_build_ad.x -= cameraX;
     rect_build_ad.y -= cameraY;
     
-     switch(age){
-        case Prehistoire:
-            SDL_RenderCopy(rendu, building[0], NULL, &rect_build);
-            SDL_RenderCopy(rendu, building[1], NULL, &rect_build_ad);
-            break;
-        
-        case Antiquite:
-            SDL_RenderCopy(rendu, building[2], NULL, &rect_build);
-            SDL_RenderCopy(rendu, building[3], NULL, &rect_build_ad);
-            break;
-        
-        case Moyen_Age:
-            SDL_RenderCopy(rendu, building[4], NULL, &rect_build);
-            SDL_RenderCopy(rendu, building[5], NULL, &rect_build_ad);
-            break;
-        
-        case Ere_Moderne:
-            SDL_RenderCopy(rendu, building[6], NULL, &rect_build);
-            SDL_RenderCopy(rendu, building[7], NULL, &rect_build_ad);
-            break;
+    /*Affichage de la base du joueur en fonctions de l'age*/
+    if(joueur_level == Prehistoire){
+        SDL_RenderCopy(rendu, building[0], NULL, &rect_build);
+    }
+    else if(joueur_level == Antiquite){
+        SDL_RenderCopy(rendu, building[2], NULL, &rect_build);
+    }
+    else if(joueur_level == Moyen_Age){
+        SDL_RenderCopy(rendu, building[4], NULL, &rect_build);
+    }
+    else if(joueur_level == Ere_Moderne){
+        SDL_RenderCopy(rendu, building[6], NULL, &rect_build);
+    }
+    else if(joueur_level == Ere_Futuriste){
+        SDL_RenderCopy(rendu, building[8], NULL, &rect_build);
+    }
 
-        case Ere_Futuriste:
-            SDL_RenderCopy(rendu, building[8], NULL, &rect_build);
-            SDL_RenderCopy(rendu, building[9], NULL, &rect_build_ad);
-            break;
+    /*Affichage de la base de l'ordi en fonctions de l'age*/
+    if(ordi_level == Prehistoire){
+        SDL_RenderCopy(rendu, building[1], NULL, &rect_build_ad);
+    }
+    else if(ordi_level == Antiquite){
+        SDL_RenderCopy(rendu, building[3], NULL, &rect_build_ad);
+    }
+    else if(ordi_level == Moyen_Age){
+        SDL_RenderCopy(rendu, building[5], NULL, &rect_build_ad);
+    }
+    else if(ordi_level == Ere_Moderne){
+        SDL_RenderCopy(rendu, building[7], NULL, &rect_build_ad);
+    }
+    else if(ordi_level == Ere_Futuriste){
+        SDL_RenderCopy(rendu, building[9], NULL, &rect_build_ad);
     }
 }
 
+/*Affichage des pv des bases*/
 void affichagePointDeVie(SDL_Renderer * rendu, TTF_Font * font, int pointsDeVie_1, int pointsDeVie_2, SDL_Window* fenetre, int cameraX, int cameraY)
 {
-    int w, h;    // Convertir le nombre de points de vie en chaîne de caractères
+    int w, h;    
+    SDL_GetWindowSize(fenetre, &w, &h);
+
+    /*Convertir le nombre de points de vie en chaîne de caractères*/
     char * pv_1 = malloc(sizeof(char) * 10000);
     char * pv_2 = malloc(sizeof(char) * 10000);
     sprintf(pv_1, "PV : %d", pointsDeVie_1);
@@ -360,18 +418,17 @@ void affichagePointDeVie(SDL_Renderer * rendu, TTF_Font * font, int pointsDeVie_
     SDL_Surface * pv_1_surface = TTF_RenderUTF8_Solid(font, pv_1, BLACK);
     SDL_Surface * pv_2_surface = TTF_RenderUTF8_Solid(font, pv_2, BLACK);
 
-    SDL_GetWindowSize(fenetre, &w, &h);
+    /*Affichage des rectangles translucide*/
     SDL_SetRenderDrawColor(rendu, 255, 255, 255, 128);
     SDL_SetRenderDrawBlendMode(rendu, SDL_BLENDMODE_BLEND);
     SDL_Rect fond_g = creationRectangle(fenetre, 30, h - 400, pv_1_surface->w-15 , 50);
     SDL_Rect fond_d = creationRectangle(fenetre, IMAGE_WIDTH - 350,  h - 400, pv_2_surface->w-15, 50);
-
+    /*Ajouter la position de la caméra à la position des bases*/
+    /*Pour le déplacement de la caméra*/
     fond_g.x -= cameraX;
     fond_g.y -= cameraY;
-
     fond_d.x -= cameraX;
     fond_d.y -= cameraY;
-
     SDL_RenderFillRect(rendu, &fond_d);
     SDL_RenderFillRect(rendu, &fond_g);
 

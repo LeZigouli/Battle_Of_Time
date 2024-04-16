@@ -17,7 +17,7 @@
 #define IMAGE_WIDTH 3840 
 #define IMAGE_HEIGHT 720
 /*Vitesse de du déplacement de la caméra*/
-#define SCROLL_SPEED 20
+#define SCROLL_SPEED 30
 /*Dimensions de base de la fenêtre*/
 #define WINDOW_WIDTH 1080
 #define WINDOW_HEIGHT 720
@@ -27,12 +27,14 @@
 #define MENU_DECALAGE 50 /*Décalage pour abaisser le menu*/
 #define SPACING 30   /*Espace entre chaque sous-menu*/
 
-#define ELEMENT_WIDTH 100 // Largeur d'un élément
-#define ELEMENT_HEIGHT 50 // Hauteur d'un élément
-#define ELEMENT_SPACING 20 // Espacement entre les éléments
+#define ELEMENT_WIDTH 100 /*Largeur d'un élément*/
+#define ELEMENT_HEIGHT 50 /*Hauteur d'un élément*/
+#define ELEMENT_SPACING 20 /*Espacement entre les éléments*/
 
 #define POS_DEP 170 /*Spawn des caractères du joueur*/
 #define POS_DEP_AD IMAGE_WIDTH - 300 /*Spawn des caractères de l'adversaire*/
+
+#define MOVEMENT_DURATION 100 /*Durée du mouvement en millisecondes des sprites*/
 
 /*Code couleur */
 #define BLACK (SDL_Color){0, 0, 0}
