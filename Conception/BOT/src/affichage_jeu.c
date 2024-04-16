@@ -132,7 +132,6 @@ void afficherJeuFond(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* fond
     /*Calculer la position maximale de la caméra pour chaque axe*/
     int maxCameraX = IMAGE_WIDTH - w;
 
-
     /*Limitation des déplacements pour rester dans les limites de l'image*/
     /*Sur l'axe x*/
     if ((*cameraX) < 0) {
@@ -140,7 +139,7 @@ void afficherJeuFond(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* fond
     } else if ((*cameraX) > maxCameraX){
         (*cameraX) = maxCameraX;
     }
-
+    
     /*Création des rectangles source(image) et destination(écran)*/
     SDL_Rect destRect =  {0, 0, w, h};
     SDL_Rect srcRect = {(*cameraX), (*cameraY), w, h};
@@ -148,7 +147,6 @@ void afficherJeuFond(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* fond
     /*Nettoie le rendu et affiche l'image*/
     SDL_RenderClear(rendu);
     SDL_RenderCopy(rendu, fond_jeu, &srcRect, &destRect);
-
 }
 
 /*Affiche l'image de l'arrière plan en fonction de l'âge*/
@@ -268,8 +266,8 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
             ordiImg->x += TAILLE_SPRITE;//on passe a l'image suivante pour l'animation
         }
 
-        deplacement(j1->characters, o->characters->tab[0], IMAGE_WIDTH);
-        deplacement(o->characters, j1->characters->tab[0], 0);
+        deplacement(j1->characters, o->characters->tab[0], IMAGE_WIDTH - 700);
+        deplacement(o->characters, j1->characters->tab[0], 350);
 
         for(i=0; i<j1->characters->nb; i++){
             playerPosition[i].x = j1->characters->tab[i]->x - (*cameraX);//on avance
@@ -282,7 +280,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
 
         (*lastMovement)= SDL_GetTicks();
     }
-    printf("x : %d, y: %d, cmaxFin: %d\n",ordiPosition[o->characters->nb-1].x,ordiPosition[o->characters->nb-1].y,w);
+
     if((*upgrade_j)){
         for(i=0;i<NB_CHARACTER;i++)
             image[i]= IMG_LoadTexture(rendu,tab_de_charactere[j1->building->level*NB_CHARACTER+i].sprite);
@@ -303,36 +301,46 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
 }
 
 /*Affichage des buildings*/
-void affichageBulding(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* building[], int age)
+void affichageBulding(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* building[], int age,
+                      int cameraX, int cameraY)
 {
-    SDL_Rect rect_build = creationRectangle(fenetre, 0, 0, 1080, 900); 
-    SDL_Rect rect_build_ad = creationRectangle(fenetre, IMAGE_WIDTH, 0, 1080, 900); 
+    int w, h;
+    SDL_GetWindowSize(fenetre, &w, &h);
 
-    switch(age){
+    SDL_Rect rect_build = {30, h - 300, 350, 291};
+    SDL_Rect rect_build_ad = {IMAGE_WIDTH - 350, h - 300, 350, 291}; 
+
+    // Ajouter la position de la caméra à la position de la base
+    rect_build.x -= cameraX;
+    rect_build.y -= cameraY;
+
+    rect_build_ad.x -= cameraX;
+    rect_build_ad.y -= cameraY;
+    
+     switch(age){
         case Prehistoire:
-            SDL_RenderCopy(rendu, building[0], &rect_build, NULL);
-            SDL_RenderCopy(rendu, building[1], &rect_build_ad, NULL);
+            SDL_RenderCopy(rendu, building[0], NULL, &rect_build);
+            SDL_RenderCopy(rendu, building[1], NULL, &rect_build_ad);
             break;
         
         case Antiquite:
-            SDL_RenderCopy(rendu, building[2], &rect_build, NULL);
-            SDL_RenderCopy(rendu, building[3], &rect_build_ad, NULL);
+            SDL_RenderCopy(rendu, building[2], NULL, &rect_build);
+            SDL_RenderCopy(rendu, building[3], NULL, &rect_build_ad);
             break;
         
         case Moyen_Age:
-            SDL_RenderCopy(rendu, building[4], &rect_build, NULL);
-            SDL_RenderCopy(rendu, building[5], &rect_build_ad, NULL);
+            SDL_RenderCopy(rendu, building[4], NULL, &rect_build);
+            SDL_RenderCopy(rendu, building[5], NULL, &rect_build_ad);
             break;
         
         case Ere_Moderne:
-            SDL_RenderCopy(rendu, building[6], &rect_build, NULL);
-            SDL_RenderCopy(rendu, building[7], &rect_build_ad, NULL);
+            SDL_RenderCopy(rendu, building[6], NULL, &rect_build);
+            SDL_RenderCopy(rendu, building[7], NULL, &rect_build_ad);
             break;
 
         case Ere_Futuriste:
-            SDL_RenderCopy(rendu, building[8], &rect_build, NULL);
-            SDL_RenderCopy(rendu, building[9], &rect_build_ad, NULL);
+            SDL_RenderCopy(rendu, building[8], NULL, &rect_build);
+            SDL_RenderCopy(rendu, building[9], NULL, &rect_build_ad);
             break;
     }
-    
 }

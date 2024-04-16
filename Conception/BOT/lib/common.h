@@ -38,7 +38,6 @@
 /* INITIALISATION DU DÉLAI D'ATTENTE POUR FORMER LES TROUPES */
 #define DELAI_INITIAL -1
 
-
 typedef enum class_character_s { melee, marksman, tank, specialist }class_character_t;
 
 /* definition d'un type booleen */

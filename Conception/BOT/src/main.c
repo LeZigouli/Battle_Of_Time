@@ -232,10 +232,13 @@ int main(int argc, char* argv[]) {
     SDL_GetWindowSize(fenetre, &w, &h);
 
     for( i= 0; i < MAX_POSSESSED; i++){
+        playerPosition[i].x = 380;
         playerPosition[i].w = 128;
         playerPosition[i].h = 128;
+        ordiPosition[i].x = IMAGE_WIDTH - 700;
         ordiPosition[i].w = 128;
         ordiPosition[i].h = 128;
+        
     }
 
     /* reseau */
@@ -389,7 +392,8 @@ int main(int argc, char* argv[]) {
     
 
     destruction_SDL(parametre, gold, xp, textureFond, prehistoire, antiquite, moyen_age,
-                    moderne, futuriste, police, police_texte, rendu, fenetre, click, music, sprite_hud);
+                    moderne, futuriste, police, police_texte, rendu, fenetre, click, music, sprite_hud,
+                    building);
 
     return EXIT_SUCCESS;
 }

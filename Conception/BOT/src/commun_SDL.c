@@ -119,12 +119,16 @@ SDL_Rect creationRectangle(SDL_Window* fenetre, int x, int y, int largeur, int h
 void destruction_SDL(SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp, SDL_Texture* textureFond, 
                      SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age, SDL_Texture* moderne,
                      SDL_Texture* futuriste, TTF_Font* police, TTF_Font* police_texte, SDL_Renderer* rendu,
-                     SDL_Window* fenetre, Mix_Chunk* click, Mix_Chunk* music, SDL_Texture* sprite_hud[])
+                     SDL_Window* fenetre, Mix_Chunk* click, Mix_Chunk* music, SDL_Texture* sprite_hud[], SDL_Texture* building[])
 {
 
     int i;
     for(i = 0; i < 20; i++){
         SDL_DestroyTexture(sprite_hud[i]);
+    }
+
+    for(i = 0; i < 10; i++){
+        SDL_DestroyTexture(building[i]);
     }
 
     SDL_DestroyTexture(parametre);

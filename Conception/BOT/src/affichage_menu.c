@@ -80,9 +80,10 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
         case JOUER:
             /*Effacement de l'ancien rendu*/
             SDL_RenderClear(rendu);   
-            gestionAffichageFondJeu(rendu, fenetre, etatAge, prehistoire, antiquite, moyen_age, moderne, futuriste, joueur, ordi, cameraX, cameraY);
+            gestionAffichageFondJeu(rendu, fenetre, etatAge, prehistoire, antiquite, moyen_age, moderne, futuriste, joueur, ordi, 
+                                    cameraX, cameraY);
             afficherHUD(rendu, fenetre, police_texte, parametre, upgrade, gold, xp, joueur, sprite_hud, ultim, (*etatAge));
-            //affichageBulding(rendu, fenetre, building, (*etatAge));
+            affichageBulding(rendu, fenetre, building, (*etatAge), *cameraX, *cameraY);
             
             break;
 
