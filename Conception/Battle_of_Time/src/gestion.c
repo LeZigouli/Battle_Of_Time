@@ -529,8 +529,15 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                 /*Le joueur achète un caractère*/
                 buy_character(&j1, tab_de_charactere, specialist);
             }
+            else if(mouseX >= (85 * widthFactor) && mouseX <= (125 * widthFactor) &&
+                    mouseY >= (105 * heightFactor) && mouseY <= (155 * heightFactor)){
+                //Bruit quand on clique sur l'élément
+                if(!(*index_effet)){
+                    Mix_PlayChannel(1, click, 0);
+                }
+                /*traitement*/
+            }
             
-
 
             break;
 
