@@ -244,6 +244,11 @@ void img_charactere_inser(tab_charactere_t * characters,building_t * building, S
     }
 }
 
+/*Fonction de linéarisation du mouvement*/
+float lerp(float a, float b, float t) {
+    return a + t * (b - a);
+}
+
 /*Affichage des sprite et gestion de leur déplacement*/
 void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, int attaque,
                      SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* upgrade_j, character_t* tab_de_charactere,
@@ -266,8 +271,8 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
             ordiImg->x += TAILLE_SPRITE;//on passe a l'image suivante pour l'animation
         }
 
-        deplacement(j1->characters, o->characters->tab[0], IMAGE_WIDTH - 700);
-        deplacement(o->characters, j1->characters->tab[0], 350);
+        deplacement(j1->characters, o->characters->tab[0], POS_DEP_AD);
+        deplacement(o->characters, j1->characters->tab[0], POS_DEP);
 
         for(i=0; i<j1->characters->nb; i++){
             playerPosition[i].x = j1->characters->tab[i]->x - (*cameraX);//on avance
@@ -307,7 +312,7 @@ void affichageBulding(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* bui
     int w, h;
     SDL_GetWindowSize(fenetre, &w, &h);
 
-    SDL_Rect rect_build = {30, h - 300, 350, 291};
+    SDL_Rect rect_build = {0, h - 300, 350, 291};
     SDL_Rect rect_build_ad = {IMAGE_WIDTH - 350, h - 300, 350, 291}; 
 
     // Ajouter la position de la caméra à la position de la base

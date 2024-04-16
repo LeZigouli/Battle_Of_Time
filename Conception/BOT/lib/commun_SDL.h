@@ -31,6 +31,9 @@
 #define ELEMENT_HEIGHT 50 // Hauteur d'un élément
 #define ELEMENT_SPACING 20 // Espacement entre les éléments
 
+#define POS_DEP 170 /*Spawn des caractères du joueur*/
+#define POS_DEP_AD IMAGE_WIDTH - 300 /*Spawn des caractères de l'adversaire*/
+
 /*Code couleur */
 #define BLACK (SDL_Color){0, 0, 0}
 #define WHITE (SDL_Color){255, 255, 255}

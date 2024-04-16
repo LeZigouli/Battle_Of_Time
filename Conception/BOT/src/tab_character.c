@@ -121,11 +121,11 @@ void mouvement(character_t ** deriere,int devant_x){
 			(*deriere)->x -= ((*deriere)->x) - devant_x - TAILLE_SPRITE;
 		else
 			(*deriere)->x += devant_x -  (*deriere)->x - TAILLE_SPRITE;
-		if((*deriere)->x < 0)
-			(*deriere)->x=0;
+		if((*deriere)->x < POS_DEP)
+			(*deriere)->x= POS_DEP;
 		else
-			if((*deriere)->x>IMAGE_WIDTH)
-				(*deriere)->x=IMAGE_WIDTH;
+			if((*deriere)->x> POS_DEP_AD)
+				(*deriere)->x= POS_DEP_AD;
 	}
 }
 
