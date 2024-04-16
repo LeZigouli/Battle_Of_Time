@@ -202,6 +202,8 @@ int main(int argc, char* argv[]) {
     int* upgarde_j = malloc(sizeof(int));
     (*upgarde_j) = 0;
     int i;
+        int a_deja_lancer_partie = FALSE;
+
 
     Uint32 lastMovement = 0; //dernier mouvement du sprite
 
@@ -211,8 +213,8 @@ int main(int argc, char* argv[]) {
     SDL_Rect ordiPosition[MAX_POSSESSED];
 
     character_t * tab_de_charactere = initcharacter();
-    player_t * j1 = initplayer(OWNER_1);; 
-    ordi_t * o = init_ordi(); 
+    player_t * j1 = NULL; 
+    ordi_t * o = NULL; 
 
     SDL_Texture* image[8]={IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+melee].sprite),
                            IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+marksman].sprite),
@@ -245,6 +247,13 @@ int main(int argc, char* argv[]) {
     int* continuer = malloc(sizeof(int));
     (*continuer) = SDL_TRUE;
     while ((*continuer)) {
+    
+    	 if ( o == NULL && j1 == NULL )
+        {
+            j1 = initplayer(OWNER_1);
+            o = init_ordi();
+        }
+    
         Uint32 currentTime = SDL_GetTicks();
 
         /*Récupération dimension fenêtre*/
@@ -329,6 +338,16 @@ int main(int argc, char* argv[]) {
                   effet, textInput, isValide, keyCounts, parametre, gold, xp, prehistoire, antiquite,
                   moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building);
         
+        if ( !a_deja_lancer_partie && ( *etat == JOUER || *etat == JOUER_RESEAU_CREER || *etat == JOUER_RESEAU_REJOINDRE ) )
+        {
+            a_deja_lancer_partie = TRUE;
+        }
+
+        if ( a_deja_lancer_partie && (*etat) == MENU_PRINCIPAL )
+        {
+            reinitialiser_partie(&j1,&o);
+            a_deja_lancer_partie = FALSE;
+        }
     
         /*On appelle les fonctions du jeu si on est dans une partie*/
         if((*etat) == JOUER){

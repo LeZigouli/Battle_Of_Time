@@ -28,5 +28,6 @@ void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isV
 
 int validateRegex(const char *input, const char *pattern);
 
+void reinitialiser_partie(player_t ** player, ordi_t ** ordi);
 
 #endif

@@ -694,3 +694,25 @@ void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isV
         (*textInputActive) = SDL_TRUE;
     }
 }
+
+void reinitialiser_partie(player_t ** player, ordi_t ** ordi)
+{
+    destroy_player(player);
+    detr_ordi(ordi);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
