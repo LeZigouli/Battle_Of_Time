@@ -1,0 +1,405 @@
+=21168== Memcheck, a memory error detector
+==21168== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==21168== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==21168== Command: ./bin/prog
+==21168== 
+<----- Player ----->
+Nom : Player 1
+PV : 300
+XP : 0
+GOLD : 800.000000
+Owner : 1
+
+<----- Player ----->
+Nom : Player 2
+PV : 300
+XP : 0
+GOLD : 800.000000
+Owner : 2
+
+187.500000 gold vont a Player1
+Le tableau a bien ete tasse !
+187.500000 gold vont a Player2
+Le tableau a bien ete tasse !
+<----- Player ----->
+Nom : Player 1
+PV : 300
+XP : 0
+GOLD : 737.500000
+Owner : 1
+
+<----- Player ----->
+Nom : Player 2
+PV : 300
+XP : 0
+GOLD : 737.500000
+Owner : 2
+
+<----- characters possedees ----->
+[0] :: combattant massue
+[1] :: gorille
+[2] :: combattant massue
+<-------------------------------->
+
+187.500000 gold vont a Player2
+Le tableau a bien ete tasse !
+<----- characters possedees ----->
+[0] :: combattant massue
+[1] :: combattant massue
+<-------------------------------->
+
+<----- Player ----->
+Nom : Player 2
+PV : 300
+XP : 0
+GOLD : 675.000000
+Owner : 2
+
+<------------------------- TEST FONCTION ORDINATEUR ------------------------->
+{
+Troupe :
+{}
+Building :
+{
+Owner : 2 
+Dammage : 49
+PV : 600
+GOLD_cost : 750
+Level : 2
+<-------------------->
+
+}
+{
+Troupe :
+{{pv: 105
+nom: legionnaire hippopotame
+temps: 7
+}}
+Building :
+{
+Owner : 2 
+Dammage : 49
+PV : 600
+GOLD_cost : 750
+Level : 2
+<-------------------->
+
+}
+==21168== 
+==21168== HEAP SUMMARY:
+==21168==     in use at exit: 0 bytes in 0 blocks
+==21168==   total heap usage: 27 allocs, 27 frees, 9,640 bytes allocated
+==21168== 
+==21168== All heap blocks were freed -- no leaks are possible
+==21168== 
+==21168== For lists of detected and suppressed errors, rerun with: -s
+==21168== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+The program is not being run.
+
+Vincent justifier. 
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+s2202705@ic2s112-07:~/Documents/Projet/Battle_Of_Time/Conception/prototype$ gdb ./bin/prog 
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.1) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./bin/prog...
+(gdb) b delete_character 
+Breakpoint 1 at 0x4037: file src/tab_character.c, line 3.
+(gdb) r
+Starting program: /info/etu/l2info/s2202705/Documents/Projet/Battle_Of_Time/Conception/prototype/bin/prog 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+<------------------------- TEST FONCTION ORDINATEUR ------------------------->
+{  ################## ORDINATEUR ################## 
+Troupe :
+{
+<----- characters possedees ----->
+<-------------------------------->
+
+}
+Building :
+{
+Owner : 3 
+Dammage : 33
+PV : 300
+XP_cost : 1000
+Level : 0
+}
+}
+<----- Player ----->
+Nom : Player 1
+PV : 300
+XP : 0
+GOLD : 630.000000
+Owner : 1
+
+<----- building ----->
+Owner : 1 
+Dammage : 33
+PV : 300
+XP_cost : 1000
+Level : 0
+<-------------------->
+
+<----- characters possedees ----->
+[0] :: gorille, owner : 1, pv:  135
+<-------------------------------->
+
+
+Breakpoint 1, delete_character (characters=0x555555555d76 <afficher_player+138>) at src/tab_character.c:3
+3	booleen_t delete_character(tab_charactere_t ** characters){
+(gdb) c
+Continuing.
+{  ################## ORDINATEUR ################## 
+Troupe :
+{
+<----- characters possedees ----->
+[0] :: combattant caillou, owner : 3, pv:  125
+[1] :: gorille, owner : 3, pv:  135
+[2] :: combattant caillou, owner : 3, pv:  125
+[3] :: gorille, owner : 3, pv:  135
+[4] :: combattant dinosaure, owner : 3, pv:  145
+[5] :: combattant dinosaure, owner : 3, pv:  145
+[6] :: combattant caillou, owner : 3, pv:  125
+[7] :: combattant massue, owner : 3, pv:  100
+[8] :: combattant dinosaure, owner : 3, pv:  145
+[9] :: gorille, owner : 3, pv:  135
+<-------------------------------->
+
+}
+Building :
+{
+Owner : 3 
+Dammage : 33
+PV : 300
+XP_cost : 1000
+Level : 0
+}
+}
+{  ################## ORDINATEUR ################## 
+Troupe :
+{
+<----- characters possedees ----->
+[0] :: combattant caillou, owner : 3, pv:    0
+[1] :: gorille, owner : 3, pv:    0
+[2] :: combattant caillou, owner : 3, pv:    0
+[3] :: gorille, owner : 3, pv:    0
+[4] :: combattant dinosaure, owner : 3, pv:    0
+[5] :: combattant dinosaure, owner : 3, pv:    0
+[6] :: combattant caillou, owner : 3, pv:    0
+[7] :: combattant massue, owner : 3, pv:    0
+[8] :: combattant dinosaure, owner : 3, pv:    0
+[9] :: gorille, owner : 3, pv:    0
+<-------------------------------->
+
+}
+Building :
+{
+Owner : 3 
+Dammage : 33
+PV : 300
+XP_cost : 1000
+Level : 0
+}
+}
+
+Breakpoint 1, delete_character (characters=0x55555555d880) at src/tab_character.c:3
+3	booleen_t delete_character(tab_charactere_t ** characters){
+(gdb) n
+5		if( characters == NULL || (*characters) == NULL)
+(gdb) 
+17		for( int i=0; i<(*characters)->nb; i++ )
+(gdb) display (*characters)->tab
+1: (*characters)->tab = {0x55555555dab0, 0x55555555db90, 0x55555555dc70, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+(gdb) 
+(gdb) n
+19			if ( (*characters)->tab[i]->pv <= 0 )
+1: (*characters)->tab = {0x55555555dab0, 0x55555555db90, 0x55555555dc70, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+26				free((*characters)->tab[i]);
+1: (*characters)->tab = {0x55555555dab0, 0x55555555db90, 0x55555555dc70, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+27				(*characters)->tab[i] = NULL;
+1: (*characters)->tab = {0x55555555dab0, 0x55555555db90, 0x55555555dc70, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+29				(*characters)->nb--;
+1: (*characters)->tab = {0x0, 0x55555555db90, 0x55555555dc70, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+17		for( int i=0; i<(*characters)->nb; i++ )
+1: (*characters)->tab = {0x0, 0x55555555db90, 0x55555555dc70, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+19			if ( (*characters)->tab[i]->pv <= 0 )
+1: (*characters)->tab = {0x0, 0x55555555db90, 0x55555555dc70, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+26				free((*characters)->tab[i]);
+1: (*characters)->tab = {0x0, 0x55555555db90, 0x55555555dc70, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+27				(*characters)->tab[i] = NULL;
+1: (*characters)->tab = {0x0, 0x55555555db90, 0x55555555dc70, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+29				(*characters)->nb--;
+1: (*characters)->tab = {0x0, 0x0, 0x55555555dc70, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+17		for( int i=0; i<(*characters)->nb; i++ )
+1: (*characters)->tab = {0x0, 0x0, 0x55555555dc70, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+19			if ( (*characters)->tab[i]->pv <= 0 )
+1: (*characters)->tab = {0x0, 0x0, 0x55555555dc70, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+26				free((*characters)->tab[i]);
+1: (*characters)->tab = {0x0, 0x0, 0x55555555dc70, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+27				(*characters)->tab[i] = NULL;
+1: (*characters)->tab = {0x0, 0x0, 0x55555555dc70, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+29				(*characters)->nb--;
+1: (*characters)->tab = {0x0, 0x0, 0x0, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+17		for( int i=0; i<(*characters)->nb; i++ )
+1: (*characters)->tab = {0x0, 0x0, 0x0, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+19			if ( (*characters)->tab[i]->pv <= 0 )
+1: (*characters)->tab = {0x0, 0x0, 0x0, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+26				free((*characters)->tab[i]);
+1: (*characters)->tab = {0x0, 0x0, 0x0, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+27				(*characters)->tab[i] = NULL;
+1: (*characters)->tab = {0x0, 0x0, 0x0, 0x55555555dd50, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+29				(*characters)->nb--;
+1: (*characters)->tab = {0x0, 0x0, 0x0, 0x0, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+17		for( int i=0; i<(*characters)->nb; i++ )
+1: (*characters)->tab = {0x0, 0x0, 0x0, 0x0, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+19			if ( (*characters)->tab[i]->pv <= 0 )
+1: (*characters)->tab = {0x0, 0x0, 0x0, 0x0, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+26				free((*characters)->tab[i]);
+1: (*characters)->tab = {0x0, 0x0, 0x0, 0x0, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+27				(*characters)->tab[i] = NULL;
+1: (*characters)->tab = {0x0, 0x0, 0x0, 0x0, 0x55555555de30, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+29				(*characters)->nb--;
+1: (*characters)->tab = {0x0, 0x0, 0x0, 0x0, 0x0, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+17		for( int i=0; i<(*characters)->nb; i++ )
+1: (*characters)->tab = {0x0, 0x0, 0x0, 0x0, 0x0, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+33		if( tasser_tab(characters) )
+1: (*characters)->tab = {0x0, 0x0, 0x0, 0x0, 0x0, 0x55555555df10, 0x55555555dff0, 0x55555555e0d0, 0x55555555e1b0, 0x55555555e290}
+(gdb) 
+37	    return TRUE;
+1: (*characters)->tab = {0x0, 0x0, 0x0, 0x0, 0x55555555df10, 0x0, 0x0, 0x0, 0x0, 0x0}
+(gdb) 
+
+
+
+####################################################################################################################
+
+
+s2202705@ic2s130-15:~/Documents/Projet/Battle_Of_Time/Conception/teste_louison$ gdb ./bin/prog 
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.1) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./bin/prog...
+(gdb) b tab_character.c:102
+Breakpoint 1 at 0x445d: file src/tab_character.c, line 102.
+(gdb) r
+Starting program: /info/etu/l2info/s2202705/Documents/Projet/Battle_Of_Time/Conception/teste_louison/bin/prog 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7fffedfc9700 (LWP 8812)]
+[New Thread 0x7fffed788700 (LWP 8813)]
+[Thread 0x7fffed788700 (LWP 8813) exited]
+[New Thread 0x7fffed788700 (LWP 8814)]
+[Thread 0x7fffed788700 (LWP 8814) exited]
+[New Thread 0x7fffed788700 (LWP 8816)]
+[Thread 0x7fffed788700 (LWP 8816) exited]
+[New Thread 0x7fffed788700 (LWP 8817)]
+
+Thread 1 "prog" hit Breakpoint 1, vide_devant (deriere=0x555555dbe360, devant_x=0, owner=3) at src/tab_character.c:102
+102			dist= (deriere->x - deriere->vector) - devant_x - TAILLE_SPRITE;
+(gdb) display dist
+1: dist = 21845
+(gdb) n
+103			if(dist >= deriere->vector)
+1: dist = 1434
+(gdb) c
+Continuing.
+
+Thread 1 "prog" hit Breakpoint 1, vide_devant (deriere=0x555555dbe360, devant_x=0, owner=3) at src/tab_character.c:102
+102			dist= (deriere->x - deriere->vector) - devant_x - TAILLE_SPRITE;
+1: dist = 1354620832
+(gdb) n
+103			if(dist >= deriere->vector)
+1: dist = 1432
+(gdb) c
+Continuing.
+
+Thread 1 "prog" hit Breakpoint 1, vide_devant (deriere=0x555555dc2620, devant_x=1496, owner=3) at src/tab_character.c:102
+102			dist= (deriere->x - deriere->vector) - devant_x - TAILLE_SPRITE;
+1: dist = 21845
+(gdb) n
+103			if(dist >= deriere->vector)
+1: dist = -62
+(gdb) 
+106				return FALSE;
+1: dist = -62
+(gdb) 
+111	}
+1: dist = -62
+(gdb) 
+mouvement (deriere=0x555555da8b38, devant_x=1496) at src/tab_character.c:114
+114		if(vide_devant(*deriere,devant_x,(*deriere)->owner))
+(gdb) 
+120			if((*deriere)->owner>1){
+(gdb) 
+121				(*deriere)->x -= (*deriere)->x - devant_x +TAILLE_SPRITE;
+(gdb) display (*deriere)->x
+2: (*deriere)->x = 1500
+(gdb) n
+122				if((*deriere)->x < 0)
+2: (*deriere)->x = 1432
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 8807] will be killed.
+
+Quit anyway? (y or n) y
