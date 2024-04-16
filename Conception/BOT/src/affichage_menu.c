@@ -9,8 +9,8 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
                int menuX, int menuY, element_t* elm_reso, int* selecElement, const char* effet, char* textInput, 
                int* isValid, int* keyCounts, SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp,
                SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age,
-               SDL_Texture* moderne, SDL_Texture* futuriste, player_t* joueur, SDL_Texture** image, SDL_Texture* upgrade,
-               ordi_t* ordi, int* cameraX, int* cameraY)
+               SDL_Texture* moderne, SDL_Texture* futuriste, player_t* joueur, SDL_Texture** sprite_hud, SDL_Texture* upgrade,
+               ordi_t* ordi, int* cameraX, int* cameraY, SDL_Texture* ultim, SDL_Texture* building[])
 {
     /*Affiche le titre du jeu*/
     afficherTitre(rendu, fenetre, ((WINDOW_WIDTH - 800) / 2), ((WINDOW_HEIGHT - 1000) / 2), 800, 600);
@@ -64,6 +64,10 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
         case MENU_SOUS_ENLIGNE:
             afficherSousMenuEnLigne(rendu, fenetre, police);
             break;
+
+        case MENU_SOUS_CREER:
+            afficherSousMenuCreer(rendu, fenetre, police);
+            break;
         
         case MENU_SOUS_REJOINDRE:
             afficherSousMenuRejoindre(rendu, fenetre, police, textInput, isValid, keyCounts);
@@ -77,8 +81,8 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
             /*Effacement de l'ancien rendu*/
             SDL_RenderClear(rendu);   
             gestionAffichageFondJeu(rendu, fenetre, etatAge, prehistoire, antiquite, moyen_age, moderne, futuriste, joueur, ordi, cameraX, cameraY);
-            afficherHUD(rendu, fenetre, police_texte, parametre, upgrade, gold, xp, joueur, image);
-
+            afficherHUD(rendu, fenetre, police_texte, parametre, upgrade, gold, xp, joueur, sprite_hud, ultim, (*etatAge));
+            affichageBulding(rendu, fenetre, building, (*etatAge));
             
             break;
 
@@ -417,7 +421,7 @@ void afficherSousMenuDifficulte(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Fo
 
     /*Affichage du rectangle translucide derrière le menu*/
     SDL_SetRenderDrawColor(rendu, 255, 255, 255, 128);/*Couleur semi-transparente*/
-    SDL_Rect rect_menu = creationRectangle(fenetre, menuX, menuY, MENU_WIDTH, (3 * MENU_HEIGHT) + (2 * SPACING));
+    SDL_Rect rect_menu = creationRectangle(fenetre, menuX, menuY, MENU_WIDTH, (4 * MENU_HEIGHT) + (3 * SPACING));
     SDL_SetRenderDrawBlendMode(rendu, SDL_BLENDMODE_BLEND);
     SDL_RenderFillRect(rendu, &rect_menu);
 
@@ -425,5 +429,26 @@ void afficherSousMenuDifficulte(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Fo
     afficherMenu(rendu, police, fenetre, "Facile", menuX, menuY, MENU_WIDTH, MENU_HEIGHT);
     afficherMenu(rendu, police, fenetre, "Moyen", menuX, menuY + MENU_HEIGHT + SPACING, MENU_WIDTH, MENU_HEIGHT);
     afficherMenu(rendu, police, fenetre, "Difficile", menuX, menuY + 2 * MENU_HEIGHT + 2 * SPACING, MENU_WIDTH, MENU_HEIGHT);
+    afficherMenu(rendu, police, fenetre, "Retour", menuX, menuY + 3 * MENU_HEIGHT + 3 * SPACING, MENU_WIDTH, MENU_HEIGHT);
 }
 
+void afficherSousMenuCreer(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
+{
+    /*Calcul des positions x et y*/
+    int menuX = (WINDOW_WIDTH - MENU_WIDTH) / 2; //Position horizontale
+    int menuY = (WINDOW_HEIGHT - (MENU_HEIGHT + SPACING)) / 2; //Position verticale
+
+    /*Affichage de la zone de texte blanche*/
+    SDL_SetRenderDrawColor(rendu, 255, 255, 255, 255);
+    SDL_Rect zone_texte = creationRectangle(fenetre, menuX - 70, menuY + 60, 350, 70);
+    SDL_RenderFillRect(rendu, &zone_texte);
+
+    char* IP = get_ip_serveur();
+
+    SDL_Surface* IPSurface = TTF_RenderText_Solid(police, IP, BLACK);
+    SDL_Texture* IPTexture = SDL_CreateTextureFromSurface(rendu, IPSurface);
+
+    SDL_Rect textRect = creationRectangle(fenetre, menuX - 70, menuY + 60, IPSurface->w, IPSurface->h);
+    SDL_RenderCopy(rendu, IPTexture, NULL, &textRect);
+    SDL_DestroyTexture(IPTexture);
+}

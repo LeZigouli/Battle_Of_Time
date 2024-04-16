@@ -56,10 +56,7 @@ $(OBJDIR)/serveur.o : socket/serveur.c socket/serveur.h
 .PHONY: clean
 clean:
 	@$(rm) $(OBJDIR)/*.o
-	
 	@echo "Fichiers objets effacés!"
-
-
 
 #clean + supprime l'exécutable
 .PHONY: mrproper

@@ -140,14 +140,19 @@ int main(int argc, char* argv[]) {
     /*Variable pour stocker le nombre de fois que la touche 'Enter' a été appuyée*/
     int* keyCounts = malloc(sizeof(int));
     (*keyCounts) = 0;
+
+
+
     
     /**********/
     /*-Images-*/
     /**********/
+    /*Chargement des images pour l'HUD*/
     SDL_Texture* parametre = chargementImg(rendu, fenetre, "img/HUD/parametre.png");
     SDL_Texture* upgrade = chargementImg(rendu, fenetre, "img/HUD/upgrade.png");
     SDL_Texture* gold = chargementImg(rendu, fenetre, "img/HUD/gold.png");
     SDL_Texture* xp = chargementImg(rendu, fenetre, "img/HUD/xp.png");
+    SDL_Texture* ultim = chargementImg(rendu, fenetre, "img/HUD/ultimate.png");
 
     /*Chargement des imges d'arrière plan*/
     SDL_Texture* prehistoire = chargementImg(rendu, fenetre, "img/Fond/Préhistoire_v2.jpg");
@@ -156,8 +161,39 @@ int main(int argc, char* argv[]) {
     SDL_Texture* moderne = chargementImg(rendu, fenetre, "img/Fond/Moderne_v2.jpg");
     SDL_Texture* futuriste = chargementImg(rendu, fenetre, "img/Fond/Futuriste_v2.jpg");
 
-    /* reseau */
-    int connection_reussi = FALSE;
+    /*Chargement des images des sprites pour l'HUD*/
+    SDL_Texture* sprite_hud[20] = {chargementImg(rendu, fenetre, "img/sprite/Préhistoire/melee_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Préhistoire/marksman_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Préhistoire/tank_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Préhistoire/specialist_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Antiquité/melee_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Antiquité/marksman_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Antiquité/tank_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Antiquité/specialist_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Moyen Age/melee_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Moyen Age/marksman_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Moyen Age/tank_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Moyen Age/specialist_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Ere moderne/melee_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Ere moderne/marksman_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Ere moderne/tank_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Ere moderne/specialist_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Ere futuriste/melee_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Ere futuriste/marksman_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Ere futuriste/tank_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Ere futuriste/specialist_img.png")
+                                   };
+                                
+    SDL_Texture* building[10] = {chargementImg(rendu, fenetre, "img/Base/grotte.png"),
+                               chargementImg(rendu, fenetre, "img/Base/grotte_ad.png"),
+                               chargementImg(rendu, fenetre, "img/Base/base.png"),
+                               chargementImg(rendu, fenetre, "img/Base/base_ad.png"),
+                               chargementImg(rendu, fenetre, "img/Base/chateau.png"),
+                               chargementImg(rendu, fenetre, "img/Base/chateau_ad.png"),
+                               chargementImg(rendu, fenetre, "img/Base/base_militaire.png"),
+                               chargementImg(rendu, fenetre, "img/Base/base_militaire_ad.png"),
+                               chargementImg(rendu, fenetre, "img/Base/base_futuriste.png"),
+                               chargementImg(rendu, fenetre, "img/Base/base_futuriste_ad.png")};
 
     /*****************/
     /*-Variables jeu-*/
@@ -187,6 +223,8 @@ int main(int argc, char* argv[]) {
                            IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+specialist].sprite),
                            NULL,NULL,NULL,NULL};
 
+
+
     SDL_Texture* img_char[MAX_POSSESSED];
     SDL_Texture * img_c_ordi[MAX_POSSESSED];
 
@@ -203,6 +241,9 @@ int main(int argc, char* argv[]) {
         ordiPosition[i].w = 128;
         ordiPosition[i].h = 128;
     }
+
+    /* reseau */
+    int connection_reussi = FALSE;
 
     /*********************/
     /*-Boucle Principale-*/
@@ -259,7 +300,7 @@ int main(int argc, char* argv[]) {
                 case SDL_KEYDOWN:
                     
                     /*Gestion des touches pour l'adresse IP*/
-                    touches(evenement, textInputActive, keyCounts, isValide, (char **)textInput, ipPattern);
+                    touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern);
                     break;
 
                 /*Gestion du texte saisie*/
@@ -292,7 +333,7 @@ int main(int argc, char* argv[]) {
         /*Gestion de l'affichage en fonction de l'état*/
         affichage((*etat), etatAge,rendu, fenetre, police, police_texte, menuX, menuY, elm_reso, selecElement, 
                   effet, textInput, isValide, keyCounts, parametre, gold, xp, prehistoire, antiquite,
-                  moyen_age, moderne, futuriste, j1, image, upgrade, o, cameraX, cameraY);
+                  moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim);
         
     
         /*On appelle les fonctions du jeu si on est dans une partie*/
@@ -305,35 +346,20 @@ int main(int argc, char* argv[]) {
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY);
         }
 
-        if((*etat) == JOUER_RESEAU_CREER){
             
-            /*================ RESEAU INITIALISATION ================*/
-            /* si le choix était de creer une partie */
-            /* et que on a pas deja reussi une connection */
-            if ( (*etat) == MENU_SOUS_CREER && !connection_reussi )
-            {
-                init_reseau_serveur();
-                connection_reussi = 1;
-            }
-            /* si le choix était de rejoindre une partie */
-            else if ( (*etat) == MENU_SOUS_REJOINDRE && !connection_reussi )
-            {
-                init_reseau_client(textInput);
-                connection_reussi = 1;
-                printf("%s",textInput);
-            }
-            /*=======================================================*/
+        /*================ RESEAU INITIALISATION ================*/
+        /* si le choix était de creer une partie */
+        /* et que on a pas deja reussi une connection */
+        
+        /*=======================================================*/
+        /* jeu */
+        /*=============== RESEAU ENVOIE/RECEPTION ===============*/
+        // envoyer_structure()
+        // recevoir_structure()
+        /*=======================================================*/
+        /* traitement */
 
-            /* jeu */
-
-            /*=============== RESEAU ENVOIE/RECEPTION ===============*/
-            // envoyer_structure()
-            // recevoir_structure()
-            /*=======================================================*/
-
-            /* traitement */
-
-        }
+    
 
         /*Amélioration antialiasing*/
         SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"2");
@@ -352,12 +378,10 @@ int main(int argc, char* argv[]) {
     free(upgarde_j);
 
     /*================ RESEAU ================*/
-    /* on ferme la connection */
-    if ( (*etat) == MENU_SOUS_CREER      ) serveur_fermeture(&ma_socket);
-    if ( (*etat) == MENU_SOUS_REJOINDRE  ) client_fermeture(&to_server_socket);
-    connection_reussi = FALSE;
+
     /*========================================*/
 
+    destroy_tab_character(&tab_de_charactere);
     destroy_player(&j1);
     detr_ordi(&o);
     /*****************************/
@@ -369,7 +393,7 @@ int main(int argc, char* argv[]) {
     
 
     destruction_SDL(parametre, gold, xp, textureFond, prehistoire, antiquite, moyen_age,
-                    moderne, futuriste, police, police_texte, rendu, fenetre, click, music);
+                    moderne, futuriste, police, police_texte, rendu, fenetre, click, music, sprite_hud);
 
     return EXIT_SUCCESS;
 }

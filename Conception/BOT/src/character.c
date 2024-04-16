@@ -130,7 +130,7 @@ character_t * initcharacter()
                     strcpy(tab[age*NB_CHARACTER+classe].sprite,"img/sprite/Ere moderne/");
                     break;
                 
-                default:
+                case Ere_Futuriste:
                     strcpy(tab[age*NB_CHARACTER+classe].sprite,"img/sprite/Ere futuriste/");
                     break;
                 }

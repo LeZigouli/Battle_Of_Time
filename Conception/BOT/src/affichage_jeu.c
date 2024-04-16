@@ -3,7 +3,8 @@
 
 /*Affichage de l4HUD*/
 void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_texte, SDL_Texture* parametre, 
-                 SDL_Texture* upgrade, SDL_Texture* gold, SDL_Texture* xp, player_t* joueur, SDL_Texture** image)
+                 SDL_Texture* upgrade, SDL_Texture* gold, SDL_Texture* xp, player_t* joueur, SDL_Texture* sprite_hud[],
+                 SDL_Texture* ultim, int age)
 {
     /*Affichage du bouton paramètre*/
     SDL_Rect rect_parametre = creationRectangle(fenetre, WINDOW_WIDTH - 60, 10, 50, 50);
@@ -15,6 +16,10 @@ void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_text
     /*Affichage du bouton d'upgrade*/
     SDL_Rect rect_upgrade = creationRectangle(fenetre, 20, 105, 50, 50);
     SDL_RenderCopy(rendu, upgrade, NULL, &rect_upgrade);
+
+    /*Affichage du bouton d'ultim
+    SDL_Rect rect_ultim = creationRectangle(fenetre, 80, 105, 50, 50);
+    SDL_RenderCopy(rendu, ultim, NULL, &rect_ultim);*/
 
     /*Affichage du rectangle translucide contenant l'or et l'xp*/
     SDL_SetRenderDrawColor(rendu, 0, 0, 0, 128);/*Couleur semi-transparente*/
@@ -63,15 +68,45 @@ void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_text
     SDL_RenderFillRect(rendu, &Perso3);
     SDL_RenderFillRect(rendu, &Perso4);
 
-    SDL_Rect tete_perso = creationRectangle(fenetre, TAILLE_SPRITE * 0, TAILLE_SPRITE * 10, TAILLE_SPRITE, TAILLE_SPRITE); 
+    SDL_Rect tete_perso = creationRectangle(fenetre, 0, 0, 45, 60); 
     /*Affichage de la tête des personnages dans les rectangles*/
-    SDL_RenderCopy(rendu, image[0], &tete_perso, &Perso1);
-    SDL_RenderCopy(rendu, image[1], &tete_perso, &Perso2);
-    SDL_RenderCopy(rendu, image[2], &tete_perso, &Perso3);
-    SDL_RenderCopy(rendu, image[3], &tete_perso, &Perso4);
+    switch(age){
+        case Prehistoire:
+            SDL_RenderCopy(rendu, sprite_hud[0], &tete_perso, &Perso1);
+            SDL_RenderCopy(rendu, sprite_hud[1], &tete_perso, &Perso2);
+            SDL_RenderCopy(rendu, sprite_hud[2], &tete_perso, &Perso3);
+            SDL_RenderCopy(rendu, sprite_hud[3], &tete_perso, &Perso4);
+            break;
+        
+        case Antiquite:
+            SDL_RenderCopy(rendu, sprite_hud[4], &tete_perso, &Perso1);
+            SDL_RenderCopy(rendu, sprite_hud[5], &tete_perso, &Perso2);
+            SDL_RenderCopy(rendu, sprite_hud[6], &tete_perso, &Perso3);
+            SDL_RenderCopy(rendu, sprite_hud[7], &tete_perso, &Perso4);
+            break;
+        
+        case Moyen_Age:
+            SDL_RenderCopy(rendu, sprite_hud[8], &tete_perso, &Perso1);
+            SDL_RenderCopy(rendu, sprite_hud[9], &tete_perso, &Perso2);
+            SDL_RenderCopy(rendu, sprite_hud[10], &tete_perso, &Perso3);
+            SDL_RenderCopy(rendu, sprite_hud[11], &tete_perso, &Perso4);
+            break;
+        
+        case Ere_Moderne:
+            SDL_RenderCopy(rendu, sprite_hud[12], &tete_perso, &Perso1);
+            SDL_RenderCopy(rendu, sprite_hud[13], &tete_perso, &Perso2);
+            SDL_RenderCopy(rendu, sprite_hud[14], &tete_perso, &Perso3);
+            SDL_RenderCopy(rendu, sprite_hud[15], &tete_perso, &Perso4);
+            break;
 
+        case Ere_Futuriste:
+            SDL_RenderCopy(rendu, sprite_hud[16], &tete_perso, &Perso1);
+            SDL_RenderCopy(rendu, sprite_hud[17], &tete_perso, &Perso2);
+            SDL_RenderCopy(rendu, sprite_hud[18], &tete_perso, &Perso3);
+            SDL_RenderCopy(rendu, sprite_hud[19], &tete_perso, &Perso4);
+            break;
+    }
 }
-
 
 /*Affichage de l'image de fond du jeu et gestion du déplacement de la souris pour défiler l'image*/
 void afficherJeuFond(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* fond_jeu, int* cameraX, int* cameraY)
@@ -211,6 +246,7 @@ void img_charactere_inser(tab_charactere_t * characters,building_t * building, S
     }
 }
 
+/*Affichage des sprite et gestion de leur déplacement*/
 void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, int attaque,
                      SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* upgrade_j, character_t* tab_de_charactere,
                      SDL_Texture* image[], SDL_Texture* img_char[], SDL_Texture* img_c_ordi[], Uint32 currentTime, Uint32* lastMovement,
@@ -264,4 +300,39 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
     for(i=0;i<o->characters->nb;i++){
         SDL_RenderCopy(rendu, img_c_ordi[i], ordiImg, &ordiPosition[i]);
     }
+}
+
+/*Affichage des buildings*/
+void affichageBulding(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* building[], int age)
+{
+    SDL_Rect rect_build = creationRectangle(fenetre, 0, 0, 1080, 900); 
+    SDL_Rect rect_build_ad = creationRectangle(fenetre, IMAGE_WIDTH, 0, 1080, 900); 
+
+    switch(age){
+        case Prehistoire:
+            SDL_RenderCopy(rendu, building[0], &rect_build, NULL);
+            SDL_RenderCopy(rendu, building[1], &rect_build_ad, NULL);
+            break;
+        
+        case Antiquite:
+            SDL_RenderCopy(rendu, building[2], &rect_build, NULL);
+            SDL_RenderCopy(rendu, building[3], &rect_build_ad, NULL);
+            break;
+        
+        case Moyen_Age:
+            SDL_RenderCopy(rendu, building[4], &rect_build, NULL);
+            SDL_RenderCopy(rendu, building[5], &rect_build_ad, NULL);
+            break;
+        
+        case Ere_Moderne:
+            SDL_RenderCopy(rendu, building[6], &rect_build, NULL);
+            SDL_RenderCopy(rendu, building[7], &rect_build_ad, NULL);
+            break;
+
+        case Ere_Futuriste:
+            SDL_RenderCopy(rendu, building[8], &rect_build, NULL);
+            SDL_RenderCopy(rendu, building[9], &rect_build_ad, NULL);
+            break;
+    }
+    
 }

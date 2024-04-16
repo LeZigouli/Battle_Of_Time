@@ -8,6 +8,7 @@
 #include "gestion.h"
 #include "player.h"
 #include "ordinateur.h"
+#include "../socket/serveur.h"
 
 /***************/
 /*--Fonctions--*/
@@ -16,8 +17,8 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
                int menuX, int menuY, element_t* elm_reso, int* selecElement, const char* effet, char* textInput, 
                int* isValid, int* keyCounts, SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp,
                SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age,
-               SDL_Texture* moderne, SDL_Texture* futuriste, player_t* joueur, SDL_Texture** image, SDL_Texture* upgrade,
-               ordi_t* ordi, int* cameraX, int* cameraY);
+               SDL_Texture* moderne, SDL_Texture* futuriste, player_t* joueur, SDL_Texture** sprite_hud, SDL_Texture* upgrade,
+               ordi_t* ordi, int* cameraX, int* cameraY, SDL_Texture* ultim, SDL_Texture* building[]);
 
 void afficherMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte, int x, int y, int largeur, int hauteur);
 void afficherSousMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte1, const char* texte2, const char* texte3, const char* texte4);
@@ -33,5 +34,6 @@ void afficherSousMenuSolo(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* po
 void afficherSousMenuEnLigne(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police);
 void afficherSousMenuRejoindre(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, char* textInput, int* isValid, int* keyCounts);
 void afficherSousMenuDifficulte(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police);
+void afficherSousMenuCreer(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police);
 
 #endif
