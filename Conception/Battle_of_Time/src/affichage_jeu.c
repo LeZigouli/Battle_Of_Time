@@ -256,65 +256,65 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
 {
     int i;
 
-    // Calcul du temps écoulé depuis la dernière mise à jour
+    /*Calcul du temps écoulé depuis la dernière mise à jour*/
     float t = (float)(currentTime - *lastMovement) / MOVEMENT_DURATION;
     if (t > 1.0f) {
         t = 1.0f;
     }
 
-    // Calcul de la position cible de la caméra pour chaque sprite
+    /*Calcul de la position cible de la caméra pour chaque sprite*/
     int targetCameraX = *cameraX;
     int targetCameraY = *cameraY;
 
-    // Interpolation linéaire entre la position actuelle de la caméra et la position cible
+    /*Interpolation linéaire entre la position actuelle de la caméra et la position cible*/
     int interpolatedCameraX = lerp(*cameraX, targetCameraX, t);
     int interpolatedCameraY = lerp(*cameraY, targetCameraY, t);
 
     for(i=0; i<j1->characters->nb; i++){
-        // Calcul de la position cible du joueur en fonction de la caméra
+        /*Calcul de la position cible du joueur en fonction de la caméra*/
         int targetPlayerX = j1->characters->tab[i]->x - interpolatedCameraX;
         int targetPlayerY = h - (TAILLE_SPRITE * 2) - 16;
 
-        // Interpolation linéaire entre la position actuelle du joueur et la position cible
+        /*Interpolation linéaire entre la position actuelle du joueur et la position cible*/
         int interpolatedPlayerX = lerp(playerPosition[i].x, targetPlayerX, t);
         int interpolatedPlayerY = lerp(playerPosition[i].y, targetPlayerY, t);
 
-        // Mise à jour de la position du joueur
+        /*Mise à jour de la position du joueur*/
         playerPosition[i].x = interpolatedPlayerX;
         playerPosition[i].y = interpolatedPlayerY;
     }
 
     for(i=0; i<o->characters->nb; i++){
-        // Calcul de la position cible de l'ordinateur en fonction de la caméra
+        /*Calcul de la position cible de l'ordinateur en fonction de la caméra*/
         int targetOrdiX = o->characters->tab[i]->x - interpolatedCameraX;
         int targetOrdiY = h - (TAILLE_SPRITE * 2) - 16;
 
-        // Interpolation linéaire entre la position actuelle de l'ordinateur et la position cible
+        /*Interpolation linéaire entre la position actuelle de l'ordinateur et la position cible*/
         int interpolatedOrdiX = lerp(ordiPosition[i].x, targetOrdiX, t);
         int interpolatedOrdiY = lerp(ordiPosition[i].y, targetOrdiY, t);
 
-        // Mise à jour de la position de l'ordinateur
+        /*Mise à jour de la position de l'ordinateur*/
         ordiPosition[i].x = interpolatedOrdiX;
         ordiPosition[i].y = interpolatedOrdiY;
     }
 
-    // Mise à jour de la position de la caméra
+    /*Mise à jour de la position de la caméra*/
     *cameraX = interpolatedCameraX;
     *cameraY = interpolatedCameraY;
 
-    //*lastMovement = currentTime;
 
-    if(currentTime - (*lastMovement) >= 100 && attaque == 0 && (j1->characters->nb > 0 || o->characters->nb > 0)){ //le sprite va avancer tout les 100 ms
+    /*Déplacement du sprite*/
+    if(currentTime - (*lastMovement) >= 100 && attaque == 0 && (j1->characters->nb > 0 || o->characters->nb > 0)){ /*le sprite va avancer tout les 100 ms*/
         if(playerImg->x == TAILLE_SPRITE*8) 
-            playerImg->x = TAILLE_SPRITE; //si on arrive a la fin de l'animation on retourne a la premiere pour faire l'animation en continu
+            playerImg->x = TAILLE_SPRITE; /*si on arrive a la fin de l'animation on retourne a la premiere pour faire l'animation en continu*/
         else {
-            playerImg->x += TAILLE_SPRITE;//on passe a l'image suivante pour l'animation
+            playerImg->x += TAILLE_SPRITE;/*on passe a l'image suivante pour l'animation*/
         }
         
         if(ordiImg->x == TAILLE_SPRITE*8) 
-            ordiImg->x = TAILLE_SPRITE; //si on arrive a la fin de l'animation on retourne a la premiere pour faire l'animation en continu
+            ordiImg->x = TAILLE_SPRITE; /*si on arrive a la fin de l'animation on retourne a la premiere pour faire l'animation en continu*/
         else {
-            ordiImg->x += TAILLE_SPRITE;//on passe a l'image suivante pour l'animation
+            ordiImg->x += TAILLE_SPRITE;/*on passe a l'image suivante pour l'animation*/
         }
 
         deplacement(j1->characters, o->characters->tab[0], POS_DEP_AD);
@@ -339,6 +339,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
             image[i+NB_CHARACTER]= IMG_LoadTexture(rendu,tab_de_charactere[(j1->building->level-1)*NB_CHARACTER+i].sprite);
         (*upgrade_j)=0;
     }
+
         
     img_charactere_inser(j1->characters,j1->building,img_char,image);
     img_charactere_inser(o->characters,o->building,img_c_ordi,image);

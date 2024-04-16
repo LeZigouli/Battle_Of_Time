@@ -25,7 +25,6 @@ struct character_s{
 	int time; 
 	int vector;
 	int x;
-	int x_pred;
 	int y;
 };
 

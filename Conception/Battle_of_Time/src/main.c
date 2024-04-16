@@ -199,13 +199,10 @@ int main(int argc, char* argv[]) {
     /*-Variables jeu-*/
     /*****************/
     int attaque = 0;
-    int nb_attaque = 1;
     int* upgarde_j = malloc(sizeof(int));
     (*upgarde_j) = 0;
     int i;
 
-    int resize = 1; //entier qui sert a définir si le sprite a été redimensionné (car les animations sont de taille différentes)
-    //SDL_Rect playerPosition = {100, 100, 128, 128}; // position et taille du sprite sur l'écran
     Uint32 lastMovement = 0; //dernier mouvement du sprite
 
     SDL_Rect playerImg = {TAILLE_SPRITE*0 , TAILLE_SPRITE*11, TAILLE_SPRITE*1, TAILLE_SPRITE*1};   //position sur le png avec tous les sprite
@@ -241,8 +238,6 @@ int main(int argc, char* argv[]) {
         
     }
 
-    /* reseau */
-    int connection_reussi = FALSE;
 
     /*********************/
     /*-Boucle Principale-*/
@@ -299,11 +294,7 @@ int main(int argc, char* argv[]) {
                 case SDL_KEYDOWN:
                     
                     /*Gestion des touches pour l'adresse IP*/
-                    touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern, &connection_reussi);
-                    if ( connection_reussi )
-                    {
-                        (*etat) = JOUER_RESEAU_REJOINDRE;
-                    }
+                    touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern);
                     break;
 
                 /*Gestion du texte saisie*/
@@ -336,7 +327,7 @@ int main(int argc, char* argv[]) {
         /*Gestion de l'affichage en fonction de l'état*/
         affichage((*etat), etatAge,rendu, fenetre, police, police_texte, menuX, menuY, elm_reso, selecElement, 
                   effet, textInput, isValide, keyCounts, parametre, gold, xp, prehistoire, antiquite,
-                  moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building, j1->building->pv, o->building->pv);
+                  moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building);
         
     
         /*On appelle les fonctions du jeu si on est dans une partie*/
@@ -349,10 +340,6 @@ int main(int argc, char* argv[]) {
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY);
         }
 
-        if ( (*etat) == JOUER_RESEAU_REJOINDRE )
-        {
-            printf("Je joue en reseau !\n");
-        }
             
         /*================ RESEAU INITIALISATION ================*/
         /* si le choix était de creer une partie */
