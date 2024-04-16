@@ -170,10 +170,10 @@ int main(int argc, char* argv[]) {
                                    chargementImg(rendu, fenetre, "img/sprite/Antiquité/marksman_img.png"),
                                    chargementImg(rendu, fenetre, "img/sprite/Antiquité/tank_img.png"),
                                    chargementImg(rendu, fenetre, "img/sprite/Antiquité/specialist_img.png"),
-                                   chargementImg(rendu, fenetre, "img/sprite/Moyen Age/melee_img.png"),
-                                   chargementImg(rendu, fenetre, "img/sprite/Moyen Age/marksman_img.png"),
-                                   chargementImg(rendu, fenetre, "img/sprite/Moyen Age/tank_img.png"),
-                                   chargementImg(rendu, fenetre, "img/sprite/Moyen Age/specialist_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Moyen age/melee_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Moyen age/marksman_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Moyen age/tank_img.png"),
+                                   chargementImg(rendu, fenetre, "img/sprite/Moyen age/specialist_img.png"),
                                    chargementImg(rendu, fenetre, "img/sprite/Ere moderne/melee_img.png"),
                                    chargementImg(rendu, fenetre, "img/sprite/Ere moderne/marksman_img.png"),
                                    chargementImg(rendu, fenetre, "img/sprite/Ere moderne/tank_img.png"),
@@ -333,7 +333,7 @@ int main(int argc, char* argv[]) {
         /*Gestion de l'affichage en fonction de l'état*/
         affichage((*etat), etatAge,rendu, fenetre, police, police_texte, menuX, menuY, elm_reso, selecElement, 
                   effet, textInput, isValide, keyCounts, parametre, gold, xp, prehistoire, antiquite,
-                  moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim);
+                  moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building);
         
     
         /*On appelle les fonctions du jeu si on est dans une partie*/

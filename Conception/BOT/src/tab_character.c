@@ -116,22 +116,17 @@ void mouvement(character_t ** deriere,int devant_x){
 			deplacement_gauche(deriere);
 		else
 			deplacement_droit(deriere);
-	else
-		if((*deriere)->owner>1){
+	else{
+		if((*deriere)->owner>1)
 			(*deriere)->x -= ((*deriere)->x) - devant_x - TAILLE_SPRITE;
-			if((*deriere)->x < 0)
-				(*deriere)->x=0;
-			else
-				if((*deriere)->x>1500)
-					(*deriere)->x=1500;
-		}else{
+		else
 			(*deriere)->x += devant_x -  (*deriere)->x - TAILLE_SPRITE;
-			if((*deriere)->x < 0)
-				(*deriere)->x=0;
-			else
-				if((*deriere)->x>1500)
-					(*deriere)->x=1500;
-		}
+		if((*deriere)->x < 0)
+			(*deriere)->x=0;
+		else
+			if((*deriere)->x>IMAGE_WIDTH)
+				(*deriere)->x=IMAGE_WIDTH;
+	}
 }
 
 void deplacement(tab_charactere_t * characters, character_t * first_Adverser, int x_building_adverser){

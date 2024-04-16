@@ -27,9 +27,9 @@ ordi_t * init_ordi(){
                 ordi->characters->nb=0;
                 for(int i=0; i<MAX_POSSESSED;i++)
                     ordi->characters->tab[i]=NULL;
-                ordi->delai=DELAI_INITAL;
+                ordi->delai=DELAI_INITIAL;
                 ordi->xp=0;
-                ordi->delai_ulti=DELAI_INITAL;
+                ordi->delai_ulti=DELAI_INITIAL;
                 srand(time(NULL));
                 return ordi;
             }
@@ -63,7 +63,7 @@ int envoie_char_ordi(ordi_t * ordi, character_t * tab){
             copie_character(&new,&tab[(ordi->building->level)*NB_CHARACTER+newCha]);
             ordi->characters->tab[ordi->characters->nb]=new;
             ordi->characters->tab[ordi->characters->nb]->owner=ORDINATEUR;
-            ordi->characters->tab[ordi->characters->nb]->x=1500;
+            ordi->characters->tab[ordi->characters->nb]->x=IMAGE_WIDTH;
             ordi->characters->nb++;
             ordi->xp+= new->cost*new->ratio_ressources;
             return EXIT_SUCCESS;
@@ -98,11 +98,11 @@ void afficher_ordi(ordi_t * ordi){
 }
 
 void jeu_ordi(ordi_t * o, player_t * p, character_t * tab){
-    if(o->delai == DELAI_INITAL){
+    if(o->delai == DELAI_INITIAL){
         o->delai=rand()%(MAX_DELAI/(o->difficulte+MIN_DELAI))+MIN_DELAI;
         debut=time(NULL);
     }
-    if(o->delai_ulti == DELAI_INITAL){
+    if(o->delai_ulti == DELAI_INITIAL){
         o->delai_ulti=rand()%(MAX_DELAI_ULTI-MIN_DELAI_ULTI)+MIN_DELAI_ULTI;
         d_ulti=time(NULL);
     }
@@ -113,13 +113,11 @@ void jeu_ordi(ordi_t * o, player_t * p, character_t * tab){
     f_ulti=fin;
     if(difftime(fin,debut) >= o->delai){
         envoie_char_ordi(o,tab);
-        o->delai=rand()%(MAX_DELAI/(o->difficulte+MIN_DELAI))+MIN_DELAI;
-        debut=time(NULL);
+        o->delai=DELAI_INITIAL;
     }
     if(difftime(f_ulti,d_ulti) >= o->delai_ulti){
         ulti(&p->characters);
-        o->delai_ulti=rand()%(MAX_DELAI_ULTI-MIN_DELAI_ULTI)+MIN_DELAI_ULTI;
-        d_ulti=time(NULL);
+        o->delai_ulti=DELAI_INITIAL;
     }
     give_ressources(p,o);
 

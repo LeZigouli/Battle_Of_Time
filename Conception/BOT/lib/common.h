@@ -36,14 +36,9 @@
 #define ORDINATEUR 3
 
 /* INITIALISATION DU DÉLAI D'ATTENTE POUR FORMER LES TROUPES */
-#define DELAI_INITAL -1
+#define DELAI_INITIAL -1
 
-//typedef enum age_s { Prehistoire, Antiquite, Moyen_Age, Ere_Moderne, Ere_Futuriste }age_t;
-typedef enum monstre_Prehistoire_s { combattant_massue, combattant_caillou, gorille, combattant_dinosaure }monstre_Prehistoire_t;
-typedef enum monstre_Antiquite_s { legionnaire_epee, legionnauire_lance, legionnaire_cheval, legionnaire_hippopotame }monstre_Antiquite_t;
-typedef enum monstre_Moyen_Age_s { chevalier_epee_bouclier,chevalier_fronde, chevalier_tortue, chevalier_poulet }monstre_Moyen_Age_t;
-typedef enum monstre_Ere_Moderne_s { samurai, soldat_militaire, avatar, panzer }monstre_Ere_Moderne_t;
-typedef enum monstre_Ere_futuriste_s { soldat_sabre_laser, gros_poulet, banane_geante, alien }monstre_Ere_futuriste_t;
+
 typedef enum class_character_s { melee, marksman, tank, specialist }class_character_t;
 
 /* definition d'un type booleen */

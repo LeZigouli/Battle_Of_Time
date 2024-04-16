@@ -28,7 +28,7 @@ player_t * initplayer(int owner)
 	strcpy(main_player->name,name);
 	main_player->owner = owner;
 	main_player->xp = 100000;
-	main_player->debut=DELAI_INITAL;
+	main_player->debut=DELAI_INITIAL;
 	main_player->characters = malloc(sizeof(tab_charactere_t));
 	main_player->file_attente = malloc(sizeof(tab_charactere_t));
 
@@ -146,7 +146,7 @@ void envoie_char(player_t ** player){
 	/*Formation des troupes*/
 	if((*player)->file_attente->nb > 0){
 		(*player)->delai=(*player)->file_attente->tab[0]->time;
-		if((*player)->debut<0)
+		if((*player)->debut==DELAI_INITIAL)
 			(*player)->debut=time(NULL);
 		(*player)->fin=time(NULL);
 		if(difftime((*player)->fin,(*player)->debut)>= (*player)->delai){
@@ -156,7 +156,7 @@ void envoie_char(player_t ** player){
 			}
 			(*player)->file_attente->nb--;
 			(*player)->characters->nb++;
-			(*player)->debut=time(NULL);
+			(*player)->debut=DELAI_INITIAL;
 		}
 	}
 }
