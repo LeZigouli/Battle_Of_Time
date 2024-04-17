@@ -83,10 +83,10 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
             SDL_RenderClear(rendu);   
             gestionAffichageFondJeu(rendu, fenetre, etatAge, prehistoire, antiquite, moyen_age, moderne, futuriste, joueur, ordi, 
                                     cameraX, cameraY);
-            afficherHUD(rendu, fenetre, police_texte, parametre, upgrade, gold, xp, joueur, sprite_hud, ultim, (*etatAge));
+            afficherHUD(rendu, fenetre, police_texte, parametre, upgrade, gold, xp, joueur, sprite_hud, ultim, joueur->building->level);
             affichageBulding(rendu, fenetre, building, *cameraX, *cameraY, joueur->building->level, ordi->building->level);
             affichagePointDeVie(rendu, police, joueur->building->pv, ordi->building->pv, fenetre, (*cameraX), (*cameraY));
-            affichageSurvolSouris(rendu, fenetre, police, survol, tab_charactere, (*etatAge));
+            affichageSurvolSouris(rendu, fenetre, police, survol, tab_charactere, joueur->building->level);
             break;
         case FIN_PARTIE :
             /*Effacement de l'ancien rendu*/
