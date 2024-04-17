@@ -723,6 +723,18 @@ void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isV
             (*textInputActive) = SDL_FALSE; /*Désactiver la saisie de texte*/
             /*Validation de l'adresse IP*/
             (*isValid) = validateRegex(textInput, ipPattern);
+            if ( *isValid )
+            {
+                if( init_reseau_client(textInput) )
+                {
+                    printf("Connecté en tant que client !\n");
+                }
+                else
+                {
+                    printf("Erreur lors de la connection\n");
+                    strcpy(textInput,"");
+                }
+            }
         }
         else if (evenement.key.keysym.sym == SDLK_BACKSPACE && strlen(textInput) > 0) {
             /*Effacer le dernier caractère si la touche BACKSPACE est enfoncée*/

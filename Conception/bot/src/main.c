@@ -270,7 +270,6 @@ int main(int argc, char* argv[]) {
             j1 = initplayer(OWNER_1);
             o = init_ordi();
         }
-    
         Uint32 currentTime = SDL_GetTicks();
 
         /*Récupération dimension fenêtre*/

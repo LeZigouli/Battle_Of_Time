@@ -15,9 +15,12 @@
 #include "../lib/common.h"
 #include <stdbool.h>
 #include <regex.h>
+#include <fcntl.h>
+
 #define PORT 30000
 #define MAX_IP 20
 #define QUITTER "QUITTER"
+
 
 char serveurname[MAX_IP];
 
@@ -27,7 +30,7 @@ long hostAddr;
 char buffer[512];
 int to_server_socket;
 
-void init_reseau_client(char serveurname[MAX_IP]);
+int init_reseau_client(char serveurname[MAX_IP]);
 void envoyer_structure( int to, player_t player1, player_t player2 );
 void recevoir_structure( int to, player_t * player1, player_t * player2 );
 void client_fermeture(int * socket);

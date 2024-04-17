@@ -9,6 +9,7 @@
 #include "affichage_jeu.h"
 #include "player.h"
 #include "ordinateur.h"
+#include "socket/client.h"
 
 /***************/
 /*--Fonctions--*/
