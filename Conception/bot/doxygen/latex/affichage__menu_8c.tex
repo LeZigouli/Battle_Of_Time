@@ -1,0 +1,452 @@
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/src/affichage\+\_\+menu.c}
+\hypertarget{affichage__menu_8c}{}\label{affichage__menu_8c}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/src/affichage\_menu.c@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/src/affichage\_menu.c}}
+
+
+Contient les fonctions d\textquotesingle{}affichages du menu.  
+
+
+{\ttfamily \#include \"{}../lib/affichage\+\_\+menu.\+h\"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{affichage__menu_8c_a9a30a229fe15bbf113dde51914cfa338}{affichage}} (etat\+\_\+t etat, int \texorpdfstring{$\ast$}{*}etat\+Age, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police\+\_\+texte, int menuX, int menuY, \mbox{\hyperlink{structelement__t}{element\+\_\+t}} \texorpdfstring{$\ast$}{*}elm\+\_\+reso, int \texorpdfstring{$\ast$}{*}selec\+Element, const char \texorpdfstring{$\ast$}{*}effet, char \texorpdfstring{$\ast$}{*}text\+Input, int \texorpdfstring{$\ast$}{*}is\+Valid, int \texorpdfstring{$\ast$}{*}key\+Counts, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}parametre, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}gold, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}xp, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}prehistoire, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}antiquite, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}moyen\+\_\+age, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}moderne, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}futuriste, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}joueur, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}sprite\+\_\+hud, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}upgrade, \mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}ordi, int \texorpdfstring{$\ast$}{*}cameraX, int \texorpdfstring{$\ast$}{*}cameraY, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}ultim, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}building\mbox{[}$\,$\mbox{]}, int \mbox{\hyperlink{gestion_8c_afecde47e916a8831710f18286b346ed8}{fin\+\_\+partie}}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}lose, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}tab\+\_\+charactere, int survol)
+\begin{DoxyCompactList}\small\item\em Affichage en fonction de l\textquotesingle{}etat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_ad3807074a946be85ba3f6c5858abe487}{afficher\+Titre}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, int x, int y, int largeur, int hauteur)
+\begin{DoxyCompactList}\small\item\em Affiche le titre du jeu à une position donnée sur l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_ab3803cc70b7009b9ce07f791df15977b}{afficher\+Menu}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, const char \texorpdfstring{$\ast$}{*}texte, int x, int y, int largeur, int hauteur)
+\begin{DoxyCompactList}\small\item\em Affiche un élément du menu à une position donnée sur l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_a6a859b475bacc2b8d4b63fe638a9ed62}{afficher\+Sous\+Menu}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, const char \texorpdfstring{$\ast$}{*}texte1, const char \texorpdfstring{$\ast$}{*}texte2, const char \texorpdfstring{$\ast$}{*}texte3, const char \texorpdfstring{$\ast$}{*}texte4)
+\begin{DoxyCompactList}\small\item\em Affiche les sous-\/menus avec leurs options. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_ac46f63bde9c78a0c1c2aeabf71091daa}{afficher\+Sous\+Menu\+Option}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, const char \texorpdfstring{$\ast$}{*}texte1, const char \texorpdfstring{$\ast$}{*}texte2, const char \texorpdfstring{$\ast$}{*}texte3)
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu des options. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_a9a6f0534c73c251060d09baf83cc134f}{afficher\+Sous\+Menu\+Resolution}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre)
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu des résolutions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_a33cc099eeaa7aaf9c0308ce72a3bbae5}{afficher\+Sous\+Menu\+Jouer}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police)
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu pour le menu \"{}\+Jouer\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_a21663b3145f16d13b891e5229d4bbca1}{afficher\+Sous\+Menu\+Solo}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police)
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu pour le menu \"{}\+Solo\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_ae5492d293f1ce667af9869336b29e50f}{afficher\+Sous\+Menu\+En\+Ligne}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police)
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu pour le menu \"{}\+En ligne\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_a288065efb139b60752ba45973eceb148}{init\+Elements}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, \mbox{\hyperlink{structelement__t}{element\+\_\+t}} \texorpdfstring{$\ast$}{*}elm\+\_\+reso)
+\begin{DoxyCompactList}\small\item\em Initialise les éléments nécessaires pour afficher les résolutions dans le sous-\/menu des résolutions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_a629a2a5eb7bd5e1835d38a3801145a14}{resolution}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, \mbox{\hyperlink{structelement__t}{element\+\_\+t}} \texorpdfstring{$\ast$}{*}elm\+\_\+reso, int \texorpdfstring{$\ast$}{*}selec\+Element)
+\begin{DoxyCompactList}\small\item\em Affiche les résolutions dans le sous-\/menu des résolutions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_a2f1009327e38c74ea5accabdf5d745ba}{afficher\+Sous\+Menu\+Credits}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police)
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu \"{}\+Crédits\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_a68f1fbe86fd1df022bef8a61eb3bf1df}{afficher\+Sous\+Menu\+Son}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, const char \texorpdfstring{$\ast$}{*}texte)
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu \"{}\+Son\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_aa2e7999d606400a4babe9d37ddbf686b}{afficher\+Sous\+Menu\+Rejoindre}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, char \texorpdfstring{$\ast$}{*}text\+Input, int \texorpdfstring{$\ast$}{*}is\+Valid, int \texorpdfstring{$\ast$}{*}key\+Counts)
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu \"{}\+Rejoindre partie\"{} pour le jeu en ligne. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_a86cd81986d513fe9ba13c59898d8751a}{afficher\+Sous\+Menu\+Difficulte}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police)
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu \"{}\+Difficulté\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__menu_8c_a9394c47a086b2a8c72c39fdddab0fefb}{afficher\+Sous\+Menu\+Creer}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police)
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu pour créer une partie en ligne. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les fonctions d\textquotesingle{}affichages du menu. 
+
+\begin{DoxyAuthor}{Auteur}
+Poirier Victor 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09 févrirer 2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{affichage__menu_8c_a9a30a229fe15bbf113dde51914cfa338}\label{affichage__menu_8c_a9a30a229fe15bbf113dde51914cfa338} 
+\index{affichage\_menu.c@{affichage\_menu.c}!affichage@{affichage}}
+\index{affichage@{affichage}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{affichage()}{affichage()}}
+{\footnotesize\ttfamily void affichage (\begin{DoxyParamCaption}\item[{etat\+\_\+t}]{etat,  }\item[{int \texorpdfstring{$\ast$}{*}}]{etat\+Age,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police\+\_\+texte,  }\item[{int}]{menuX,  }\item[{int}]{menuY,  }\item[{\mbox{\hyperlink{structelement__t}{element\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{elm\+\_\+reso,  }\item[{int \texorpdfstring{$\ast$}{*}}]{selec\+Element,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{effet,  }\item[{char \texorpdfstring{$\ast$}{*}}]{text\+Input,  }\item[{int \texorpdfstring{$\ast$}{*}}]{is\+Valid,  }\item[{int \texorpdfstring{$\ast$}{*}}]{key\+Counts,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{parametre,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{gold,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{xp,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{prehistoire,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{antiquite,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{moyen\+\_\+age,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{moderne,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{futuriste,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{joueur,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{sprite\+\_\+hud,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{upgrade,  }\item[{\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ordi,  }\item[{int \texorpdfstring{$\ast$}{*}}]{cameraX,  }\item[{int \texorpdfstring{$\ast$}{*}}]{cameraY,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{ultim,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{building\mbox{[}$\,$\mbox{]},  }\item[{int}]{fin\+\_\+partie,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{lose,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tab\+\_\+charactere,  }\item[{int}]{survol }\end{DoxyParamCaption})}
+
+
+
+Affichage en fonction de l\textquotesingle{}etat. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em etat} & Etat du jeu \\
+\hline
+{\em etat\+Age} & Numero de l\textquotesingle{}age \\
+\hline
+{\em rendu} & contexte d\textquotesingle{}affichage de la fenetre \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL \\
+\hline
+{\em } & \\
+\hline
+\end{DoxyParams}
+param 
+\begin{DoxyParams}{Paramètres}
+{\em } & \\
+\hline
+\end{DoxyParams}
+param 
+\begin{DoxyParams}{Paramètres}
+{\em } & \\
+\hline
+\end{DoxyParams}
+param 
+\begin{DoxyParams}{Paramètres}
+{\em } & \\
+\hline
+\end{DoxyParams}
+param 
+\begin{DoxyParams}{Paramètres}
+{\em } & \\
+\hline
+\end{DoxyParams}
+param 
+\begin{DoxyParams}{Paramètres}
+{\em } & \\
+\hline
+\end{DoxyParams}
+param 
+\begin{DoxyParams}{Paramètres}
+{\em } & \\
+\hline
+\end{DoxyParams}
+param 
+\begin{DoxyParams}{Paramètres}
+{\em } & \\
+\hline
+\end{DoxyParams}
+param 
+\begin{DoxyParams}{Paramètres}
+{\em } & \\
+\hline
+\end{DoxyParams}
+param 
+\begin{DoxyParams}{Paramètres}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_ab3803cc70b7009b9ce07f791df15977b}\label{affichage__menu_8c_ab3803cc70b7009b9ce07f791df15977b} 
+\index{affichage\_menu.c@{affichage\_menu.c}!afficherMenu@{afficherMenu}}
+\index{afficherMenu@{afficherMenu}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{afficherMenu()}{afficherMenu()}}
+{\footnotesize\ttfamily void afficher\+Menu (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{texte,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{largeur,  }\item[{int}]{hauteur }\end{DoxyParamCaption})}
+
+
+
+Affiche un élément du menu à une position donnée sur l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em police} & La police de caractères à utiliser. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+{\em texte} & Le texte à afficher. \\
+\hline
+{\em x} & La position en x du coin supérieur gauche de l\textquotesingle{}élément. \\
+\hline
+{\em y} & La position en y du coin supérieur gauche de l\textquotesingle{}élément. \\
+\hline
+{\em largeur} & La largeur de l\textquotesingle{}élément. \\
+\hline
+{\em hauteur} & La hauteur de l\textquotesingle{}élément. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_a6a859b475bacc2b8d4b63fe638a9ed62}\label{affichage__menu_8c_a6a859b475bacc2b8d4b63fe638a9ed62} 
+\index{affichage\_menu.c@{affichage\_menu.c}!afficherSousMenu@{afficherSousMenu}}
+\index{afficherSousMenu@{afficherSousMenu}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{afficherSousMenu()}{afficherSousMenu()}}
+{\footnotesize\ttfamily void afficher\+Sous\+Menu (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{texte1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{texte2,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{texte3,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{texte4 }\end{DoxyParamCaption})}
+
+
+
+Affiche les sous-\/menus avec leurs options. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em police} & La police de caractères à utiliser. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+{\em texte1} & Texte pour le premier onglet. \\
+\hline
+{\em texte2} & Texte pour le deuxième onglet. \\
+\hline
+{\em texte3} & Texte pour le troisième onglet. \\
+\hline
+{\em texte4} & Texte pour le quatrième onglet. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_a2f1009327e38c74ea5accabdf5d745ba}\label{affichage__menu_8c_a2f1009327e38c74ea5accabdf5d745ba} 
+\index{affichage\_menu.c@{affichage\_menu.c}!afficherSousMenuCredits@{afficherSousMenuCredits}}
+\index{afficherSousMenuCredits@{afficherSousMenuCredits}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{afficherSousMenuCredits()}{afficherSousMenuCredits()}}
+{\footnotesize\ttfamily void afficher\+Sous\+Menu\+Credits (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police }\end{DoxyParamCaption})}
+
+
+
+Affiche le sous-\/menu \"{}\+Crédits\"{}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+{\em police} & La police de caractères à utiliser. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_a9394c47a086b2a8c72c39fdddab0fefb}\label{affichage__menu_8c_a9394c47a086b2a8c72c39fdddab0fefb} 
+\index{affichage\_menu.c@{affichage\_menu.c}!afficherSousMenuCreer@{afficherSousMenuCreer}}
+\index{afficherSousMenuCreer@{afficherSousMenuCreer}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{afficherSousMenuCreer()}{afficherSousMenuCreer()}}
+{\footnotesize\ttfamily void afficher\+Sous\+Menu\+Creer (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police }\end{DoxyParamCaption})}
+
+
+
+Affiche le sous-\/menu pour créer une partie en ligne. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+{\em police} & La police de caractères à utiliser. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_a86cd81986d513fe9ba13c59898d8751a}\label{affichage__menu_8c_a86cd81986d513fe9ba13c59898d8751a} 
+\index{affichage\_menu.c@{affichage\_menu.c}!afficherSousMenuDifficulte@{afficherSousMenuDifficulte}}
+\index{afficherSousMenuDifficulte@{afficherSousMenuDifficulte}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{afficherSousMenuDifficulte()}{afficherSousMenuDifficulte()}}
+{\footnotesize\ttfamily void afficher\+Sous\+Menu\+Difficulte (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police }\end{DoxyParamCaption})}
+
+
+
+Affiche le sous-\/menu \"{}\+Difficulté\"{}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+{\em police} & La police de caractères à utiliser. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_ae5492d293f1ce667af9869336b29e50f}\label{affichage__menu_8c_ae5492d293f1ce667af9869336b29e50f} 
+\index{affichage\_menu.c@{affichage\_menu.c}!afficherSousMenuEnLigne@{afficherSousMenuEnLigne}}
+\index{afficherSousMenuEnLigne@{afficherSousMenuEnLigne}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{afficherSousMenuEnLigne()}{afficherSousMenuEnLigne()}}
+{\footnotesize\ttfamily void afficher\+Sous\+Menu\+En\+Ligne (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police }\end{DoxyParamCaption})}
+
+
+
+Affiche le sous-\/menu pour le menu \"{}\+En ligne\"{}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+{\em police} & La police de caractères à utiliser. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_a33cc099eeaa7aaf9c0308ce72a3bbae5}\label{affichage__menu_8c_a33cc099eeaa7aaf9c0308ce72a3bbae5} 
+\index{affichage\_menu.c@{affichage\_menu.c}!afficherSousMenuJouer@{afficherSousMenuJouer}}
+\index{afficherSousMenuJouer@{afficherSousMenuJouer}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{afficherSousMenuJouer()}{afficherSousMenuJouer()}}
+{\footnotesize\ttfamily void afficher\+Sous\+Menu\+Jouer (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police }\end{DoxyParamCaption})}
+
+
+
+Affiche le sous-\/menu pour le menu \"{}\+Jouer\"{}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+{\em police} & La police de caractères à utiliser. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_ac46f63bde9c78a0c1c2aeabf71091daa}\label{affichage__menu_8c_ac46f63bde9c78a0c1c2aeabf71091daa} 
+\index{affichage\_menu.c@{affichage\_menu.c}!afficherSousMenuOption@{afficherSousMenuOption}}
+\index{afficherSousMenuOption@{afficherSousMenuOption}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{afficherSousMenuOption()}{afficherSousMenuOption()}}
+{\footnotesize\ttfamily void afficher\+Sous\+Menu\+Option (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{texte1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{texte2,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{texte3 }\end{DoxyParamCaption})}
+
+
+
+Affiche le sous-\/menu des options. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em police} & La police de caractères à utiliser. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+{\em texte1} & Texte pour la première option. \\
+\hline
+{\em texte2} & Texte pour la deuxième option. \\
+\hline
+{\em texte3} & Texte pour la troisième option. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_aa2e7999d606400a4babe9d37ddbf686b}\label{affichage__menu_8c_aa2e7999d606400a4babe9d37ddbf686b} 
+\index{affichage\_menu.c@{affichage\_menu.c}!afficherSousMenuRejoindre@{afficherSousMenuRejoindre}}
+\index{afficherSousMenuRejoindre@{afficherSousMenuRejoindre}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{afficherSousMenuRejoindre()}{afficherSousMenuRejoindre()}}
+{\footnotesize\ttfamily void afficher\+Sous\+Menu\+Rejoindre (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police,  }\item[{char \texorpdfstring{$\ast$}{*}}]{text\+Input,  }\item[{int \texorpdfstring{$\ast$}{*}}]{is\+Valid,  }\item[{int \texorpdfstring{$\ast$}{*}}]{key\+Counts }\end{DoxyParamCaption})}
+
+
+
+Affiche le sous-\/menu \"{}\+Rejoindre partie\"{} pour le jeu en ligne. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+{\em police} & La police de caractères à utiliser. \\
+\hline
+{\em text\+Input} & Le texte saisi par l\textquotesingle{}utilisateur. \\
+\hline
+{\em is\+Valid} & Indique si l\textquotesingle{}adresse IP saisie est valide. \\
+\hline
+{\em key\+Counts} & Le nombre de touches saisis par l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_a9a6f0534c73c251060d09baf83cc134f}\label{affichage__menu_8c_a9a6f0534c73c251060d09baf83cc134f} 
+\index{affichage\_menu.c@{affichage\_menu.c}!afficherSousMenuResolution@{afficherSousMenuResolution}}
+\index{afficherSousMenuResolution@{afficherSousMenuResolution}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{afficherSousMenuResolution()}{afficherSousMenuResolution()}}
+{\footnotesize\ttfamily void afficher\+Sous\+Menu\+Resolution (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre }\end{DoxyParamCaption})}
+
+
+
+Affiche le sous-\/menu des résolutions. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em police} & La police de caractères à utiliser. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_a21663b3145f16d13b891e5229d4bbca1}\label{affichage__menu_8c_a21663b3145f16d13b891e5229d4bbca1} 
+\index{affichage\_menu.c@{affichage\_menu.c}!afficherSousMenuSolo@{afficherSousMenuSolo}}
+\index{afficherSousMenuSolo@{afficherSousMenuSolo}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{afficherSousMenuSolo()}{afficherSousMenuSolo()}}
+{\footnotesize\ttfamily void afficher\+Sous\+Menu\+Solo (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police }\end{DoxyParamCaption})}
+
+
+
+Affiche le sous-\/menu pour le menu \"{}\+Solo\"{}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+{\em police} & La police de caractères à utiliser. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_a68f1fbe86fd1df022bef8a61eb3bf1df}\label{affichage__menu_8c_a68f1fbe86fd1df022bef8a61eb3bf1df} 
+\index{affichage\_menu.c@{affichage\_menu.c}!afficherSousMenuSon@{afficherSousMenuSon}}
+\index{afficherSousMenuSon@{afficherSousMenuSon}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{afficherSousMenuSon()}{afficherSousMenuSon()}}
+{\footnotesize\ttfamily void afficher\+Sous\+Menu\+Son (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{texte }\end{DoxyParamCaption})}
+
+
+
+Affiche le sous-\/menu \"{}\+Son\"{}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em police} & La police de caractères à utiliser. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+{\em texte} & Le texte à afficher. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_ad3807074a946be85ba3f6c5858abe487}\label{affichage__menu_8c_ad3807074a946be85ba3f6c5858abe487} 
+\index{affichage\_menu.c@{affichage\_menu.c}!afficherTitre@{afficherTitre}}
+\index{afficherTitre@{afficherTitre}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{afficherTitre()}{afficherTitre()}}
+{\footnotesize\ttfamily void afficher\+Titre (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{largeur,  }\item[{int}]{hauteur }\end{DoxyParamCaption})}
+
+
+
+Affiche le titre du jeu à une position donnée sur l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+{\em x} & La position en x du coin supérieur gauche du titre. \\
+\hline
+{\em y} & La position en y du coin supérieur gauche du titre. \\
+\hline
+{\em largeur} & La largeur du titre. \\
+\hline
+{\em hauteur} & La hauteur du titre. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_a288065efb139b60752ba45973eceb148}\label{affichage__menu_8c_a288065efb139b60752ba45973eceb148} 
+\index{affichage\_menu.c@{affichage\_menu.c}!initElements@{initElements}}
+\index{initElements@{initElements}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{initElements()}{initElements()}}
+{\footnotesize\ttfamily void init\+Elements (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{\mbox{\hyperlink{structelement__t}{element\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{elm\+\_\+reso }\end{DoxyParamCaption})}
+
+
+
+Initialise les éléments nécessaires pour afficher les résolutions dans le sous-\/menu des résolutions. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+{\em elm\+\_\+reso} & Le pointeur vers les éléments de résolution à initialiser. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__menu_8c_a629a2a5eb7bd5e1835d38a3801145a14}\label{affichage__menu_8c_a629a2a5eb7bd5e1835d38a3801145a14} 
+\index{affichage\_menu.c@{affichage\_menu.c}!resolution@{resolution}}
+\index{resolution@{resolution}!affichage\_menu.c@{affichage\_menu.c}}
+\doxysubsubsection{\texorpdfstring{resolution()}{resolution()}}
+{\footnotesize\ttfamily void resolution (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police,  }\item[{\mbox{\hyperlink{structelement__t}{element\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{elm\+\_\+reso,  }\item[{int \texorpdfstring{$\ast$}{*}}]{selec\+Element }\end{DoxyParamCaption})}
+
+
+
+Affiche les résolutions dans le sous-\/menu des résolutions. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le pointeur vers le renderer SDL. \\
+\hline
+{\em fenetre} & Le pointeur vers la fenêtre SDL. \\
+\hline
+{\em police} & La police de caractères à utiliser. \\
+\hline
+{\em elm\+\_\+reso} & Le pointeur vers les éléments de résolution. \\
+\hline
+{\em selec\+Element} & Le pointeur vers l\textquotesingle{}élément sélectionné. \\
+\hline
+\end{DoxyParams}

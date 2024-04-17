@@ -1,0 +1,159 @@
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/lib/common.h}
+\hypertarget{common_8h}{}\label{common_8h}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/common.h@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/common.h}}
+
+
+Contient les élements utilisé par les autres fichiers.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \"{}commun\+\_\+\+SDL.\+h\"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{common_8h_ac66bbcbd9e9d5a4fcb435b50133ba061}\label{common_8h_ac66bbcbd9e9d5a4fcb435b50133ba061} 
+\#define {\bfseries NB\+\_\+\+AGE}~5
+\begin{DoxyCompactList}\small\item\em Nombre d\textquotesingle{}âges et nombre de personnages par âge. \end{DoxyCompactList}\item 
+\Hypertarget{common_8h_a864e23e4ec147f2f3f061437c6cea310}\label{common_8h_a864e23e4ec147f2f3f061437c6cea310} 
+\#define {\bfseries NB\+\_\+\+CHARACTER}~4
+\item 
+\Hypertarget{common_8h_a8b6d77865140befe3a9bc16132d2e696}\label{common_8h_a8b6d77865140befe3a9bc16132d2e696} 
+\#define {\bfseries MAX\+\_\+\+STR}~40
+\begin{DoxyCompactList}\small\item\em Limite pour les tableaux et chaînes de caractères. \end{DoxyCompactList}\item 
+\Hypertarget{common_8h_a0ae67ca726ed4de74ba7b1dca925d030}\label{common_8h_a0ae67ca726ed4de74ba7b1dca925d030} 
+\#define {\bfseries MAX\+\_\+\+POSSESSED}~10
+\item 
+\Hypertarget{common_8h_a2b9d4cb1200ff8c085b0a4902e0d7229}\label{common_8h_a2b9d4cb1200ff8c085b0a4902e0d7229} 
+\#define {\bfseries MAX\+\_\+\+DESCRIPTION}~100
+\item 
+\Hypertarget{common_8h_a0560e96e46037caf6bf2283a1e4092f8}\label{common_8h_a0560e96e46037caf6bf2283a1e4092f8} 
+\#define {\bfseries EASY}~1
+\begin{DoxyCompactList}\small\item\em Niveaux de difficulté du jeu. \end{DoxyCompactList}\item 
+\Hypertarget{common_8h_a455b219d48b21108576f53129be38c32}\label{common_8h_a455b219d48b21108576f53129be38c32} 
+\#define {\bfseries MEDIUM}~2
+\item 
+\Hypertarget{common_8h_a4d14a79c82f3f831303e38487811eda4}\label{common_8h_a4d14a79c82f3f831303e38487811eda4} 
+\#define {\bfseries HARD}~3
+\item 
+\Hypertarget{common_8h_a88248ee212da086f00d7c091d86ccbec}\label{common_8h_a88248ee212da086f00d7c091d86ccbec} 
+\#define {\bfseries COEF\+\_\+\+LEVEL\+\_\+\+UP\+\_\+\+DAMMAGE}~1.\+5
+\begin{DoxyCompactList}\small\item\em Coefficients pour le niveau de mise à niveau du bâtiment. \end{DoxyCompactList}\item 
+\Hypertarget{common_8h_aa16f57bb2f059e82f527bf93963dacf7}\label{common_8h_aa16f57bb2f059e82f527bf93963dacf7} 
+\#define {\bfseries COEF\+\_\+\+LEVEL\+\_\+\+UP\+\_\+\+MAX\+\_\+\+PV}~2.\+0
+\item 
+\Hypertarget{common_8h_a3d6bb7ccdc63a1f14a196daf35ac0c44}\label{common_8h_a3d6bb7ccdc63a1f14a196daf35ac0c44} 
+\#define {\bfseries COEF\+\_\+\+LEVEL\+\_\+\+UP\+\_\+\+MAX\+\_\+\+GOLD\+\_\+\+COST}~3
+\item 
+\Hypertarget{common_8h_ae922370f885804372e9d02939467f837}\label{common_8h_ae922370f885804372e9d02939467f837} 
+\#define {\bfseries MAX\+\_\+\+LEVEL\+\_\+\+UP}~4
+\begin{DoxyCompactList}\small\item\em Limite du nombre de fois qu\textquotesingle{}on peut améliorer le bâtiment. \end{DoxyCompactList}\item 
+\Hypertarget{common_8h_ab6989f7b773d5fb56895495247a22733}\label{common_8h_ab6989f7b773d5fb56895495247a22733} 
+\#define {\bfseries OWNER\+\_\+1}~1
+\begin{DoxyCompactList}\small\item\em Numéros de propriétaire. \end{DoxyCompactList}\item 
+\Hypertarget{common_8h_a52d7d7012fc215dd505f3d8c307a48a1}\label{common_8h_a52d7d7012fc215dd505f3d8c307a48a1} 
+\#define {\bfseries OWNER\+\_\+2}~2
+\item 
+\Hypertarget{common_8h_aed9e4dbf250a6c8bdea8a0d3acb732e4}\label{common_8h_aed9e4dbf250a6c8bdea8a0d3acb732e4} 
+\#define {\bfseries ORDINATEUR}~3
+\item 
+\Hypertarget{common_8h_aa31d048bddc6a4cdec63280b0691adef}\label{common_8h_aa31d048bddc6a4cdec63280b0691adef} 
+\#define {\bfseries DELAI\+\_\+\+INITIAL}~-\/1
+\begin{DoxyCompactList}\small\item\em Initialisation du délai d\textquotesingle{}attente pour former les troupes. \end{DoxyCompactList}\item 
+\Hypertarget{common_8h_a354004dad185b65dda9a8aa132459515}\label{common_8h_a354004dad185b65dda9a8aa132459515} 
+\#define {\bfseries JOUEUR\+\_\+\+GAGNE}~100
+\begin{DoxyCompactList}\small\item\em Codes de fin de partie. \end{DoxyCompactList}\item 
+\Hypertarget{common_8h_a15846f75381029de46fc719e23819312}\label{common_8h_a15846f75381029de46fc719e23819312} 
+\#define {\bfseries ORDI\+\_\+\+GAGNE}~101
+\item 
+\Hypertarget{common_8h_a05e5f58ab75bc54fb781fc68d535293c}\label{common_8h_a05e5f58ab75bc54fb781fc68d535293c} 
+\#define {\bfseries AUCUN\+\_\+\+GAGNANT}~102
+\item 
+\Hypertarget{common_8h_ad6f970f4e35e5419bb227c49324e9eb0}\label{common_8h_ad6f970f4e35e5419bb227c49324e9eb0} 
+\#define {\bfseries JOUEUR\+\_\+\+EN\+\_\+\+LIGNE\+\_\+\+GAGNE}~103
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{common_8h_a0dd582b18f116aff3d264ef7be8e95c0}\label{common_8h_a0dd582b18f116aff3d264ef7be8e95c0} 
+typedef enum \mbox{\hyperlink{common_8h_aa92d6a1d34d51fad72dee6b89b86269c}{class\+\_\+character\+\_\+s}} {\bfseries class\+\_\+character\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Énumération représentant les classes de personnage. \end{DoxyCompactList}\item 
+\Hypertarget{common_8h_afd19d995e55194c70a06080ef3ceb5a8}\label{common_8h_afd19d995e55194c70a06080ef3ceb5a8} 
+typedef enum \mbox{\hyperlink{common_8h_a93f4b57ac6d7583da8a6665c47bb8d47}{booleen\+\_\+s}} {\bfseries booleen\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Définition d\textquotesingle{}un type booléen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{common_8h_aa92d6a1d34d51fad72dee6b89b86269c}{class\+\_\+character\+\_\+s}} \{ \mbox{\hyperlink{common_8h_aa92d6a1d34d51fad72dee6b89b86269ca2122acc39b69d471380b7d986b6515bf}{melee}}
+, \mbox{\hyperlink{common_8h_aa92d6a1d34d51fad72dee6b89b86269cac1215dafde67928af3c0ba2bce29938d}{marksman}}
+, \mbox{\hyperlink{common_8h_aa92d6a1d34d51fad72dee6b89b86269ca5970642cf6e8bb17100a6ac4ecfa0a36}{tank}}
+, \mbox{\hyperlink{common_8h_aa92d6a1d34d51fad72dee6b89b86269ca335926ce37f081753f90f194bf2e71ae}{specialist}}
+ \}
+\begin{DoxyCompactList}\small\item\em Énumération représentant les classes de personnage. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{common_8h_a93f4b57ac6d7583da8a6665c47bb8d47}{booleen\+\_\+s}} \{ \mbox{\hyperlink{common_8h_a93f4b57ac6d7583da8a6665c47bb8d47aa1e095cc966dbecf6a0d8aad75348d1a}{FALSE}}
+, \mbox{\hyperlink{common_8h_a93f4b57ac6d7583da8a6665c47bb8d47aa82764c3079aea4e60c80e45befbb839}{TRUE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Définition d\textquotesingle{}un type booléen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les élements utilisé par les autres fichiers. 
+
+\begin{DoxyAuthor}{Auteur}
+Proudy Vincent 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09 févrirer 2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\Hypertarget{common_8h_a93f4b57ac6d7583da8a6665c47bb8d47}\label{common_8h_a93f4b57ac6d7583da8a6665c47bb8d47} 
+\index{common.h@{common.h}!booleen\_s@{booleen\_s}}
+\index{booleen\_s@{booleen\_s}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{booleen\_s}{booleen\_s}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{common_8h_a93f4b57ac6d7583da8a6665c47bb8d47}{booleen\+\_\+s}}}
+
+
+
+Définition d\textquotesingle{}un type booléen. 
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FALSE@{FALSE}!common.h@{common.h}}\index{common.h@{common.h}!FALSE@{FALSE}}}\Hypertarget{common_8h_a93f4b57ac6d7583da8a6665c47bb8d47aa1e095cc966dbecf6a0d8aad75348d1a}\label{common_8h_a93f4b57ac6d7583da8a6665c47bb8d47aa1e095cc966dbecf6a0d8aad75348d1a} 
+FALSE&Valeur booléenne fausse. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRUE@{TRUE}!common.h@{common.h}}\index{common.h@{common.h}!TRUE@{TRUE}}}\Hypertarget{common_8h_a93f4b57ac6d7583da8a6665c47bb8d47aa82764c3079aea4e60c80e45befbb839}\label{common_8h_a93f4b57ac6d7583da8a6665c47bb8d47aa82764c3079aea4e60c80e45befbb839} 
+TRUE&Valeur booléenne vraie. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{common_8h_aa92d6a1d34d51fad72dee6b89b86269c}\label{common_8h_aa92d6a1d34d51fad72dee6b89b86269c} 
+\index{common.h@{common.h}!class\_character\_s@{class\_character\_s}}
+\index{class\_character\_s@{class\_character\_s}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{class\_character\_s}{class\_character\_s}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{common_8h_aa92d6a1d34d51fad72dee6b89b86269c}{class\+\_\+character\+\_\+s}}}
+
+
+
+Énumération représentant les classes de personnage. 
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{melee@{melee}!common.h@{common.h}}\index{common.h@{common.h}!melee@{melee}}}\Hypertarget{common_8h_aa92d6a1d34d51fad72dee6b89b86269ca2122acc39b69d471380b7d986b6515bf}\label{common_8h_aa92d6a1d34d51fad72dee6b89b86269ca2122acc39b69d471380b7d986b6515bf} 
+melee&Personnage de mêlée. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{marksman@{marksman}!common.h@{common.h}}\index{common.h@{common.h}!marksman@{marksman}}}\Hypertarget{common_8h_aa92d6a1d34d51fad72dee6b89b86269cac1215dafde67928af3c0ba2bce29938d}\label{common_8h_aa92d6a1d34d51fad72dee6b89b86269cac1215dafde67928af3c0ba2bce29938d} 
+marksman&Personnage tireur d\textquotesingle{}élite. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{tank@{tank}!common.h@{common.h}}\index{common.h@{common.h}!tank@{tank}}}\Hypertarget{common_8h_aa92d6a1d34d51fad72dee6b89b86269ca5970642cf6e8bb17100a6ac4ecfa0a36}\label{common_8h_aa92d6a1d34d51fad72dee6b89b86269ca5970642cf6e8bb17100a6ac4ecfa0a36} 
+tank&Personnage tank. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{specialist@{specialist}!common.h@{common.h}}\index{common.h@{common.h}!specialist@{specialist}}}\Hypertarget{common_8h_aa92d6a1d34d51fad72dee6b89b86269ca335926ce37f081753f90f194bf2e71ae}\label{common_8h_aa92d6a1d34d51fad72dee6b89b86269ca335926ce37f081753f90f194bf2e71ae} 
+specialist&Personnage spécialiste. \\
+\hline
+
+\end{DoxyEnumFields}

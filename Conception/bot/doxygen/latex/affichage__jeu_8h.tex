@@ -1,0 +1,344 @@
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/lib/affichage\+\_\+jeu.h}
+\hypertarget{affichage__jeu_8h}{}\label{affichage__jeu_8h}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/affichage\_jeu.h@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/affichage\_jeu.h}}
+
+
+Contient les élements utilisé par le \doxylink{affichage__jeu_8c}{affichage\+\_\+jeu.\+c}.  
+
+
+{\ttfamily \#include \"{}commun\+\_\+\+SDL.\+h\"{}}\newline
+{\ttfamily \#include \"{}affichage\+\_\+menu.\+h\"{}}\newline
+{\ttfamily \#include \"{}player.\+h\"{}}\newline
+{\ttfamily \#include \"{}ordinateur.\+h\"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{affichage__jeu_8h_a59d4033fee0e61f041281632b8362dfc}{afficher\+HUD}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police\+\_\+texte, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}parametre, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}upgrade, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}gold, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}xp, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}joueur, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}sprite\+\_\+hud\mbox{[}$\,$\mbox{]}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}ultim, int age)
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}interface utilisateur du HUD (Heads-\/\+Up Display) comprenant divers éléments tels que les boutons, les indicateurs de ressources, etc. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__jeu_8h_ad153730c419b8c96be63f4a4b979cef9}{afficher\+Jeu\+Fond}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}fond\+\_\+jeu, int \texorpdfstring{$\ast$}{*}cameraX, int \texorpdfstring{$\ast$}{*}cameraY)
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}image de fond du jeu et gère le déplacement de la souris pour défiler l\textquotesingle{}image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__jeu_8h_a01b45288db7ab79d1ffec97752b5a0ae}{gestion\+Affichage\+Fond\+Jeu}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, int \texorpdfstring{$\ast$}{*}etat\+Age, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}prehistoire, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}antiquite, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}moyen\+\_\+age, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}moderne, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}futuriste, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}j1, \mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}o, int \texorpdfstring{$\ast$}{*}cameraX, int \texorpdfstring{$\ast$}{*}cameraY)
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}image de fond en fonction de l\textquotesingle{}âge du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__jeu_8h_a3a2f821ce279cefaa254f9b75e865655}{afficher\+Option\+Jeu}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre)
+\begin{DoxyCompactList}\small\item\em Affiche le menu des options en jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__jeu_8h_a414a9839418aa5edb062bc2b55011e50}{img\+\_\+charactere\+\_\+inser}} (\mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}characters, int age, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}img\+\_\+c\mbox{[}$\,$\mbox{]}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}tab\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Insère les images des personnages en fonction de leur âge dans un tableau. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__jeu_8h_a5e38dbe527ab6a105dcfa879c1fe3517}{affichage\+Sprite}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}j1, \mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}o, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}player\+Img, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}ordi\+Img, int attaque, SDL\+\_\+\+Rect player\+Position\mbox{[}$\,$\mbox{]}, SDL\+\_\+\+Rect ordi\+Position\mbox{[}$\,$\mbox{]}, int \texorpdfstring{$\ast$}{*}ancien\+\_\+lvl, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}tab\+\_\+de\+\_\+charactere, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}image\mbox{[}$\,$\mbox{]}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}img\+\_\+char\mbox{[}$\,$\mbox{]}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}img\+\_\+c\+\_\+ordi\mbox{[}$\,$\mbox{]}, Uint32 current\+Time, Uint32 \texorpdfstring{$\ast$}{*}last\+Movement, int w, int h, int \texorpdfstring{$\ast$}{*}cameraX, int \texorpdfstring{$\ast$}{*}cameraY)
+\begin{DoxyCompactList}\small\item\em Affiche les sprites des personnages et gère leur déplacement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__jeu_8h_a0fa35d2337ca4c0e6ade4c3e56ac76e4}{affichage\+Bulding}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}building\mbox{[}$\,$\mbox{]}, int cameraX, int cameraY, int joueur\+\_\+level, int ordi\+\_\+level)
+\begin{DoxyCompactList}\small\item\em Affiche les bâtiments en fonction de l\textquotesingle{}âge du joueur et de l\textquotesingle{}ordinateur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__jeu_8h_a39ae4b55db4b8bebd3c27caa8344e69d}{affichage\+Point\+De\+Vie}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font, int points\+De\+Vie\+\_\+1, int points\+De\+Vie\+\_\+2, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, int cameraX, int cameraY)
+\begin{DoxyCompactList}\small\item\em Affiche les points de vie des bases des joueurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__jeu_8h_a9a29ab1ff4cc4f085a3208b4d0b8e839}{affichage\+\_\+gagnant}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font, int choix, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, int cameraX, int cameraY, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}lose)
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}image de victoire ou de défaite et un message associé. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage__jeu_8h_a06bf022bbf2551e60dd99916a5fe5cf0}{affichage\+Survol\+Souris}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, int survol, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}tab\+\_\+charactere, int age, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}joueur)
+\begin{DoxyCompactList}\small\item\em Affiche les informations des personnages lorsque la souris survole leur image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les élements utilisé par le \doxylink{affichage__jeu_8c}{affichage\+\_\+jeu.\+c}. 
+
+\begin{DoxyAuthor}{Auteur}
+Poirier Victor 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09 févrirer 2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{affichage__jeu_8h_a9a29ab1ff4cc4f085a3208b4d0b8e839}\label{affichage__jeu_8h_a9a29ab1ff4cc4f085a3208b4d0b8e839} 
+\index{affichage\_jeu.h@{affichage\_jeu.h}!affichage\_gagnant@{affichage\_gagnant}}
+\index{affichage\_gagnant@{affichage\_gagnant}!affichage\_jeu.h@{affichage\_jeu.h}}
+\doxysubsubsection{\texorpdfstring{affichage\_gagnant()}{affichage\_gagnant()}}
+{\footnotesize\ttfamily void affichage\+\_\+gagnant (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{font,  }\item[{int}]{choix,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{int}]{cameraX,  }\item[{int}]{cameraY,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{lose }\end{DoxyParamCaption})}
+
+
+
+Affiche l\textquotesingle{}image de victoire ou de défaite et un message associé. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Renderer SDL pour le rendu des éléments. \\
+\hline
+{\em font} & Police de caractères pour le texte. \\
+\hline
+{\em choix} & Indicateur du résultat (victoire ou défaite). \\
+\hline
+{\em fenetre} & Fenêtre SDL dans laquelle le rendu est effectué. \\
+\hline
+{\em cameraX} & Position horizontale de la caméra. \\
+\hline
+{\em cameraY} & Position verticale de la caméra. \\
+\hline
+{\em win} & Texture de l\textquotesingle{}image de victoire. \\
+\hline
+{\em lose} & Texture de l\textquotesingle{}image de défaite. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__jeu_8h_a0fa35d2337ca4c0e6ade4c3e56ac76e4}\label{affichage__jeu_8h_a0fa35d2337ca4c0e6ade4c3e56ac76e4} 
+\index{affichage\_jeu.h@{affichage\_jeu.h}!affichageBulding@{affichageBulding}}
+\index{affichageBulding@{affichageBulding}!affichage\_jeu.h@{affichage\_jeu.h}}
+\doxysubsubsection{\texorpdfstring{affichageBulding()}{affichageBulding()}}
+{\footnotesize\ttfamily void affichage\+Bulding (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{building\mbox{[}$\,$\mbox{]},  }\item[{int}]{cameraX,  }\item[{int}]{cameraY,  }\item[{int}]{joueur\+\_\+level,  }\item[{int}]{ordi\+\_\+level }\end{DoxyParamCaption})}
+
+
+
+Affiche les bâtiments en fonction de l\textquotesingle{}âge du joueur et de l\textquotesingle{}ordinateur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Renderer SDL pour le rendu des éléments. \\
+\hline
+{\em fenetre} & Fenêtre SDL dans laquelle le rendu est effectué. \\
+\hline
+{\em building} & Tableau de textures des bâtiments. \\
+\hline
+{\em cameraX} & Position horizontale de la caméra. \\
+\hline
+{\em cameraY} & Position verticale de la caméra. \\
+\hline
+{\em joueur\+\_\+level} & Niveau du joueur. \\
+\hline
+{\em ordi\+\_\+level} & Niveau de l\textquotesingle{}ordinateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__jeu_8h_a39ae4b55db4b8bebd3c27caa8344e69d}\label{affichage__jeu_8h_a39ae4b55db4b8bebd3c27caa8344e69d} 
+\index{affichage\_jeu.h@{affichage\_jeu.h}!affichagePointDeVie@{affichagePointDeVie}}
+\index{affichagePointDeVie@{affichagePointDeVie}!affichage\_jeu.h@{affichage\_jeu.h}}
+\doxysubsubsection{\texorpdfstring{affichagePointDeVie()}{affichagePointDeVie()}}
+{\footnotesize\ttfamily void affichage\+Point\+De\+Vie (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{font,  }\item[{int}]{points\+De\+Vie\+\_\+1,  }\item[{int}]{points\+De\+Vie\+\_\+2,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{int}]{cameraX,  }\item[{int}]{cameraY }\end{DoxyParamCaption})}
+
+
+
+Affiche les points de vie des bases des joueurs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Renderer SDL pour le rendu des éléments. \\
+\hline
+{\em font} & Police de caractères pour le texte. \\
+\hline
+{\em points\+De\+Vie\+\_\+1} & Points de vie de la base du joueur 1. \\
+\hline
+{\em points\+De\+Vie\+\_\+2} & Points de vie de la base du joueur 2. \\
+\hline
+{\em fenetre} & Fenêtre SDL dans laquelle le rendu est effectué. \\
+\hline
+{\em cameraX} & Position horizontale de la caméra. \\
+\hline
+{\em cameraY} & Position verticale de la caméra. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__jeu_8h_a5e38dbe527ab6a105dcfa879c1fe3517}\label{affichage__jeu_8h_a5e38dbe527ab6a105dcfa879c1fe3517} 
+\index{affichage\_jeu.h@{affichage\_jeu.h}!affichageSprite@{affichageSprite}}
+\index{affichageSprite@{affichageSprite}!affichage\_jeu.h@{affichage\_jeu.h}}
+\doxysubsubsection{\texorpdfstring{affichageSprite()}{affichageSprite()}}
+{\footnotesize\ttfamily void affichage\+Sprite (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{j1,  }\item[{\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{o,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{player\+Img,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{ordi\+Img,  }\item[{int}]{attaque,  }\item[{SDL\+\_\+\+Rect}]{player\+Position\mbox{[}$\,$\mbox{]},  }\item[{SDL\+\_\+\+Rect}]{ordi\+Position\mbox{[}$\,$\mbox{]},  }\item[{int \texorpdfstring{$\ast$}{*}}]{ancien\+\_\+lvl,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tab\+\_\+de\+\_\+charactere,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{image\mbox{[}$\,$\mbox{]},  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{img\+\_\+char\mbox{[}$\,$\mbox{]},  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{img\+\_\+c\+\_\+ordi\mbox{[}$\,$\mbox{]},  }\item[{Uint32}]{current\+Time,  }\item[{Uint32 \texorpdfstring{$\ast$}{*}}]{last\+Movement,  }\item[{int}]{w,  }\item[{int}]{h,  }\item[{int \texorpdfstring{$\ast$}{*}}]{cameraX,  }\item[{int \texorpdfstring{$\ast$}{*}}]{cameraY }\end{DoxyParamCaption})}
+
+
+
+Affiche les sprites des personnages et gère leur déplacement. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Renderer SDL pour le rendu des éléments. \\
+\hline
+{\em j1} & Structure de données représentant le joueur. \\
+\hline
+{\em o} & Structure de données représentant l\textquotesingle{}ordinateur. \\
+\hline
+{\em player\+Img} & Rectangle délimitant le sprite du joueur. \\
+\hline
+{\em ordi\+Img} & Rectangle délimitant le sprite de l\textquotesingle{}ordinateur. \\
+\hline
+{\em attaque} & Indicateur d\textquotesingle{}attaque. \\
+\hline
+{\em player\+Position} & Tableau de rectangles délimitant la position des sprites du joueur. \\
+\hline
+{\em ordi\+Position} & Tableau de rectangles délimitant la position des sprites de l\textquotesingle{}ordinateur. \\
+\hline
+{\em ancien\+\_\+lvl} & Pointeur vers le niveau précédent. \\
+\hline
+{\em tab\+\_\+de\+\_\+charactere} & Tableau des caractéristiques des personnages. \\
+\hline
+{\em image} & Tableau de textures des images. \\
+\hline
+{\em img\+\_\+char} & Tableau de textures des images de personnages du joueur. \\
+\hline
+{\em img\+\_\+c\+\_\+ordi} & Tableau de textures des images de personnages de l\textquotesingle{}ordinateur. \\
+\hline
+{\em current\+Time} & Temps actuel. \\
+\hline
+{\em last\+Movement} & Pointeur vers le dernier mouvement. \\
+\hline
+{\em w} & Largeur de la fenêtre. \\
+\hline
+{\em h} & Hauteur de la fenêtre. \\
+\hline
+{\em cameraX} & Pointeur vers la position horizontale de la caméra. \\
+\hline
+{\em cameraY} & Pointeur vers la position verticale de la caméra. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__jeu_8h_a06bf022bbf2551e60dd99916a5fe5cf0}\label{affichage__jeu_8h_a06bf022bbf2551e60dd99916a5fe5cf0} 
+\index{affichage\_jeu.h@{affichage\_jeu.h}!affichageSurvolSouris@{affichageSurvolSouris}}
+\index{affichageSurvolSouris@{affichageSurvolSouris}!affichage\_jeu.h@{affichage\_jeu.h}}
+\doxysubsubsection{\texorpdfstring{affichageSurvolSouris()}{affichageSurvolSouris()}}
+{\footnotesize\ttfamily void affichage\+Survol\+Souris (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police,  }\item[{int}]{survol,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tab\+\_\+charactere,  }\item[{int}]{age,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{joueur }\end{DoxyParamCaption})}
+
+
+
+Affiche les informations des personnages lorsque la souris survole leur image. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Renderer SDL pour le rendu des éléments. \\
+\hline
+{\em fenetre} & Fenêtre SDL dans laquelle le rendu est effectué. \\
+\hline
+{\em police} & Police de caractères pour le texte. \\
+\hline
+{\em survol} & Indicateur du personnage survolé. \\
+\hline
+{\em tab\+\_\+charactere} & Tableau des caractéristiques des personnages. \\
+\hline
+{\em age} & Âge actuel du jeu. \\
+\hline
+{\em joueur} & Structure de données représentant le joueur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__jeu_8h_a59d4033fee0e61f041281632b8362dfc}\label{affichage__jeu_8h_a59d4033fee0e61f041281632b8362dfc} 
+\index{affichage\_jeu.h@{affichage\_jeu.h}!afficherHUD@{afficherHUD}}
+\index{afficherHUD@{afficherHUD}!affichage\_jeu.h@{affichage\_jeu.h}}
+\doxysubsubsection{\texorpdfstring{afficherHUD()}{afficherHUD()}}
+{\footnotesize\ttfamily void afficher\+HUD (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police\+\_\+texte,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{parametre,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{upgrade,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{gold,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{xp,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{joueur,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{sprite\+\_\+hud\mbox{[}$\,$\mbox{]},  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{ultim,  }\item[{int}]{age }\end{DoxyParamCaption})}
+
+
+
+Affiche l\textquotesingle{}interface utilisateur du HUD (Heads-\/\+Up Display) comprenant divers éléments tels que les boutons, les indicateurs de ressources, etc. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Renderer SDL pour le rendu des éléments. \\
+\hline
+{\em fenetre} & Fenêtre SDL dans laquelle le rendu est effectué. \\
+\hline
+{\em police\+\_\+texte} & Police de caractères pour le texte. \\
+\hline
+{\em parametre} & Texture du bouton de paramètre. \\
+\hline
+{\em upgrade} & Texture du bouton d\textquotesingle{}upgrade. \\
+\hline
+{\em gold} & Texture de l\textquotesingle{}indicateur d\textquotesingle{}or. \\
+\hline
+{\em xp} & Texture de l\textquotesingle{}indicateur d\textquotesingle{}XP. \\
+\hline
+{\em joueur} & Structure de données représentant le joueur. \\
+\hline
+{\em sprite\+\_\+hud} & Tableau de textures des têtes des personnages du joueur. \\
+\hline
+{\em ultim} & Texture du bouton de compétence ultime. \\
+\hline
+{\em age} & Âge actuel du jeu. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__jeu_8h_ad153730c419b8c96be63f4a4b979cef9}\label{affichage__jeu_8h_ad153730c419b8c96be63f4a4b979cef9} 
+\index{affichage\_jeu.h@{affichage\_jeu.h}!afficherJeuFond@{afficherJeuFond}}
+\index{afficherJeuFond@{afficherJeuFond}!affichage\_jeu.h@{affichage\_jeu.h}}
+\doxysubsubsection{\texorpdfstring{afficherJeuFond()}{afficherJeuFond()}}
+{\footnotesize\ttfamily void afficher\+Jeu\+Fond (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{fond\+\_\+jeu,  }\item[{int \texorpdfstring{$\ast$}{*}}]{cameraX,  }\item[{int \texorpdfstring{$\ast$}{*}}]{cameraY }\end{DoxyParamCaption})}
+
+
+
+Affiche l\textquotesingle{}image de fond du jeu et gère le déplacement de la souris pour défiler l\textquotesingle{}image. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Renderer SDL pour le rendu des éléments. \\
+\hline
+{\em fenetre} & Fenêtre SDL dans laquelle le rendu est effectué. \\
+\hline
+{\em fond\+\_\+jeu} & Texture de l\textquotesingle{}image de fond du jeu. \\
+\hline
+{\em cameraX} & Pointeur vers la position horizontale de la caméra. \\
+\hline
+{\em cameraY} & Pointeur vers la position verticale de la caméra. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__jeu_8h_a3a2f821ce279cefaa254f9b75e865655}\label{affichage__jeu_8h_a3a2f821ce279cefaa254f9b75e865655} 
+\index{affichage\_jeu.h@{affichage\_jeu.h}!afficherOptionJeu@{afficherOptionJeu}}
+\index{afficherOptionJeu@{afficherOptionJeu}!affichage\_jeu.h@{affichage\_jeu.h}}
+\doxysubsubsection{\texorpdfstring{afficherOptionJeu()}{afficherOptionJeu()}}
+{\footnotesize\ttfamily void afficher\+Option\+Jeu (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre }\end{DoxyParamCaption})}
+
+
+
+Affiche le menu des options en jeu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Renderer SDL pour le rendu des éléments. \\
+\hline
+{\em police} & Police de caractères pour le texte. \\
+\hline
+{\em fenetre} & Fenêtre SDL dans laquelle le rendu est effectué. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__jeu_8h_a01b45288db7ab79d1ffec97752b5a0ae}\label{affichage__jeu_8h_a01b45288db7ab79d1ffec97752b5a0ae} 
+\index{affichage\_jeu.h@{affichage\_jeu.h}!gestionAffichageFondJeu@{gestionAffichageFondJeu}}
+\index{gestionAffichageFondJeu@{gestionAffichageFondJeu}!affichage\_jeu.h@{affichage\_jeu.h}}
+\doxysubsubsection{\texorpdfstring{gestionAffichageFondJeu()}{gestionAffichageFondJeu()}}
+{\footnotesize\ttfamily void gestion\+Affichage\+Fond\+Jeu (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{int \texorpdfstring{$\ast$}{*}}]{etat\+Age,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{prehistoire,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{antiquite,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{moyen\+\_\+age,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{moderne,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{futuriste,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{j1,  }\item[{\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{o,  }\item[{int \texorpdfstring{$\ast$}{*}}]{cameraX,  }\item[{int \texorpdfstring{$\ast$}{*}}]{cameraY }\end{DoxyParamCaption})}
+
+
+
+Affiche l\textquotesingle{}image de fond en fonction de l\textquotesingle{}âge du jeu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Renderer SDL pour le rendu des éléments. \\
+\hline
+{\em fenetre} & Fenêtre SDL dans laquelle le rendu est effectué. \\
+\hline
+{\em etat\+Age} & Pointeur vers l\textquotesingle{}état actuel de l\textquotesingle{}âge du jeu. \\
+\hline
+{\em prehistoire} & Texture de l\textquotesingle{}ère préhistorique. \\
+\hline
+{\em antiquite} & Texture de l\textquotesingle{}Antiquité. \\
+\hline
+{\em moyen\+\_\+age} & Texture du Moyen Âge. \\
+\hline
+{\em moderne} & Texture de l\textquotesingle{}ère moderne. \\
+\hline
+{\em futuriste} & Texture de l\textquotesingle{}ère futuriste. \\
+\hline
+{\em j1} & Structure de données représentant le joueur. \\
+\hline
+{\em o} & Structure de données représentant l\textquotesingle{}ordinateur. \\
+\hline
+{\em cameraX} & Pointeur vers la position horizontale de la caméra. \\
+\hline
+{\em cameraY} & Pointeur vers la position verticale de la caméra. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage__jeu_8h_a414a9839418aa5edb062bc2b55011e50}\label{affichage__jeu_8h_a414a9839418aa5edb062bc2b55011e50} 
+\index{affichage\_jeu.h@{affichage\_jeu.h}!img\_charactere\_inser@{img\_charactere\_inser}}
+\index{img\_charactere\_inser@{img\_charactere\_inser}!affichage\_jeu.h@{affichage\_jeu.h}}
+\doxysubsubsection{\texorpdfstring{img\_charactere\_inser()}{img\_charactere\_inser()}}
+{\footnotesize\ttfamily void img\+\_\+charactere\+\_\+inser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{characters,  }\item[{int}]{age,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{img\+\_\+c\mbox{[}$\,$\mbox{]},  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{tab\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Insère les images des personnages en fonction de leur âge dans un tableau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em characters} & Tableau de personnages. \\
+\hline
+{\em age} & Âge actuel du jeu. \\
+\hline
+{\em img\+\_\+c} & Tableau de textures d\textquotesingle{}images de personnages. \\
+\hline
+{\em tab} & Tableau de textures d\textquotesingle{}images. \\
+\hline
+\end{DoxyParams}

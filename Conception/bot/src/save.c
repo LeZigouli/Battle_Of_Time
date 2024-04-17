@@ -1,19 +1,17 @@
 /**
  * \file save.c
- * \brief Contient les fonction pour sauvarder / charger une partie depuis un fichier
+ * \brief Contient les fonctions pour sauvegarder / charger une partie depuis un fichier.
  * \author Proudy Vincent
  * \date 10 avril 2024
- * 
-*/
-
+ */
 
 #include "../lib/save.h"
 
-/*
- * Sauvegarder le joueur et l'ordinateur dans un fichier
- *
- * Parametre : 1 joueur et 1 ordinateur
- * retour    : 1 si OK sinon 0
+/**
+ * @brief Sauvegarde le joueur et l'ordinateur dans un fichier.
+ * @param ordi L'ordinateur à sauvegarder.
+ * @param player Le joueur à sauvegarder.
+ * @return TRUE si la sauvegarde réussit, FALSE sinon.
  */
 booleen_t save(ordi_t * ordi, player_t * player){
 
@@ -141,12 +139,13 @@ booleen_t save(ordi_t * ordi, player_t * player){
     return TRUE;
 }
 
-/*
- * Charger le joueur et l'ordinateur depuis un fichier
- *
- * Parametre resultat : 1 joueur et 1 ordinateur
- * retour             : 1 si OK sinon 0
-*/
+/**
+ * @brief Charge le joueur et l'ordinateur depuis un fichier.
+ * @param ordi Un pointeur vers le pointeur de l'ordinateur.
+ * @param player Un pointeur vers le pointeur du joueur.
+ * @param tab Un tableau de personnages.
+ * @return TRUE si le chargement réussit, FALSE sinon.
+ */
 booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab){
 
     FILE * fd_player, * fd_ordi;

@@ -1,16 +1,49 @@
+/**
+ * \file gestion.c
+ * \brief Contient les fonction permettant la gestion des inputs et certaines fonctions pour le deroulement de la partie.
+ * \author Poirier Victor
+ * \date 09 févrirer 2024
+*/
 #include "../lib/gestion.h"
 
-
-/***************/
-/*--Fonctions--*/
-/***************/
-/*Gestion du clic de la souris sur les éléments du menu*/
+/**
+ * @brief Gestion des cliques du menu et du jeu 
+ * 
+ * @param etat L'etat actuel du menu
+ * @param fenetre La fenetre du programme
+ * @param evenement Les evenements SDL
+ * @param elm_reso Un pointeurs sur un element du menu
+ * @param click Son d'un clic
+ * @param mouseX La position du pointeur de la souris en X
+ * @param mouseY La position du pointeur de la souris en Y
+ * @param w La longueur de la fenêtre
+ * @param h La largeur de la fenêtre
+ * @param widthFactor Un coefficient pour la longueur de la fenetre
+ * @param heightFactor Un coefficient pour la largeur de la fenetre
+ * @param menuX La position X des elements dans le menu
+ * @param menuY La position Y des elements dans le menu
+ * @param index_effet Choisir une résoltion
+ * @param continuer Arret du programme si il est mis a FAUX
+ * @param selecElement L'élement selectionné
+ * @param effet Effet sonore
+ * @param isValid Pointeur vers la validité de la saisie de texte.
+ * @param textInput La chaîne de caractères saisie
+ * @param ipPattern Le motif de l'expression régulière pour une adresse IP.
+ * @param textInputActive Pointeur vers l'état de la saisie de texte
+ * @param keyCounts Pointeur vers le nombre de touches pressées
+ * @param x Position en X
+ * @param y Position Y
+ * @param ancienSon L'anacien son
+ * @param ancienReso L'ancienne resolution
+ * @param j1 Un pointeur sur joueur
+ * @param tab_de_charactere Un tableau de personnage
+ * @param ordi Un pointeur sur ordinateur
+ */
 void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm_reso, Mix_Chunk* click, 
                int mouseX, int mouseY, int w, int h, float widthFactor, float heightFactor, int menuX, int menuY, int* index_effet, 
                int* continuer, int* selecElement, char* effet, int* isValid, const char* textInput, const char* ipPattern, 
                int* textInputActive, int* keyCounts, int x, int y, int* ancienSon, int* ancienReso, player_t* j1,
-               character_t* tab_de_charactere, ordi_t* ordi)
-{
+               character_t* tab_de_charactere, ordi_t* ordi){
     /*Gestion des clics sur les menus*/
     switch((*etat)){
 
@@ -606,7 +639,19 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
     }
 }
 
-/*Gestion du relachement du clic de la souris sur les éléments du menu*/
+/**
+ * @brief Gestion du relâchement du clic de la souris sur les éléments du menu.
+ * 
+ * @param etat Pointeur vers l'état du jeu.
+ * @param menuX Position horizontale du menu.
+ * @param menuY Position verticale du menu.
+ * @param w Largeur de la fenêtre.
+ * @param h Hauteur de la fenêtre.
+ * @param widthFactor Facteur de mise à l'échelle horizontale.
+ * @param heightFactor Facteur de mise à l'échelle verticale.
+ * @param mouseX Position horizontale du curseur de la souris.
+ * @param mouseY Position verticale du curseur de la souris.
+ */
 void relachement(etat_t* etat, int menuX, int menuY, int w, int h, float* widthFactor, float* heightFactor, int mouseX, int mouseY)
 {
     /*Gestion du relachement du clique de la souris*/
@@ -623,7 +668,21 @@ void relachement(etat_t* etat, int menuX, int menuY, int w, int h, float* widthF
     }
 }
 
-/*Gestion du déplacement de la souris sur les éléments du menu*/
+
+/**
+ * @brief Gestion du déplacement de la souris sur les éléments du menu.
+ * 
+ * @param rendu Le renderer de la SDL.
+ * @param fenetre La fenêtre de la SDL.
+ * @param police La police de caractères.
+ * @param music Le son de la musique.
+ * @param evenement L'événement de la SDL.
+ * @param widthFactor Facteur de mise à l'échelle horizontale.
+ * @param heightFactor Facteur de mise à l'échelle verticale.
+ * @param etat L'état actuel du jeu.
+ * @param tab_charactere Le tableau de personnages disponibles.
+ * @param survol Pointeur vers la valeur de survol.
+ */
 void deplacement_souris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, Mix_Chunk* music, SDL_Event evenement, 
                         float widthFactor, float heightFactor, int etat, character_t* tab_charactere, int* survol)
 {
@@ -677,7 +736,22 @@ void deplacement_souris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* poli
     }
 }
 
-/*Fonction de destruction des variables pour le menu*/
+/**
+ * @brief Fonction de destruction des variables pour le menu.
+ * 
+ * @param selecElement Pointeur vers l'élément sélectionné.
+ * @param index_effet Pointeur vers l'indice de l'effet.
+ * @param continuer Pointeur vers la variable de boucle de jeu.
+ * @param etat Pointeur vers l'état du jeu.
+ * @param widthFactor Pointeur vers le facteur de mise à l'échelle horizontale.
+ * @param heightFactor Pointeur vers le facteur de mise à l'échelle verticale.
+ * @param textInputActive Pointeur vers l'état de la saisie de texte.
+ * @param isValid Pointeur vers la validité de la saisie de texte.
+ * @param keyCounts Pointeur vers le nombre de touches pressées.
+ * @param ancienSon Pointeur vers l'ancien niveau de son.
+ * @param etatAge Pointeur vers l'état de l'âge.
+ * @param ancienReso Pointeur vers l'ancienne résolution.
+ */
 void destruction(int* selecElement, int* index_effet, int* continuer, etat_t* etat, float* widthFactor, float* heightFactor, int* textInputActive, int* isValid, int* keyCounts, int* ancienSon, int* etatAge, int* ancienReso)
 {
     /*Destruction des variables allouée dynamiquement*/
@@ -697,7 +771,13 @@ void destruction(int* selecElement, int* index_effet, int* continuer, etat_t* et
     free(heightFactor);
 }
 
-/*Fonction pour vérifier si une chaîne de caractères respecte une expression régulière*/
+/**
+ * @brief Fonction pour vérifier si une chaîne de caractères respecte une expression régulière.
+ * 
+ * @param input La chaîne de caractères à vérifier.
+ * @param pattern Le motif de l'expression régulière.
+ * @return 1 si la chaîne de caractères respecte le motif, 0 sinon.
+ */
 int validateRegex(const char *input, const char *pattern) 
 {
     /*Déclaration d'une regex*/
@@ -716,7 +796,17 @@ int validateRegex(const char *input, const char *pattern)
     regfree(&regex);
     return valid == 0 ? 1 : 0;
 }
-
+/**
+ * @brief Gère les événements liés à la saisie de texte.
+ * 
+ * @param evenement L'événement SDL.
+ * @param textInputActive Pointeur vers l'état de la saisie de texte.
+ * @param keyCounts Pointeur vers le nombre de touches pressées.
+ * @param isValid Pointeur vers la validité de la saisie de texte.
+ * @param textInput La chaîne de caractères saisie.
+ * @param ipPattern Le motif de l'expression régulière pour une adresse IP.
+ * @param valide Pointeur vers la validité de l'adresse IP saisie.
+ */
 void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern, int * valide)
 {
     /*Si la saisie du texte est activée*/
@@ -751,12 +841,27 @@ void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isV
     }
 }
 
+/**
+ * @brief Réinitialise la partie en libérant la mémoire allouée.
+ * 
+ * @param player Pointeur vers le joueur.
+ * @param ordi Pointeur vers l'ordinateur.
+ */
 void reinitialiser_partie(player_t ** player, ordi_t ** ordi)
 {
     destroy_player(player);
     detr_ordi(ordi);
 }
 
+/**
+ * @brief Détermine l'issue de la partie.
+ * 
+ * @param player Le joueur.
+ * @param ordi L'ordinateur.
+ * @param player_online Le joueur en ligne.
+ * @param etat L'état actuel du jeu.
+ * @return Le résultat de la partie.
+ */
 int fin_partie(player_t * player, ordi_t * ordi, player_t * player_online, int etat)
 {
     /* jouer en ligne */

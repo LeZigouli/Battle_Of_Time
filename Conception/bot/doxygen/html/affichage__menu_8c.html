@@ -1,0 +1,1248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Battle of Time: Référence du fichier /info/etu/l2info/s2205576/Documents/Projet/Battle_Of_Time/Conception/bot/src/affichage_menu.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Battle of Time
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier affichage_menu.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contient les fonctions d'affichages du menu.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="affichage__menu_8h_source.html">../lib/affichage_menu.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a9a30a229fe15bbf113dde51914cfa338"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#a9a30a229fe15bbf113dde51914cfa338">affichage</a> (etat_t etat, int *etatAge, SDL_Renderer *rendu, SDL_Window *fenetre, TTF_Font *police, TTF_Font *police_texte, int menuX, int menuY, <a class="el" href="structelement__t.html">element_t</a> *elm_reso, int *selecElement, const char *effet, char *textInput, int *isValid, int *keyCounts, SDL_Texture *parametre, SDL_Texture *gold, SDL_Texture *xp, SDL_Texture *prehistoire, SDL_Texture *antiquite, SDL_Texture *moyen_age, SDL_Texture *moderne, SDL_Texture *futuriste, <a class="el" href="structplayer__t.html">player_t</a> *joueur, SDL_Texture **sprite_hud, SDL_Texture *upgrade, <a class="el" href="structordi__t.html">ordi_t</a> *ordi, int *cameraX, int *cameraY, SDL_Texture *ultim, SDL_Texture *building[], int <a class="el" href="gestion_8c.html#afecde47e916a8831710f18286b346ed8">fin_partie</a>, SDL_Texture *win, SDL_Texture *lose, <a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *tab_charactere, int survol)</td></tr>
+<tr class="memdesc:a9a30a229fe15bbf113dde51914cfa338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage en fonction de l'etat.  <br /></td></tr>
+<tr class="separator:a9a30a229fe15bbf113dde51914cfa338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3807074a946be85ba3f6c5858abe487"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#ad3807074a946be85ba3f6c5858abe487">afficherTitre</a> (SDL_Renderer *rendu, SDL_Window *fenetre, int x, int y, int largeur, int hauteur)</td></tr>
+<tr class="memdesc:ad3807074a946be85ba3f6c5858abe487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le titre du jeu à une position donnée sur l'écran.  <br /></td></tr>
+<tr class="separator:ad3807074a946be85ba3f6c5858abe487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3803cc70b7009b9ce07f791df15977b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#ab3803cc70b7009b9ce07f791df15977b">afficherMenu</a> (SDL_Renderer *rendu, TTF_Font *police, SDL_Window *fenetre, const char *texte, int x, int y, int largeur, int hauteur)</td></tr>
+<tr class="memdesc:ab3803cc70b7009b9ce07f791df15977b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche un élément du menu à une position donnée sur l'écran.  <br /></td></tr>
+<tr class="separator:ab3803cc70b7009b9ce07f791df15977b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a859b475bacc2b8d4b63fe638a9ed62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#a6a859b475bacc2b8d4b63fe638a9ed62">afficherSousMenu</a> (SDL_Renderer *rendu, TTF_Font *police, SDL_Window *fenetre, const char *texte1, const char *texte2, const char *texte3, const char *texte4)</td></tr>
+<tr class="memdesc:a6a859b475bacc2b8d4b63fe638a9ed62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche les sous-menus avec leurs options.  <br /></td></tr>
+<tr class="separator:a6a859b475bacc2b8d4b63fe638a9ed62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac46f63bde9c78a0c1c2aeabf71091daa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#ac46f63bde9c78a0c1c2aeabf71091daa">afficherSousMenuOption</a> (SDL_Renderer *rendu, TTF_Font *police, SDL_Window *fenetre, const char *texte1, const char *texte2, const char *texte3)</td></tr>
+<tr class="memdesc:ac46f63bde9c78a0c1c2aeabf71091daa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le sous-menu des options.  <br /></td></tr>
+<tr class="separator:ac46f63bde9c78a0c1c2aeabf71091daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a6f0534c73c251060d09baf83cc134f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#a9a6f0534c73c251060d09baf83cc134f">afficherSousMenuResolution</a> (SDL_Renderer *rendu, TTF_Font *police, SDL_Window *fenetre)</td></tr>
+<tr class="memdesc:a9a6f0534c73c251060d09baf83cc134f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le sous-menu des résolutions.  <br /></td></tr>
+<tr class="separator:a9a6f0534c73c251060d09baf83cc134f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33cc099eeaa7aaf9c0308ce72a3bbae5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#a33cc099eeaa7aaf9c0308ce72a3bbae5">afficherSousMenuJouer</a> (SDL_Renderer *rendu, SDL_Window *fenetre, TTF_Font *police)</td></tr>
+<tr class="memdesc:a33cc099eeaa7aaf9c0308ce72a3bbae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le sous-menu pour le menu "Jouer".  <br /></td></tr>
+<tr class="separator:a33cc099eeaa7aaf9c0308ce72a3bbae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21663b3145f16d13b891e5229d4bbca1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#a21663b3145f16d13b891e5229d4bbca1">afficherSousMenuSolo</a> (SDL_Renderer *rendu, SDL_Window *fenetre, TTF_Font *police)</td></tr>
+<tr class="memdesc:a21663b3145f16d13b891e5229d4bbca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le sous-menu pour le menu "Solo".  <br /></td></tr>
+<tr class="separator:a21663b3145f16d13b891e5229d4bbca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5492d293f1ce667af9869336b29e50f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#ae5492d293f1ce667af9869336b29e50f">afficherSousMenuEnLigne</a> (SDL_Renderer *rendu, SDL_Window *fenetre, TTF_Font *police)</td></tr>
+<tr class="memdesc:ae5492d293f1ce667af9869336b29e50f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le sous-menu pour le menu "En ligne".  <br /></td></tr>
+<tr class="separator:ae5492d293f1ce667af9869336b29e50f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a288065efb139b60752ba45973eceb148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#a288065efb139b60752ba45973eceb148">initElements</a> (SDL_Renderer *rendu, SDL_Window *fenetre, <a class="el" href="structelement__t.html">element_t</a> *elm_reso)</td></tr>
+<tr class="memdesc:a288065efb139b60752ba45973eceb148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les éléments nécessaires pour afficher les résolutions dans le sous-menu des résolutions.  <br /></td></tr>
+<tr class="separator:a288065efb139b60752ba45973eceb148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a629a2a5eb7bd5e1835d38a3801145a14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#a629a2a5eb7bd5e1835d38a3801145a14">resolution</a> (SDL_Renderer *rendu, SDL_Window *fenetre, TTF_Font *police, <a class="el" href="structelement__t.html">element_t</a> *elm_reso, int *selecElement)</td></tr>
+<tr class="memdesc:a629a2a5eb7bd5e1835d38a3801145a14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche les résolutions dans le sous-menu des résolutions.  <br /></td></tr>
+<tr class="separator:a629a2a5eb7bd5e1835d38a3801145a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f1009327e38c74ea5accabdf5d745ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#a2f1009327e38c74ea5accabdf5d745ba">afficherSousMenuCredits</a> (SDL_Renderer *rendu, SDL_Window *fenetre, TTF_Font *police)</td></tr>
+<tr class="memdesc:a2f1009327e38c74ea5accabdf5d745ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le sous-menu "Crédits".  <br /></td></tr>
+<tr class="separator:a2f1009327e38c74ea5accabdf5d745ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68f1fbe86fd1df022bef8a61eb3bf1df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#a68f1fbe86fd1df022bef8a61eb3bf1df">afficherSousMenuSon</a> (SDL_Renderer *rendu, TTF_Font *police, SDL_Window *fenetre, const char *texte)</td></tr>
+<tr class="memdesc:a68f1fbe86fd1df022bef8a61eb3bf1df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le sous-menu "Son".  <br /></td></tr>
+<tr class="separator:a68f1fbe86fd1df022bef8a61eb3bf1df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2e7999d606400a4babe9d37ddbf686b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#aa2e7999d606400a4babe9d37ddbf686b">afficherSousMenuRejoindre</a> (SDL_Renderer *rendu, SDL_Window *fenetre, TTF_Font *police, char *textInput, int *isValid, int *keyCounts)</td></tr>
+<tr class="memdesc:aa2e7999d606400a4babe9d37ddbf686b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le sous-menu "Rejoindre partie" pour le jeu en ligne.  <br /></td></tr>
+<tr class="separator:aa2e7999d606400a4babe9d37ddbf686b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86cd81986d513fe9ba13c59898d8751a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#a86cd81986d513fe9ba13c59898d8751a">afficherSousMenuDifficulte</a> (SDL_Renderer *rendu, SDL_Window *fenetre, TTF_Font *police)</td></tr>
+<tr class="memdesc:a86cd81986d513fe9ba13c59898d8751a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le sous-menu "Difficulté".  <br /></td></tr>
+<tr class="separator:a86cd81986d513fe9ba13c59898d8751a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9394c47a086b2a8c72c39fdddab0fefb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="affichage__menu_8c.html#a9394c47a086b2a8c72c39fdddab0fefb">afficherSousMenuCreer</a> (SDL_Renderer *rendu, SDL_Window *fenetre, TTF_Font *police)</td></tr>
+<tr class="memdesc:a9394c47a086b2a8c72c39fdddab0fefb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le sous-menu pour créer une partie en ligne.  <br /></td></tr>
+<tr class="separator:a9394c47a086b2a8c72c39fdddab0fefb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Contient les fonctions d'affichages du menu. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Poirier Victor </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>09 févrirer 2024 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a9a30a229fe15bbf113dde51914cfa338" name="a9a30a229fe15bbf113dde51914cfa338"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a30a229fe15bbf113dde51914cfa338">&#9670;&#160;</a></span>affichage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void affichage </td>
+          <td>(</td>
+          <td class="paramtype">etat_t&#160;</td>
+          <td class="paramname"><em>etat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>etatAge</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police_texte</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>menuX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>menuY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structelement__t.html">element_t</a> *&#160;</td>
+          <td class="paramname"><em>elm_reso</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>selecElement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>effet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>textInput</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>isValid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>keyCounts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>parametre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>gold</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>xp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>prehistoire</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>antiquite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>moyen_age</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>moderne</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>futuriste</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>joueur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>sprite_hud</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>upgrade</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structordi__t.html">ordi_t</a> *&#160;</td>
+          <td class="paramname"><em>ordi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>cameraX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>cameraY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>ultim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>building</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fin_partie</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>win</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>lose</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *&#160;</td>
+          <td class="paramname"><em>tab_charactere</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>survol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage en fonction de l'etat. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">etat</td><td>Etat du jeu </td></tr>
+    <tr><td class="paramname">etatAge</td><td>Numero de l'age </td></tr>
+    <tr><td class="paramname">rendu</td><td>contexte d'affichage de la fenetre </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL </td></tr>
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab3803cc70b7009b9ce07f791df15977b" name="ab3803cc70b7009b9ce07f791df15977b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3803cc70b7009b9ce07f791df15977b">&#9670;&#160;</a></span>afficherMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherMenu </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>texte</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>largeur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hauteur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche un élément du menu à une position donnée sur l'écran. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères à utiliser. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+    <tr><td class="paramname">texte</td><td>Le texte à afficher. </td></tr>
+    <tr><td class="paramname">x</td><td>La position en x du coin supérieur gauche de l'élément. </td></tr>
+    <tr><td class="paramname">y</td><td>La position en y du coin supérieur gauche de l'élément. </td></tr>
+    <tr><td class="paramname">largeur</td><td>La largeur de l'élément. </td></tr>
+    <tr><td class="paramname">hauteur</td><td>La hauteur de l'élément. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6a859b475bacc2b8d4b63fe638a9ed62" name="a6a859b475bacc2b8d4b63fe638a9ed62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a859b475bacc2b8d4b63fe638a9ed62">&#9670;&#160;</a></span>afficherSousMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherSousMenu </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>texte1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>texte2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>texte3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>texte4</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche les sous-menus avec leurs options. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères à utiliser. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+    <tr><td class="paramname">texte1</td><td>Texte pour le premier onglet. </td></tr>
+    <tr><td class="paramname">texte2</td><td>Texte pour le deuxième onglet. </td></tr>
+    <tr><td class="paramname">texte3</td><td>Texte pour le troisième onglet. </td></tr>
+    <tr><td class="paramname">texte4</td><td>Texte pour le quatrième onglet. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2f1009327e38c74ea5accabdf5d745ba" name="a2f1009327e38c74ea5accabdf5d745ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f1009327e38c74ea5accabdf5d745ba">&#9670;&#160;</a></span>afficherSousMenuCredits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherSousMenuCredits </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le sous-menu "Crédits". </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9394c47a086b2a8c72c39fdddab0fefb" name="a9394c47a086b2a8c72c39fdddab0fefb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9394c47a086b2a8c72c39fdddab0fefb">&#9670;&#160;</a></span>afficherSousMenuCreer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherSousMenuCreer </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le sous-menu pour créer une partie en ligne. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a86cd81986d513fe9ba13c59898d8751a" name="a86cd81986d513fe9ba13c59898d8751a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86cd81986d513fe9ba13c59898d8751a">&#9670;&#160;</a></span>afficherSousMenuDifficulte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherSousMenuDifficulte </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le sous-menu "Difficulté". </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae5492d293f1ce667af9869336b29e50f" name="ae5492d293f1ce667af9869336b29e50f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5492d293f1ce667af9869336b29e50f">&#9670;&#160;</a></span>afficherSousMenuEnLigne()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherSousMenuEnLigne </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le sous-menu pour le menu "En ligne". </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a33cc099eeaa7aaf9c0308ce72a3bbae5" name="a33cc099eeaa7aaf9c0308ce72a3bbae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33cc099eeaa7aaf9c0308ce72a3bbae5">&#9670;&#160;</a></span>afficherSousMenuJouer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherSousMenuJouer </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le sous-menu pour le menu "Jouer". </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac46f63bde9c78a0c1c2aeabf71091daa" name="ac46f63bde9c78a0c1c2aeabf71091daa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac46f63bde9c78a0c1c2aeabf71091daa">&#9670;&#160;</a></span>afficherSousMenuOption()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherSousMenuOption </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>texte1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>texte2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>texte3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le sous-menu des options. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères à utiliser. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+    <tr><td class="paramname">texte1</td><td>Texte pour la première option. </td></tr>
+    <tr><td class="paramname">texte2</td><td>Texte pour la deuxième option. </td></tr>
+    <tr><td class="paramname">texte3</td><td>Texte pour la troisième option. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa2e7999d606400a4babe9d37ddbf686b" name="aa2e7999d606400a4babe9d37ddbf686b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2e7999d606400a4babe9d37ddbf686b">&#9670;&#160;</a></span>afficherSousMenuRejoindre()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherSousMenuRejoindre </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>textInput</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>isValid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>keyCounts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le sous-menu "Rejoindre partie" pour le jeu en ligne. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères à utiliser. </td></tr>
+    <tr><td class="paramname">textInput</td><td>Le texte saisi par l'utilisateur. </td></tr>
+    <tr><td class="paramname">isValid</td><td>Indique si l'adresse IP saisie est valide. </td></tr>
+    <tr><td class="paramname">keyCounts</td><td>Le nombre de touches saisis par l'utilisateur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9a6f0534c73c251060d09baf83cc134f" name="a9a6f0534c73c251060d09baf83cc134f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a6f0534c73c251060d09baf83cc134f">&#9670;&#160;</a></span>afficherSousMenuResolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherSousMenuResolution </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le sous-menu des résolutions. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères à utiliser. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a21663b3145f16d13b891e5229d4bbca1" name="a21663b3145f16d13b891e5229d4bbca1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21663b3145f16d13b891e5229d4bbca1">&#9670;&#160;</a></span>afficherSousMenuSolo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherSousMenuSolo </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le sous-menu pour le menu "Solo". </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a68f1fbe86fd1df022bef8a61eb3bf1df" name="a68f1fbe86fd1df022bef8a61eb3bf1df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68f1fbe86fd1df022bef8a61eb3bf1df">&#9670;&#160;</a></span>afficherSousMenuSon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherSousMenuSon </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>texte</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le sous-menu "Son". </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères à utiliser. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+    <tr><td class="paramname">texte</td><td>Le texte à afficher. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad3807074a946be85ba3f6c5858abe487" name="ad3807074a946be85ba3f6c5858abe487"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3807074a946be85ba3f6c5858abe487">&#9670;&#160;</a></span>afficherTitre()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherTitre </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>largeur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hauteur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le titre du jeu à une position donnée sur l'écran. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+    <tr><td class="paramname">x</td><td>La position en x du coin supérieur gauche du titre. </td></tr>
+    <tr><td class="paramname">y</td><td>La position en y du coin supérieur gauche du titre. </td></tr>
+    <tr><td class="paramname">largeur</td><td>La largeur du titre. </td></tr>
+    <tr><td class="paramname">hauteur</td><td>La hauteur du titre. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a288065efb139b60752ba45973eceb148" name="a288065efb139b60752ba45973eceb148"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a288065efb139b60752ba45973eceb148">&#9670;&#160;</a></span>initElements()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initElements </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structelement__t.html">element_t</a> *&#160;</td>
+          <td class="paramname"><em>elm_reso</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise les éléments nécessaires pour afficher les résolutions dans le sous-menu des résolutions. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+    <tr><td class="paramname">elm_reso</td><td>Le pointeur vers les éléments de résolution à initialiser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a629a2a5eb7bd5e1835d38a3801145a14" name="a629a2a5eb7bd5e1835d38a3801145a14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a629a2a5eb7bd5e1835d38a3801145a14">&#9670;&#160;</a></span>resolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void resolution </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structelement__t.html">element_t</a> *&#160;</td>
+          <td class="paramname"><em>elm_reso</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>selecElement</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche les résolutions dans le sous-menu des résolutions. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le pointeur vers le renderer SDL. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères à utiliser. </td></tr>
+    <tr><td class="paramname">elm_reso</td><td>Le pointeur vers les éléments de résolution. </td></tr>
+    <tr><td class="paramname">selecElement</td><td>Le pointeur vers l'élément sélectionné. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

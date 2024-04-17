@@ -1,3 +1,10 @@
+/**
+ * \file affichage_jeu.h
+ * \brief Contient les élements utilisé par le affichage_jeu.c
+ * \author Poirier Victor
+ * \date 09 févrirer 2024
+ * 
+*/
 #ifndef _JEU_AFF_H_
 #define _JEU_AFF_H_
 

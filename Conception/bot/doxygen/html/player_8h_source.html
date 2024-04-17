@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Battle of Time:  Fichier source de /info/etu/l2info/s2205576/Documents/Projet/Battle_Of_Time/Conception/bot/lib/player.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Battle of Time
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">player.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef _PLAYER_H_</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define _PLAYER_H_</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="tab__character_8h.html">tab_character.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="structplayer__t.html">    7</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordtype">char</span> name[<a class="code hl_define" href="common_8h.html#a8b6d77865140befe3a9bc16132d2e696">MAX_STR</a>];</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">int</span> xp;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">int</span> delai;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> debut;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> fin;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">float</span> gold;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">int</span> owner; </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_struct" href="structtab__charactere__s.html">tab_charactere_t</a> * characters;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_struct" href="structtab__charactere__s.html">tab_charactere_t</a> * file_attente;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_struct" href="structbuilding__s.html">building_t</a> * building;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}<a class="code hl_struct" href="structplayer__t.html">player_t</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><a class="code hl_struct" href="structplayer__t.html">player_t</a> * <a class="code hl_function" href="player_8c.html#a9c99c711a4f99a67c71847a481b84a12">initplayer</a>(<span class="keywordtype">int</span> owner);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span> <a class="code hl_function" href="player_8c.html#a132d73ef8c30ba0c922a806ab3a3e091">destroy_player</a>(<a class="code hl_struct" href="structplayer__t.html">player_t</a> ** player);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><a class="code hl_typedef" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> <a class="code hl_function" href="player_8c.html#a1754363dba948807a45daa2ccd330b3c">buy_character</a>(<a class="code hl_struct" href="structplayer__t.html">player_t</a> ** player, <a class="code hl_struct" href="structcharacter__s.html">character_t</a> tab_character[<a class="code hl_define" href="common_8h.html#ac66bbcbd9e9d5a4fcb435b50133ba061">NB_AGE</a>*NB_CHARACTER], <span class="keywordtype">int</span> newCha);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> <a class="code hl_function" href="player_8c.html#a12f5c9045a0c36f411581099cc4e10f2">envoie_char</a>(<a class="code hl_struct" href="structplayer__t.html">player_t</a> ** player);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><a class="code hl_typedef" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> <a class="code hl_function" href="player_8c.html#aa1752b9f5956f8fa08df83d891d6f796">exist</a>(<span class="keywordtype">void</span> * type);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><a class="code hl_typedef" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> <a class="code hl_function" href="player_8c.html#a7036fb438a4439085772acde3f53dbe5">get_ressources</a>(<a class="code hl_struct" href="structplayer__t.html">player_t</a> * player1, <a class="code hl_struct" href="structplayer__t.html">player_t</a> * player2);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><a class="code hl_typedef" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> <a class="code hl_function" href="player_8c.html#a7a5513026d33fb2cd6b1413c6a2403f0">afficher_player</a>(<a class="code hl_struct" href="structplayer__t.html">player_t</a> * player);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acommon_8h_html_a8b6d77865140befe3a9bc16132d2e696"><div class="ttname"><a href="common_8h.html#a8b6d77865140befe3a9bc16132d2e696">MAX_STR</a></div><div class="ttdeci">#define MAX_STR</div><div class="ttdoc">Limite pour les tableaux et chaînes de caractères.</div><div class="ttdef"><b>Definition</b> common.h:27</div></div>
+<div class="ttc" id="acommon_8h_html_ac66bbcbd9e9d5a4fcb435b50133ba061"><div class="ttname"><a href="common_8h.html#ac66bbcbd9e9d5a4fcb435b50133ba061">NB_AGE</a></div><div class="ttdeci">#define NB_AGE</div><div class="ttdoc">Nombre d'âges et nombre de personnages par âge.</div><div class="ttdef"><b>Definition</b> common.h:21</div></div>
+<div class="ttc" id="acommon_8h_html_afd19d995e55194c70a06080ef3ceb5a8"><div class="ttname"><a href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a></div><div class="ttdeci">enum booleen_s booleen_t</div><div class="ttdoc">Définition d'un type booléen.</div></div>
+<div class="ttc" id="aplayer_8c_html_a12f5c9045a0c36f411581099cc4e10f2"><div class="ttname"><a href="player_8c.html#a12f5c9045a0c36f411581099cc4e10f2">envoie_char</a></div><div class="ttdeci">void envoie_char(player_t **player)</div><div class="ttdoc">Envoie les personnages en attente vers le tableau de personnages possédés.</div><div class="ttdef"><b>Definition</b> player.c:167</div></div>
+<div class="ttc" id="aplayer_8c_html_a132d73ef8c30ba0c922a806ab3a3e091"><div class="ttname"><a href="player_8c.html#a132d73ef8c30ba0c922a806ab3a3e091">destroy_player</a></div><div class="ttdeci">void destroy_player(player_t **player)</div><div class="ttdoc">Libère la mémoire allouée pour un joueur et ses ressources associées.</div><div class="ttdef"><b>Definition</b> player.c:61</div></div>
+<div class="ttc" id="aplayer_8c_html_a1754363dba948807a45daa2ccd330b3c"><div class="ttname"><a href="player_8c.html#a1754363dba948807a45daa2ccd330b3c">buy_character</a></div><div class="ttdeci">booleen_t buy_character(player_t **player, character_t tab_character[NB_AGE *NB_CHARACTER], int newCha)</div><div class="ttdoc">Achète un personnage pour le joueur.</div><div class="ttdef"><b>Definition</b> player.c:96</div></div>
+<div class="ttc" id="aplayer_8c_html_a7036fb438a4439085772acde3f53dbe5"><div class="ttname"><a href="player_8c.html#a7036fb438a4439085772acde3f53dbe5">get_ressources</a></div><div class="ttdeci">booleen_t get_ressources(player_t *player1, player_t *player2)</div><div class="ttdoc">Récupère les ressources (gold et XP) lorsqu'un personnage meurt.</div><div class="ttdef"><b>Definition</b> player.c:202</div></div>
+<div class="ttc" id="aplayer_8c_html_a7a5513026d33fb2cd6b1413c6a2403f0"><div class="ttname"><a href="player_8c.html#a7a5513026d33fb2cd6b1413c6a2403f0">afficher_player</a></div><div class="ttdeci">booleen_t afficher_player(player_t *player)</div><div class="ttdoc">Affiche les informations d'un joueur.</div><div class="ttdef"><b>Definition</b> player.c:243</div></div>
+<div class="ttc" id="aplayer_8c_html_a9c99c711a4f99a67c71847a481b84a12"><div class="ttname"><a href="player_8c.html#a9c99c711a4f99a67c71847a481b84a12">initplayer</a></div><div class="ttdeci">player_t * initplayer(int owner)</div><div class="ttdoc">Initialise un joueur avec le nom par défaut &quot;PlayerX&quot; et une certaine quantité d'XP.</div><div class="ttdef"><b>Definition</b> player.c:15</div></div>
+<div class="ttc" id="aplayer_8c_html_aa1752b9f5956f8fa08df83d891d6f796"><div class="ttname"><a href="player_8c.html#aa1752b9f5956f8fa08df83d891d6f796">exist</a></div><div class="ttdeci">booleen_t exist(void *type)</div><div class="ttdoc">Vérifie si un pointeur donné existe (non NULL).</div><div class="ttdef"><b>Definition</b> player.c:191</div></div>
+<div class="ttc" id="astructbuilding__s_html"><div class="ttname"><a href="structbuilding__s.html">building_s</a></div><div class="ttdoc">Structure représentant un bâtiment.</div><div class="ttdef"><b>Definition</b> building.h:16</div></div>
+<div class="ttc" id="astructcharacter__s_html"><div class="ttname"><a href="structcharacter__s.html">character_s</a></div><div class="ttdoc">Structure représentant un personnage.</div><div class="ttdef"><b>Definition</b> character.h:36</div></div>
+<div class="ttc" id="astructplayer__t_html"><div class="ttname"><a href="structplayer__t.html">player_t</a></div><div class="ttdef"><b>Definition</b> player.h:7</div></div>
+<div class="ttc" id="astructtab__charactere__s_html"><div class="ttname"><a href="structtab__charactere__s.html">tab_charactere_s</a></div><div class="ttdef"><b>Definition</b> tab_character.h:18</div></div>
+<div class="ttc" id="atab__character_8h_html"><div class="ttname"><a href="tab__character_8h.html">tab_character.h</a></div><div class="ttdoc">Definition de la structure contenant plusieur character_t et ses fonction d'accès.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

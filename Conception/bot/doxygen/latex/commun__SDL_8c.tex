@@ -1,0 +1,199 @@
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/src/commun\+\_\+\+SDL.c}
+\hypertarget{commun__SDL_8c}{}\label{commun__SDL_8c}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/src/commun\_SDL.c@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/src/commun\_SDL.c}}
+
+
+Contient les fonction communes pour l\textquotesingle{}utilisation de la SDL.  
+
+
+{\ttfamily \#include \"{}lib/commun\+\_\+\+SDL.\+h\"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{commun__SDL_8c_a4e83a974c0408e12c591b63c5530231c}{initialisation}} ()
+\begin{DoxyCompactList}\small\item\em Initialise SDL, SDL\+\_\+image, SDL\+\_\+ttf, et SDL\+\_\+\+Mixer. \end{DoxyCompactList}\item 
+TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{commun__SDL_8c_a69ac6d7b76a3f9c3441f3c58e7908dc8}{chargement\+Police}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture\+Fond, char \texorpdfstring{$\ast$}{*}path, int taille)
+\begin{DoxyCompactList}\small\item\em Charge une police à partir d\textquotesingle{}un fichier. \end{DoxyCompactList}\item 
+Mix\+\_\+\+Chunk \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{commun__SDL_8c_a0085ef37e4df688c076c56ff5223f654}{chargement\+Audio}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture\+Fond, char \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Charge un fichier audio dans un chunk. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{commun__SDL_8c_a3f70acdbb900e521328c1c6ce2d05fa6}{chargement\+Img}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, char \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Charge une image à partir d\textquotesingle{}un fichier. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{commun__SDL_8c_a8a5452dffe4041ff59dc015d9ddbf30b}{creation\+Rectangle}} (SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, int x, int y, int largeur, int hauteur)
+\begin{DoxyCompactList}\small\item\em Crée un rectangle dynamique en fonction des dimensions de la fenêtre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{commun__SDL_8c_afa3dbabce03b9cf77796891b5f212b36}{destruction\+\_\+\+SDL}} (SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}parametre, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}gold, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}xp, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture\+Fond, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}prehistoire, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}antiquite, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}moyen\+\_\+age, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}moderne, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}futuriste, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police\+\_\+texte, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, Mix\+\_\+\+Chunk \texorpdfstring{$\ast$}{*}click, Mix\+\_\+\+Chunk \texorpdfstring{$\ast$}{*}music, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}sprite\+\_\+hud\mbox{[}$\,$\mbox{]}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}building\mbox{[}$\,$\mbox{]}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}lose)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour les variables SDL et ferme SDL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les fonction communes pour l\textquotesingle{}utilisation de la SDL. 
+
+\begin{DoxyAuthor}{Auteur}
+Poirier Victor 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09 févrirer 2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{commun__SDL_8c_a0085ef37e4df688c076c56ff5223f654}\label{commun__SDL_8c_a0085ef37e4df688c076c56ff5223f654} 
+\index{commun\_SDL.c@{commun\_SDL.c}!chargementAudio@{chargementAudio}}
+\index{chargementAudio@{chargementAudio}!commun\_SDL.c@{commun\_SDL.c}}
+\doxysubsubsection{\texorpdfstring{chargementAudio()}{chargementAudio()}}
+{\footnotesize\ttfamily Mix\+\_\+\+Chunk \texorpdfstring{$\ast$}{*} chargement\+Audio (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{texture\+Fond,  }\item[{char \texorpdfstring{$\ast$}{*}}]{path }\end{DoxyParamCaption})}
+
+
+
+Charge un fichier audio dans un chunk. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le renderer associé à la fenêtre. \\
+\hline
+{\em fenetre} & La fenêtre où afficher le texte. \\
+\hline
+{\em texture\+Fond} & La texture de fond de l\textquotesingle{}interface. \\
+\hline
+{\em path} & Le chemin vers le fichier audio. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un pointeur vers le chunk audio chargé. 
+\end{DoxyReturn}
+\Hypertarget{commun__SDL_8c_a3f70acdbb900e521328c1c6ce2d05fa6}\label{commun__SDL_8c_a3f70acdbb900e521328c1c6ce2d05fa6} 
+\index{commun\_SDL.c@{commun\_SDL.c}!chargementImg@{chargementImg}}
+\index{chargementImg@{chargementImg}!commun\_SDL.c@{commun\_SDL.c}}
+\doxysubsubsection{\texorpdfstring{chargementImg()}{chargementImg()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} chargement\+Img (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{char \texorpdfstring{$\ast$}{*}}]{path }\end{DoxyParamCaption})}
+
+
+
+Charge une image à partir d\textquotesingle{}un fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le renderer associé à la fenêtre. \\
+\hline
+{\em fenetre} & La fenêtre où afficher le texte. \\
+\hline
+{\em path} & Le chemin vers le fichier image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une texture contenant l\textquotesingle{}image chargée. 
+\end{DoxyReturn}
+\Hypertarget{commun__SDL_8c_a69ac6d7b76a3f9c3441f3c58e7908dc8}\label{commun__SDL_8c_a69ac6d7b76a3f9c3441f3c58e7908dc8} 
+\index{commun\_SDL.c@{commun\_SDL.c}!chargementPolice@{chargementPolice}}
+\index{chargementPolice@{chargementPolice}!commun\_SDL.c@{commun\_SDL.c}}
+\doxysubsubsection{\texorpdfstring{chargementPolice()}{chargementPolice()}}
+{\footnotesize\ttfamily TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*} chargement\+Police (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{texture\+Fond,  }\item[{char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{int}]{taille }\end{DoxyParamCaption})}
+
+
+
+Charge une police à partir d\textquotesingle{}un fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le renderer associé à la fenêtre. \\
+\hline
+{\em fenetre} & La fenêtre où afficher le texte. \\
+\hline
+{\em texture\+Fond} & La texture de fond de l\textquotesingle{}interface. \\
+\hline
+{\em path} & Le chemin vers le fichier de la police. \\
+\hline
+{\em taille} & La taille de la police à charger. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un pointeur vers la police chargée. 
+\end{DoxyReturn}
+\Hypertarget{commun__SDL_8c_a8a5452dffe4041ff59dc015d9ddbf30b}\label{commun__SDL_8c_a8a5452dffe4041ff59dc015d9ddbf30b} 
+\index{commun\_SDL.c@{commun\_SDL.c}!creationRectangle@{creationRectangle}}
+\index{creationRectangle@{creationRectangle}!commun\_SDL.c@{commun\_SDL.c}}
+\doxysubsubsection{\texorpdfstring{creationRectangle()}{creationRectangle()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect creation\+Rectangle (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{largeur,  }\item[{int}]{hauteur }\end{DoxyParamCaption})}
+
+
+
+Crée un rectangle dynamique en fonction des dimensions de la fenêtre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fenetre} & La fenêtre où afficher le rectangle. \\
+\hline
+{\em x} & La position horizontale du rectangle. \\
+\hline
+{\em y} & La position verticale du rectangle. \\
+\hline
+{\em largeur} & La largeur du rectangle. \\
+\hline
+{\em hauteur} & La hauteur du rectangle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le rectangle créé. 
+\end{DoxyReturn}
+\Hypertarget{commun__SDL_8c_afa3dbabce03b9cf77796891b5f212b36}\label{commun__SDL_8c_afa3dbabce03b9cf77796891b5f212b36} 
+\index{commun\_SDL.c@{commun\_SDL.c}!destruction\_SDL@{destruction\_SDL}}
+\index{destruction\_SDL@{destruction\_SDL}!commun\_SDL.c@{commun\_SDL.c}}
+\doxysubsubsection{\texorpdfstring{destruction\_SDL()}{destruction\_SDL()}}
+{\footnotesize\ttfamily void destruction\+\_\+\+SDL (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{parametre,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{gold,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{xp,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{texture\+Fond,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{prehistoire,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{antiquite,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{moyen\+\_\+age,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{moderne,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{futuriste,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police\+\_\+texte,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{Mix\+\_\+\+Chunk \texorpdfstring{$\ast$}{*}}]{click,  }\item[{Mix\+\_\+\+Chunk \texorpdfstring{$\ast$}{*}}]{music,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{sprite\+\_\+hud\mbox{[}$\,$\mbox{]},  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{building\mbox{[}$\,$\mbox{]},  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{lose }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée pour les variables SDL et ferme SDL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parametre} & La texture du paramètre. \\
+\hline
+{\em gold} & La texture de l\textquotesingle{}or. \\
+\hline
+{\em xp} & La texture de l\textquotesingle{}expérience. \\
+\hline
+{\em texture\+Fond} & La texture de fond de l\textquotesingle{}interface. \\
+\hline
+{\em prehistoire} & La texture pour la période préhistorique. \\
+\hline
+{\em antiquite} & La texture pour la période de l\textquotesingle{}Antiquité. \\
+\hline
+{\em moyen\+\_\+age} & La texture pour la période du Moyen Âge. \\
+\hline
+{\em moderne} & La texture pour la période moderne. \\
+\hline
+{\em futuriste} & La texture pour la période futuriste. \\
+\hline
+{\em police} & La police de caractères utilisée. \\
+\hline
+{\em police\+\_\+texte} & La police de caractères pour le texte. \\
+\hline
+{\em rendu} & Le renderer associé à la fenêtre. \\
+\hline
+{\em fenetre} & La fenêtre principale. \\
+\hline
+{\em click} & Le son du clic. \\
+\hline
+{\em music} & La musique du jeu. \\
+\hline
+{\em sprite\+\_\+hud} & Le tableau de textures pour l\textquotesingle{}interface HUD. \\
+\hline
+{\em building} & Le tableau de textures pour les bâtiments. \\
+\hline
+{\em win} & La texture pour l\textquotesingle{}écran de victoire. \\
+\hline
+{\em lose} & La texture pour l\textquotesingle{}écran de défaite. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{commun__SDL_8c_a4e83a974c0408e12c591b63c5530231c}\label{commun__SDL_8c_a4e83a974c0408e12c591b63c5530231c} 
+\index{commun\_SDL.c@{commun\_SDL.c}!initialisation@{initialisation}}
+\index{initialisation@{initialisation}!commun\_SDL.c@{commun\_SDL.c}}
+\doxysubsubsection{\texorpdfstring{initialisation()}{initialisation()}}
+{\footnotesize\ttfamily int initialisation (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialise SDL, SDL\+\_\+image, SDL\+\_\+ttf, et SDL\+\_\+\+Mixer. 
+
+\begin{DoxyReturn}{Renvoie}
+0 en cas de succès, 1 en cas d\textquotesingle{}erreur. 
+\end{DoxyReturn}

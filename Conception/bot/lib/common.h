@@ -1,3 +1,10 @@
+/**
+ * \file common.h
+ * \brief Contient les élements utilisé par les autres fichiers
+ * \author Proudy Vincent
+ * \date 09 févrirer 2024
+ * 
+*/
 #ifndef _COMMON_H_
 #define _COMMON_H_
 
@@ -8,48 +15,74 @@
 
 #include "commun_SDL.h"
 
-/* NOMBRE D'AGE ET NOMBRE DE PERSONNAGE PAR AGE */
+/**
+ * @brief Nombre d'âges et nombre de personnages par âge.
+ */
 #define NB_AGE 5
 #define NB_CHARACTER 4
 
-/* LIMITE POUR LES TABLEAUX ET CHAINES DE CARACTERES */
+/**
+ * @brief Limite pour les tableaux et chaînes de caractères.
+ */
 #define MAX_STR 40
 #define MAX_POSSESSED 10
 #define MAX_DESCRIPTION 100
 
-/* NIVEAU DU JEU */
+/**
+ * @brief Niveaux de difficulté du jeu.
+ */
 #define EASY 1
 #define MEDIUM 2
 #define HARD 3
 
-/* COEFF POUR LEVEL UP BUILDING */
+/**
+ * @brief Coefficients pour le niveau de mise à niveau du bâtiment.
+ */
 #define COEF_LEVEL_UP_DAMMAGE 1.5
 #define COEF_LEVEL_UP_MAX_PV 2.0
 #define COEF_LEVEL_UP_MAX_GOLD_COST 3
 
-/* LIMITE DU NOMBRE DE FOIS QU'ON PEUT AMELIORER LE BUILDING */
+/**
+ * @brief Limite du nombre de fois qu'on peut améliorer le bâtiment.
+ */
 #define MAX_LEVEL_UP 4
 
-/* NUMERO OWNER */
+/**
+ * @brief Numéros de propriétaire.
+ */
 #define OWNER_1 1
 #define OWNER_2 2
 #define ORDINATEUR 3
 
-/* INITIALISATION DU DÉLAI D'ATTENTE POUR FORMER LES TROUPES */
+/**
+ * @brief Initialisation du délai d'attente pour former les troupes.
+ */
 #define DELAI_INITIAL -1
 
-/* FIN DE PARTIE */
+/**
+ * @brief Codes de fin de partie.
+ */
 #define JOUEUR_GAGNE 100
 #define ORDI_GAGNE 101
 #define AUCUN_GAGNANT 102
 #define JOUEUR_EN_LIGNE_GAGNE 103
 
-typedef enum class_character_s { melee, marksman, tank, specialist }class_character_t;
+/**
+ * @brief Énumération représentant les classes de personnage.
+ */
+typedef enum class_character_s {
+    melee,      /**< Personnage de mêlée. */
+    marksman,   /**< Personnage tireur d'élite. */
+    tank,       /**< Personnage tank. */
+    specialist  /**< Personnage spécialiste. */
+} class_character_t;
 
-/* definition d'un type booleen */
-typedef enum booleen_s { FALSE, TRUE } booleen_t;
-
-
-/* fonction */
+/**
+ * @brief Définition d'un type booléen.
+ */
+typedef enum booleen_s {
+    FALSE,  /**< Valeur booléenne fausse. */
+    TRUE    /**< Valeur booléenne vraie. */
+} booleen_t;
 
 #endif

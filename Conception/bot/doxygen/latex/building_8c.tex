@@ -1,0 +1,133 @@
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/src/building.c}
+\hypertarget{building_8c}{}\label{building_8c}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/src/building.c@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/src/building.c}}
+
+
+Contient les fonction pour la gestion des batiments.  
+
+
+{\ttfamily \#include \"{}../lib/building.\+h\"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{building_8c_a34c3316790eae9eed08cba0d26a097bd}{init\+\_\+building}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}building, int owner)
+\begin{DoxyCompactList}\small\item\em Initialise le bâtiment d\textquotesingle{}un joueur avec des valeurs par défaut. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{building_8c_ab057ff98ceccfbb956f66c7d942ab8f1}{upgrade\+\_\+building}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}building, int \texorpdfstring{$\ast$}{*}xp)
+\begin{DoxyCompactList}\small\item\em Améliore le bâtiment d\textquotesingle{}un joueur en fonction de l\textquotesingle{}expérience accumulée. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{building_8c_ad6e6f248ce5dd4664f4d3597a6141d7b}{afficher\+\_\+building}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}building)
+\begin{DoxyCompactList}\small\item\em Affiche les caractéristiques du bâtiment. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{building_8c_af082905f7eac6d03e92015146bbc1925}{max}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em Détermine le maximum entre deux entiers. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{building_8c_abd8bbcfabb3ddef2ccaafb9928a37b95}{min}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em Détermine le minimum entre deux entiers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les fonction pour la gestion des batiments. 
+
+\begin{DoxyAuthor}{Auteur}
+Proudy Vincent 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09 févrirer 2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{building_8c_ad6e6f248ce5dd4664f4d3597a6141d7b}\label{building_8c_ad6e6f248ce5dd4664f4d3597a6141d7b} 
+\index{building.c@{building.c}!afficher\_building@{afficher\_building}}
+\index{afficher\_building@{afficher\_building}!building.c@{building.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_building()}{afficher\_building()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} afficher\+\_\+building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{building }\end{DoxyParamCaption})}
+
+
+
+Affiche les caractéristiques du bâtiment. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em building} & Le bâtiment à afficher. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+TRUE si l\textquotesingle{}affichage s\textquotesingle{}est déroulé avec succès, FALSE sinon. 
+\end{DoxyReturn}
+\Hypertarget{building_8c_a34c3316790eae9eed08cba0d26a097bd}\label{building_8c_a34c3316790eae9eed08cba0d26a097bd} 
+\index{building.c@{building.c}!init\_building@{init\_building}}
+\index{init\_building@{init\_building}!building.c@{building.c}}
+\doxysubsubsection{\texorpdfstring{init\_building()}{init\_building()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} init\+\_\+building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{building,  }\item[{int}]{owner }\end{DoxyParamCaption})}
+
+
+
+Initialise le bâtiment d\textquotesingle{}un joueur avec des valeurs par défaut. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em building} & Pointeur vers le bâtiment à initialiser. \\
+\hline
+{\em owner} & Propriétaire du bâtiment. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+TRUE si l\textquotesingle{}initialisation s\textquotesingle{}est déroulée avec succès, FALSE sinon. 
+\end{DoxyReturn}
+\Hypertarget{building_8c_af082905f7eac6d03e92015146bbc1925}\label{building_8c_af082905f7eac6d03e92015146bbc1925} 
+\index{building.c@{building.c}!max@{max}}
+\index{max@{max}!building.c@{building.c}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily int max (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Détermine le maximum entre deux entiers. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em a} & Premier entier. \\
+\hline
+{\em b} & Second entier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La valeur maximale entre a et b. 
+\end{DoxyReturn}
+\Hypertarget{building_8c_abd8bbcfabb3ddef2ccaafb9928a37b95}\label{building_8c_abd8bbcfabb3ddef2ccaafb9928a37b95} 
+\index{building.c@{building.c}!min@{min}}
+\index{min@{min}!building.c@{building.c}}
+\doxysubsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily int min (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Détermine le minimum entre deux entiers. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em a} & Premier entier. \\
+\hline
+{\em b} & Second entier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La valeur minimale entre a et b. 
+\end{DoxyReturn}
+\Hypertarget{building_8c_ab057ff98ceccfbb956f66c7d942ab8f1}\label{building_8c_ab057ff98ceccfbb956f66c7d942ab8f1} 
+\index{building.c@{building.c}!upgrade\_building@{upgrade\_building}}
+\index{upgrade\_building@{upgrade\_building}!building.c@{building.c}}
+\doxysubsubsection{\texorpdfstring{upgrade\_building()}{upgrade\_building()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} upgrade\+\_\+building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{building,  }\item[{int \texorpdfstring{$\ast$}{*}}]{xp }\end{DoxyParamCaption})}
+
+
+
+Améliore le bâtiment d\textquotesingle{}un joueur en fonction de l\textquotesingle{}expérience accumulée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em building} & Pointeur vers le bâtiment à améliorer. \\
+\hline
+{\em xp} & Pointeur vers l\textquotesingle{}expérience accumulée par le joueur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+TRUE si l\textquotesingle{}amélioration s\textquotesingle{}est déroulée avec succès, FALSE sinon. 
+\end{DoxyReturn}

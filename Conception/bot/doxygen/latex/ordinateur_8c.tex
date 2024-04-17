@@ -1,0 +1,166 @@
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/src/ordinateur.c}
+\hypertarget{ordinateur_8c}{}\label{ordinateur_8c}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/src/ordinateur.c@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/src/ordinateur.c}}
+
+
+Contient les fonction permettant à l\textquotesingle{}ordinateur de jouer.  
+
+
+{\ttfamily \#include \"{}../lib/ordinateur.\+h\"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ordinateur_8c_a0acb231d85a79a697c62073722309647}{init\+\_\+ordi}} ()
+\begin{DoxyCompactList}\small\item\em Initialise et retourne un nouvel objet ordinateur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ordinateur_8c_a3438fbd124e38ab6181d7a4fc25e8779}{detr\+\_\+ordi}} (\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}ordi)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour l\textquotesingle{}ordinateur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ordinateur_8c_a7c1e79bdba10728dbfa96530c50536ef}{envoie\+\_\+char\+\_\+ordi}} (\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}ordi, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}tab)
+\begin{DoxyCompactList}\small\item\em Envoie un personnage de l\textquotesingle{}ordinateur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{ordinateur_8c_a35b7da43c64d1b7fa173d5b0b428a3b6}{give\+\_\+ressources}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}player, \mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}ordi)
+\begin{DoxyCompactList}\small\item\em Donne des ressources au joueur à partir de l\textquotesingle{}ordinateur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ordinateur_8c_a69db7561d87003dc4dd6b24ee77cacd0}{afficher\+\_\+ordi}} (\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}ordi)
+\begin{DoxyCompactList}\small\item\em Affiche les informations de l\textquotesingle{}ordinateur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ordinateur_8c_a417bab5865bee010dddf89737dfe099b}{jeu\+\_\+ordi}} (\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}o, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}p, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}tab)
+\begin{DoxyCompactList}\small\item\em Fonction principale de jeu de l\textquotesingle{}ordinateur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{ordinateur_8c_a9ea7753dadd8c4e1aa65aace0daa43a4}\label{ordinateur_8c_a9ea7753dadd8c4e1aa65aace0daa43a4} 
+unsigned long int {\bfseries debut}
+\item 
+\Hypertarget{ordinateur_8c_a59c23ee89d069349b0b2368ca0227ad5}\label{ordinateur_8c_a59c23ee89d069349b0b2368ca0227ad5} 
+unsigned long int {\bfseries fin}
+\item 
+\Hypertarget{ordinateur_8c_a6cab488e64b1387610653e3e2134bd4a}\label{ordinateur_8c_a6cab488e64b1387610653e3e2134bd4a} 
+unsigned long int {\bfseries d\+\_\+ulti}
+\item 
+\Hypertarget{ordinateur_8c_a39d94a8dddc0bdcd634e43ea22fe4993}\label{ordinateur_8c_a39d94a8dddc0bdcd634e43ea22fe4993} 
+unsigned long int {\bfseries f\+\_\+ulti}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les fonction permettant à l\textquotesingle{}ordinateur de jouer. 
+
+\begin{DoxyAuthor}{Auteur}
+Roquain Louison 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09 févrirer 2024
+\end{DoxyDate}
+\begin{DoxyAuthor}{Auteur}
+Roquain Louison 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09 févrirer 2024 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{ordinateur_8c_a69db7561d87003dc4dd6b24ee77cacd0}\label{ordinateur_8c_a69db7561d87003dc4dd6b24ee77cacd0} 
+\index{ordinateur.c@{ordinateur.c}!afficher\_ordi@{afficher\_ordi}}
+\index{afficher\_ordi@{afficher\_ordi}!ordinateur.c@{ordinateur.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_ordi()}{afficher\_ordi()}}
+{\footnotesize\ttfamily void afficher\+\_\+ordi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ordi }\end{DoxyParamCaption})}
+
+
+
+Affiche les informations de l\textquotesingle{}ordinateur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ordi} & L\textquotesingle{}ordinateur dont les informations doivent être affichées. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ordinateur_8c_a3438fbd124e38ab6181d7a4fc25e8779}\label{ordinateur_8c_a3438fbd124e38ab6181d7a4fc25e8779} 
+\index{ordinateur.c@{ordinateur.c}!detr\_ordi@{detr\_ordi}}
+\index{detr\_ordi@{detr\_ordi}!ordinateur.c@{ordinateur.c}}
+\doxysubsubsection{\texorpdfstring{detr\_ordi()}{detr\_ordi()}}
+{\footnotesize\ttfamily int detr\+\_\+ordi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{ordi }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée pour l\textquotesingle{}ordinateur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ordi} & Un pointeur vers le pointeur de l\textquotesingle{}ordinateur à libérer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+EXIT\+\_\+\+SUCCESS si la libération est réussie, EXIT\+\_\+\+FAILURE sinon. 
+\end{DoxyReturn}
+\Hypertarget{ordinateur_8c_a7c1e79bdba10728dbfa96530c50536ef}\label{ordinateur_8c_a7c1e79bdba10728dbfa96530c50536ef} 
+\index{ordinateur.c@{ordinateur.c}!envoie\_char\_ordi@{envoie\_char\_ordi}}
+\index{envoie\_char\_ordi@{envoie\_char\_ordi}!ordinateur.c@{ordinateur.c}}
+\doxysubsubsection{\texorpdfstring{envoie\_char\_ordi()}{envoie\_char\_ordi()}}
+{\footnotesize\ttfamily int envoie\+\_\+char\+\_\+ordi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ordi,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tab }\end{DoxyParamCaption})}
+
+
+
+Envoie un personnage de l\textquotesingle{}ordinateur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ordi} & L\textquotesingle{}ordinateur qui envoie le personnage. \\
+\hline
+{\em tab} & Le tableau de personnages disponibles. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+EXIT\+\_\+\+SUCCESS si l\textquotesingle{}envoi réussit, EXIT\+\_\+\+FAILURE sinon. 
+\end{DoxyReturn}
+\Hypertarget{ordinateur_8c_a35b7da43c64d1b7fa173d5b0b428a3b6}\label{ordinateur_8c_a35b7da43c64d1b7fa173d5b0b428a3b6} 
+\index{ordinateur.c@{ordinateur.c}!give\_ressources@{give\_ressources}}
+\index{give\_ressources@{give\_ressources}!ordinateur.c@{ordinateur.c}}
+\doxysubsubsection{\texorpdfstring{give\_ressources()}{give\_ressources()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} give\+\_\+ressources (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{player,  }\item[{\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ordi }\end{DoxyParamCaption})}
+
+
+
+Donne des ressources au joueur à partir de l\textquotesingle{}ordinateur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player} & Le joueur à qui donner les ressources. \\
+\hline
+{\em ordi} & L\textquotesingle{}ordinateur qui fournit les ressources. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+FALSE si l\textquotesingle{}opération échoue, TRUE sinon. 
+\end{DoxyReturn}
+\Hypertarget{ordinateur_8c_a0acb231d85a79a697c62073722309647}\label{ordinateur_8c_a0acb231d85a79a697c62073722309647} 
+\index{ordinateur.c@{ordinateur.c}!init\_ordi@{init\_ordi}}
+\index{init\_ordi@{init\_ordi}!ordinateur.c@{ordinateur.c}}
+\doxysubsubsection{\texorpdfstring{init\_ordi()}{init\_ordi()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*} init\+\_\+ordi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialise et retourne un nouvel objet ordinateur. 
+
+\begin{DoxyReturn}{Renvoie}
+Un pointeur vers l\textquotesingle{}ordinateur initialisé ou NULL en cas d\textquotesingle{}échec. 
+\end{DoxyReturn}
+\Hypertarget{ordinateur_8c_a417bab5865bee010dddf89737dfe099b}\label{ordinateur_8c_a417bab5865bee010dddf89737dfe099b} 
+\index{ordinateur.c@{ordinateur.c}!jeu\_ordi@{jeu\_ordi}}
+\index{jeu\_ordi@{jeu\_ordi}!ordinateur.c@{ordinateur.c}}
+\doxysubsubsection{\texorpdfstring{jeu\_ordi()}{jeu\_ordi()}}
+{\footnotesize\ttfamily void jeu\+\_\+ordi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{o,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tab }\end{DoxyParamCaption})}
+
+
+
+Fonction principale de jeu de l\textquotesingle{}ordinateur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em o} & L\textquotesingle{}ordinateur. \\
+\hline
+{\em p} & Le joueur. \\
+\hline
+{\em tab} & Le tableau de personnages disponibles. \\
+\hline
+\end{DoxyParams}

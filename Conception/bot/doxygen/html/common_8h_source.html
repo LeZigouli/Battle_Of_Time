@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Battle of Time:  Fichier source de /info/etu/l2info/s2205576/Documents/Projet/Battle_Of_Time/Conception/bot/lib/common.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Battle of Time
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">common.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="common_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef _COMMON_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define _COMMON_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="commun__SDL_8h.html">commun_SDL.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="common_8h.html#ac66bbcbd9e9d5a4fcb435b50133ba061">   21</a></span><span class="preprocessor">#define NB_AGE 5</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define NB_CHARACTER 4</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="common_8h.html#a8b6d77865140befe3a9bc16132d2e696">   27</a></span><span class="preprocessor">#define MAX_STR 40</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#define MAX_POSSESSED 10</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#define MAX_DESCRIPTION 100</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="common_8h.html#a0560e96e46037caf6bf2283a1e4092f8">   34</a></span><span class="preprocessor">#define EASY 1</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#define MEDIUM 2</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#define HARD 3</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="common_8h.html#a88248ee212da086f00d7c091d86ccbec">   41</a></span><span class="preprocessor">#define COEF_LEVEL_UP_DAMMAGE 1.5</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#define COEF_LEVEL_UP_MAX_PV 2.0</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#define COEF_LEVEL_UP_MAX_GOLD_COST 3</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="common_8h.html#ae922370f885804372e9d02939467f837">   48</a></span><span class="preprocessor">#define MAX_LEVEL_UP 4</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="common_8h.html#ab6989f7b773d5fb56895495247a22733">   53</a></span><span class="preprocessor">#define OWNER_1 1</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#define OWNER_2 2</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#define ORDINATEUR 3</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="common_8h.html#aa31d048bddc6a4cdec63280b0691adef">   60</a></span><span class="preprocessor">#define DELAI_INITIAL -1</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="common_8h.html#a354004dad185b65dda9a8aa132459515">   65</a></span><span class="preprocessor">#define JOUEUR_GAGNE 100</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#define ORDI_GAGNE 101</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#define AUCUN_GAGNANT 102</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#define JOUEUR_EN_LIGNE_GAGNE 103</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269c">   73</a></span><span class="keyword">typedef</span> <span class="keyword">enum class</span>_character_s {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269ca2122acc39b69d471380b7d986b6515bf">   74</a></span>    <a class="code hl_enumvalue" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269ca2122acc39b69d471380b7d986b6515bf">melee</a>,      </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269cac1215dafde67928af3c0ba2bce29938d">   75</a></span>    <a class="code hl_enumvalue" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269cac1215dafde67928af3c0ba2bce29938d">marksman</a>,   </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269ca5970642cf6e8bb17100a6ac4ecfa0a36">   76</a></span>    <a class="code hl_enumvalue" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269ca5970642cf6e8bb17100a6ac4ecfa0a36">tank</a>,       </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_enumvalue" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269ca335926ce37f081753f90f194bf2e71ae">specialist</a>  </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="common_8h.html#a0dd582b18f116aff3d264ef7be8e95c0">   78</a></span>} <a class="code hl_typedef" href="common_8h.html#a0dd582b18f116aff3d264ef7be8e95c0">class_character_t</a>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d47">   83</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code hl_enumeration" href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d47">booleen_s</a> {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d47aa1e095cc966dbecf6a0d8aad75348d1a">   84</a></span>    <a class="code hl_enumvalue" href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d47aa1e095cc966dbecf6a0d8aad75348d1a">FALSE</a>,  </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_enumvalue" href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d47aa82764c3079aea4e60c80e45befbb839">TRUE</a>    </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">   86</a></span>} <a class="code hl_typedef" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acommon_8h_html_a0dd582b18f116aff3d264ef7be8e95c0"><div class="ttname"><a href="common_8h.html#a0dd582b18f116aff3d264ef7be8e95c0">class_character_t</a></div><div class="ttdeci">enum class_character_s class_character_t</div><div class="ttdoc">Énumération représentant les classes de personnage.</div></div>
+<div class="ttc" id="acommon_8h_html_a93f4b57ac6d7583da8a6665c47bb8d47"><div class="ttname"><a href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d47">booleen_s</a></div><div class="ttdeci">booleen_s</div><div class="ttdoc">Définition d'un type booléen.</div><div class="ttdef"><b>Definition</b> common.h:83</div></div>
+<div class="ttc" id="acommon_8h_html_a93f4b57ac6d7583da8a6665c47bb8d47aa1e095cc966dbecf6a0d8aad75348d1a"><div class="ttname"><a href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d47aa1e095cc966dbecf6a0d8aad75348d1a">FALSE</a></div><div class="ttdeci">@ FALSE</div><div class="ttdef"><b>Definition</b> common.h:84</div></div>
+<div class="ttc" id="acommon_8h_html_a93f4b57ac6d7583da8a6665c47bb8d47aa82764c3079aea4e60c80e45befbb839"><div class="ttname"><a href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d47aa82764c3079aea4e60c80e45befbb839">TRUE</a></div><div class="ttdeci">@ TRUE</div><div class="ttdef"><b>Definition</b> common.h:85</div></div>
+<div class="ttc" id="acommon_8h_html_aa92d6a1d34d51fad72dee6b89b86269ca2122acc39b69d471380b7d986b6515bf"><div class="ttname"><a href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269ca2122acc39b69d471380b7d986b6515bf">melee</a></div><div class="ttdeci">@ melee</div><div class="ttdef"><b>Definition</b> common.h:74</div></div>
+<div class="ttc" id="acommon_8h_html_aa92d6a1d34d51fad72dee6b89b86269ca335926ce37f081753f90f194bf2e71ae"><div class="ttname"><a href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269ca335926ce37f081753f90f194bf2e71ae">specialist</a></div><div class="ttdeci">@ specialist</div><div class="ttdef"><b>Definition</b> common.h:77</div></div>
+<div class="ttc" id="acommon_8h_html_aa92d6a1d34d51fad72dee6b89b86269ca5970642cf6e8bb17100a6ac4ecfa0a36"><div class="ttname"><a href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269ca5970642cf6e8bb17100a6ac4ecfa0a36">tank</a></div><div class="ttdeci">@ tank</div><div class="ttdef"><b>Definition</b> common.h:76</div></div>
+<div class="ttc" id="acommon_8h_html_aa92d6a1d34d51fad72dee6b89b86269cac1215dafde67928af3c0ba2bce29938d"><div class="ttname"><a href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269cac1215dafde67928af3c0ba2bce29938d">marksman</a></div><div class="ttdeci">@ marksman</div><div class="ttdef"><b>Definition</b> common.h:75</div></div>
+<div class="ttc" id="acommon_8h_html_afd19d995e55194c70a06080ef3ceb5a8"><div class="ttname"><a href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a></div><div class="ttdeci">enum booleen_s booleen_t</div><div class="ttdoc">Définition d'un type booléen.</div></div>
+<div class="ttc" id="acommun__SDL_8h_html"><div class="ttname"><a href="commun__SDL_8h.html">commun_SDL.h</a></div><div class="ttdoc">Contient les élements utilisé par les autres fichiers SDL.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

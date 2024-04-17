@@ -363,6 +363,7 @@ int main(int argc, char* argv[]) {
                   moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building, resultat, 
                   fin_partie_win, fin_partie_lose, tab_de_charactere, (*survol));
         
+        
         /* qaund on lance une nouvelle partie, on detruit bien toute les données */
         if ( !a_deja_lancer_partie && ( *etat == JOUER || *etat == JOUER_RESEAU_CREER || *etat == JOUER_RESEAU_REJOINDRE ) )
         {

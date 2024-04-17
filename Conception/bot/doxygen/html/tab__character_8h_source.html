@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Battle of Time:  Fichier source de /info/etu/l2info/s2205576/Documents/Projet/Battle_Of_Time/Conception/bot/lib/tab_character.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Battle of Time
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">tab_character.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="tab__character_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#ifndef TAB_CHARACTER_H_</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define TAB_CHARACTER_H_</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="character_8h.html">character.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/* liste pour chaque joueur des personnages qu&#39;ils possèdent */</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structtab__charactere__s.html">   18</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structtab__charactere__s.html">tab_charactere_s</a>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_struct" href="structcharacter__s.html">character_t</a> * tab[MAX_POSSESSED];</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">int</span> nb;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}<a class="code hl_struct" href="structtab__charactere__s.html">tab_charactere_t</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> <a class="code hl_function" href="tab__character_8h.html#ae803d355d3d1e31a32c228a31d8d5d30">deplacement</a>(<a class="code hl_struct" href="structtab__charactere__s.html">tab_charactere_t</a> * characters, <a class="code hl_struct" href="structcharacter__s.html">character_t</a> * first_Adverser, <span class="keywordtype">int</span> x_building_adverser);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><a class="code hl_typedef" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> <a class="code hl_function" href="tab__character_8h.html#a623509b35d94c72fd711b497ff5fd20b">delete_character</a>(<a class="code hl_struct" href="structtab__charactere__s.html">tab_charactere_t</a> ** characters);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><a class="code hl_typedef" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> <a class="code hl_function" href="tab__character_8h.html#a7385dcda8ffa6298eef3e75eb4030df7">tasser_tab</a>( <a class="code hl_struct" href="structtab__charactere__s.html">tab_charactere_t</a> **  characters, <span class="keywordtype">int</span> nb_mort);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><a class="code hl_typedef" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> <a class="code hl_function" href="tab__character_8h.html#a9cdbdc324a94a9fb7469a7429b12896b">afficher_characters</a>(<a class="code hl_struct" href="structtab__charactere__s.html">tab_charactere_t</a> * characters);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><a class="code hl_typedef" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> <a class="code hl_function" href="tab__character_8h.html#a307ff31aed68e9ebab26e9b79d48a03d">ulti</a>(<a class="code hl_struct" href="structtab__charactere__s.html">tab_charactere_t</a> ** cible);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acharacter_8h_html"><div class="ttname"><a href="character_8h.html">character.h</a></div><div class="ttdoc">Contient les élements utilisé par le character.c.</div></div>
+<div class="ttc" id="acommon_8h_html_afd19d995e55194c70a06080ef3ceb5a8"><div class="ttname"><a href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a></div><div class="ttdeci">enum booleen_s booleen_t</div><div class="ttdoc">Définition d'un type booléen.</div></div>
+<div class="ttc" id="astructcharacter__s_html"><div class="ttname"><a href="structcharacter__s.html">character_s</a></div><div class="ttdoc">Structure représentant un personnage.</div><div class="ttdef"><b>Definition</b> character.h:36</div></div>
+<div class="ttc" id="astructtab__charactere__s_html"><div class="ttname"><a href="structtab__charactere__s.html">tab_charactere_s</a></div><div class="ttdef"><b>Definition</b> tab_character.h:18</div></div>
+<div class="ttc" id="atab__character_8h_html_a307ff31aed68e9ebab26e9b79d48a03d"><div class="ttname"><a href="tab__character_8h.html#a307ff31aed68e9ebab26e9b79d48a03d">ulti</a></div><div class="ttdeci">booleen_t ulti(tab_charactere_t **cible)</div><div class="ttdoc">Réalise l'ultime attaque, mettant les personnages cibles à 0 points de vie.</div><div class="ttdef"><b>Definition</b> tab_character.c:112</div></div>
+<div class="ttc" id="atab__character_8h_html_a623509b35d94c72fd711b497ff5fd20b"><div class="ttname"><a href="tab__character_8h.html#a623509b35d94c72fd711b497ff5fd20b">delete_character</a></div><div class="ttdeci">booleen_t delete_character(tab_charactere_t **characters)</div><div class="ttdoc">Supprime les personnages ayant des points de vie nuls ou négatifs.</div><div class="ttdef"><b>Definition</b> tab_character.c:17</div></div>
+<div class="ttc" id="atab__character_8h_html_a7385dcda8ffa6298eef3e75eb4030df7"><div class="ttname"><a href="tab__character_8h.html#a7385dcda8ffa6298eef3e75eb4030df7">tasser_tab</a></div><div class="ttdeci">booleen_t tasser_tab(tab_charactere_t **characters, int nb_mort)</div><div class="ttdoc">Tasse le tableau de personnages après suppression.</div><div class="ttdef"><b>Definition</b> tab_character.c:62</div></div>
+<div class="ttc" id="atab__character_8h_html_a9cdbdc324a94a9fb7469a7429b12896b"><div class="ttname"><a href="tab__character_8h.html#a9cdbdc324a94a9fb7469a7429b12896b">afficher_characters</a></div><div class="ttdeci">booleen_t afficher_characters(tab_charactere_t *characters)</div><div class="ttdoc">Affiche les personnages possédés.</div><div class="ttdef"><b>Definition</b> tab_character.c:87</div></div>
+<div class="ttc" id="atab__character_8h_html_ae803d355d3d1e31a32c228a31d8d5d30"><div class="ttname"><a href="tab__character_8h.html#ae803d355d3d1e31a32c228a31d8d5d30">deplacement</a></div><div class="ttdeci">void deplacement(tab_charactere_t *characters, character_t *first_Adverser, int x_building_adverser)</div><div class="ttdoc">Effectue le déplacement des personnages.</div><div class="ttdef"><b>Definition</b> tab_character.c:187</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

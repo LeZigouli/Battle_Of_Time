@@ -1,0 +1,200 @@
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/src/character.c}
+\hypertarget{character_8c}{}\label{character_8c}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/src/character.c@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/src/character.c}}
+
+
+Contient les fonction pour les personnages du jeu.  
+
+
+{\ttfamily \#include \"{}../lib/character.\+h\"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{character_8c_a3155d8dcc6d85be3c23f92e40d471e3f}{character\+\_\+attack\+\_\+character}} (\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}destination, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}src)
+\begin{DoxyCompactList}\small\item\em Fonction permettant à un personnage d\textquotesingle{}attaquer un autre personnage. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{character_8c_ade98f572cf5953151368ff1593a0af34}{character\+\_\+attack\+\_\+building}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}destination, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}src)
+\begin{DoxyCompactList}\small\item\em Fonction permettant à un personnage d\textquotesingle{}attaquer un bâtiment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{character_8c_a795d9f9c5f814a249f967dfc5a0c2b91}{deplacement\+\_\+gauche}} (\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em Déplace un personnage vers la gauche. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{character_8c_a93eb67eebd7c4e70330c634b3ef6d114}{deplacement\+\_\+droit}} (\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}character)
+\begin{DoxyCompactList}\small\item\em Déplace un personnage vers la droite. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{character_8c_a296b72a07fd493ad9a137bbfbdb40fde}{calcule\+\_\+prix}} (int n)
+\begin{DoxyCompactList}\small\item\em Calcule le prix d\textquotesingle{}un personnage en fonction de son niveau. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{character_8c_a6c78f57bff1cf189754f1eb47438fe96}{temp\+\_\+former}} (int n)
+\begin{DoxyCompactList}\small\item\em Calcule le temps nécessaire à la formation d\textquotesingle{}un personnage en fonction de son niveau. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{character_8c_a694fdc777d5de7c347cb0cea017f7da7}{initcharacter}} ()
+\begin{DoxyCompactList}\small\item\em Initialise tous les personnages du jeu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{character_8c_a87809251e7ae36ecc6b0ce76de255533}{destroy\+\_\+tab\+\_\+character}} (\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}tab)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour le tableau de personnages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{character_8c_a267b4812ff2bf5ae7d6ca81196f35bf7}{copie\+\_\+character}} (\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}destination, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}src)
+\begin{DoxyCompactList}\small\item\em Copie les données d\textquotesingle{}un personnage source vers un personnage destination. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les fonction pour les personnages du jeu. 
+
+\begin{DoxyAuthor}{Auteur}
+Roquain Lousion Proudy Vincent 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09 févrirer 2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{character_8c_a296b72a07fd493ad9a137bbfbdb40fde}\label{character_8c_a296b72a07fd493ad9a137bbfbdb40fde} 
+\index{character.c@{character.c}!calcule\_prix@{calcule\_prix}}
+\index{calcule\_prix@{calcule\_prix}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{calcule\_prix()}{calcule\_prix()}}
+{\footnotesize\ttfamily int calcule\+\_\+prix (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Calcule le prix d\textquotesingle{}un personnage en fonction de son niveau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em n} & Le niveau du personnage. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le prix calculé. 
+\end{DoxyReturn}
+\Hypertarget{character_8c_ade98f572cf5953151368ff1593a0af34}\label{character_8c_ade98f572cf5953151368ff1593a0af34} 
+\index{character.c@{character.c}!character\_attack\_building@{character\_attack\_building}}
+\index{character\_attack\_building@{character\_attack\_building}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{character\_attack\_building()}{character\_attack\_building()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} character\+\_\+attack\+\_\+building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{destination,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{src }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant à un personnage d\textquotesingle{}attaquer un bâtiment. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em destination} & Le bâtiment cible de l\textquotesingle{}attaque. \\
+\hline
+{\em src} & Le personnage effectuant l\textquotesingle{}attaque. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+TRUE si l\textquotesingle{}opération s\textquotesingle{}est déroulée avec succès, FALSE sinon. 
+\end{DoxyReturn}
+\Hypertarget{character_8c_a3155d8dcc6d85be3c23f92e40d471e3f}\label{character_8c_a3155d8dcc6d85be3c23f92e40d471e3f} 
+\index{character.c@{character.c}!character\_attack\_character@{character\_attack\_character}}
+\index{character\_attack\_character@{character\_attack\_character}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{character\_attack\_character()}{character\_attack\_character()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} character\+\_\+attack\+\_\+character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{destination,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{src }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant à un personnage d\textquotesingle{}attaquer un autre personnage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em destination} & Le personnage cible de l\textquotesingle{}attaque. \\
+\hline
+{\em src} & Le personnage effectuant l\textquotesingle{}attaque. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+TRUE si l\textquotesingle{}opération s\textquotesingle{}est déroulée avec succès, FALSE sinon. 
+\end{DoxyReturn}
+\Hypertarget{character_8c_a267b4812ff2bf5ae7d6ca81196f35bf7}\label{character_8c_a267b4812ff2bf5ae7d6ca81196f35bf7} 
+\index{character.c@{character.c}!copie\_character@{copie\_character}}
+\index{copie\_character@{copie\_character}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{copie\_character()}{copie\_character()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} copie\+\_\+character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{destination,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{src }\end{DoxyParamCaption})}
+
+
+
+Copie les données d\textquotesingle{}un personnage source vers un personnage destination. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em destination} & Le personnage de destination. \\
+\hline
+{\em src} & Le personnage source. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+TRUE si l\textquotesingle{}opération s\textquotesingle{}est déroulée avec succès, FALSE sinon. 
+\end{DoxyReturn}
+\Hypertarget{character_8c_a93eb67eebd7c4e70330c634b3ef6d114}\label{character_8c_a93eb67eebd7c4e70330c634b3ef6d114} 
+\index{character.c@{character.c}!deplacement\_droit@{deplacement\_droit}}
+\index{deplacement\_droit@{deplacement\_droit}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{deplacement\_droit()}{deplacement\_droit()}}
+{\footnotesize\ttfamily void deplacement\+\_\+droit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+Déplace un personnage vers la droite. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character} & Le personnage à déplacer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{character_8c_a795d9f9c5f814a249f967dfc5a0c2b91}\label{character_8c_a795d9f9c5f814a249f967dfc5a0c2b91} 
+\index{character.c@{character.c}!deplacement\_gauche@{deplacement\_gauche}}
+\index{deplacement\_gauche@{deplacement\_gauche}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{deplacement\_gauche()}{deplacement\_gauche()}}
+{\footnotesize\ttfamily void deplacement\+\_\+gauche (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{character }\end{DoxyParamCaption})}
+
+
+
+Déplace un personnage vers la gauche. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em character} & Le personnage à déplacer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{character_8c_a87809251e7ae36ecc6b0ce76de255533}\label{character_8c_a87809251e7ae36ecc6b0ce76de255533} 
+\index{character.c@{character.c}!destroy\_tab\_character@{destroy\_tab\_character}}
+\index{destroy\_tab\_character@{destroy\_tab\_character}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{destroy\_tab\_character()}{destroy\_tab\_character()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} destroy\+\_\+tab\+\_\+character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{tab }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée pour le tableau de personnages. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tab} & Un pointeur vers le tableau de personnages à détruire. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+TRUE si l\textquotesingle{}opération s\textquotesingle{}est déroulée avec succès, FALSE sinon. 
+\end{DoxyReturn}
+\Hypertarget{character_8c_a694fdc777d5de7c347cb0cea017f7da7}\label{character_8c_a694fdc777d5de7c347cb0cea017f7da7} 
+\index{character.c@{character.c}!initcharacter@{initcharacter}}
+\index{initcharacter@{initcharacter}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{initcharacter()}{initcharacter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*} initcharacter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialise tous les personnages du jeu. 
+
+\begin{DoxyReturn}{Renvoie}
+Un pointeur vers un tableau de personnages initialisés. 
+\end{DoxyReturn}
+\Hypertarget{character_8c_a6c78f57bff1cf189754f1eb47438fe96}\label{character_8c_a6c78f57bff1cf189754f1eb47438fe96} 
+\index{character.c@{character.c}!temp\_former@{temp\_former}}
+\index{temp\_former@{temp\_former}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{temp\_former()}{temp\_former()}}
+{\footnotesize\ttfamily int temp\+\_\+former (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Calcule le temps nécessaire à la formation d\textquotesingle{}un personnage en fonction de son niveau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em n} & Le niveau du personnage. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le temps de formation calculé. 
+\end{DoxyReturn}

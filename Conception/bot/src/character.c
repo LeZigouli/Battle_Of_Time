@@ -1,15 +1,20 @@
+/**
+ * \file character.c
+ * \brief Contient les fonction pour les personnages du jeu
+ * \author Roquain Lousion Proudy Vincent
+ * \date 09 févrirer 2024
+ * 
+ * 
+*/
 #include "../lib/character.h"
 
-/*******************/
-/* variable global */
-/*******************/
-
-
-/************/
-/* fonction */
-/************/
-
-/* fonction où la src inflige ses degats a la destination character */
+/**
+ * @brief Fonction permettant à un personnage d'attaquer un autre personnage.
+ * 
+ * @param destination Le personnage cible de l'attaque.
+ * @param src Le personnage effectuant l'attaque.
+ * @return TRUE si l'opération s'est déroulée avec succès, FALSE sinon.
+ */
 booleen_t character_attack_character(character_t ** destination, character_t ** src)
 {
     if( (*destination) == NULL || destination == NULL || src == NULL || (*src) == NULL )
@@ -23,7 +28,14 @@ booleen_t character_attack_character(character_t ** destination, character_t ** 
     return TRUE;
 }
 
-/* fonction où la src inflige ses degats a la destination building */
+
+/**
+ * @brief Fonction permettant à un personnage d'attaquer un bâtiment.
+ * 
+ * @param destination Le bâtiment cible de l'attaque.
+ * @param src Le personnage effectuant l'attaque.
+ * @return TRUE si l'opération s'est déroulée avec succès, FALSE sinon.
+ */
 booleen_t character_attack_building(building_t ** destination, character_t ** src)
 {
     if(destination == NULL || src == NULL || (*destination) == NULL || (*src) == NULL )
@@ -37,18 +49,34 @@ booleen_t character_attack_building(building_t ** destination, character_t ** sr
     return TRUE;
 }
 
+
+/**
+ * @brief Déplace un personnage vers la gauche.
+ * 
+ * @param character Le personnage à déplacer.
+ */
 void deplacement_gauche(character_t ** character)
 {
     (*character)->x -= (*character)->vector;
 }
 
+/**
+ * @brief Déplace un personnage vers la droite.
+ * 
+ * @param character Le personnage à déplacer.
+ */
 void deplacement_droit(character_t ** character)
 {
     (*character)->x += (*character)->vector;
 }
 
 
-
+/**
+ * @brief Calcule le prix d'un personnage en fonction de son niveau.
+ * 
+ * @param n Le niveau du personnage.
+ * @return Le prix calculé.
+ */
 int calcule_prix(int n) {
     int term = 50;
     for (int i = 1; i < n; ++i) {
@@ -70,6 +98,12 @@ int calcule_prix(int n) {
     return term;
 }
 
+/**
+ * @brief Calcule le temps nécessaire à la formation d'un personnage en fonction de son niveau.
+ * 
+ * @param n Le niveau du personnage.
+ * @return Le temps de formation calculé.
+ */
 int temp_former(int n) {
     if (n == 1 || n == 2) {
         return 2;
@@ -89,7 +123,11 @@ int temp_former(int n) {
     return 0;  // Ce cas ne devrait jamais se produire
 }
 
-/* fonction pour initialiser tous les personnages */
+/**
+ * @brief Initialise tous les personnages du jeu.
+ * 
+ * @return Un pointeur vers un tableau de personnages initialisés.
+ */
 character_t * initcharacter()
 {
     character_t * tab = malloc((NB_AGE * NB_CHARACTER ) * sizeof(character_t));   
@@ -260,7 +298,13 @@ character_t * initcharacter()
     return tab;
 }
 
-/* detruire la memoire du tableau de character */
+
+/**
+ * @brief Libère la mémoire allouée pour le tableau de personnages.
+ * 
+ * @param tab Un pointeur vers le tableau de personnages à détruire.
+ * @return TRUE si l'opération s'est déroulée avec succès, FALSE sinon.
+ */
 booleen_t destroy_tab_character(character_t ** tab )
 {
     free((*tab));
@@ -268,7 +312,13 @@ booleen_t destroy_tab_character(character_t ** tab )
     return TRUE;
 }
 
-
+/**
+ * @brief Copie les données d'un personnage source vers un personnage destination.
+ * 
+ * @param destination Le personnage de destination.
+ * @param src Le personnage source.
+ * @return TRUE si l'opération s'est déroulée avec succès, FALSE sinon.
+ */
 booleen_t copie_character(character_t ** destination, character_t * src)
 {
     if((*destination) == NULL || src == NULL){

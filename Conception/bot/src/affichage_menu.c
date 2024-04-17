@@ -1,8 +1,51 @@
+/**
+ * \file affichage_menu.c
+ * \brief Contient les fonctions d'affichages du menu
+ * \author Poirier Victor
+ * \date 09 févrirer 2024
+ * 
+ * 
+*/
 #include "../lib/affichage_menu.h"
 
-/************************/
-/*--Affichage du menu--*/
-/***********************/
+/**
+ * @brief Affichage en fonction de l'etat.
+ * 
+ * @param etat Etat du jeu
+ * @param etatAge Numero de l'age
+ * @param rendu contexte d'affichage de la fenetre
+ * @param fenetre Le pointeur vers la fenêtre SDL
+ * @param 
+ * @param
+ * @param
+ * @param
+ * @param
+ * @param
+ * @param
+ * @param
+ * @param
+ * @param
+ * @param
+ * @param
+ * @param
+ * @param
+ * @param
+ * @param
+ * @param
+ * @param
+ * @param
+ * 
+ */
+void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police , TTF_Font* police_texte, 
+               int menuX, int menuY, element_t* elm_reso, int* selecElement, const char* effet, char* textInput, 
+               int* isValid, int* keyCounts, SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp,
+               SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age,
+               SDL_Texture* moderne, SDL_Texture* futuriste, player_t* joueur, SDL_Texture** sprite_hud, SDL_Texture* upgrade,
+               ordi_t* ordi, int* cameraX, int* cameraY, SDL_Texture* ultim, SDL_Texture* building[], int fin_partie, SDL_Texture * win,
+               SDL_Texture * lose, character_t* tab_charactere, int survol);
+
+
+
 
 /*Gestion de l'affichage des menus et sous-menus*/
 void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police , TTF_Font* police_texte, 
@@ -112,7 +155,16 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
     }
 }
 
-/*Fonction pour afficher le titre du jeu*/
+/**
+ * @brief Affiche le titre du jeu à une position donnée sur l'écran.
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ * @param x La position en x du coin supérieur gauche du titre.
+ * @param y La position en y du coin supérieur gauche du titre.
+ * @param largeur La largeur du titre.
+ * @param hauteur La hauteur du titre.
+ */
 void afficherTitre(SDL_Renderer * rendu, SDL_Window* fenetre, int x, int y, int largeur, int hauteur)
 {
     SDL_Texture* texture_titre = IMG_LoadTexture(rendu, "img/Battle_of_Time.png");
@@ -123,7 +175,18 @@ void afficherTitre(SDL_Renderer * rendu, SDL_Window* fenetre, int x, int y, int 
     SDL_DestroyTexture(texture_titre);
 }
 
-/*Fonction d'affichage d'un élément du menu*/
+/**
+ * @brief Affiche un élément du menu à une position donnée sur l'écran.
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param police La police de caractères à utiliser.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ * @param texte Le texte à afficher.
+ * @param x La position en x du coin supérieur gauche de l'élément.
+ * @param y La position en y du coin supérieur gauche de l'élément.
+ * @param largeur La largeur de l'élément.
+ * @param hauteur La hauteur de l'élément.
+ */
 void afficherMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte, int x, int y, int largeur, int hauteur)
 {
     /*Création de la surface et de la texture avec le texte, la police et la couleur*/
@@ -139,7 +202,17 @@ void afficherMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, co
     SDL_DestroyTexture(textureTexte);
 }
 
-/*Fonction d'affichage des sous-menus*/
+/**
+ * @brief Affiche les sous-menus avec leurs options.
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param police La police de caractères à utiliser.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ * @param texte1 Texte pour le premier onglet.
+ * @param texte2 Texte pour le deuxième onglet.
+ * @param texte3 Texte pour le troisième onglet.
+ * @param texte4 Texte pour le quatrième onglet.
+ */
 void afficherSousMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte1, const char* texte2, const char* texte3, const char* texte4)
 {
     /*Calcul des positions x et y*/
@@ -159,7 +232,16 @@ void afficherSousMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre
     afficherMenu(rendu, police, fenetre, texte4, menuX, menuY + 2 * (MENU_HEIGHT + SPACING), MENU_WIDTH, MENU_HEIGHT);
 }
 
-/*Fonction d'affichage du sous-menu des options*/
+/**
+ * @brief Affiche le sous-menu des options.
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param police La police de caractères à utiliser.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ * @param texte1 Texte pour la première option.
+ * @param texte2 Texte pour la deuxième option.
+ * @param texte3 Texte pour la troisième option.
+ */
 void afficherSousMenuOption(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte1, const char* texte2, const char* texte3)
 {
     /*Calcul des positions x et y*/
@@ -178,7 +260,13 @@ void afficherSousMenuOption(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* f
     afficherMenu(rendu, police, fenetre, texte3, menuX, menuY + 2 * (MENU_HEIGHT + SPACING), MENU_WIDTH, MENU_HEIGHT);
 }
 
-/*Affichage du sous-menu résolution*/
+/**
+ * @brief Affiche le sous-menu des résolutions.
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param police La police de caractères à utiliser.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ */
 void afficherSousMenuResolution(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre)
 {
     /*Calcul des positions x et y*/
@@ -209,7 +297,13 @@ void afficherSousMenuResolution(SDL_Renderer* rendu, TTF_Font* police, SDL_Windo
     afficherMenu(rendu, police, fenetre, "Retour", menuX, menuY + 2.5 * (MENU_HEIGHT + SPACING), MENU_WIDTH, MENU_HEIGHT);
 }
 
-/*Affichage du menu jouer*/
+/**
+ * @brief Affiche le sous-menu pour le menu "Jouer".
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ * @param police La police de caractères à utiliser.
+ */
 void afficherSousMenuJouer(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
 {
     /*Calcul des positions x et y*/
@@ -229,7 +323,13 @@ void afficherSousMenuJouer(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* p
 
 }
 
-/*Affichage du menu Solo*/
+/**
+ * @brief Affiche le sous-menu pour le menu "Solo".
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ * @param police La police de caractères à utiliser.
+ */
 void afficherSousMenuSolo(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
 {
     /*Calcul des positions x et y*/
@@ -248,7 +348,13 @@ void afficherSousMenuSolo(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* po
     afficherMenu(rendu, police, fenetre, "Retour", menuX, menuY + 3 * (MENU_HEIGHT + SPACING), MENU_WIDTH, MENU_HEIGHT);
 }
 
-/*Affichage de menu Enligne*/
+/**
+ * @brief Affiche le sous-menu pour le menu "En ligne".
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ * @param police La police de caractères à utiliser.
+ */
 void afficherSousMenuEnLigne(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
 {
     /*Calcul des positions x et y*/
@@ -267,7 +373,14 @@ void afficherSousMenuEnLigne(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font*
     afficherMenu(rendu, police, fenetre, "Retour", menuX, menuY + 3 * (MENU_HEIGHT + SPACING), MENU_WIDTH, MENU_HEIGHT);
 }
 
-/*Initialisation du bloc avec les résolutions*/
+
+/**
+ * @brief Initialise les éléments nécessaires pour afficher les résolutions dans le sous-menu des résolutions.
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ * @param elm_reso Le pointeur vers les éléments de résolution à initialiser.
+ */
 void initElements(SDL_Renderer* rendu, SDL_Window* fenetre, element_t* elm_reso) 
 {
     /*Calcul des positions x et y*/
@@ -288,7 +401,15 @@ void initElements(SDL_Renderer* rendu, SDL_Window* fenetre, element_t* elm_reso)
     }
 }
 
-/*Affichage du bloc résolution dans le sous-menu résolution*/
+/**
+ * @brief Affiche les résolutions dans le sous-menu des résolutions.
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ * @param police La police de caractères à utiliser.
+ * @param elm_reso Le pointeur vers les éléments de résolution.
+ * @param selecElement Le pointeur vers l'élément sélectionné.
+ */
 void resolution(SDL_Renderer* rendu, SDL_Window* fenetre , TTF_Font* police, element_t* elm_reso, int* selecElement)
 {
     /*Affichage l'élément selectionné */
@@ -303,7 +424,13 @@ void resolution(SDL_Renderer* rendu, SDL_Window* fenetre , TTF_Font* police, ele
     SDL_DestroyTexture(textTexture);
 }
 
-/*Affichage du sous menu crédits*/
+/**
+ * @brief Affiche le sous-menu "Crédits".
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ * @param police La police de caractères à utiliser.
+ */
 void afficherSousMenuCredits(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
 {
     /*Calcul des dimensions de l'image */
@@ -334,7 +461,14 @@ void afficherSousMenuCredits(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font*
     afficherMenu(rendu, police, fenetre, "Retour", menuX, menuY + 335, MENU_WIDTH, MENU_HEIGHT - 20);
 }
 
-/*Affichage du sous menu son*/
+/**
+ * @brief Affiche le sous-menu "Son".
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param police La police de caractères à utiliser.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ * @param texte Le texte à afficher.
+ */
 void afficherSousMenuSon(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte)
 {
     /*Calcul des positions x et y*/
@@ -366,7 +500,16 @@ void afficherSousMenuSon(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fene
     afficherMenu(rendu ,police, fenetre, "Retour", menuX, menuY + 3 * MENU_HEIGHT + SPACING, MENU_WIDTH, MENU_HEIGHT);
 }
 
-/*Affichage du sous-menu 'Rejoindre partie' en ligne*/
+/**
+ * @brief Affiche le sous-menu "Rejoindre partie" pour le jeu en ligne.
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ * @param police La police de caractères à utiliser.
+ * @param textInput Le texte saisi par l'utilisateur.
+ * @param isValid Indique si l'adresse IP saisie est valide.
+ * @param keyCounts Le nombre de touches saisis par l'utilisateur.
+ */
 void afficherSousMenuRejoindre(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, char* textInput, int* isValid, int* keyCounts)
 {
     /*Calcul des positions x et y*/
@@ -431,7 +574,13 @@ void afficherSousMenuRejoindre(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Fon
     afficherMenu(rendu, police, fenetre, "Retour", menuX + 50, menuY + 230, 130, MENU_HEIGHT);
 }
 
-/*Affichage du sous-menu 'Difficulté'*/
+/**
+ * @brief Affiche le sous-menu "Difficulté".
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ * @param police La police de caractères à utiliser.
+ */
 void afficherSousMenuDifficulte(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
 {
     /*Calcul des positions x et y*/
@@ -451,6 +600,13 @@ void afficherSousMenuDifficulte(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Fo
     afficherMenu(rendu, police, fenetre, "Retour", menuX, menuY + 3 * MENU_HEIGHT + 3 * SPACING, MENU_WIDTH, MENU_HEIGHT);
 }
 
+/**
+ * @brief Affiche le sous-menu pour créer une partie en ligne.
+ * 
+ * @param rendu Le pointeur vers le renderer SDL.
+ * @param fenetre Le pointeur vers la fenêtre SDL.
+ * @param police La police de caractères à utiliser.
+ */
 void afficherSousMenuCreer(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
 {
     /*Calcul des positions x et y*/

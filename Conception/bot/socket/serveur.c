@@ -1,5 +1,21 @@
+/**
+ * \file serveur.c
+ * \brief Contient les fonctions pour le reseau coté serveur
+ * \author Proudy Vincent
+ * \date 09 févrirer 2024
+ * 
+ * 
+*/
+
 #include "serveur.h"
 
+/**
+ * @brief Résout le nom d'hôte en adresse IP.
+ * 
+ * @param hostname Nom d'hôte à résoudre.
+ * @param ip Chaîne de caractères pour stocker l'adresse IP résolue.
+ * @return Retourne 0 en cas de succès, sinon 1.
+ */
 int hostname_to_ip(char * hostname , char* ip)
 {
     struct hostent *he;
@@ -25,6 +41,9 @@ int hostname_to_ip(char * hostname , char* ip)
     return 1;
 }
 
+/**
+ * @brief Affiche l'adresse IP de l'hôte local.
+ */
 void view_ip()
 {
   char s[256];
@@ -36,6 +55,11 @@ void view_ip()
           printf("IP : %s\n", inet_ntoa(**adr));
 }
 
+/**
+ * @brief Initialise le serveur pour écouter les connexions entrantes.
+ * 
+ * @return Retourne 1 si l'initialisation est réussie, sinon 0.
+ */
 int init_reseau_serveur()
 {
     bzero(&mon_address,sizeof(mon_address));
@@ -74,6 +98,11 @@ int init_reseau_serveur()
     return 1; // Renvoyer 1 pour indiquer que la connexion a été acceptée avec succès
 }
 
+/**
+ * @brief Récupère l'adresse IP du serveur.
+ * 
+ * @return Retourne une chaîne de caractères représentant l'adresse IP du serveur.
+ */
 char* get_ip_serveur()
 {
     struct ifaddrs *addr, *intf;
@@ -107,6 +136,11 @@ char* get_ip_serveur()
     return hostname;
 }
  
+/**
+ * @brief Ferme la connexion au serveur.
+ * 
+ * @param socket Pointeur vers la socket à fermer.
+ */
 void serveur_fermeture(int * socket)
 {
     shutdown(*socket,2);

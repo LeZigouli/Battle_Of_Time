@@ -1,15 +1,20 @@
+/**
+ * \file building.c
+ * \brief Contient les fonction pour la gestion des batiments
+ * \author Proudy Vincent
+ * \date 09 févrirer 2024
+ * 
+ * 
+*/
 #include "../lib/building.h"
 
-/*******************/
-/* variable global */
-/*******************/
-
-
-/************/
-/* fonction */
-/************/
-
-/* fonction pour creer le batiment d'un joueur */
+/**
+ * @brief Initialise le bâtiment d'un joueur avec des valeurs par défaut.
+ * 
+ * @param building Pointeur vers le bâtiment à initialiser.
+ * @param owner Propriétaire du bâtiment.
+ * @return TRUE si l'initialisation s'est déroulée avec succès, FALSE sinon.
+ */
 booleen_t init_building(building_t ** building, int owner)
 {
 	/* verification préliminaire */
@@ -38,6 +43,13 @@ booleen_t init_building(building_t ** building, int owner)
 	return TRUE;
 }
 
+/**
+ * @brief Améliore le bâtiment d'un joueur en fonction de l'expérience accumulée.
+ * 
+ * @param building Pointeur vers le bâtiment à améliorer.
+ * @param xp Pointeur vers l'expérience accumulée par le joueur.
+ * @return TRUE si l'amélioration s'est déroulée avec succès, FALSE sinon.
+ */
 booleen_t upgrade_building(building_t ** building,int * xp)
 {
 	booleen_t joueur=FALSE;
@@ -78,6 +90,12 @@ booleen_t upgrade_building(building_t ** building,int * xp)
 	return FALSE;
 }
 
+/**
+ * @brief Affiche les caractéristiques du bâtiment.
+ * 
+ * @param building Le bâtiment à afficher.
+ * @return TRUE si l'affichage s'est déroulé avec succès, FALSE sinon.
+ */
 booleen_t afficher_building(building_t * building)
 {
     if ( building == NULL )
@@ -92,6 +110,13 @@ booleen_t afficher_building(building_t * building)
     return TRUE;
 }
 
+/**
+ * @brief Détermine le maximum entre deux entiers.
+ * 
+ * @param a Premier entier.
+ * @param b Second entier.
+ * @return La valeur maximale entre a et b.
+ */
 int max(int a, int b){
 	if(a>=b)
 		return a;
@@ -99,6 +124,13 @@ int max(int a, int b){
 		return b;
 }
 
+/**
+ * @brief Détermine le minimum entre deux entiers.
+ * 
+ * @param a Premier entier.
+ * @param b Second entier.
+ * @return La valeur minimale entre a et b.
+ */
 int min(int a, int b){
 	if(a<=b)
 		return a;

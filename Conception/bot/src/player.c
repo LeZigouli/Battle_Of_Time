@@ -1,15 +1,17 @@
+/**
+ * \file player.c
+ * \brief Contient les fonctions principales pour les actions du joueurs
+ * \author Proudy Vincent
+ * \date 10 avril 2024
+ * 
+*/
 #include "../lib/player.h"
 
-/*******************/
-/* variable global */
-/*******************/
-
-
-/************/
-/* fonction */
-/************/
-
-/* initialisation du joueur */
+/**
+ * @brief  Initialise un joueur avec le nom par défaut "PlayerX" et une certaine quantité d'XP.
+ * @param  owner Identifiant du propriétaire du joueur (OWNER_1 ou OWNER_2).
+ * @return Un pointeur vers le joueur initialisé ou NULL en cas d'échec.
+ */
 player_t * initplayer(int owner)
 {
 	player_t * main_player = malloc(sizeof(player_t));
@@ -52,7 +54,10 @@ player_t * initplayer(int owner)
 	return main_player;
 }
 
-/* libérer la memoire... */
+/**
+ * @brief  Libère la mémoire allouée pour un joueur et ses ressources associées.
+ * @param  player Un pointeur vers le pointeur du joueur à libérer.
+ */
 void destroy_player(player_t ** player)
 {	
 	/* on detruit chaque pointeurs sur character_t contenu dans le tab */
@@ -81,6 +86,13 @@ void destroy_player(player_t ** player)
 	(*player) = NULL;
 }
 
+/**
+ * @brief  Achète un personnage pour le joueur.
+ * @param  player Le joueur qui souhaite acheter un personnage.
+ * @param  tab_character Le tableau de personnages disponibles.
+ * @param  newCha L'index du nouveau personnage à acheter.
+ * @return TRUE si l'achat a réussi, FALSE sinon.
+ */
 booleen_t buy_character(player_t ** player, character_t tab_character[NB_AGE*NB_CHARACTER], int newCha)
 {
 
@@ -148,6 +160,10 @@ booleen_t buy_character(player_t ** player, character_t tab_character[NB_AGE*NB_
 	return TRUE;
 }
 
+/**
+ * @brief  Envoie les personnages en attente vers le tableau de personnages possédés.
+ * @param  player Le joueur dont les personnages doivent être envoyés.
+ */
 void envoie_char(player_t ** player){
 	/*Formation des troupes*/
 	if((*player)->file_attente->nb > 0){
@@ -167,13 +183,22 @@ void envoie_char(player_t ** player){
 	}
 }
 
-/* verifier qu'un pointeur passer en parametre existe */
+/**
+ * @brief  Vérifie si un pointeur donné existe (non NULL).
+ * @param  type Le pointeur à vérifier.
+ * @return TRUE si le pointeur existe, FALSE sinon.
+ */
 booleen_t exist(void * type)
 {
 	return (type == NULL) ? FALSE : TRUE;
 }
 
-/* recuperer les gold et xp a la mort d'un character */
+/**
+ * @brief  Récupère les ressources (gold et XP) lorsqu'un personnage meurt.
+ * @param  player1 Le premier joueur.
+ * @param  player2 Le deuxième joueur.
+ * @return TRUE si la récupération des ressources a réussi, FALSE sinon.
+ */
 booleen_t get_ressources(player_t * player1, player_t * player2)
 {
 	if (player1 == NULL || player2 == NULL)
@@ -210,7 +235,11 @@ booleen_t get_ressources(player_t * player1, player_t * player2)
 	return TRUE;
 }
 
-
+/**
+ * @brief  Affiche les informations d'un joueur.
+ * @param  player Le joueur dont les informations doivent être affichées.
+ * @return TRUE si l'affichage a réussi, FALSE sinon.
+ */
 booleen_t afficher_player(player_t * player)
 {
     if ( player == NULL )

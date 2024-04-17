@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Battle of Time:  Fichier source de /info/etu/l2info/s2205576/Documents/Projet/Battle_Of_Time/Conception/bot/lib/commun_SDL.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Battle of Time
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">commun_SDL.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="commun__SDL_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef _COMMUN_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define _COMMUN_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/**************/</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/*--Includes--*/</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/**************/</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;SDL2/SDL_mixer.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;regex.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">/************/</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/*--Macros--*/</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/************/</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/*Dimensions des images de fonds*/</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define IMAGE_WIDTH 3840 </span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#define IMAGE_HEIGHT 720</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/*Vitesse de du déplacement de la caméra*/</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#define SCROLL_SPEED 30</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">/*Dimensions de base de la fenêtre*/</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#define WINDOW_WIDTH 1080</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#define WINDOW_HEIGHT 720</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/*Taille des éléments du menu*/</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#define MENU_WIDTH 250</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#define MENU_HEIGHT 60</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#define MENU_DECALAGE 50 </span><span class="comment">/*Décalage pour abaisser le menu*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#define SPACING 30   </span><span class="comment">/*Espace entre chaque sous-menu*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#define ELEMENT_WIDTH 100 </span><span class="comment">/*Largeur d&#39;un élément*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#define ELEMENT_HEIGHT 50 </span><span class="comment">/*Hauteur d&#39;un élément*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define ELEMENT_SPACING 20 </span><span class="comment">/*Espacement entre les éléments*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#define POS_DEP 170 </span><span class="comment">/*Spawn des caractères du joueur*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#define POS_DEP_AD IMAGE_WIDTH - 300 </span><span class="comment">/*Spawn des caractères de l&#39;adversaire*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#define MOVEMENT_DURATION 100 </span><span class="comment">/*Durée du mouvement en millisecondes des sprites*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">/*Code couleur */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#define BLACK (SDL_Color){0, 0, 0}</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define WHITE (SDL_Color){255, 255, 255}</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#define GREEN (SDL_Color){0, 255, 0}</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#define RED   (SDL_Color){255, 0, 0}</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">/*Structure menu Resolution*/</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="structelement__t.html">   53</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    SDL_Rect rect; <span class="comment">// Rectangle représentant l&#39;élément</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">char</span>* info; <span class="comment">// Informations spécifiques à l&#39;élément</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">int</span> w;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">int</span> h;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>} <a class="code hl_struct" href="structelement__t.html">element_t</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">/*Énumération des états de menu*/</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">typedef</span> <span class="keyword">enum</span> etat_s {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    PAGE_ACCUEIL,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    MENU_PRINCIPAL,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    MENU_SOUS_JOUER,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    MENU_SOUS_OPTIONS,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    MENU_SOUS_RESOLUTION,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    MENU_SOUS_CREDITS,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    MENU_SOUS_SON,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    MENU_SOUS_SOLO,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    MENU_SOUS_ENLIGNE,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    MENU_SOUS_REJOINDRE,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    MENU_SOUS_CREER,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    MENU_SOUS_CREER_VALIDE,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    MENU_DIFFICULTE,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    JOUER,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    OPTION_JEU,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    MENU_SAUVEGARDER,</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    JOUER_RESEAU_CREER,</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    JOUER_CHARGER,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    JOUER_RESEAU_REJOINDRE,</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    FIN_PARTIE</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>}etat_t;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">/*Énumération pour le survol des éléments*/</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">typedef</span> <span class="keyword">enum</span> survol_s {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    PERSO1,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    PERSO2,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    PERSO3,</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    PERSO4,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    XP,</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    ULTIM</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>}survol_t;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">/*Énumération des ages du jeu*/</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">typedef</span> <span class="keyword">enum</span> age_s { Prehistoire, Antiquite, Moyen_Age, Ere_Moderne, Ere_Futuriste }age_t;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">/*Pour la gestion du volume*/</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>SDL_bool estLache;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keywordtype">int</span> volume;    </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>SDL_Rect* volumeBar;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>SDL_Rect* volumeCursor;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">/***************/</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">/*--Fonctions--*/</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">/***************/</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keywordtype">int</span> <a class="code hl_function" href="commun__SDL_8h.html#a60c174e8d64337550d3709f147a4a4a5">initialisation</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>TTF_Font* <a class="code hl_function" href="commun__SDL_8h.html#a69ac6d7b76a3f9c3441f3c58e7908dc8">chargementPolice</a>(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* textureFond, <span class="keywordtype">char</span>* path, <span class="keywordtype">int</span> taille);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>Mix_Chunk* <a class="code hl_function" href="commun__SDL_8h.html#a0085ef37e4df688c076c56ff5223f654">chargementAudio</a>(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* textureFond, <span class="keywordtype">char</span>* path);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>SDL_Texture* <a class="code hl_function" href="commun__SDL_8h.html#a3f70acdbb900e521328c1c6ce2d05fa6">chargementImg</a>(SDL_Renderer* rendu, SDL_Window* fenetre, <span class="keywordtype">char</span>* path);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>SDL_Rect <a class="code hl_function" href="commun__SDL_8h.html#a8a5452dffe4041ff59dc015d9ddbf30b">creationRectangle</a>(SDL_Window* fenetre, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> largeur, <span class="keywordtype">int</span> hauteur);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keywordtype">void</span> <a class="code hl_function" href="commun__SDL_8h.html#afa3dbabce03b9cf77796891b5f212b36">destruction_SDL</a>(SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp, SDL_Texture* textureFond, </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                     SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age, SDL_Texture* moderne,</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                     SDL_Texture* futuriste, TTF_Font* police, TTF_Font* police_texte, SDL_Renderer* rendu,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                     SDL_Window* fenetre, Mix_Chunk* click, Mix_Chunk* music, SDL_Texture* sprite_hud[], SDL_Texture* building[], SDL_Texture* win, SDL_Texture* lose);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acommun__SDL_8h_html_a0085ef37e4df688c076c56ff5223f654"><div class="ttname"><a href="commun__SDL_8h.html#a0085ef37e4df688c076c56ff5223f654">chargementAudio</a></div><div class="ttdeci">Mix_Chunk * chargementAudio(SDL_Renderer *rendu, SDL_Window *fenetre, SDL_Texture *textureFond, char *path)</div><div class="ttdoc">Charge un fichier audio dans un chunk.</div><div class="ttdef"><b>Definition</b> commun_SDL.c:94</div></div>
+<div class="ttc" id="acommun__SDL_8h_html_a3f70acdbb900e521328c1c6ce2d05fa6"><div class="ttname"><a href="commun__SDL_8h.html#a3f70acdbb900e521328c1c6ce2d05fa6">chargementImg</a></div><div class="ttdeci">SDL_Texture * chargementImg(SDL_Renderer *rendu, SDL_Window *fenetre, char *path)</div><div class="ttdoc">Charge une image à partir d'un fichier.</div><div class="ttdef"><b>Definition</b> commun_SDL.c:121</div></div>
+<div class="ttc" id="acommun__SDL_8h_html_a60c174e8d64337550d3709f147a4a4a5"><div class="ttname"><a href="commun__SDL_8h.html#a60c174e8d64337550d3709f147a4a4a5">initialisation</a></div><div class="ttdeci">int initialisation(void)</div><div class="ttdoc">Initialise SDL, SDL_image, SDL_ttf, et SDL_Mixer.</div><div class="ttdef"><b>Definition</b> commun_SDL.c:18</div></div>
+<div class="ttc" id="acommun__SDL_8h_html_a69ac6d7b76a3f9c3441f3c58e7908dc8"><div class="ttname"><a href="commun__SDL_8h.html#a69ac6d7b76a3f9c3441f3c58e7908dc8">chargementPolice</a></div><div class="ttdeci">TTF_Font * chargementPolice(SDL_Renderer *rendu, SDL_Window *fenetre, SDL_Texture *textureFond, char *path, int taille)</div><div class="ttdoc">Charge une police à partir d'un fichier.</div><div class="ttdef"><b>Definition</b> commun_SDL.c:66</div></div>
+<div class="ttc" id="acommun__SDL_8h_html_a8a5452dffe4041ff59dc015d9ddbf30b"><div class="ttname"><a href="commun__SDL_8h.html#a8a5452dffe4041ff59dc015d9ddbf30b">creationRectangle</a></div><div class="ttdeci">SDL_Rect creationRectangle(SDL_Window *fenetre, int x, int y, int largeur, int hauteur)</div><div class="ttdoc">Crée un rectangle dynamique en fonction des dimensions de la fenêtre.</div><div class="ttdef"><b>Definition</b> commun_SDL.c:150</div></div>
+<div class="ttc" id="acommun__SDL_8h_html_afa3dbabce03b9cf77796891b5f212b36"><div class="ttname"><a href="commun__SDL_8h.html#afa3dbabce03b9cf77796891b5f212b36">destruction_SDL</a></div><div class="ttdeci">void destruction_SDL(SDL_Texture *parametre, SDL_Texture *gold, SDL_Texture *xp, SDL_Texture *textureFond, SDL_Texture *prehistoire, SDL_Texture *antiquite, SDL_Texture *moyen_age, SDL_Texture *moderne, SDL_Texture *futuriste, TTF_Font *police, TTF_Font *police_texte, SDL_Renderer *rendu, SDL_Window *fenetre, Mix_Chunk *click, Mix_Chunk *music, SDL_Texture *sprite_hud[], SDL_Texture *building[], SDL_Texture *win, SDL_Texture *lose)</div><div class="ttdoc">Libère la mémoire allouée pour les variables SDL et ferme SDL.</div><div class="ttdef"><b>Definition</b> commun_SDL.c:189</div></div>
+<div class="ttc" id="astructelement__t_html"><div class="ttname"><a href="structelement__t.html">element_t</a></div><div class="ttdef"><b>Definition</b> commun_SDL.h:53</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,97 @@
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/socket/serveur.c}
+\hypertarget{serveur_8c}{}\label{serveur_8c}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/socket/serveur.c@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/socket/serveur.c}}
+
+
+Contient les fonctions pour le reseau coté serveur.  
+
+
+{\ttfamily \#include \"{}serveur.\+h\"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{serveur_8c_a0d5e428ead5875e99663a6bb673fa0a8}{hostname\+\_\+to\+\_\+ip}} (char \texorpdfstring{$\ast$}{*}hostname, char \texorpdfstring{$\ast$}{*}ip)
+\begin{DoxyCompactList}\small\item\em Résout le nom d\textquotesingle{}hôte en adresse IP. \end{DoxyCompactList}\item 
+\Hypertarget{serveur_8c_a077a8f2753012be48135d87764bdc0ee}\label{serveur_8c_a077a8f2753012be48135d87764bdc0ee} 
+void {\bfseries view\+\_\+ip} ()
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}adresse IP de l\textquotesingle{}hôte local. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{serveur_8c_a0dc0fcc6e5ed53b493ffde2842788391}{init\+\_\+reseau\+\_\+serveur}} ()
+\begin{DoxyCompactList}\small\item\em Initialise le serveur pour écouter les connexions entrantes. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{serveur_8c_ab60185638299eec6f8f34fcdeb8febba}{get\+\_\+ip\+\_\+serveur}} ()
+\begin{DoxyCompactList}\small\item\em Récupère l\textquotesingle{}adresse IP du serveur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{serveur_8c_a0560393a69bf164b3d68094ea528e8c6}{serveur\+\_\+fermeture}} (int \texorpdfstring{$\ast$}{*}socket)
+\begin{DoxyCompactList}\small\item\em Ferme la connexion au serveur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les fonctions pour le reseau coté serveur. 
+
+\begin{DoxyAuthor}{Auteur}
+Proudy Vincent 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09 févrirer 2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{serveur_8c_ab60185638299eec6f8f34fcdeb8febba}\label{serveur_8c_ab60185638299eec6f8f34fcdeb8febba} 
+\index{serveur.c@{serveur.c}!get\_ip\_serveur@{get\_ip\_serveur}}
+\index{get\_ip\_serveur@{get\_ip\_serveur}!serveur.c@{serveur.c}}
+\doxysubsubsection{\texorpdfstring{get\_ip\_serveur()}{get\_ip\_serveur()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} get\+\_\+ip\+\_\+serveur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Récupère l\textquotesingle{}adresse IP du serveur. 
+
+\begin{DoxyReturn}{Renvoie}
+Retourne une chaîne de caractères représentant l\textquotesingle{}adresse IP du serveur. 
+\end{DoxyReturn}
+\Hypertarget{serveur_8c_a0d5e428ead5875e99663a6bb673fa0a8}\label{serveur_8c_a0d5e428ead5875e99663a6bb673fa0a8} 
+\index{serveur.c@{serveur.c}!hostname\_to\_ip@{hostname\_to\_ip}}
+\index{hostname\_to\_ip@{hostname\_to\_ip}!serveur.c@{serveur.c}}
+\doxysubsubsection{\texorpdfstring{hostname\_to\_ip()}{hostname\_to\_ip()}}
+{\footnotesize\ttfamily int hostname\+\_\+to\+\_\+ip (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{hostname,  }\item[{char \texorpdfstring{$\ast$}{*}}]{ip }\end{DoxyParamCaption})}
+
+
+
+Résout le nom d\textquotesingle{}hôte en adresse IP. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em hostname} & Nom d\textquotesingle{}hôte à résoudre. \\
+\hline
+{\em ip} & Chaîne de caractères pour stocker l\textquotesingle{}adresse IP résolue. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne 0 en cas de succès, sinon 1. 
+\end{DoxyReturn}
+\Hypertarget{serveur_8c_a0dc0fcc6e5ed53b493ffde2842788391}\label{serveur_8c_a0dc0fcc6e5ed53b493ffde2842788391} 
+\index{serveur.c@{serveur.c}!init\_reseau\_serveur@{init\_reseau\_serveur}}
+\index{init\_reseau\_serveur@{init\_reseau\_serveur}!serveur.c@{serveur.c}}
+\doxysubsubsection{\texorpdfstring{init\_reseau\_serveur()}{init\_reseau\_serveur()}}
+{\footnotesize\ttfamily int init\+\_\+reseau\+\_\+serveur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialise le serveur pour écouter les connexions entrantes. 
+
+\begin{DoxyReturn}{Renvoie}
+Retourne 1 si l\textquotesingle{}initialisation est réussie, sinon 0. 
+\end{DoxyReturn}
+\Hypertarget{serveur_8c_a0560393a69bf164b3d68094ea528e8c6}\label{serveur_8c_a0560393a69bf164b3d68094ea528e8c6} 
+\index{serveur.c@{serveur.c}!serveur\_fermeture@{serveur\_fermeture}}
+\index{serveur\_fermeture@{serveur\_fermeture}!serveur.c@{serveur.c}}
+\doxysubsubsection{\texorpdfstring{serveur\_fermeture()}{serveur\_fermeture()}}
+{\footnotesize\ttfamily void serveur\+\_\+fermeture (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{socket }\end{DoxyParamCaption})}
+
+
+
+Ferme la connexion au serveur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em socket} & Pointeur vers la socket à fermer. \\
+\hline
+\end{DoxyParams}

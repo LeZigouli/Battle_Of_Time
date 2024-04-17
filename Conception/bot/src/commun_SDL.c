@@ -1,6 +1,20 @@
+/**
+ * \file commun_SDL.c
+ * \brief Contient les fonction communes pour l'utilisation de la SDL
+ * \author Poirier Victor
+ * \date 09 févrirer 2024
+ * 
+ * 
+*/
+
 #include "lib/commun_SDL.h"
 
-/*Fonction d'initialisation*/
+
+/**
+ * @brief Initialise SDL, SDL_image, SDL_ttf, et SDL_Mixer.
+ * 
+ * @return 0 en cas de succès, 1 en cas d'erreur.
+ */
 int initialisation()
 {
     /*Initialiser SDL*/
@@ -39,7 +53,16 @@ int initialisation()
  
 }
 
-/*Chargement d'une police*/
+/**
+ * @brief Charge une police à partir d'un fichier.
+ * 
+ * @param rendu Le renderer associé à la fenêtre.
+ * @param fenetre La fenêtre où afficher le texte.
+ * @param textureFond La texture de fond de l'interface.
+ * @param path Le chemin vers le fichier de la police.
+ * @param taille La taille de la police à charger.
+ * @return Un pointeur vers la police chargée.
+ */
 TTF_Font* chargementPolice(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* textureFond, char* path, int taille)
 {
     /*Chargement d'une police à partir du path*/
@@ -59,7 +82,15 @@ TTF_Font* chargementPolice(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture
     return police;
 }
 
-/*Chargement d'un audio dans un chunk*/
+/**
+ * @brief Charge un fichier audio dans un chunk.
+ * 
+ * @param rendu Le renderer associé à la fenêtre.
+ * @param fenetre La fenêtre où afficher le texte.
+ * @param textureFond La texture de fond de l'interface.
+ * @param path Le chemin vers le fichier audio.
+ * @return Un pointeur vers le chunk audio chargé.
+ */
 Mix_Chunk* chargementAudio(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* textureFond, char* path)
 {
     /*Cargement dans un chunk d'une musique avec le path*/
@@ -79,7 +110,14 @@ Mix_Chunk* chargementAudio(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture
     return sound;
 }
 
-/*Chargement d'une image*/
+/**
+ * @brief Charge une image à partir d'un fichier.
+ * 
+ * @param rendu Le renderer associé à la fenêtre.
+ * @param fenetre La fenêtre où afficher le texte.
+ * @param path Le chemin vers le fichier image.
+ * @return Une texture contenant l'image chargée.
+ */
 SDL_Texture* chargementImg(SDL_Renderer* rendu, SDL_Window* fenetre, char* path)
 {
     /*Chargement dans une texture d'une image avec le path*/
@@ -98,7 +136,17 @@ SDL_Texture* chargementImg(SDL_Renderer* rendu, SDL_Window* fenetre, char* path)
     return image;
 }
 
-/*Création de rectangle dynamique*/
+
+/**
+ * @brief Crée un rectangle dynamique en fonction des dimensions de la fenêtre.
+ * 
+ * @param fenetre La fenêtre où afficher le rectangle.
+ * @param x La position horizontale du rectangle.
+ * @param y La position verticale du rectangle.
+ * @param largeur La largeur du rectangle.
+ * @param hauteur La hauteur du rectangle.
+ * @return Le rectangle créé.
+ */
 SDL_Rect creationRectangle(SDL_Window* fenetre, int x, int y, int largeur, int hauteur)
 {
     /*Récupération des dimensions de la fenêtre*/
@@ -115,7 +163,29 @@ SDL_Rect creationRectangle(SDL_Window* fenetre, int x, int y, int largeur, int h
     return rect;
 }
 
-/*Destruction des variables SDL et fermeture de la SDL*/
+/**
+ * @brief Libère la mémoire allouée pour les variables SDL et ferme SDL.
+ * 
+ * @param parametre La texture du paramètre.
+ * @param gold La texture de l'or.
+ * @param xp La texture de l'expérience.
+ * @param textureFond La texture de fond de l'interface.
+ * @param prehistoire La texture pour la période préhistorique.
+ * @param antiquite La texture pour la période de l'Antiquité.
+ * @param moyen_age La texture pour la période du Moyen Âge.
+ * @param moderne La texture pour la période moderne.
+ * @param futuriste La texture pour la période futuriste.
+ * @param police La police de caractères utilisée.
+ * @param police_texte La police de caractères pour le texte.
+ * @param rendu Le renderer associé à la fenêtre.
+ * @param fenetre La fenêtre principale.
+ * @param click Le son du clic.
+ * @param music La musique du jeu.
+ * @param sprite_hud Le tableau de textures pour l'interface HUD.
+ * @param building Le tableau de textures pour les bâtiments.
+ * @param win La texture pour l'écran de victoire.
+ * @param lose La texture pour l'écran de défaite.
+ */
 void destruction_SDL(SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp, SDL_Texture* textureFond, 
                      SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age, SDL_Texture* moderne,
                      SDL_Texture* futuriste, TTF_Font* police, TTF_Font* police_texte, SDL_Renderer* rendu,

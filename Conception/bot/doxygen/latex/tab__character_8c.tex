@@ -1,0 +1,171 @@
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/src/tab\+\_\+character.c}
+\hypertarget{tab__character_8c}{}\label{tab__character_8c}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/src/tab\_character.c@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/src/tab\_character.c}}
+
+
+Contient les fonctions pour la gestion du tableau de personnage.  
+
+
+{\ttfamily \#include \"{}../lib/tab\+\_\+character.\+h\"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{tab__character_8c_a623509b35d94c72fd711b497ff5fd20b}{delete\+\_\+character}} (\mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}characters)
+\begin{DoxyCompactList}\small\item\em Supprime les personnages ayant des points de vie nuls ou négatifs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{tab__character_8c_a7385dcda8ffa6298eef3e75eb4030df7}{tasser\+\_\+tab}} (\mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}characters, int nb\+\_\+mort)
+\begin{DoxyCompactList}\small\item\em Tasse le tableau de personnages après suppression. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{tab__character_8c_a9cdbdc324a94a9fb7469a7429b12896b}{afficher\+\_\+characters}} (\mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}characters)
+\begin{DoxyCompactList}\small\item\em Affiche les personnages possédés. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{tab__character_8c_a307ff31aed68e9ebab26e9b79d48a03d}{ulti}} (\mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}cible)
+\begin{DoxyCompactList}\small\item\em Réalise l\textquotesingle{}ultime attaque, mettant les personnages cibles à 0 points de vie. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{tab__character_8c_ae8fae0db7c797ccdfb8b61b8e84fa00a}{vide\+\_\+devant}} (\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}deriere, int devant\+\_\+x, int owner)
+\begin{DoxyCompactList}\small\item\em Vérifie s\textquotesingle{}il y a un espace vide devant le personnage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tab__character_8c_a4e125a78c98715ad08192f55e6d92d87}{mouvement}} (\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}deriere, int devant\+\_\+x)
+\begin{DoxyCompactList}\small\item\em Réalise le mouvement d\textquotesingle{}un personnage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tab__character_8c_ae803d355d3d1e31a32c228a31d8d5d30}{deplacement}} (\mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}characters, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}first\+\_\+\+Adverser, int x\+\_\+building\+\_\+adverser)
+\begin{DoxyCompactList}\small\item\em Effectue le déplacement des personnages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les fonctions pour la gestion du tableau de personnage. 
+
+\begin{DoxyAuthor}{Auteur}
+Proudy Vincent et Louison Roquain 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09 févrirer 2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{tab__character_8c_a9cdbdc324a94a9fb7469a7429b12896b}\label{tab__character_8c_a9cdbdc324a94a9fb7469a7429b12896b} 
+\index{tab\_character.c@{tab\_character.c}!afficher\_characters@{afficher\_characters}}
+\index{afficher\_characters@{afficher\_characters}!tab\_character.c@{tab\_character.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_characters()}{afficher\_characters()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} afficher\+\_\+characters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{characters }\end{DoxyParamCaption})}
+
+
+
+Affiche les personnages possédés. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em characters} & Pointeur vers le tableau de personnages. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne TRUE si l\textquotesingle{}affichage est réussi, sinon FALSE. 
+\end{DoxyReturn}
+\Hypertarget{tab__character_8c_a623509b35d94c72fd711b497ff5fd20b}\label{tab__character_8c_a623509b35d94c72fd711b497ff5fd20b} 
+\index{tab\_character.c@{tab\_character.c}!delete\_character@{delete\_character}}
+\index{delete\_character@{delete\_character}!tab\_character.c@{tab\_character.c}}
+\doxysubsubsection{\texorpdfstring{delete\_character()}{delete\_character()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} delete\+\_\+character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{characters }\end{DoxyParamCaption})}
+
+
+
+Supprime les personnages ayant des points de vie nuls ou négatifs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em characters} & Pointeur vers le tableau de personnages. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne TRUE si les personnages ont été supprimés avec succès, sinon FALSE. 
+\end{DoxyReturn}
+\Hypertarget{tab__character_8c_ae803d355d3d1e31a32c228a31d8d5d30}\label{tab__character_8c_ae803d355d3d1e31a32c228a31d8d5d30} 
+\index{tab\_character.c@{tab\_character.c}!deplacement@{deplacement}}
+\index{deplacement@{deplacement}!tab\_character.c@{tab\_character.c}}
+\doxysubsubsection{\texorpdfstring{deplacement()}{deplacement()}}
+{\footnotesize\ttfamily void deplacement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{characters,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{first\+\_\+\+Adverser,  }\item[{int}]{x\+\_\+building\+\_\+adverser }\end{DoxyParamCaption})}
+
+
+
+Effectue le déplacement des personnages. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em characters} & Pointeur vers le tableau de personnages. \\
+\hline
+{\em first\+\_\+\+Adverser} & Premier adversaire. \\
+\hline
+{\em x\+\_\+building\+\_\+adverser} & Position X du bâtiment adversaire. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tab__character_8c_a4e125a78c98715ad08192f55e6d92d87}\label{tab__character_8c_a4e125a78c98715ad08192f55e6d92d87} 
+\index{tab\_character.c@{tab\_character.c}!mouvement@{mouvement}}
+\index{mouvement@{mouvement}!tab\_character.c@{tab\_character.c}}
+\doxysubsubsection{\texorpdfstring{mouvement()}{mouvement()}}
+{\footnotesize\ttfamily void mouvement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{deriere,  }\item[{int}]{devant\+\_\+x }\end{DoxyParamCaption})}
+
+
+
+Réalise le mouvement d\textquotesingle{}un personnage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em deriere} & Pointeur vers le personnage à déplacer. \\
+\hline
+{\em devant\+\_\+x} & Position X du personnage devant. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tab__character_8c_a7385dcda8ffa6298eef3e75eb4030df7}\label{tab__character_8c_a7385dcda8ffa6298eef3e75eb4030df7} 
+\index{tab\_character.c@{tab\_character.c}!tasser\_tab@{tasser\_tab}}
+\index{tasser\_tab@{tasser\_tab}!tab\_character.c@{tab\_character.c}}
+\doxysubsubsection{\texorpdfstring{tasser\_tab()}{tasser\_tab()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} tasser\+\_\+tab (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{characters,  }\item[{int}]{nb\+\_\+mort }\end{DoxyParamCaption})}
+
+
+
+Tasse le tableau de personnages après suppression. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em characters} & Pointeur vers le tableau de personnages. \\
+\hline
+{\em nb\+\_\+mort} & Nombre de personnages morts à supprimer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne TRUE si le tassement est réussi, sinon FALSE. 
+\end{DoxyReturn}
+\Hypertarget{tab__character_8c_a307ff31aed68e9ebab26e9b79d48a03d}\label{tab__character_8c_a307ff31aed68e9ebab26e9b79d48a03d} 
+\index{tab\_character.c@{tab\_character.c}!ulti@{ulti}}
+\index{ulti@{ulti}!tab\_character.c@{tab\_character.c}}
+\doxysubsubsection{\texorpdfstring{ulti()}{ulti()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} ulti (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{cible }\end{DoxyParamCaption})}
+
+
+
+Réalise l\textquotesingle{}ultime attaque, mettant les personnages cibles à 0 points de vie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cible} & Pointeur vers le tableau de personnages cibles. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne TRUE si l\textquotesingle{}attaque est réussie, sinon FALSE. 
+\end{DoxyReturn}
+\Hypertarget{tab__character_8c_ae8fae0db7c797ccdfb8b61b8e84fa00a}\label{tab__character_8c_ae8fae0db7c797ccdfb8b61b8e84fa00a} 
+\index{tab\_character.c@{tab\_character.c}!vide\_devant@{vide\_devant}}
+\index{vide\_devant@{vide\_devant}!tab\_character.c@{tab\_character.c}}
+\doxysubsubsection{\texorpdfstring{vide\_devant()}{vide\_devant()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} vide\+\_\+devant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{deriere,  }\item[{int}]{devant\+\_\+x,  }\item[{int}]{owner }\end{DoxyParamCaption})}
+
+
+
+Vérifie s\textquotesingle{}il y a un espace vide devant le personnage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em deriere} & Personnage précédent. \\
+\hline
+{\em devant\+\_\+x} & Position X du personnage devant. \\
+\hline
+{\em owner} & Propriétaire du personnage. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne TRUE s\textquotesingle{}il y a un espace vide devant, sinon FALSE. 
+\end{DoxyReturn}

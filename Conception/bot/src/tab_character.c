@@ -1,5 +1,19 @@
+/**
+ * \file tab_character.c
+ * \brief Contient les fonctions pour la gestion du tableau de personnage
+ * \author Proudy Vincent et Louison Roquain
+ * \date 09 févrirer 2024
+ * 
+*/
+
 #include "../lib/tab_character.h"
 
+/**
+ * @brief Supprime les personnages ayant des points de vie nuls ou négatifs.
+ * 
+ * @param characters Pointeur vers le tableau de personnages.
+ * @return Retourne TRUE si les personnages ont été supprimés avec succès, sinon FALSE.
+ */
 booleen_t delete_character(tab_charactere_t ** characters){
     /* verification préliminaire */
 	if( characters == NULL || (*characters) == NULL)
@@ -38,6 +52,13 @@ booleen_t delete_character(tab_charactere_t ** characters){
     return TRUE;
 }
 
+/**
+ * @brief Tasse le tableau de personnages après suppression.
+ * 
+ * @param characters Pointeur vers le tableau de personnages.
+ * @param nb_mort Nombre de personnages morts à supprimer.
+ * @return Retourne TRUE si le tassement est réussi, sinon FALSE.
+ */
 booleen_t tasser_tab( tab_charactere_t **  characters, int nb_mort)
 {
 	if( characters==NULL || *characters == NULL )
@@ -57,6 +78,12 @@ booleen_t tasser_tab( tab_charactere_t **  characters, int nb_mort)
 	return TRUE;
 }
 
+/**
+ * @brief Affiche les personnages possédés.
+ * 
+ * @param characters Pointeur vers le tableau de personnages.
+ * @return Retourne TRUE si l'affichage est réussi, sinon FALSE.
+ */
 booleen_t afficher_characters(tab_charactere_t * characters)
 {
 
@@ -76,6 +103,12 @@ booleen_t afficher_characters(tab_charactere_t * characters)
     return TRUE;
 }
 
+/**
+ * @brief Réalise l'ultime attaque, mettant les personnages cibles à 0 points de vie.
+ * 
+ * @param cible Pointeur vers le tableau de personnages cibles.
+ * @return Retourne TRUE si l'attaque est réussie, sinon FALSE.
+ */
 booleen_t ulti(tab_charactere_t ** cible){
 	if(cible==NULL || *cible == NULL)
 		return FALSE;
@@ -86,6 +119,14 @@ booleen_t ulti(tab_charactere_t ** cible){
 	return TRUE;
 }
 
+/**
+ * @brief Vérifie s'il y a un espace vide devant le personnage.
+ * 
+ * @param deriere Personnage précédent.
+ * @param devant_x Position X du personnage devant.
+ * @param owner Propriétaire du personnage.
+ * @return Retourne TRUE s'il y a un espace vide devant, sinon FALSE.
+ */
 booleen_t vide_devant(character_t * deriere,int devant_x,int owner){
 	int dist;
 	switch (owner)
@@ -109,7 +150,13 @@ booleen_t vide_devant(character_t * deriere,int devant_x,int owner){
 	
 	
 }
-/* mouvement */
+
+/**
+ * @brief Réalise le mouvement d'un personnage.
+ * 
+ * @param deriere Pointeur vers le personnage à déplacer.
+ * @param devant_x Position X du personnage devant.
+ */
 void mouvement(character_t ** deriere,int devant_x){
 	(*deriere)->x_pred=(*deriere)->x;
 	if(vide_devant(*deriere,devant_x,(*deriere)->owner))
@@ -130,6 +177,13 @@ void mouvement(character_t ** deriere,int devant_x){
 	}
 }
 
+/**
+ * @brief Effectue le déplacement des personnages.
+ * 
+ * @param characters Pointeur vers le tableau de personnages.
+ * @param first_Adverser Premier adversaire.
+ * @param x_building_adverser Position X du bâtiment adversaire.
+ */
 void deplacement(tab_charactere_t * characters, character_t * first_Adverser, int x_building_adverser){
     int i;
 	if(characters !=NULL)

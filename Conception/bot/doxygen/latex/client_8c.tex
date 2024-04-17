@@ -1,0 +1,104 @@
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/socket/client.c}
+\hypertarget{client_8c}{}\label{client_8c}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/socket/client.c@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/socket/client.c}}
+
+
+Contient les fonctions pour le reseau coté client.  
+
+
+{\ttfamily \#include \"{}client.\+h\"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{client_8c_a8be8a7f6d79b8eb5ed1012550d941006}{envoyer\+\_\+structure}} (int to, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} player1, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} player2)
+\begin{DoxyCompactList}\small\item\em Envoie les structures des joueurs au serveur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{client_8c_a6721d4af4737eea7dbb85d14fda79746}{recevoir\+\_\+structure}} (int to, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}player2)
+\begin{DoxyCompactList}\small\item\em Reçoit les structures des joueurs depuis le serveur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{client_8c_ad37e484426af955bee33a6387e5134e1}{init\+\_\+reseau\+\_\+client}} (char \mbox{\hyperlink{client_8h_a345bd426338703d46f62a0585631016f}{serveurname}}\mbox{[}MAX\+\_\+\+IP\mbox{]})
+\begin{DoxyCompactList}\small\item\em Initialise la connexion au serveur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{client_8c_aa467a3eaa123b1ce5de6517e44287dbd}{client\+\_\+fermeture}} (int \texorpdfstring{$\ast$}{*}socket)
+\begin{DoxyCompactList}\small\item\em Ferme la connexion au serveur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les fonctions pour le reseau coté client. 
+
+\begin{DoxyAuthor}{Auteur}
+Proudy Vincent 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09 févrirer 2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{client_8c_aa467a3eaa123b1ce5de6517e44287dbd}\label{client_8c_aa467a3eaa123b1ce5de6517e44287dbd} 
+\index{client.c@{client.c}!client\_fermeture@{client\_fermeture}}
+\index{client\_fermeture@{client\_fermeture}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{client\_fermeture()}{client\_fermeture()}}
+{\footnotesize\ttfamily void client\+\_\+fermeture (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{socket }\end{DoxyParamCaption})}
+
+
+
+Ferme la connexion au serveur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em socket} & Pointeur vers la socket à fermer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{client_8c_a8be8a7f6d79b8eb5ed1012550d941006}\label{client_8c_a8be8a7f6d79b8eb5ed1012550d941006} 
+\index{client.c@{client.c}!envoyer\_structure@{envoyer\_structure}}
+\index{envoyer\_structure@{envoyer\_structure}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{envoyer\_structure()}{envoyer\_structure()}}
+{\footnotesize\ttfamily void envoyer\+\_\+structure (\begin{DoxyParamCaption}\item[{int}]{to,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}}}]{player1,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}}}]{player2 }\end{DoxyParamCaption})}
+
+
+
+Envoie les structures des joueurs au serveur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to} & Socket vers laquelle envoyer les structures. \\
+\hline
+{\em player1} & Structure représentant le joueur 1. \\
+\hline
+{\em player2} & Structure représentant le joueur 2. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{client_8c_ad37e484426af955bee33a6387e5134e1}\label{client_8c_ad37e484426af955bee33a6387e5134e1} 
+\index{client.c@{client.c}!init\_reseau\_client@{init\_reseau\_client}}
+\index{init\_reseau\_client@{init\_reseau\_client}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{init\_reseau\_client()}{init\_reseau\_client()}}
+{\footnotesize\ttfamily int init\+\_\+reseau\+\_\+client (\begin{DoxyParamCaption}\item[{char}]{serveurname\mbox{[}\+MAX\+\_\+\+IP\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Initialise la connexion au serveur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em serveurname} & Nom ou adresse IP du serveur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne 1 si l\textquotesingle{}initialisation est réussie, sinon 0. 
+\end{DoxyReturn}
+\Hypertarget{client_8c_a6721d4af4737eea7dbb85d14fda79746}\label{client_8c_a6721d4af4737eea7dbb85d14fda79746} 
+\index{client.c@{client.c}!recevoir\_structure@{recevoir\_structure}}
+\index{recevoir\_structure@{recevoir\_structure}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{recevoir\_structure()}{recevoir\_structure()}}
+{\footnotesize\ttfamily void recevoir\+\_\+structure (\begin{DoxyParamCaption}\item[{int}]{to,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{player1,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{player2 }\end{DoxyParamCaption})}
+
+
+
+Reçoit les structures des joueurs depuis le serveur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em to} & Socket depuis laquelle recevoir les structures. \\
+\hline
+{\em player1} & Pointeur vers la structure représentant le joueur 1. \\
+\hline
+{\em player2} & Pointeur vers la structure représentant le joueur 2. \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Battle of Time: Référence du fichier /info/etu/l2info/s2205576/Documents/Projet/Battle_Of_Time/Conception/bot/src/ordinateur.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Battle of Time
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier ordinateur.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contient les fonction permettant à l'ordinateur de jouer.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;../lib/ordinateur.h&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a0acb231d85a79a697c62073722309647"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structordi__t.html">ordi_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ordinateur_8c.html#a0acb231d85a79a697c62073722309647">init_ordi</a> ()</td></tr>
+<tr class="memdesc:a0acb231d85a79a697c62073722309647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise et retourne un nouvel objet ordinateur.  <br /></td></tr>
+<tr class="separator:a0acb231d85a79a697c62073722309647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3438fbd124e38ab6181d7a4fc25e8779"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ordinateur_8c.html#a3438fbd124e38ab6181d7a4fc25e8779">detr_ordi</a> (<a class="el" href="structordi__t.html">ordi_t</a> **ordi)</td></tr>
+<tr class="memdesc:a3438fbd124e38ab6181d7a4fc25e8779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée pour l'ordinateur.  <br /></td></tr>
+<tr class="separator:a3438fbd124e38ab6181d7a4fc25e8779"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c1e79bdba10728dbfa96530c50536ef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ordinateur_8c.html#a7c1e79bdba10728dbfa96530c50536ef">envoie_char_ordi</a> (<a class="el" href="structordi__t.html">ordi_t</a> *ordi, <a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *tab)</td></tr>
+<tr class="memdesc:a7c1e79bdba10728dbfa96530c50536ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoie un personnage de l'ordinateur.  <br /></td></tr>
+<tr class="separator:a7c1e79bdba10728dbfa96530c50536ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35b7da43c64d1b7fa173d5b0b428a3b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ordinateur_8c.html#a35b7da43c64d1b7fa173d5b0b428a3b6">give_ressources</a> (<a class="el" href="structplayer__t.html">player_t</a> *player, <a class="el" href="structordi__t.html">ordi_t</a> *ordi)</td></tr>
+<tr class="memdesc:a35b7da43c64d1b7fa173d5b0b428a3b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donne des ressources au joueur à partir de l'ordinateur.  <br /></td></tr>
+<tr class="separator:a35b7da43c64d1b7fa173d5b0b428a3b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69db7561d87003dc4dd6b24ee77cacd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ordinateur_8c.html#a69db7561d87003dc4dd6b24ee77cacd0">afficher_ordi</a> (<a class="el" href="structordi__t.html">ordi_t</a> *ordi)</td></tr>
+<tr class="memdesc:a69db7561d87003dc4dd6b24ee77cacd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche les informations de l'ordinateur.  <br /></td></tr>
+<tr class="separator:a69db7561d87003dc4dd6b24ee77cacd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a417bab5865bee010dddf89737dfe099b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ordinateur_8c.html#a417bab5865bee010dddf89737dfe099b">jeu_ordi</a> (<a class="el" href="structordi__t.html">ordi_t</a> *o, <a class="el" href="structplayer__t.html">player_t</a> *p, <a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *tab)</td></tr>
+<tr class="memdesc:a417bab5865bee010dddf89737dfe099b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principale de jeu de l'ordinateur.  <br /></td></tr>
+<tr class="separator:a417bab5865bee010dddf89737dfe099b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a9ea7753dadd8c4e1aa65aace0daa43a4"><td class="memItemLeft" align="right" valign="top"><a id="a9ea7753dadd8c4e1aa65aace0daa43a4" name="a9ea7753dadd8c4e1aa65aace0daa43a4"></a>
+unsigned long int&#160;</td><td class="memItemRight" valign="bottom"><b>debut</b></td></tr>
+<tr class="separator:a9ea7753dadd8c4e1aa65aace0daa43a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59c23ee89d069349b0b2368ca0227ad5"><td class="memItemLeft" align="right" valign="top"><a id="a59c23ee89d069349b0b2368ca0227ad5" name="a59c23ee89d069349b0b2368ca0227ad5"></a>
+unsigned long int&#160;</td><td class="memItemRight" valign="bottom"><b>fin</b></td></tr>
+<tr class="separator:a59c23ee89d069349b0b2368ca0227ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cab488e64b1387610653e3e2134bd4a"><td class="memItemLeft" align="right" valign="top"><a id="a6cab488e64b1387610653e3e2134bd4a" name="a6cab488e64b1387610653e3e2134bd4a"></a>
+unsigned long int&#160;</td><td class="memItemRight" valign="bottom"><b>d_ulti</b></td></tr>
+<tr class="separator:a6cab488e64b1387610653e3e2134bd4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39d94a8dddc0bdcd634e43ea22fe4993"><td class="memItemLeft" align="right" valign="top"><a id="a39d94a8dddc0bdcd634e43ea22fe4993" name="a39d94a8dddc0bdcd634e43ea22fe4993"></a>
+unsigned long int&#160;</td><td class="memItemRight" valign="bottom"><b>f_ulti</b></td></tr>
+<tr class="separator:a39d94a8dddc0bdcd634e43ea22fe4993"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Contient les fonction permettant à l'ordinateur de jouer. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Roquain Louison </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>09 févrirer 2024</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>Roquain Louison </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>09 févrirer 2024 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a69db7561d87003dc4dd6b24ee77cacd0" name="a69db7561d87003dc4dd6b24ee77cacd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69db7561d87003dc4dd6b24ee77cacd0">&#9670;&#160;</a></span>afficher_ordi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficher_ordi </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structordi__t.html">ordi_t</a> *&#160;</td>
+          <td class="paramname"><em>ordi</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche les informations de l'ordinateur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ordi</td><td>L'ordinateur dont les informations doivent être affichées. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3438fbd124e38ab6181d7a4fc25e8779" name="a3438fbd124e38ab6181d7a4fc25e8779"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3438fbd124e38ab6181d7a4fc25e8779">&#9670;&#160;</a></span>detr_ordi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int detr_ordi </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structordi__t.html">ordi_t</a> **&#160;</td>
+          <td class="paramname"><em>ordi</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère la mémoire allouée pour l'ordinateur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ordi</td><td>Un pointeur vers le pointeur de l'ordinateur à libérer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>EXIT_SUCCESS si la libération est réussie, EXIT_FAILURE sinon. </dd></dl>
+
+</div>
+</div>
+<a id="a7c1e79bdba10728dbfa96530c50536ef" name="a7c1e79bdba10728dbfa96530c50536ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c1e79bdba10728dbfa96530c50536ef">&#9670;&#160;</a></span>envoie_char_ordi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int envoie_char_ordi </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structordi__t.html">ordi_t</a> *&#160;</td>
+          <td class="paramname"><em>ordi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *&#160;</td>
+          <td class="paramname"><em>tab</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envoie un personnage de l'ordinateur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ordi</td><td>L'ordinateur qui envoie le personnage. </td></tr>
+    <tr><td class="paramname">tab</td><td>Le tableau de personnages disponibles. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>EXIT_SUCCESS si l'envoi réussit, EXIT_FAILURE sinon. </dd></dl>
+
+</div>
+</div>
+<a id="a35b7da43c64d1b7fa173d5b0b428a3b6" name="a35b7da43c64d1b7fa173d5b0b428a3b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35b7da43c64d1b7fa173d5b0b428a3b6">&#9670;&#160;</a></span>give_ressources()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> give_ressources </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structordi__t.html">ordi_t</a> *&#160;</td>
+          <td class="paramname"><em>ordi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Donne des ressources au joueur à partir de l'ordinateur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>Le joueur à qui donner les ressources. </td></tr>
+    <tr><td class="paramname">ordi</td><td>L'ordinateur qui fournit les ressources. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>FALSE si l'opération échoue, TRUE sinon. </dd></dl>
+
+</div>
+</div>
+<a id="a0acb231d85a79a697c62073722309647" name="a0acb231d85a79a697c62073722309647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0acb231d85a79a697c62073722309647">&#9670;&#160;</a></span>init_ordi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structordi__t.html">ordi_t</a> * init_ordi </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise et retourne un nouvel objet ordinateur. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Un pointeur vers l'ordinateur initialisé ou NULL en cas d'échec. </dd></dl>
+
+</div>
+</div>
+<a id="a417bab5865bee010dddf89737dfe099b" name="a417bab5865bee010dddf89737dfe099b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a417bab5865bee010dddf89737dfe099b">&#9670;&#160;</a></span>jeu_ordi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jeu_ordi </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structordi__t.html">ordi_t</a> *&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *&#160;</td>
+          <td class="paramname"><em>tab</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction principale de jeu de l'ordinateur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">o</td><td>L'ordinateur. </td></tr>
+    <tr><td class="paramname">p</td><td>Le joueur. </td></tr>
+    <tr><td class="paramname">tab</td><td>Le tableau de personnages disponibles. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

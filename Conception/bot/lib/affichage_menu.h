@@ -1,3 +1,10 @@
+/**
+ * \file affichage_menu.h
+ * \brief Contient les élements utilisé par le affichage_menu.c
+ * \author Poirier Victor
+ * \date 09 févrirer 2024
+ * 
+*/
 #ifndef _MENU_AFF_H_
 #define _MENU_AFF_H_
 

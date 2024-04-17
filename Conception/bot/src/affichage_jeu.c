@@ -1,7 +1,28 @@
+/**
+ * \file affichage_jeu.c
+ * \brief Contient les fonctions d'affichages en jeu
+ * \author Poirier Victor
+ * \date 09 févrirer 2024
+ * 
+ * 
+*/
 #include "../lib/affichage_jeu.h"
 
-
-/*Affichage de l4HUD*/
+/**
+ * @brief Affiche l'interface utilisateur du HUD (Heads-Up Display) comprenant divers éléments tels que les boutons, les indicateurs de ressources, etc.
+ * 
+ * @param rendu Renderer SDL pour le rendu des éléments.
+ * @param fenetre Fenêtre SDL dans laquelle le rendu est effectué.
+ * @param police_texte Police de caractères pour le texte.
+ * @param parametre Texture du bouton de paramètre.
+ * @param upgrade Texture du bouton d'upgrade.
+ * @param gold Texture de l'indicateur d'or.
+ * @param xp Texture de l'indicateur d'XP.
+ * @param joueur Structure de données représentant le joueur.
+ * @param sprite_hud Tableau de textures des têtes des personnages du joueur.
+ * @param ultim Texture du bouton de compétence ultime.
+ * @param age Âge actuel du jeu.
+ */
 void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_texte, SDL_Texture* parametre, 
                  SDL_Texture* upgrade, SDL_Texture* gold, SDL_Texture* xp, player_t* joueur, SDL_Texture* sprite_hud[],
                  SDL_Texture* ultim, int age)
@@ -108,7 +129,15 @@ void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_text
     }
 }
 
-/*Affichage de l'image de fond du jeu et gestion du déplacement de la souris pour défiler l'image*/
+/**
+ * @brief Affiche l'image de fond du jeu et gère le déplacement de la souris pour défiler l'image.
+ * 
+ * @param rendu Renderer SDL pour le rendu des éléments.
+ * @param fenetre Fenêtre SDL dans laquelle le rendu est effectué.
+ * @param fond_jeu Texture de l'image de fond du jeu.
+ * @param cameraX Pointeur vers la position horizontale de la caméra.
+ * @param cameraY Pointeur vers la position verticale de la caméra.
+ */
 void afficherJeuFond(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* fond_jeu, int* cameraX, int* cameraY)
 {
     /*Récupère les dimensions de la fenêtre*/
@@ -149,7 +178,22 @@ void afficherJeuFond(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* fond
     SDL_RenderCopy(rendu, fond_jeu, &srcRect, &destRect);
 }
 
-/*Affiche l'image de l'arrière plan en fonction de l'âge*/
+/**
+ * @brief Affiche l'image de fond en fonction de l'âge du jeu.
+ * 
+ * @param rendu Renderer SDL pour le rendu des éléments.
+ * @param fenetre Fenêtre SDL dans laquelle le rendu est effectué.
+ * @param etatAge Pointeur vers l'état actuel de l'âge du jeu.
+ * @param prehistoire Texture de l'ère préhistorique.
+ * @param antiquite Texture de l'Antiquité.
+ * @param moyen_age Texture du Moyen Âge.
+ * @param moderne Texture de l'ère moderne.
+ * @param futuriste Texture de l'ère futuriste.
+ * @param j1 Structure de données représentant le joueur.
+ * @param o Structure de données représentant l'ordinateur.
+ * @param cameraX Pointeur vers la position horizontale de la caméra.
+ * @param cameraY Pointeur vers la position verticale de la caméra.
+ */
 void gestionAffichageFondJeu(SDL_Renderer* rendu, SDL_Window* fenetre, int* etatAge, 
                              SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age,
                              SDL_Texture* moderne, SDL_Texture* futuriste, player_t* j1, ordi_t* o,
@@ -181,8 +225,13 @@ void gestionAffichageFondJeu(SDL_Renderer* rendu, SDL_Window* fenetre, int* etat
     }
 }
 
-/*Fonction d'affichage du menu des options quand on est en jeu*/
-void afficherOptionJeu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre)
+/**
+ * @brief Affiche le menu des options en jeu.
+ * 
+ * @param rendu Renderer SDL pour le rendu des éléments.
+ * @param police Police de caractères pour le texte.
+ * @param fenetre Fenêtre SDL dans laquelle le rendu est effectué.
+ */void afficherOptionJeu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre)
 {
     /*Calcul des positions x et y*/
     int menuX = (WINDOW_WIDTH - MENU_WIDTH) / 2;  // Position horizontale centrée pour le sous-menu
@@ -202,6 +251,14 @@ void afficherOptionJeu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetr
     afficherMenu(rendu, police, fenetre, "Retour au menu principal", menuX, menuY + 4 * (MENU_HEIGHT + SPACING), MENU_WIDTH, MENU_HEIGHT);
 }
 
+/**
+ * @brief Insère les images des personnages en fonction de leur âge dans un tableau.
+ * 
+ * @param characters Tableau de personnages.
+ * @param age Âge actuel du jeu.
+ * @param img_c Tableau de textures d'images de personnages.
+ * @param tab Tableau de textures d'images.
+ */
 void img_charactere_inser(tab_charactere_t * characters, int age, SDL_Texture* img_c[], SDL_Texture* tab[])
 {
     int i;
@@ -244,12 +301,41 @@ void img_charactere_inser(tab_charactere_t * characters, int age, SDL_Texture* i
     }
 }
 
+/**
+ * @brief Interpolation linéaire entre deux valeurs.
+ * 
+ * @param a Première valeur.
+ * @param b Deuxième valeur.
+ * @param t Temps.
+ * @return float Valeur interpolée.
+ */
 float lerp(float a, float b, float t) {
     return a + t * (b - a);
 }
 
-/*Affichage des sprite et gestion de leur déplacement*/
-void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, int attaque,
+/**
+ * @brief Affiche les sprites des personnages et gère leur déplacement.
+ * 
+ * @param rendu Renderer SDL pour le rendu des éléments.
+ * @param j1 Structure de données représentant le joueur.
+ * @param o Structure de données représentant l'ordinateur.
+ * @param playerImg Rectangle délimitant le sprite du joueur.
+ * @param ordiImg Rectangle délimitant le sprite de l'ordinateur.
+ * @param attaque Indicateur d'attaque.
+ * @param playerPosition Tableau de rectangles délimitant la position des sprites du joueur.
+ * @param ordiPosition Tableau de rectangles délimitant la position des sprites de l'ordinateur.
+ * @param ancien_lvl Pointeur vers le niveau précédent.
+ * @param tab_de_charactere Tableau des caractéristiques des personnages.
+ * @param image Tableau de textures des images.
+ * @param img_char Tableau de textures des images de personnages du joueur.
+ * @param img_c_ordi Tableau de textures des images de personnages de l'ordinateur.
+ * @param currentTime Temps actuel.
+ * @param lastMovement Pointeur vers le dernier mouvement.
+ * @param w Largeur de la fenêtre.
+ * @param h Hauteur de la fenêtre.
+ * @param cameraX Pointeur vers la position horizontale de la caméra.
+ * @param cameraY Pointeur vers la position verticale de la caméra.
+ */void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, int attaque,
                      SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* ancien_lvl, character_t* tab_de_charactere,
                      SDL_Texture* image[], SDL_Texture* img_char[], SDL_Texture* img_c_ordi[], Uint32 currentTime, Uint32* lastMovement,
                      int w, int h, int* cameraX, int* cameraY)
@@ -367,7 +453,17 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
     }
 }
 
-/*Affichage des buildings*/
+/**
+ * @brief Affiche les bâtiments en fonction de l'âge du joueur et de l'ordinateur.
+ * 
+ * @param rendu Renderer SDL pour le rendu des éléments.
+ * @param fenetre Fenêtre SDL dans laquelle le rendu est effectué.
+ * @param building Tableau de textures des bâtiments.
+ * @param cameraX Position horizontale de la caméra.
+ * @param cameraY Position verticale de la caméra.
+ * @param joueur_level Niveau du joueur.
+ * @param ordi_level Niveau de l'ordinateur.
+ */
 void affichageBulding(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* building[],
                       int cameraX, int cameraY, int joueur_level, int ordi_level)
 {
@@ -420,7 +516,17 @@ void affichageBulding(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* bui
     }
 }
 
-/*Affichage des pv des bases*/
+/**
+ * @brief Affiche les points de vie des bases des joueurs.
+ * 
+ * @param rendu Renderer SDL pour le rendu des éléments.
+ * @param font Police de caractères pour le texte.
+ * @param pointsDeVie_1 Points de vie de la base du joueur 1.
+ * @param pointsDeVie_2 Points de vie de la base du joueur 2.
+ * @param fenetre Fenêtre SDL dans laquelle le rendu est effectué.
+ * @param cameraX Position horizontale de la caméra.
+ * @param cameraY Position verticale de la caméra.
+ */
 void affichagePointDeVie(SDL_Renderer * rendu, TTF_Font * font, int pointsDeVie_1, int pointsDeVie_2, SDL_Window* fenetre, int cameraX, int cameraY)
 {
     int w, h;
@@ -473,7 +579,17 @@ void affichagePointDeVie(SDL_Renderer * rendu, TTF_Font * font, int pointsDeVie_
     free(pv_2);
 }
 
-/*Affichage des informations des personnages*/
+/**
+ * @brief Affiche les informations des personnages lorsque la souris survole leur image.
+ * 
+ * @param rendu Renderer SDL pour le rendu des éléments.
+ * @param fenetre Fenêtre SDL dans laquelle le rendu est effectué.
+ * @param police Police de caractères pour le texte.
+ * @param survol Indicateur du personnage survolé.
+ * @param tab_charactere Tableau des caractéristiques des personnages.
+ * @param age Âge actuel du jeu.
+ * @param joueur Structure de données représentant le joueur.
+ */
 void affichageSurvolSouris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, int survol, character_t* tab_charactere, 
                            int age, player_t* joueur)
 {
@@ -722,6 +838,18 @@ void affichageSurvolSouris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* p
     }
 }
 
+/**
+ * @brief Affiche l'image de victoire ou de défaite et un message associé.
+ * 
+ * @param rendu Renderer SDL pour le rendu des éléments.
+ * @param font Police de caractères pour le texte.
+ * @param choix Indicateur du résultat (victoire ou défaite).
+ * @param fenetre Fenêtre SDL dans laquelle le rendu est effectué.
+ * @param cameraX Position horizontale de la caméra.
+ * @param cameraY Position verticale de la caméra.
+ * @param win Texture de l'image de victoire.
+ * @param lose Texture de l'image de défaite.
+ */
 void affichage_gagnant( SDL_Renderer * rendu, TTF_Font * font, int choix ,SDL_Window* fenetre, int cameraX, int cameraY, SDL_Texture * win, SDL_Texture * lose )
 {
     int w, h, x, y;    

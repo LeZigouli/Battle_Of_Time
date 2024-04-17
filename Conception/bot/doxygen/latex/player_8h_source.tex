@@ -1,0 +1,39 @@
+\doxysection{player.\+h}
+\hypertarget{player_8h_source}{}\label{player_8h_source}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/player.h@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/player.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_PLAYER\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_PLAYER\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tab__character_8h}{tab\_character.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{char}\ name[\mbox{\hyperlink{common_8h_a8b6d77865140befe3a9bc16132d2e696}{MAX\_STR}}];}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ xp;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ delai;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ debut;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ fin;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{float}\ gold;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ owner;\ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{structtab__charactere__s}{tab\_charactere\_t}}\ *\ characters;}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{structtab__charactere__s}{tab\_charactere\_t}}\ *\ file\_attente;}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{structbuilding__s}{building\_t}}\ *\ building;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \}\mbox{\hyperlink{structplayer__t}{player\_t}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ \mbox{\hyperlink{player_8c_a9c99c711a4f99a67c71847a481b84a12}{initplayer}}(\textcolor{keywordtype}{int}\ owner);}
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{player_8c_a132d73ef8c30ba0c922a806ab3a3e091}{destroy\_player}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ **\ player);}
+\DoxyCodeLine{00024\ \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\_t}}\ \mbox{\hyperlink{player_8c_a1754363dba948807a45daa2ccd330b3c}{buy\_character}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ **\ player,\ \mbox{\hyperlink{structcharacter__s}{character\_t}}\ tab\_character[\mbox{\hyperlink{common_8h_ac66bbcbd9e9d5a4fcb435b50133ba061}{NB\_AGE}}*NB\_CHARACTER],\ \textcolor{keywordtype}{int}\ newCha);}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{player_8c_a12f5c9045a0c36f411581099cc4e10f2}{envoie\_char}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ **\ player);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\_t}}\ \mbox{\hyperlink{player_8c_aa1752b9f5956f8fa08df83d891d6f796}{exist}}(\textcolor{keywordtype}{void}\ *\ type);}
+\DoxyCodeLine{00029\ \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\_t}}\ \mbox{\hyperlink{player_8c_a7036fb438a4439085772acde3f53dbe5}{get\_ressources}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player1,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player2);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\_t}}\ \mbox{\hyperlink{player_8c_a7a5513026d33fb2cd6b1413c6a2403f0}{afficher\_player}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

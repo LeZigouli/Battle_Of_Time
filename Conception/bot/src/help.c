@@ -1,19 +1,18 @@
+/**
+ * \file help.c
+ * \brief Contient les fonction permettant l'aide au developpement.
+ * \author Proudy Vincent
+ * \date 09 févrirer 2024
+ * 
+ * 
+*/
 #include "../lib/help.h"
 
-/*******************/
-/* variable global */
-/*******************/
-
-
-/************/
-/* fonction */
-/************/
-
-
-
-
-
-
+/**
+ * @brief Affiche les caractéristiques d'un personnage.
+ * 
+ * @param character Le personnage à afficher.
+ */
 void afficher_character_tab_tab(character_t character)
 {
     printf("age : %d\n",character.age);
@@ -32,6 +31,12 @@ void afficher_character_tab_tab(character_t character)
 
 }
 
+/**
+ * @brief Affiche toutes les caractéristiques des personnages dans un tableau.
+ * 
+ * @param tab Le tableau de personnages à afficher.
+ * @return TRUE si le tableau n'est pas NULL, FALSE sinon.
+ */
 booleen_t afficher_all_character(character_t * tab)
 {
     if ( tab == NULL )

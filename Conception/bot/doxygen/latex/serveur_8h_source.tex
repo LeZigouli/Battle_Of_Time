@@ -1,0 +1,40 @@
+\doxysection{serveur.\+h}
+\hypertarget{serveur_8h_source}{}\label{serveur_8h_source}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/socket/serveur.h@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/socket/serveur.h}}
+\mbox{\hyperlink{serveur_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ \_SERVEUR\_H\_}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ \_SERVEUR\_H\_}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <netinet/in.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <netdb.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <signal.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <ifaddrs.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}../lib/common.h"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ PORT\ 30000}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{serveur_8h_a635a6e9bfed455bf02a9eab184d9d52a}{ma\_socket}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{serveur_8h_ae887b77f939a43b6387aa460f46836eb}{client\_socket}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{struct\ }sockaddr\_in\ \mbox{\hyperlink{serveur_8h_a3de73a6c1b9e1f9ee928407748744be8}{mon\_address}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{struct\ }sockaddr\_in\ \mbox{\hyperlink{serveur_8h_a432a3238b8a5dc9c809284367705cbf5}{client\_address}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{serveur_8h_a12d18e482b6299c3a716d193ef933232}{mon\_address\_longueur}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{serveur_8h_a9c434a7a034140d98c96221b0c908ede}{lg}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{serveur_8h_a0d5e428ead5875e99663a6bb673fa0a8}{hostname\_to\_ip}}(\textcolor{keywordtype}{char}\ *\ hostname\ ,\ \textcolor{keywordtype}{char}*\ ip);}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serveur_8h_a077a8f2753012be48135d87764bdc0ee}{view\_ip}}();}
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{serveur_8h_a0dc0fcc6e5ed53b493ffde2842788391}{init\_reseau\_serveur}}();}
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{serveur_8h_ab60185638299eec6f8f34fcdeb8febba}{get\_ip\_serveur}}();}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{serveur_8h_a0560393a69bf164b3d68094ea528e8c6}{serveur\_fermeture}}(\textcolor{keywordtype}{int}\ *\ socket);}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
