@@ -86,7 +86,7 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
             afficherHUD(rendu, fenetre, police_texte, parametre, upgrade, gold, xp, joueur, sprite_hud, ultim, joueur->building->level);
             affichageBulding(rendu, fenetre, building, *cameraX, *cameraY, joueur->building->level, ordi->building->level);
             affichagePointDeVie(rendu, police, joueur->building->pv, ordi->building->pv, fenetre, (*cameraX), (*cameraY));
-            affichageSurvolSouris(rendu, fenetre, police, survol, tab_charactere, joueur->building->level);
+            affichageSurvolSouris(rendu, fenetre, police, survol, tab_charactere, joueur->building->level, joueur);
             break;
         case FIN_PARTIE :
             /*Effacement de l'ancien rendu*/
