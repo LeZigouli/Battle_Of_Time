@@ -470,6 +470,4 @@ void afficherSousMenuCreer(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* p
     SDL_Rect textRect = creationRectangle(fenetre, menuX - 70, menuY + 60, IPSurface->w, IPSurface->h);
     SDL_RenderCopy(rendu, IPTexture, NULL, &textRect);
     SDL_DestroyTexture(IPTexture);
-
-    init_reseau_serveur();
 }

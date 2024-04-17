@@ -19,7 +19,7 @@ unsigned int mon_address_longueur, lg;
 
 int hostname_to_ip(char * hostname , char* ip);
 void view_ip();
-void init_reseau_serveur();
+int init_reseau_serveur();
 char* get_ip_serveur();
 void serveur_fermeture(int * socket);
 #endif

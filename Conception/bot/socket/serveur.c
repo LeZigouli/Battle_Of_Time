@@ -36,7 +36,7 @@ void view_ip()
           printf("IP : %s\n", inet_ntoa(**adr));
 }
 
-void init_reseau_serveur()
+int init_reseau_serveur()
 {
     bzero(&mon_address,sizeof(mon_address));
 	mon_address.sin_port = htons(PORT);
@@ -65,9 +65,14 @@ void init_reseau_serveur()
 	
     /* on attend que le client se connecte */
     printf("Attente de la connection du client...");
-	client_socket = accept(ma_socket,
-                         (struct sockaddr *)&client_address,
-                         &mon_address_longueur);
+    client_socket = accept(ma_socket, (struct sockaddr *)&client_address, &mon_address_longueur);
+    if (client_socket == -1) {
+        perror("accept");
+        close(ma_socket); // Fermer la socket en cas d'erreur
+        return 0; // Renvoyer 0 en cas d'échec d'acceptation de la connexion
+    }
+
+    return 1; // Renvoyer 1 pour indiquer que la connexion a été acceptée avec succès
 }
 
 char* get_ip_serveur()

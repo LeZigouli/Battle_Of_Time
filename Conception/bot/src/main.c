@@ -414,6 +414,21 @@ int main(int argc, char* argv[]) {
             if ( resultat != AUCUN_GAGNANT ) (*etat) = FIN_PARTIE;
         }
 
+        if ( (*etat) == MENU_SOUS_CREER )
+        {
+            if ( init_reseau_serveur() )
+            {
+                print(f"Connecté au client...\n");
+            }
+            else
+            {
+                printf("Erreur lors de la connexion...\n");
+                (*etat) = MENU_SOUS_ENLIGNE;
+            }
+        }
+
+        if ( (*etat) == JOUER )
+
         /*Amélioration antialiasing*/
         SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"2");
 
