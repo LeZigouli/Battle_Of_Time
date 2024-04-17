@@ -1,3 +1,10 @@
+/**
+ * \file save.h
+ * \brief Contient les élements utilisés pour sauvegarder et charger une partie depuis un fichier 
+ * \author Proudy Vincent
+ * \date 09 févrirer 2024
+ * \version 1.0
+*/
 #ifndef _SAVE_H_
 #define _SAVE_H_
 

@@ -1,8 +1,9 @@
 /**
  * \file building.h
- * \brief Contient les élements utilisé par le building.c
+ * \brief Contient les élements utilisés par le building.c
  * \author Proudy Vincent
  * \date 09 févrirer 2024
+ * \version 1.0
  * 
 */
 #ifndef _BUILDING_H_

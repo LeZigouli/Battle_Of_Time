@@ -1,8 +1,9 @@
 /**
  * \file character.h
- * \brief Contient les élements utilisé par le character.c
+ * \brief Contient les élements utilisés par le character.c
  * \author Proudy Vincent
  * \date 09 févrirer 2024
+ * \version 1.0
  * 
 */
 #ifndef _CHARACTER_H_

@@ -3,7 +3,7 @@
  * \brief Contient les fonction pour les personnages du jeu
  * \author Roquain Lousion Proudy Vincent
  * \date 09 févrirer 2024
- * 
+ * \version 1.0
  * 
 */
 #include "../lib/character.h"

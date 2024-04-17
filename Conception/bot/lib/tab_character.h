@@ -14,13 +14,13 @@
 #include "character.h"
 
 
-/* liste pour chaque joueur des personnages qu'ils possèdent */
-typedef struct tab_charactere_s{
-
-	character_t * tab[MAX_POSSESSED];
-	int nb;
-
-}tab_charactere_t;
+/**
+ * @brief Structure représentant un tableau de personnages.
+ */
+typedef struct tab_charactere_s {
+    character_t * tab[MAX_POSSESSED]; /**< Tableau de personnages */
+    int nb; /**< Nombre de personnages dans le tableau */
+} tab_charactere_t;
 
 void deplacement(tab_charactere_t * characters, character_t * first_Adverser, int x_building_adverser);
 booleen_t delete_character(tab_charactere_t ** characters);

@@ -15,18 +15,19 @@
 #define MIN_DELAI 1
 #define MAX_DELAI_ULTI 900 /* 15 min*/
 #define MIN_DELAI_ULTI 300 /*  5 min*/
-#
 
-typedef struct 
-{
-    int owner;
-    int difficulte;
-    int delai;
-    int xp;
-    int delai_ulti;
-    tab_charactere_t * characters;
-	building_t * building;
-}ordi_t;
+/**
+ * @brief Structure représentant un adversaire contrôlé par l'ordinateur.
+ */
+typedef struct {
+    int owner; /**< Numéro du propriétaire */
+    int difficulte; /**< Niveau de difficulté */
+    int delai; /**< Délai pour former les troupes */
+    int xp; /**< Points d'expérience */
+    int delai_ulti; /**< Délai pour l'utilisation de l'ultime */
+    tab_charactere_t * characters; /**< Tableau de personnages */
+    building_t * building; /**< Bâtiment */
+} ordi_t;
 
 ordi_t * init_ordi();
 int detr_ordi(ordi_t ** ordi);

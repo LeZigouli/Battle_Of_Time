@@ -3,46 +3,46 @@
 \mbox{\hyperlink{client_8h}{Aller à la documentation de ce fichier.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ \_CLIENT\_H\_\_}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ \_CLIENT\_H\_\_}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <errno.h>}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <signal.h>}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <netdb.h>}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <netinet/in.h>}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <strings.h>}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}../lib/player.h"{}}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}../lib/common.h"{}}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <regex.h>}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <fcntl.h>}}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ PORT\ 30000}}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ MAX\_IP\ 20}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ QUITTER\ "{}QUITTER"{}}}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00035\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{client_8h_a345bd426338703d46f62a0585631016f}{serveurname}}[MAX\_IP];}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00040\ \textcolor{keyword}{struct\ }sockaddr\_in\ \mbox{\hyperlink{client_8h_aa638ca51455ca92313282871c4e7c8f2}{serveur\_addr}};}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00045\ \textcolor{keyword}{struct\ }hostent\ *\mbox{\hyperlink{client_8h_a8ccc7329c6dab3a30d63b31d963312e7}{serveur\_info}};}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00050\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{client_8h_a2b7285561617d39b08c42119caeed532}{hostAddr}};}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00055\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{client_8h_a3cb8e52446a79c20206ad6ab5ab46fea}{buffer}}[512];}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00060\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{client_8h_ac97a0a9092b8a469854077bfba6e6f49}{to\_server\_socket}};}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{client_8h_ad37e484426af955bee33a6387e5134e1}{init\_reseau\_client}}(\textcolor{keywordtype}{char}\ \mbox{\hyperlink{client_8h_a345bd426338703d46f62a0585631016f}{serveurname}}[MAX\_IP]);}
-\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_a8be8a7f6d79b8eb5ed1012550d941006}{envoyer\_structure}}(\ \textcolor{keywordtype}{int}\ to,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ player1,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ player2\ );}
-\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_a6721d4af4737eea7dbb85d14fda79746}{recevoir\_structure}}(\ \textcolor{keywordtype}{int}\ to,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player1,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player2\ );}
-\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_aa467a3eaa123b1ce5de6517e44287dbd}{client\_fermeture}}(\textcolor{keywordtype}{int}\ *\ socket);}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ \_CLIENT\_H\_\_}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ \_CLIENT\_H\_\_}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <errno.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <signal.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <netdb.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <netinet/in.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <strings.h>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}../lib/player.h"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}../lib/common.h"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <regex.h>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <fcntl.h>}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ PORT\ 30000}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ MAX\_IP\ 20}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ QUITTER\ "{}QUITTER"{}}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{client_8h_a345bd426338703d46f62a0585631016f}{serveurname}}[MAX\_IP];}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{struct\ }sockaddr\_in\ \mbox{\hyperlink{client_8h_aa638ca51455ca92313282871c4e7c8f2}{serveur\_addr}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{struct\ }hostent\ *\mbox{\hyperlink{client_8h_a8ccc7329c6dab3a30d63b31d963312e7}{serveur\_info}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{client_8h_a2b7285561617d39b08c42119caeed532}{hostAddr}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{client_8h_a3cb8e52446a79c20206ad6ab5ab46fea}{buffer}}[512];}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{client_8h_ac97a0a9092b8a469854077bfba6e6f49}{to\_server\_socket}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{client_8h_ad37e484426af955bee33a6387e5134e1}{init\_reseau\_client}}(\textcolor{keywordtype}{char}\ \mbox{\hyperlink{client_8h_a345bd426338703d46f62a0585631016f}{serveurname}}[MAX\_IP]);}
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_a8be8a7f6d79b8eb5ed1012550d941006}{envoyer\_structure}}(\ \textcolor{keywordtype}{int}\ to,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ player1,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ player2\ );}
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_a6721d4af4737eea7dbb85d14fda79746}{recevoir\_structure}}(\ \textcolor{keywordtype}{int}\ to,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player1,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player2\ );}
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_aa467a3eaa123b1ce5de6517e44287dbd}{client\_fermeture}}(\textcolor{keywordtype}{int}\ *\ socket);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

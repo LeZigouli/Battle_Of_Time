@@ -1,0 +1,173 @@
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/lib/player.h}
+\hypertarget{player_8h}{}\label{player_8h}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/player.h@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/player.h}}
+
+
+Contient les élements utilisés par les autres fichiers.  
+
+
+{\ttfamily \#include \"{}tab\+\_\+character.\+h\"{}}\newline
+\doxysubsubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structplayer__t}{player\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure représentant un joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{player_8h_a9c99c711a4f99a67c71847a481b84a12}{initplayer}} (int owner)
+\begin{DoxyCompactList}\small\item\em Initialise un joueur avec le nom par défaut \"{}\+Player\+X\"{} et une certaine quantité d\textquotesingle{}XP. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{player_8h_a132d73ef8c30ba0c922a806ab3a3e091}{destroy\+\_\+player}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}player)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour un joueur et ses ressources associées. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{player_8h_a1754363dba948807a45daa2ccd330b3c}{buy\+\_\+character}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}player, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} tab\+\_\+character\mbox{[}\mbox{\hyperlink{common_8h_ac66bbcbd9e9d5a4fcb435b50133ba061}{NB\+\_\+\+AGE}} \texorpdfstring{$\ast$}{*}NB\+\_\+\+CHARACTER\mbox{]}, int new\+Cha)
+\begin{DoxyCompactList}\small\item\em Achète un personnage pour le joueur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{player_8h_a12f5c9045a0c36f411581099cc4e10f2}{envoie\+\_\+char}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}player)
+\begin{DoxyCompactList}\small\item\em Envoie les personnages en attente vers le tableau de personnages possédés. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{player_8h_aa1752b9f5956f8fa08df83d891d6f796}{exist}} (void \texorpdfstring{$\ast$}{*}type)
+\begin{DoxyCompactList}\small\item\em Vérifie si un pointeur donné existe (non NULL). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{player_8h_a7036fb438a4439085772acde3f53dbe5}{get\+\_\+ressources}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}player2)
+\begin{DoxyCompactList}\small\item\em Récupère les ressources (gold et XP) lorsqu\textquotesingle{}un personnage meurt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{player_8h_a7a5513026d33fb2cd6b1413c6a2403f0}{afficher\+\_\+player}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}player)
+\begin{DoxyCompactList}\small\item\em Affiche les informations d\textquotesingle{}un joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les élements utilisés par les autres fichiers. 
+
+\begin{DoxyAuthor}{Auteur}
+Proudy Vincent 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09 févrirer 2024 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{player_8h_a7a5513026d33fb2cd6b1413c6a2403f0}\label{player_8h_a7a5513026d33fb2cd6b1413c6a2403f0} 
+\index{player.h@{player.h}!afficher\_player@{afficher\_player}}
+\index{afficher\_player@{afficher\_player}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{afficher\_player()}{afficher\_player()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} afficher\+\_\+player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{player }\end{DoxyParamCaption})}
+
+
+
+Affiche les informations d\textquotesingle{}un joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player} & Le joueur dont les informations doivent être affichées. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+TRUE si l\textquotesingle{}affichage a réussi, FALSE sinon. 
+\end{DoxyReturn}
+\Hypertarget{player_8h_a1754363dba948807a45daa2ccd330b3c}\label{player_8h_a1754363dba948807a45daa2ccd330b3c} 
+\index{player.h@{player.h}!buy\_character@{buy\_character}}
+\index{buy\_character@{buy\_character}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{buy\_character()}{buy\_character()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} buy\+\_\+character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{player,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}}}]{tab\+\_\+character\mbox{[}\+NB\+\_\+\+AGE \texorpdfstring{$\ast$}{*}\+NB\+\_\+\+CHARACTER\mbox{]},  }\item[{int}]{new\+Cha }\end{DoxyParamCaption})}
+
+
+
+Achète un personnage pour le joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player} & Le joueur qui souhaite acheter un personnage. \\
+\hline
+{\em tab\+\_\+character} & Le tableau de personnages disponibles. \\
+\hline
+{\em new\+Cha} & L\textquotesingle{}index du nouveau personnage à acheter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+TRUE si l\textquotesingle{}achat a réussi, FALSE sinon. 
+\end{DoxyReturn}
+\Hypertarget{player_8h_a132d73ef8c30ba0c922a806ab3a3e091}\label{player_8h_a132d73ef8c30ba0c922a806ab3a3e091} 
+\index{player.h@{player.h}!destroy\_player@{destroy\_player}}
+\index{destroy\_player@{destroy\_player}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{destroy\_player()}{destroy\_player()}}
+{\footnotesize\ttfamily void destroy\+\_\+player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{player }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée pour un joueur et ses ressources associées. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player} & Un pointeur vers le pointeur du joueur à libérer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{player_8h_a12f5c9045a0c36f411581099cc4e10f2}\label{player_8h_a12f5c9045a0c36f411581099cc4e10f2} 
+\index{player.h@{player.h}!envoie\_char@{envoie\_char}}
+\index{envoie\_char@{envoie\_char}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{envoie\_char()}{envoie\_char()}}
+{\footnotesize\ttfamily void envoie\+\_\+char (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{player }\end{DoxyParamCaption})}
+
+
+
+Envoie les personnages en attente vers le tableau de personnages possédés. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player} & Le joueur dont les personnages doivent être envoyés. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{player_8h_aa1752b9f5956f8fa08df83d891d6f796}\label{player_8h_aa1752b9f5956f8fa08df83d891d6f796} 
+\index{player.h@{player.h}!exist@{exist}}
+\index{exist@{exist}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{exist()}{exist()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} exist (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{type }\end{DoxyParamCaption})}
+
+
+
+Vérifie si un pointeur donné existe (non NULL). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em type} & Le pointeur à vérifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+TRUE si le pointeur existe, FALSE sinon. 
+\end{DoxyReturn}
+\Hypertarget{player_8h_a7036fb438a4439085772acde3f53dbe5}\label{player_8h_a7036fb438a4439085772acde3f53dbe5} 
+\index{player.h@{player.h}!get\_ressources@{get\_ressources}}
+\index{get\_ressources@{get\_ressources}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{get\_ressources()}{get\_ressources()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} get\+\_\+ressources (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{player1,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{player2 }\end{DoxyParamCaption})}
+
+
+
+Récupère les ressources (gold et XP) lorsqu\textquotesingle{}un personnage meurt. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player1} & Le premier joueur. \\
+\hline
+{\em player2} & Le deuxième joueur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+TRUE si la récupération des ressources a réussi, FALSE sinon. 
+\end{DoxyReturn}
+\Hypertarget{player_8h_a9c99c711a4f99a67c71847a481b84a12}\label{player_8h_a9c99c711a4f99a67c71847a481b84a12} 
+\index{player.h@{player.h}!initplayer@{initplayer}}
+\index{initplayer@{initplayer}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{initplayer()}{initplayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*} initplayer (\begin{DoxyParamCaption}\item[{int}]{owner }\end{DoxyParamCaption})}
+
+
+
+Initialise un joueur avec le nom par défaut \"{}\+Player\+X\"{} et une certaine quantité d\textquotesingle{}XP. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em owner} & Identifiant du propriétaire du joueur (OWNER\+\_\+1 ou OWNER\+\_\+2). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un pointeur vers le joueur initialisé ou NULL en cas d\textquotesingle{}échec. 
+\end{DoxyReturn}

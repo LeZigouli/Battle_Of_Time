@@ -1,8 +1,9 @@
 /**
  * \file affichage_jeu.h
- * \brief Contient les élements utilisé par le affichage_jeu.c
+ * \brief Contient les élements utilisés par le affichage_jeu.c
  * \author Poirier Victor
  * \date 09 févrirer 2024
+ * \version 1.0
  * 
 */
 #ifndef _JEU_AFF_H_

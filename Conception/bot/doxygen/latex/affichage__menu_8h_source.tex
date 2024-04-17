@@ -3,45 +3,45 @@
 \mbox{\hyperlink{affichage__menu_8h}{Aller à la documentation de ce fichier.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ \_MENU\_AFF\_H\_}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ \_MENU\_AFF\_H\_}}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{comment}{/**************/}}
-\DoxyCodeLine{00012\ \textcolor{comment}{/*-\/-\/Includes-\/-\/*/}}
-\DoxyCodeLine{00013\ \textcolor{comment}{/**************/}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{commun__SDL_8h}{commun\_SDL.h}}"{}}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}gestion.h"{}}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}player.h"{}}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}ordinateur.h"{}}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}../socket/serveur.h"{}}}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{comment}{/***************/}}
-\DoxyCodeLine{00021\ \textcolor{comment}{/*-\/-\/Fonctions-\/-\/*/}}
-\DoxyCodeLine{00022\ \textcolor{comment}{/***************/}}
-\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a9a30a229fe15bbf113dde51914cfa338}{affichage}}(etat\_t\ etat,\ \textcolor{keywordtype}{int}*\ etatAge,\ SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police\ ,\ TTF\_Font*\ police\_texte,\ }
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ menuX,\ \textcolor{keywordtype}{int}\ menuY,\ \mbox{\hyperlink{structelement__t}{element\_t}}*\ elm\_reso,\ \textcolor{keywordtype}{int}*\ selecElement,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ effet,\ \textcolor{keywordtype}{char}*\ textInput,\ }
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ isValid,\ \textcolor{keywordtype}{int}*\ keyCounts,\ SDL\_Texture*\ parametre,\ SDL\_Texture*\ gold,\ SDL\_Texture*\ xp,}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ prehistoire,\ SDL\_Texture*\ antiquite,\ SDL\_Texture*\ moyen\_age,}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ moderne,\ SDL\_Texture*\ futuriste,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ joueur,\ SDL\_Texture**\ sprite\_hud,\ SDL\_Texture*\ upgrade,}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structordi__t}{ordi\_t}}*\ ordi,\ \textcolor{keywordtype}{int}*\ cameraX,\ \textcolor{keywordtype}{int}*\ cameraY,\ SDL\_Texture*\ ultim,\ SDL\_Texture*\ building[],\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gestion_8c_afecde47e916a8831710f18286b346ed8}{fin\_partie}},\ SDL\_Texture\ *\ win,\ }
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ *\ lose,\ \mbox{\hyperlink{structcharacter__s}{character\_t}}*\ tab\_charactere,\ \textcolor{keywordtype}{int}\ survol);}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_ab3803cc70b7009b9ce07f791df15977b}{afficherMenu}}(SDL\_Renderer*\ rendu,\ TTF\_Font*\ police,\ SDL\_Window*\ fenetre,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur);}
-\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a6a859b475bacc2b8d4b63fe638a9ed62}{afficherSousMenu}}(SDL\_Renderer*\ rendu,\ TTF\_Font*\ police,\ SDL\_Window*\ fenetre,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte2,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte3,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte4);}
-\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a9a6f0534c73c251060d09baf83cc134f}{afficherSousMenuResolution}}(SDL\_Renderer*\ rendu,\ TTF\_Font*\ police,\ SDL\_Window*\ fenetre);}
-\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_ad3807074a946be85ba3f6c5858abe487}{afficherTitre}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur);}
-\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a288065efb139b60752ba45973eceb148}{initElements}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ \mbox{\hyperlink{structelement__t}{element\_t}}*\ elm\_reso);}
-\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a629a2a5eb7bd5e1835d38a3801145a14}{resolution}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre\ ,\ TTF\_Font*\ police,\ \mbox{\hyperlink{structelement__t}{element\_t}}*\ elm\_reso,\ \textcolor{keywordtype}{int}*\ selecElement);}
-\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a2f1009327e38c74ea5accabdf5d745ba}{afficherSousMenuCredits}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police);}
-\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_ac46f63bde9c78a0c1c2aeabf71091daa}{afficherSousMenuOption}}(SDL\_Renderer*\ rendu,\ TTF\_Font*\ police,\ SDL\_Window*\ fenetre,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte2,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte3);}
-\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a68f1fbe86fd1df022bef8a61eb3bf1df}{afficherSousMenuSon}}(SDL\_Renderer*\ rendu,\ TTF\_Font*\ police,\ SDL\_Window*\ fenetre,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte);}
-\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a33cc099eeaa7aaf9c0308ce72a3bbae5}{afficherSousMenuJouer}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police);}
-\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a21663b3145f16d13b891e5229d4bbca1}{afficherSousMenuSolo}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police);}
-\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_ae5492d293f1ce667af9869336b29e50f}{afficherSousMenuEnLigne}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police);}
-\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_aa2e7999d606400a4babe9d37ddbf686b}{afficherSousMenuRejoindre}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police,\ \textcolor{keywordtype}{char}*\ textInput,\ \textcolor{keywordtype}{int}*\ isValid,\ \textcolor{keywordtype}{int}*\ keyCounts);}
-\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a86cd81986d513fe9ba13c59898d8751a}{afficherSousMenuDifficulte}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police);}
-\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a9394c47a086b2a8c72c39fdddab0fefb}{afficherSousMenuCreer}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police);}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ \_MENU\_AFF\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ \_MENU\_AFF\_H\_}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{/**************/}}
+\DoxyCodeLine{00013\ \textcolor{comment}{/*-\/-\/Includes-\/-\/*/}}
+\DoxyCodeLine{00014\ \textcolor{comment}{/**************/}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{commun__SDL_8h}{commun\_SDL.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gestion_8h}{gestion.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{player_8h}{player.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}ordinateur.h"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}../socket/serveur.h"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/***************/}}
+\DoxyCodeLine{00022\ \textcolor{comment}{/*-\/-\/Fonctions-\/-\/*/}}
+\DoxyCodeLine{00023\ \textcolor{comment}{/***************/}}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a9a30a229fe15bbf113dde51914cfa338}{affichage}}(etat\_t\ etat,\ \textcolor{keywordtype}{int}*\ etatAge,\ SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police\ ,\ TTF\_Font*\ police\_texte,\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ menuX,\ \textcolor{keywordtype}{int}\ menuY,\ \mbox{\hyperlink{structelement__t}{element\_t}}*\ elm\_reso,\ \textcolor{keywordtype}{int}*\ selecElement,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ effet,\ \textcolor{keywordtype}{char}*\ textInput,\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ isValid,\ \textcolor{keywordtype}{int}*\ keyCounts,\ SDL\_Texture*\ parametre,\ SDL\_Texture*\ gold,\ SDL\_Texture*\ xp,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ prehistoire,\ SDL\_Texture*\ antiquite,\ SDL\_Texture*\ moyen\_age,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ moderne,\ SDL\_Texture*\ futuriste,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ joueur,\ SDL\_Texture**\ sprite\_hud,\ SDL\_Texture*\ upgrade,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structordi__t}{ordi\_t}}*\ ordi,\ \textcolor{keywordtype}{int}*\ cameraX,\ \textcolor{keywordtype}{int}*\ cameraY,\ SDL\_Texture*\ ultim,\ SDL\_Texture*\ building[],\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gestion_8c_afecde47e916a8831710f18286b346ed8}{fin\_partie}},\ SDL\_Texture\ *\ win,\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ *\ lose,\ \mbox{\hyperlink{structcharacter__s}{character\_t}}*\ tab\_charactere,\ \textcolor{keywordtype}{int}\ survol);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_ab3803cc70b7009b9ce07f791df15977b}{afficherMenu}}(SDL\_Renderer*\ rendu,\ TTF\_Font*\ police,\ SDL\_Window*\ fenetre,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur);}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a6a859b475bacc2b8d4b63fe638a9ed62}{afficherSousMenu}}(SDL\_Renderer*\ rendu,\ TTF\_Font*\ police,\ SDL\_Window*\ fenetre,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte2,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte3,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte4);}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a9a6f0534c73c251060d09baf83cc134f}{afficherSousMenuResolution}}(SDL\_Renderer*\ rendu,\ TTF\_Font*\ police,\ SDL\_Window*\ fenetre);}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_ad3807074a946be85ba3f6c5858abe487}{afficherTitre}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur);}
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a288065efb139b60752ba45973eceb148}{initElements}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ \mbox{\hyperlink{structelement__t}{element\_t}}*\ elm\_reso);}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a629a2a5eb7bd5e1835d38a3801145a14}{resolution}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre\ ,\ TTF\_Font*\ police,\ \mbox{\hyperlink{structelement__t}{element\_t}}*\ elm\_reso,\ \textcolor{keywordtype}{int}*\ selecElement);}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a2f1009327e38c74ea5accabdf5d745ba}{afficherSousMenuCredits}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police);}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_ac46f63bde9c78a0c1c2aeabf71091daa}{afficherSousMenuOption}}(SDL\_Renderer*\ rendu,\ TTF\_Font*\ police,\ SDL\_Window*\ fenetre,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte2,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte3);}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a68f1fbe86fd1df022bef8a61eb3bf1df}{afficherSousMenuSon}}(SDL\_Renderer*\ rendu,\ TTF\_Font*\ police,\ SDL\_Window*\ fenetre,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte);}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a33cc099eeaa7aaf9c0308ce72a3bbae5}{afficherSousMenuJouer}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police);}
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a21663b3145f16d13b891e5229d4bbca1}{afficherSousMenuSolo}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police);}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_ae5492d293f1ce667af9869336b29e50f}{afficherSousMenuEnLigne}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police);}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_aa2e7999d606400a4babe9d37ddbf686b}{afficherSousMenuRejoindre}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police,\ \textcolor{keywordtype}{char}*\ textInput,\ \textcolor{keywordtype}{int}*\ isValid,\ \textcolor{keywordtype}{int}*\ keyCounts);}
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a86cd81986d513fe9ba13c59898d8751a}{afficherSousMenuDifficulte}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police);}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a9394c47a086b2a8c72c39fdddab0fefb}{afficherSousMenuCreer}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

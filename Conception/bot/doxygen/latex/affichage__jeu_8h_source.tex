@@ -3,51 +3,51 @@
 \mbox{\hyperlink{affichage__jeu_8h}{Aller à la documentation de ce fichier.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ \_JEU\_AFF\_H\_}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ \_JEU\_AFF\_H\_}}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{comment}{/**************/}}
-\DoxyCodeLine{00012\ \textcolor{comment}{/*-\/-\/Includes-\/-\/*/}}
-\DoxyCodeLine{00013\ \textcolor{comment}{/**************/}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{commun__SDL_8h}{commun\_SDL.h}}"{}}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{affichage__menu_8h}{affichage\_menu.h}}"{}}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}player.h"{}}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}ordinateur.h"{}}}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{comment}{/***************/}}
-\DoxyCodeLine{00020\ \textcolor{comment}{/*-\/-\/Fonctions-\/-\/*/}}
-\DoxyCodeLine{00021\ \textcolor{comment}{/***************/}}
-\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a59d4033fee0e61f041281632b8362dfc}{afficherHUD}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police\_texte,\ SDL\_Texture*\ parametre,\ }
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ upgrade,\ SDL\_Texture*\ gold,\ SDL\_Texture*\ xp,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ joueur,\ SDL\_Texture*\ sprite\_hud[],}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ ultim,\ \textcolor{keywordtype}{int}\ age);}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_ad153730c419b8c96be63f4a4b979cef9}{afficherJeuFond}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ SDL\_Texture*\ fond\_jeu,\ \textcolor{keywordtype}{int}*\ cameraX,\ \textcolor{keywordtype}{int}*\ cameraY);}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a01b45288db7ab79d1ffec97752b5a0ae}{gestionAffichageFondJeu}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ \textcolor{keywordtype}{int}*\ etatAge,\ }
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ prehistoire,\ SDL\_Texture*\ antiquite,\ SDL\_Texture*\ moyen\_age,}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ moderne,\ SDL\_Texture*\ futuriste,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ j1,\ \mbox{\hyperlink{structordi__t}{ordi\_t}}*\ o,}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ cameraX,\ \textcolor{keywordtype}{int}*\ cameraY);}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a3a2f821ce279cefaa254f9b75e865655}{afficherOptionJeu}}(SDL\_Renderer*\ rendu,\ TTF\_Font*\ police,\ SDL\_Window*\ fenetre);}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a414a9839418aa5edb062bc2b55011e50}{img\_charactere\_inser}}(\mbox{\hyperlink{structtab__charactere__s}{tab\_charactere\_t}}\ *\ characters,\ \textcolor{keywordtype}{int}\ age,\ SDL\_Texture*\ img\_c[],\ SDL\_Texture*\ tab[]);}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a5e38dbe527ab6a105dcfa879c1fe3517}{affichageSprite}}(SDL\_Renderer*\ rendu,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ j1,\ \mbox{\hyperlink{structordi__t}{ordi\_t}}*\ o,\ SDL\_Rect*\ playerImg,\ SDL\_Rect*\ ordiImg,\ \textcolor{keywordtype}{int}\ attaque,}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ playerPosition[],\ SDL\_Rect\ ordiPosition[],\ \textcolor{keywordtype}{int}*\ ancien\_lvl,\ \mbox{\hyperlink{structcharacter__s}{character\_t}}*\ tab\_de\_charactere,}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ image[],\ SDL\_Texture*\ img\_char[],\ SDL\_Texture*\ img\_c\_ordi[],\ Uint32\ currentTime,\ Uint32*\ lastMovement,}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}*\ cameraX,\ \textcolor{keywordtype}{int}*\ cameraY);}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a0fa35d2337ca4c0e6ade4c3e56ac76e4}{affichageBulding}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ SDL\_Texture*\ building[],}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cameraX,\ \textcolor{keywordtype}{int}\ cameraY,\ \textcolor{keywordtype}{int}\ joueur\_level,\ \textcolor{keywordtype}{int}\ ordi\_level);}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a39ae4b55db4b8bebd3c27caa8344e69d}{affichagePointDeVie}}(SDL\_Renderer\ *\ rendu,\ TTF\_Font\ *\ font,\ \textcolor{keywordtype}{int}\ pointsDeVie\_1,\ \textcolor{keywordtype}{int}\ pointsDeVie\_2,\ SDL\_Window*\ fenetre,\ \textcolor{keywordtype}{int}\ cameraX,\ \textcolor{keywordtype}{int}\ cameraY);}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a9a29ab1ff4cc4f085a3208b4d0b8e839}{affichage\_gagnant}}(\ SDL\_Renderer\ *\ rendu,\ TTF\_Font\ *\ font,\ \textcolor{keywordtype}{int}\ choix\ ,SDL\_Window*\ fenetre,\ \textcolor{keywordtype}{int}\ cameraX,\ \textcolor{keywordtype}{int}\ cameraY,\ SDL\_Texture\ *\ win,\ SDL\_Texture\ *\ lose\ );}
-\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ \_JEU\_AFF\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ \_JEU\_AFF\_H\_}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{/**************/}}
+\DoxyCodeLine{00013\ \textcolor{comment}{/*-\/-\/Includes-\/-\/*/}}
+\DoxyCodeLine{00014\ \textcolor{comment}{/**************/}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{commun__SDL_8h}{commun\_SDL.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{affichage__menu_8h}{affichage\_menu.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{player_8h}{player.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}ordinateur.h"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{/***************/}}
+\DoxyCodeLine{00021\ \textcolor{comment}{/*-\/-\/Fonctions-\/-\/*/}}
+\DoxyCodeLine{00022\ \textcolor{comment}{/***************/}}
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a59d4033fee0e61f041281632b8362dfc}{afficherHUD}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police\_texte,\ SDL\_Texture*\ parametre,\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ upgrade,\ SDL\_Texture*\ gold,\ SDL\_Texture*\ xp,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ joueur,\ SDL\_Texture*\ sprite\_hud[],}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ ultim,\ \textcolor{keywordtype}{int}\ age);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_ad153730c419b8c96be63f4a4b979cef9}{afficherJeuFond}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ SDL\_Texture*\ fond\_jeu,\ \textcolor{keywordtype}{int}*\ cameraX,\ \textcolor{keywordtype}{int}*\ cameraY);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a01b45288db7ab79d1ffec97752b5a0ae}{gestionAffichageFondJeu}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ \textcolor{keywordtype}{int}*\ etatAge,\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ prehistoire,\ SDL\_Texture*\ antiquite,\ SDL\_Texture*\ moyen\_age,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ moderne,\ SDL\_Texture*\ futuriste,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ j1,\ \mbox{\hyperlink{structordi__t}{ordi\_t}}*\ o,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ cameraX,\ \textcolor{keywordtype}{int}*\ cameraY);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a3a2f821ce279cefaa254f9b75e865655}{afficherOptionJeu}}(SDL\_Renderer*\ rendu,\ TTF\_Font*\ police,\ SDL\_Window*\ fenetre);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a414a9839418aa5edb062bc2b55011e50}{img\_charactere\_inser}}(\mbox{\hyperlink{structtab__charactere__s}{tab\_charactere\_t}}\ *\ characters,\ \textcolor{keywordtype}{int}\ age,\ SDL\_Texture*\ img\_c[],\ SDL\_Texture*\ tab[]);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a5e38dbe527ab6a105dcfa879c1fe3517}{affichageSprite}}(SDL\_Renderer*\ rendu,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ j1,\ \mbox{\hyperlink{structordi__t}{ordi\_t}}*\ o,\ SDL\_Rect*\ playerImg,\ SDL\_Rect*\ ordiImg,\ \textcolor{keywordtype}{int}\ attaque,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ playerPosition[],\ SDL\_Rect\ ordiPosition[],\ \textcolor{keywordtype}{int}*\ ancien\_lvl,\ \mbox{\hyperlink{structcharacter__s}{character\_t}}*\ tab\_de\_charactere,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ image[],\ SDL\_Texture*\ img\_char[],\ SDL\_Texture*\ img\_c\_ordi[],\ Uint32\ currentTime,\ Uint32*\ lastMovement,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}*\ cameraX,\ \textcolor{keywordtype}{int}*\ cameraY);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a0fa35d2337ca4c0e6ade4c3e56ac76e4}{affichageBulding}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ SDL\_Texture*\ building[],}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cameraX,\ \textcolor{keywordtype}{int}\ cameraY,\ \textcolor{keywordtype}{int}\ joueur\_level,\ \textcolor{keywordtype}{int}\ ordi\_level);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a39ae4b55db4b8bebd3c27caa8344e69d}{affichagePointDeVie}}(SDL\_Renderer\ *\ rendu,\ TTF\_Font\ *\ font,\ \textcolor{keywordtype}{int}\ pointsDeVie\_1,\ \textcolor{keywordtype}{int}\ pointsDeVie\_2,\ SDL\_Window*\ fenetre,\ \textcolor{keywordtype}{int}\ cameraX,\ \textcolor{keywordtype}{int}\ cameraY);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a9a29ab1ff4cc4f085a3208b4d0b8e839}{affichage\_gagnant}}(\ SDL\_Renderer\ *\ rendu,\ TTF\_Font\ *\ font,\ \textcolor{keywordtype}{int}\ choix\ ,SDL\_Window*\ fenetre,\ \textcolor{keywordtype}{int}\ cameraX,\ \textcolor{keywordtype}{int}\ cameraY,\ SDL\_Texture\ *\ win,\ SDL\_Texture\ *\ lose\ );}
 \DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a06bf022bbf2551e60dd99916a5fe5cf0}{affichageSurvolSouris}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police,\ \textcolor{keywordtype}{int}\ survol,\ \mbox{\hyperlink{structcharacter__s}{character\_t}}*\ tab\_charactere,\ }
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ age,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ joueur);}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__jeu_8h_a06bf022bbf2551e60dd99916a5fe5cf0}{affichageSurvolSouris}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police,\ \textcolor{keywordtype}{int}\ survol,\ \mbox{\hyperlink{structcharacter__s}{character\_t}}*\ tab\_charactere,\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ age,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ joueur);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

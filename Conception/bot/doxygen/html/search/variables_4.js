@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hostaddr_0',['hostAddr',['../client_8h.html#a2b7285561617d39b08c42119caeed532',1,'client.h']]]
+  ['file_5fattente_0',['file_attente',['../structplayer__t.html#aa575d3048df6a5e1e79df680308a3518',1,'player_t']]],
+  ['fin_1',['fin',['../structplayer__t.html#a5bfc5d2b9664c3e7241efd6a6cc24179',1,'player_t']]]
 ];

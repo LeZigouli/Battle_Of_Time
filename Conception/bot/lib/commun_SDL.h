@@ -1,8 +1,9 @@
 /**
  * \file commun_SDL.h
- * \brief Contient les élements utilisé par les autres fichiers SDL
+ * \brief Contient les élements utilisés par les autres fichiers SDL
  * \author Poirier Victor
  * \date 09 févrirer 2024
+ * \version 1.0
  * 
 */
 #ifndef _COMMUN_H_

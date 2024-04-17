@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Battle of Time: Référence du fichier /info/etu/l2info/s2205576/Documents/Projet/Battle_Of_Time/Conception/bot/lib/save.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Battle of Time
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier save.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contient les élements utilisés pour sauvegarder et charger une partie depuis un fichier.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;ordinateur.h&quot;</code><br />
+</div>
+<p><a href="save_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ad48aa3f829ba28f16d8b26bfb8348aa1"><td class="memItemLeft" align="right" valign="top"><a id="ad48aa3f829ba28f16d8b26bfb8348aa1" name="ad48aa3f829ba28f16d8b26bfb8348aa1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_SAVE</b>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:ad48aa3f829ba28f16d8b26bfb8348aa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c932c8bd00fb45986d6bc9c3d608630"><td class="memItemLeft" align="right" valign="top"><a id="a3c932c8bd00fb45986d6bc9c3d608630" name="a3c932c8bd00fb45986d6bc9c3d608630"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FICHIER_1</b>&#160;&#160;&#160;&quot;save/save1.txt&quot;</td></tr>
+<tr class="separator:a3c932c8bd00fb45986d6bc9c3d608630"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a7f57dea5a542c886c1056950f2324b"><td class="memItemLeft" align="right" valign="top"><a id="a2a7f57dea5a542c886c1056950f2324b" name="a2a7f57dea5a542c886c1056950f2324b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FICHIER_2</b>&#160;&#160;&#160;&quot;save/save2.txt&quot;</td></tr>
+<tr class="separator:a2a7f57dea5a542c886c1056950f2324b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:acc784b5e515ee21674bd4707029d32f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="save_8h.html#acc784b5e515ee21674bd4707029d32f2">save</a> (<a class="el" href="structordi__t.html">ordi_t</a> *ordi, <a class="el" href="structplayer__t.html">player_t</a> *player)</td></tr>
+<tr class="memdesc:acc784b5e515ee21674bd4707029d32f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde le joueur et l'ordinateur dans un fichier.  <br /></td></tr>
+<tr class="separator:acc784b5e515ee21674bd4707029d32f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4e5da4339c45779c84631172acbf87a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="save_8h.html#aa4e5da4339c45779c84631172acbf87a">load</a> (<a class="el" href="structordi__t.html">ordi_t</a> **ordi, <a class="el" href="structplayer__t.html">player_t</a> **player, <a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *tab)</td></tr>
+<tr class="memdesc:aa4e5da4339c45779c84631172acbf87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge le joueur et l'ordinateur depuis un fichier.  <br /></td></tr>
+<tr class="separator:aa4e5da4339c45779c84631172acbf87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Contient les élements utilisés pour sauvegarder et charger une partie depuis un fichier. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Proudy Vincent </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>09 févrirer 2024 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aa4e5da4339c45779c84631172acbf87a" name="aa4e5da4339c45779c84631172acbf87a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4e5da4339c45779c84631172acbf87a">&#9670;&#160;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> load </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structordi__t.html">ordi_t</a> **&#160;</td>
+          <td class="paramname"><em>ordi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> **&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *&#160;</td>
+          <td class="paramname"><em>tab</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge le joueur et l'ordinateur depuis un fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ordi</td><td>Un pointeur vers le pointeur de l'ordinateur. </td></tr>
+    <tr><td class="paramname">player</td><td>Un pointeur vers le pointeur du joueur. </td></tr>
+    <tr><td class="paramname">tab</td><td>Un tableau de personnages. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>TRUE si le chargement réussit, FALSE sinon. </dd></dl>
+
+</div>
+</div>
+<a id="acc784b5e515ee21674bd4707029d32f2" name="acc784b5e515ee21674bd4707029d32f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc784b5e515ee21674bd4707029d32f2">&#9670;&#160;</a></span>save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> save </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structordi__t.html">ordi_t</a> *&#160;</td>
+          <td class="paramname"><em>ordi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sauvegarde le joueur et l'ordinateur dans un fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ordi</td><td>L'ordinateur à sauvegarder. </td></tr>
+    <tr><td class="paramname">player</td><td>Le joueur à sauvegarder. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>TRUE si la sauvegarde réussit, FALSE sinon. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

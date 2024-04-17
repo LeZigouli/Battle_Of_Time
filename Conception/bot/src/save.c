@@ -3,6 +3,7 @@
  * \brief Contient les fonctions pour sauvegarder / charger une partie depuis un fichier.
  * \author Proudy Vincent
  * \date 10 avril 2024
+ * \version 1.0
  */
 
 #include "../lib/save.h"

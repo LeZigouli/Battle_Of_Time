@@ -3,7 +3,7 @@
  * \brief Contient les fonctions d'affichages du menu
  * \author Poirier Victor
  * \date 09 févrirer 2024
- * 
+ * \version 1.0
  * 
 */
 #include "../lib/affichage_menu.h"

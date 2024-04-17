@@ -6,35 +6,33 @@
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ \_ORDINATEUR\_H\_}}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ \_ORDINATEUR\_H\_}}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}player.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{player_8h}{player.h}}"{}}}
 \DoxyCodeLine{00013\ }
 \DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ MAX\_DELAI\ 15\ }\textcolor{comment}{/*en\ secondes*/}\textcolor{preprocessor}{}}
 \DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ MIN\_DELAI\ 1}}
 \DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ MAX\_DELAI\_ULTI\ 900\ }\textcolor{comment}{/*\ 15\ min*/}\textcolor{preprocessor}{}}
 \DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ MIN\_DELAI\_ULTI\ 300\ }\textcolor{comment}{/*\ \ 5\ min*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#}}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
-\DoxyCodeLine{00021\ \{}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ owner;}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ difficulte;}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ delai;}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ xp;}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ delai\_ulti;}
-\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{structtab__charactere__s}{tab\_charactere\_t}}\ *\ characters;}
-\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{structbuilding__s}{building\_t}}\ *\ building;}
-\DoxyCodeLine{00029\ \}\mbox{\hyperlink{structordi__t}{ordi\_t}};}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \mbox{\hyperlink{structordi__t}{ordi\_t}}\ *\ \mbox{\hyperlink{ordinateur_8c_a0acb231d85a79a697c62073722309647}{init\_ordi}}();}
-\DoxyCodeLine{00032\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{ordinateur_8c_a3438fbd124e38ab6181d7a4fc25e8779}{detr\_ordi}}(\mbox{\hyperlink{structordi__t}{ordi\_t}}\ **\ ordi);}
-\DoxyCodeLine{00033\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{ordinateur_8c_a7c1e79bdba10728dbfa96530c50536ef}{envoie\_char\_ordi}}(\mbox{\hyperlink{structordi__t}{ordi\_t}}\ *\ ordi,\ \mbox{\hyperlink{structcharacter__s}{character\_t}}\ *\ tab);}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\_t}}\ \mbox{\hyperlink{ordinateur_8c_a35b7da43c64d1b7fa173d5b0b428a3b6}{give\_ressources}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player,\mbox{\hyperlink{structordi__t}{ordi\_t}}\ *\ ordi);}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ordinateur_8c_a69db7561d87003dc4dd6b24ee77cacd0}{afficher\_ordi}}(\mbox{\hyperlink{structordi__t}{ordi\_t}}\ *\ ordi);}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ordinateur_8c_a417bab5865bee010dddf89737dfe099b}{jeu\_ordi}}(\mbox{\hyperlink{structordi__t}{ordi\_t}}\ *\ o,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ p,\ \mbox{\hyperlink{structcharacter__s}{character\_t}}\ *\ tab);}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structordi__t_ab94af349484c27ebd7567be44b8231ca}{owner}};\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structordi__t_a6b02a2b0b5cf85760c1fea90000ece15}{difficulte}};\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structordi__t_a031f787a185a04bc57325b81fd7c6aee}{delai}};\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structordi__t_a69b793472bd01ee64bc9bc6d7427ad6d}{xp}};\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structordi__t_ac1b4ff22402250156feeaa969c76fad4}{delai\_ulti}};\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{structtab__charactere__s}{tab\_charactere\_t}}\ *\ \mbox{\hyperlink{structordi__t_a7c7a942e0753b85ec2123e4dd977ab3d}{characters}};\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{structbuilding__s}{building\_t}}\ *\ \mbox{\hyperlink{structordi__t_a6928925fd84b3ae25bc884605bb8d956}{building}};\ }
+\DoxyCodeLine{00030\ \}\ \mbox{\hyperlink{structordi__t}{ordi\_t}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \mbox{\hyperlink{structordi__t}{ordi\_t}}\ *\ \mbox{\hyperlink{ordinateur_8c_a0acb231d85a79a697c62073722309647}{init\_ordi}}();}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{ordinateur_8c_a3438fbd124e38ab6181d7a4fc25e8779}{detr\_ordi}}(\mbox{\hyperlink{structordi__t}{ordi\_t}}\ **\ ordi);}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{ordinateur_8c_a7c1e79bdba10728dbfa96530c50536ef}{envoie\_char\_ordi}}(\mbox{\hyperlink{structordi__t}{ordi\_t}}\ *\ ordi,\ \mbox{\hyperlink{structcharacter__s}{character\_t}}\ *\ tab);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\_t}}\ \mbox{\hyperlink{ordinateur_8c_a35b7da43c64d1b7fa173d5b0b428a3b6}{give\_ressources}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player,\mbox{\hyperlink{structordi__t}{ordi\_t}}\ *\ ordi);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ordinateur_8c_a69db7561d87003dc4dd6b24ee77cacd0}{afficher\_ordi}}(\mbox{\hyperlink{structordi__t}{ordi\_t}}\ *\ ordi);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ordinateur_8c_a417bab5865bee010dddf89737dfe099b}{jeu\_ordi}}(\mbox{\hyperlink{structordi__t}{ordi\_t}}\ *\ o,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ p,\ \mbox{\hyperlink{structcharacter__s}{character\_t}}\ *\ tab);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

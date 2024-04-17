@@ -2,7 +2,7 @@
 \hypertarget{affichage__jeu_8h}{}\label{affichage__jeu_8h}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/affichage\_jeu.h@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/affichage\_jeu.h}}
 
 
-Contient les élements utilisé par le \doxylink{affichage__jeu_8c}{affichage\+\_\+jeu.\+c}.  
+Contient les élements utilisés par le \doxylink{affichage__jeu_8c}{affichage\+\_\+jeu.\+c}.  
 
 
 {\ttfamily \#include \"{}commun\+\_\+\+SDL.\+h\"{}}\newline
@@ -20,7 +20,7 @@ void \mbox{\hyperlink{affichage__jeu_8h_a01b45288db7ab79d1ffec97752b5a0ae}{gesti
 \begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}image de fond en fonction de l\textquotesingle{}âge du jeu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage__jeu_8h_a3a2f821ce279cefaa254f9b75e865655}{afficher\+Option\+Jeu}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre)
 \begin{DoxyCompactList}\small\item\em Affiche le menu des options en jeu. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{affichage__jeu_8h_a414a9839418aa5edb062bc2b55011e50}{img\+\_\+charactere\+\_\+inser}} (\mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}characters, int age, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}img\+\_\+c\mbox{[}$\,$\mbox{]}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}tab\mbox{[}$\,$\mbox{]})
+void \mbox{\hyperlink{affichage__jeu_8h_a414a9839418aa5edb062bc2b55011e50}{img\+\_\+charactere\+\_\+inser}} (\mbox{\hyperlink{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}characters, int age, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}img\+\_\+c\mbox{[}$\,$\mbox{]}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}tab\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em Insère les images des personnages en fonction de leur âge dans un tableau. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage__jeu_8h_a5e38dbe527ab6a105dcfa879c1fe3517}{affichage\+Sprite}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}j1, \mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}o, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}player\+Img, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}ordi\+Img, int attaque, SDL\+\_\+\+Rect player\+Position\mbox{[}$\,$\mbox{]}, SDL\+\_\+\+Rect ordi\+Position\mbox{[}$\,$\mbox{]}, int \texorpdfstring{$\ast$}{*}ancien\+\_\+lvl, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}tab\+\_\+de\+\_\+charactere, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}image\mbox{[}$\,$\mbox{]}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}img\+\_\+char\mbox{[}$\,$\mbox{]}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}img\+\_\+c\+\_\+ordi\mbox{[}$\,$\mbox{]}, Uint32 current\+Time, Uint32 \texorpdfstring{$\ast$}{*}last\+Movement, int w, int h, int \texorpdfstring{$\ast$}{*}cameraX, int \texorpdfstring{$\ast$}{*}cameraY)
 \begin{DoxyCompactList}\small\item\em Affiche les sprites des personnages et gère leur déplacement. \end{DoxyCompactList}\item 
@@ -35,7 +35,7 @@ void \mbox{\hyperlink{affichage__jeu_8h_a06bf022bbf2551e60dd99916a5fe5cf0}{affic
 
 
 \doxysubsection{Description détaillée}
-Contient les élements utilisé par le \doxylink{affichage__jeu_8c}{affichage\+\_\+jeu.\+c}. 
+Contient les élements utilisés par le \doxylink{affichage__jeu_8c}{affichage\+\_\+jeu.\+c}. 
 
 \begin{DoxyAuthor}{Auteur}
 Poirier Victor 
@@ -43,6 +43,9 @@ Poirier Victor
 \begin{DoxyDate}{Date}
 09 févrirer 2024 
 \end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
 
 
 \doxysubsection{Documentation des fonctions}
@@ -325,7 +328,7 @@ Affiche l\textquotesingle{}image de fond en fonction de l\textquotesingle{}âge 
 \index{affichage\_jeu.h@{affichage\_jeu.h}!img\_charactere\_inser@{img\_charactere\_inser}}
 \index{img\_charactere\_inser@{img\_charactere\_inser}!affichage\_jeu.h@{affichage\_jeu.h}}
 \doxysubsubsection{\texorpdfstring{img\_charactere\_inser()}{img\_charactere\_inser()}}
-{\footnotesize\ttfamily void img\+\_\+charactere\+\_\+inser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{characters,  }\item[{int}]{age,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{img\+\_\+c\mbox{[}$\,$\mbox{]},  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{tab\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void img\+\_\+charactere\+\_\+inser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{characters,  }\item[{int}]{age,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{img\+\_\+c\mbox{[}$\,$\mbox{]},  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{tab\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
 
 
 

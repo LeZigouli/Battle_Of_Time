@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['level_0',['level',['../structbuilding__s.html#a4e027ebf287fdac9a041b3230e476e2d',1,'building_s']]],
-  ['lg_1',['lg',['../serveur_8h.html#a9c434a7a034140d98c96221b0c908ede',1,'serveur.h']]]
+  ['gold_0',['gold',['../structplayer__t.html#aae7337139d58a4ee0d6b570f80be45ae',1,'player_t']]]
 ];

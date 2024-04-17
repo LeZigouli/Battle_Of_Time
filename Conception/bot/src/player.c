@@ -3,7 +3,7 @@
  * \brief Contient les fonctions principales pour les actions du joueurs
  * \author Proudy Vincent
  * \date 10 avril 2024
- * 
+ * \version 1.0
 */
 #include "../lib/player.h"
 

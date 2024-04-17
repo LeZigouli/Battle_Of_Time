@@ -3,7 +3,7 @@
  * \brief Contient les fonction permettant à l'ordinateur de jouer.
  * \author Roquain Louison
  * \date 09 févrirer 2024
- * 
+ * \version 1.0
  * 
 */
 #include "../lib/ordinateur.h"

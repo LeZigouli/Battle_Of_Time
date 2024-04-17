@@ -1,0 +1,844 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Battle of Time: Référence du fichier /info/etu/l2info/s2205576/Documents/Projet/Battle_Of_Time/Conception/bot/lib/gestion.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Battle of Time
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier gestion.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contient les élements utilisés par <a class="el" href="gestion_8c.html" title="Contient les fonction permettant la gestion des inputs et certaines fonctions pour le deroulement de ...">gestion.c</a>.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="commun__SDL_8h_source.html">commun_SDL.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="affichage__menu_8h_source.html">affichage_menu.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="affichage__jeu_8h_source.html">affichage_jeu.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br />
+<code>#include &quot;ordinateur.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="client_8h_source.html">socket/client.h</a>&quot;</code><br />
+</div>
+<p><a href="gestion_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:aa6f795e72fec0cbc28fee34352b72a61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gestion_8h.html#aa6f795e72fec0cbc28fee34352b72a61">clic</a> (etat_t *etat, SDL_Window *fenetre, SDL_Event evenement, <a class="el" href="structelement__t.html">element_t</a> *elm_reso, Mix_Chunk *click, int mouseX, int mouseY, int w, int h, float widthFactor, float heightFactor, int menuX, int menuY, int *index_effet, int *continuer, int *selecElement, char *effet, int *isValid, const char *textInput, const char *ipPattern, int *textInputActive, int *keyCounts, int x, int y, int *ancienSon, int *ancienReso, <a class="el" href="structplayer__t.html">player_t</a> *j1, <a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *tab_de_charactere, <a class="el" href="structordi__t.html">ordi_t</a> *ordi)</td></tr>
+<tr class="memdesc:aa6f795e72fec0cbc28fee34352b72a61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestion des cliques du menu et du jeu.  <br /></td></tr>
+<tr class="separator:aa6f795e72fec0cbc28fee34352b72a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac337a8b51f748e671103d58d6681aef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gestion_8h.html#aac337a8b51f748e671103d58d6681aef">relachement</a> (etat_t *etat, int menuX, int menuY, int w, int h, float *widthFactor, float *heightFactor, int mouseX, int mouseY)</td></tr>
+<tr class="memdesc:aac337a8b51f748e671103d58d6681aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestion du relâchement du clic de la souris sur les éléments du menu.  <br /></td></tr>
+<tr class="separator:aac337a8b51f748e671103d58d6681aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d6049f47678e0d1b0f288be7d6b00be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gestion_8h.html#a4d6049f47678e0d1b0f288be7d6b00be">deplacement_souris</a> (SDL_Renderer *rendu, SDL_Window *fenetre, TTF_Font *police, Mix_Chunk *music, SDL_Event evenement, float widthFactor, float heightFactor, int etat, <a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *tab_charactere, int *survol)</td></tr>
+<tr class="memdesc:a4d6049f47678e0d1b0f288be7d6b00be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestion du déplacement de la souris sur les éléments du menu.  <br /></td></tr>
+<tr class="separator:a4d6049f47678e0d1b0f288be7d6b00be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac74f14b7098bd75c31accd40fb403717"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gestion_8h.html#ac74f14b7098bd75c31accd40fb403717">destruction</a> (int *selecElement, int *index_effet, int *continuer, etat_t *etat, float *widthFactor, float *heightFactor, int *textInputActive, int *isValid, int *keyCounts, int *ancien, int *etatAge, int *ancienSon)</td></tr>
+<tr class="memdesc:ac74f14b7098bd75c31accd40fb403717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de destruction des variables pour le menu.  <br /></td></tr>
+<tr class="separator:ac74f14b7098bd75c31accd40fb403717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78a065eeb4d024efdafada7c4ca943bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gestion_8h.html#a78a065eeb4d024efdafada7c4ca943bf">touches</a> (SDL_Event evenement, int *textInputActive, int *keyCounts, int *isValid, char *textInput, const char *ipPattern, int *valide)</td></tr>
+<tr class="memdesc:a78a065eeb4d024efdafada7c4ca943bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère les événements liés à la saisie de texte.  <br /></td></tr>
+<tr class="separator:a78a065eeb4d024efdafada7c4ca943bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac239fb306e5ce712edf5ebe8bdd6d738"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gestion_8h.html#ac239fb306e5ce712edf5ebe8bdd6d738">validateRegex</a> (const char *input, const char *pattern)</td></tr>
+<tr class="memdesc:ac239fb306e5ce712edf5ebe8bdd6d738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction pour vérifier si une chaîne de caractères respecte une expression régulière.  <br /></td></tr>
+<tr class="separator:ac239fb306e5ce712edf5ebe8bdd6d738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a744bce58ae8a8ae036c76e91129a1202"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gestion_8h.html#a744bce58ae8a8ae036c76e91129a1202">reinitialiser_partie</a> (<a class="el" href="structplayer__t.html">player_t</a> **player, <a class="el" href="structordi__t.html">ordi_t</a> **ordi)</td></tr>
+<tr class="memdesc:a744bce58ae8a8ae036c76e91129a1202"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réinitialise la partie en libérant la mémoire allouée.  <br /></td></tr>
+<tr class="separator:a744bce58ae8a8ae036c76e91129a1202"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afecde47e916a8831710f18286b346ed8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gestion_8h.html#afecde47e916a8831710f18286b346ed8">fin_partie</a> (<a class="el" href="structplayer__t.html">player_t</a> *player, <a class="el" href="structordi__t.html">ordi_t</a> *ordi, <a class="el" href="structplayer__t.html">player_t</a> *player_online, int etat)</td></tr>
+<tr class="memdesc:afecde47e916a8831710f18286b346ed8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détermine l'issue de la partie.  <br /></td></tr>
+<tr class="separator:afecde47e916a8831710f18286b346ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Contient les élements utilisés par <a class="el" href="gestion_8c.html" title="Contient les fonction permettant la gestion des inputs et certaines fonctions pour le deroulement de ...">gestion.c</a>. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Poirier Victor </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>09 févrirer 2024 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aa6f795e72fec0cbc28fee34352b72a61" name="aa6f795e72fec0cbc28fee34352b72a61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6f795e72fec0cbc28fee34352b72a61">&#9670;&#160;</a></span>clic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clic </td>
+          <td>(</td>
+          <td class="paramtype">etat_t *&#160;</td>
+          <td class="paramname"><em>etat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Event&#160;</td>
+          <td class="paramname"><em>evenement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structelement__t.html">element_t</a> *&#160;</td>
+          <td class="paramname"><em>elm_reso</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mix_Chunk *&#160;</td>
+          <td class="paramname"><em>click</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mouseX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mouseY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>widthFactor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>heightFactor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>menuX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>menuY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>index_effet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>continuer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>selecElement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>effet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>isValid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>textInput</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ipPattern</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>textInputActive</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>keyCounts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ancienSon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ancienReso</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>j1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *&#160;</td>
+          <td class="paramname"><em>tab_de_charactere</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structordi__t.html">ordi_t</a> *&#160;</td>
+          <td class="paramname"><em>ordi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gestion des cliques du menu et du jeu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">etat</td><td>L'etat actuel du menu </td></tr>
+    <tr><td class="paramname">fenetre</td><td>La fenetre du programme </td></tr>
+    <tr><td class="paramname">evenement</td><td>Les evenements SDL </td></tr>
+    <tr><td class="paramname">elm_reso</td><td>Un pointeurs sur un element du menu </td></tr>
+    <tr><td class="paramname">click</td><td>Son d'un clic </td></tr>
+    <tr><td class="paramname">mouseX</td><td>La position du pointeur de la souris en X </td></tr>
+    <tr><td class="paramname">mouseY</td><td>La position du pointeur de la souris en Y </td></tr>
+    <tr><td class="paramname">w</td><td>La longueur de la fenêtre </td></tr>
+    <tr><td class="paramname">h</td><td>La largeur de la fenêtre </td></tr>
+    <tr><td class="paramname">widthFactor</td><td>Un coefficient pour la longueur de la fenetre </td></tr>
+    <tr><td class="paramname">heightFactor</td><td>Un coefficient pour la largeur de la fenetre </td></tr>
+    <tr><td class="paramname">menuX</td><td>La position X des elements dans le menu </td></tr>
+    <tr><td class="paramname">menuY</td><td>La position Y des elements dans le menu </td></tr>
+    <tr><td class="paramname">index_effet</td><td>Choisir une résoltion </td></tr>
+    <tr><td class="paramname">continuer</td><td>Arret du programme si il est mis a FAUX </td></tr>
+    <tr><td class="paramname">selecElement</td><td>L'élement selectionné </td></tr>
+    <tr><td class="paramname">effet</td><td>Effet sonore </td></tr>
+    <tr><td class="paramname">isValid</td><td>Pointeur vers la validité de la saisie de texte. </td></tr>
+    <tr><td class="paramname">textInput</td><td>La chaîne de caractères saisie </td></tr>
+    <tr><td class="paramname">ipPattern</td><td>Le motif de l'expression régulière pour une adresse IP. </td></tr>
+    <tr><td class="paramname">textInputActive</td><td>Pointeur vers l'état de la saisie de texte </td></tr>
+    <tr><td class="paramname">keyCounts</td><td>Pointeur vers le nombre de touches pressées </td></tr>
+    <tr><td class="paramname">x</td><td>Position en X </td></tr>
+    <tr><td class="paramname">y</td><td>Position Y </td></tr>
+    <tr><td class="paramname">ancienSon</td><td>L'anacien son </td></tr>
+    <tr><td class="paramname">ancienReso</td><td>L'ancienne resolution </td></tr>
+    <tr><td class="paramname">j1</td><td>Un pointeur sur joueur </td></tr>
+    <tr><td class="paramname">tab_de_charactere</td><td>Un tableau de personnage </td></tr>
+    <tr><td class="paramname">ordi</td><td>Un pointeur sur ordinateur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4d6049f47678e0d1b0f288be7d6b00be" name="a4d6049f47678e0d1b0f288be7d6b00be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d6049f47678e0d1b0f288be7d6b00be">&#9670;&#160;</a></span>deplacement_souris()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deplacement_souris </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mix_Chunk *&#160;</td>
+          <td class="paramname"><em>music</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Event&#160;</td>
+          <td class="paramname"><em>evenement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>widthFactor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>heightFactor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>etat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *&#160;</td>
+          <td class="paramname"><em>tab_charactere</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>survol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gestion du déplacement de la souris sur les éléments du menu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le renderer de la SDL. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>La fenêtre de la SDL. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères. </td></tr>
+    <tr><td class="paramname">music</td><td>Le son de la musique. </td></tr>
+    <tr><td class="paramname">evenement</td><td>L'événement de la SDL. </td></tr>
+    <tr><td class="paramname">widthFactor</td><td>Facteur de mise à l'échelle horizontale. </td></tr>
+    <tr><td class="paramname">heightFactor</td><td>Facteur de mise à l'échelle verticale. </td></tr>
+    <tr><td class="paramname">etat</td><td>L'état actuel du jeu. </td></tr>
+    <tr><td class="paramname">tab_charactere</td><td>Le tableau de personnages disponibles. </td></tr>
+    <tr><td class="paramname">survol</td><td>Pointeur vers la valeur de survol. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac74f14b7098bd75c31accd40fb403717" name="ac74f14b7098bd75c31accd40fb403717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac74f14b7098bd75c31accd40fb403717">&#9670;&#160;</a></span>destruction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destruction </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>selecElement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>index_effet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>continuer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">etat_t *&#160;</td>
+          <td class="paramname"><em>etat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>widthFactor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>heightFactor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>textInputActive</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>isValid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>keyCounts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ancienSon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>etatAge</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ancienReso</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de destruction des variables pour le menu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">selecElement</td><td>Pointeur vers l'élément sélectionné. </td></tr>
+    <tr><td class="paramname">index_effet</td><td>Pointeur vers l'indice de l'effet. </td></tr>
+    <tr><td class="paramname">continuer</td><td>Pointeur vers la variable de boucle de jeu. </td></tr>
+    <tr><td class="paramname">etat</td><td>Pointeur vers l'état du jeu. </td></tr>
+    <tr><td class="paramname">widthFactor</td><td>Pointeur vers le facteur de mise à l'échelle horizontale. </td></tr>
+    <tr><td class="paramname">heightFactor</td><td>Pointeur vers le facteur de mise à l'échelle verticale. </td></tr>
+    <tr><td class="paramname">textInputActive</td><td>Pointeur vers l'état de la saisie de texte. </td></tr>
+    <tr><td class="paramname">isValid</td><td>Pointeur vers la validité de la saisie de texte. </td></tr>
+    <tr><td class="paramname">keyCounts</td><td>Pointeur vers le nombre de touches pressées. </td></tr>
+    <tr><td class="paramname">ancienSon</td><td>Pointeur vers l'ancien niveau de son. </td></tr>
+    <tr><td class="paramname">etatAge</td><td>Pointeur vers l'état de l'âge. </td></tr>
+    <tr><td class="paramname">ancienReso</td><td>Pointeur vers l'ancienne résolution. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afecde47e916a8831710f18286b346ed8" name="afecde47e916a8831710f18286b346ed8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afecde47e916a8831710f18286b346ed8">&#9670;&#160;</a></span>fin_partie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int fin_partie </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structordi__t.html">ordi_t</a> *&#160;</td>
+          <td class="paramname"><em>ordi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> *&#160;</td>
+          <td class="paramname"><em>player_online</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>etat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détermine l'issue de la partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>Le joueur. </td></tr>
+    <tr><td class="paramname">ordi</td><td>L'ordinateur. </td></tr>
+    <tr><td class="paramname">player_online</td><td>Le joueur en ligne. </td></tr>
+    <tr><td class="paramname">etat</td><td>L'état actuel du jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le résultat de la partie. </dd></dl>
+
+</div>
+</div>
+<a id="a744bce58ae8a8ae036c76e91129a1202" name="a744bce58ae8a8ae036c76e91129a1202"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a744bce58ae8a8ae036c76e91129a1202">&#9670;&#160;</a></span>reinitialiser_partie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reinitialiser_partie </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> **&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structordi__t.html">ordi_t</a> **&#160;</td>
+          <td class="paramname"><em>ordi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Réinitialise la partie en libérant la mémoire allouée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>Pointeur vers le joueur. </td></tr>
+    <tr><td class="paramname">ordi</td><td>Pointeur vers l'ordinateur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aac337a8b51f748e671103d58d6681aef" name="aac337a8b51f748e671103d58d6681aef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac337a8b51f748e671103d58d6681aef">&#9670;&#160;</a></span>relachement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void relachement </td>
+          <td>(</td>
+          <td class="paramtype">etat_t *&#160;</td>
+          <td class="paramname"><em>etat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>menuX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>menuY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>widthFactor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>heightFactor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mouseX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mouseY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gestion du relâchement du clic de la souris sur les éléments du menu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">etat</td><td>Pointeur vers l'état du jeu. </td></tr>
+    <tr><td class="paramname">menuX</td><td>Position horizontale du menu. </td></tr>
+    <tr><td class="paramname">menuY</td><td>Position verticale du menu. </td></tr>
+    <tr><td class="paramname">w</td><td>Largeur de la fenêtre. </td></tr>
+    <tr><td class="paramname">h</td><td>Hauteur de la fenêtre. </td></tr>
+    <tr><td class="paramname">widthFactor</td><td>Facteur de mise à l'échelle horizontale. </td></tr>
+    <tr><td class="paramname">heightFactor</td><td>Facteur de mise à l'échelle verticale. </td></tr>
+    <tr><td class="paramname">mouseX</td><td>Position horizontale du curseur de la souris. </td></tr>
+    <tr><td class="paramname">mouseY</td><td>Position verticale du curseur de la souris. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a78a065eeb4d024efdafada7c4ca943bf" name="a78a065eeb4d024efdafada7c4ca943bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78a065eeb4d024efdafada7c4ca943bf">&#9670;&#160;</a></span>touches()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void touches </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Event&#160;</td>
+          <td class="paramname"><em>evenement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>textInputActive</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>keyCounts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>isValid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>textInput</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ipPattern</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>valide</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gère les événements liés à la saisie de texte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">evenement</td><td>L'événement SDL. </td></tr>
+    <tr><td class="paramname">textInputActive</td><td>Pointeur vers l'état de la saisie de texte. </td></tr>
+    <tr><td class="paramname">keyCounts</td><td>Pointeur vers le nombre de touches pressées. </td></tr>
+    <tr><td class="paramname">isValid</td><td>Pointeur vers la validité de la saisie de texte. </td></tr>
+    <tr><td class="paramname">textInput</td><td>La chaîne de caractères saisie. </td></tr>
+    <tr><td class="paramname">ipPattern</td><td>Le motif de l'expression régulière pour une adresse IP. </td></tr>
+    <tr><td class="paramname">valide</td><td>Pointeur vers la validité de l'adresse IP saisie. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac239fb306e5ce712edf5ebe8bdd6d738" name="ac239fb306e5ce712edf5ebe8bdd6d738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac239fb306e5ce712edf5ebe8bdd6d738">&#9670;&#160;</a></span>validateRegex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int validateRegex </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>pattern</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction pour vérifier si une chaîne de caractères respecte une expression régulière. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>La chaîne de caractères à vérifier. </td></tr>
+    <tr><td class="paramname">pattern</td><td>Le motif de l'expression régulière. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si la chaîne de caractères respecte le motif, 0 sinon. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,8 +1,9 @@
 /**
  * \file common.h
- * \brief Contient les élements utilisé par les autres fichiers
+ * \brief Contient les élements utilisés par les autres fichiers
  * \author Proudy Vincent
  * \date 09 févrirer 2024
+ * \version 1.0
  * 
 */
 #ifndef _COMMON_H_

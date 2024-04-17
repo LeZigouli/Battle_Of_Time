@@ -1,23 +1,32 @@
+/**
+ * \file player.h
+ * \brief Contient les élements utilisés par les autres fichiers 
+ * \author Proudy Vincent
+ * \date 09 févrirer 2024
+ * \version 1.0
+*/
+
 #ifndef _PLAYER_H_
 #define _PLAYER_H_
 
 #include "tab_character.h"
 
 
-typedef struct{
-
-	char name[MAX_STR];
-	int xp;
-	int delai;
-	unsigned long int debut;
-	unsigned long int fin;
-	float gold;
-	int owner; 
-	tab_charactere_t * characters;
-	tab_charactere_t * file_attente;
-	building_t * building;
-
-}player_t;
+/**
+ * @brief Structure représentant un joueur.
+ */
+typedef struct {
+    char name[MAX_STR]; /**< Nom du joueur */
+    int xp; /**< Expérience du joueur */
+    int delai; /**< Délai pour former les troupes */
+    unsigned long int debut; /**< Début du délai */
+    unsigned long int fin; /**< Fin du délai */
+    float gold; /**< Quantité d'or du joueur */
+    int owner; /**< Numéro propriétaire du joueur */
+    tab_charactere_t * characters; /**< Tableau des personnages du joueur */
+    tab_charactere_t * file_attente; /**< File d'attente des personnages à former */
+    building_t * building; /**< Bâtiment du joueur */
+} player_t;
 
 player_t * initplayer(int owner);
 void destroy_player(player_t ** player);

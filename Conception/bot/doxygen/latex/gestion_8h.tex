@@ -1,0 +1,309 @@
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/lib/gestion.h}
+\hypertarget{gestion_8h}{}\label{gestion_8h}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/gestion.h@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/gestion.h}}
+
+
+Contient les élements utilisés par \doxylink{gestion_8c}{gestion.\+c}.  
+
+
+{\ttfamily \#include \"{}commun\+\_\+\+SDL.\+h\"{}}\newline
+{\ttfamily \#include \"{}affichage\+\_\+menu.\+h\"{}}\newline
+{\ttfamily \#include \"{}affichage\+\_\+jeu.\+h\"{}}\newline
+{\ttfamily \#include \"{}player.\+h\"{}}\newline
+{\ttfamily \#include \"{}ordinateur.\+h\"{}}\newline
+{\ttfamily \#include \"{}socket/client.\+h\"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{gestion_8h_aa6f795e72fec0cbc28fee34352b72a61}{clic}} (etat\+\_\+t \texorpdfstring{$\ast$}{*}etat, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, SDL\+\_\+\+Event evenement, \mbox{\hyperlink{structelement__t}{element\+\_\+t}} \texorpdfstring{$\ast$}{*}elm\+\_\+reso, Mix\+\_\+\+Chunk \texorpdfstring{$\ast$}{*}click, int mouseX, int mouseY, int w, int h, float width\+Factor, float height\+Factor, int menuX, int menuY, int \texorpdfstring{$\ast$}{*}index\+\_\+effet, int \texorpdfstring{$\ast$}{*}continuer, int \texorpdfstring{$\ast$}{*}selec\+Element, char \texorpdfstring{$\ast$}{*}effet, int \texorpdfstring{$\ast$}{*}is\+Valid, const char \texorpdfstring{$\ast$}{*}text\+Input, const char \texorpdfstring{$\ast$}{*}ip\+Pattern, int \texorpdfstring{$\ast$}{*}text\+Input\+Active, int \texorpdfstring{$\ast$}{*}key\+Counts, int x, int y, int \texorpdfstring{$\ast$}{*}ancien\+Son, int \texorpdfstring{$\ast$}{*}ancien\+Reso, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}j1, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}tab\+\_\+de\+\_\+charactere, \mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}ordi)
+\begin{DoxyCompactList}\small\item\em Gestion des cliques du menu et du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gestion_8h_aac337a8b51f748e671103d58d6681aef}{relachement}} (etat\+\_\+t \texorpdfstring{$\ast$}{*}etat, int menuX, int menuY, int w, int h, float \texorpdfstring{$\ast$}{*}width\+Factor, float \texorpdfstring{$\ast$}{*}height\+Factor, int mouseX, int mouseY)
+\begin{DoxyCompactList}\small\item\em Gestion du relâchement du clic de la souris sur les éléments du menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gestion_8h_a4d6049f47678e0d1b0f288be7d6b00be}{deplacement\+\_\+souris}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, Mix\+\_\+\+Chunk \texorpdfstring{$\ast$}{*}music, SDL\+\_\+\+Event evenement, float width\+Factor, float height\+Factor, int etat, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}tab\+\_\+charactere, int \texorpdfstring{$\ast$}{*}survol)
+\begin{DoxyCompactList}\small\item\em Gestion du déplacement de la souris sur les éléments du menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gestion_8h_ac74f14b7098bd75c31accd40fb403717}{destruction}} (int \texorpdfstring{$\ast$}{*}selec\+Element, int \texorpdfstring{$\ast$}{*}index\+\_\+effet, int \texorpdfstring{$\ast$}{*}continuer, etat\+\_\+t \texorpdfstring{$\ast$}{*}etat, float \texorpdfstring{$\ast$}{*}width\+Factor, float \texorpdfstring{$\ast$}{*}height\+Factor, int \texorpdfstring{$\ast$}{*}text\+Input\+Active, int \texorpdfstring{$\ast$}{*}is\+Valid, int \texorpdfstring{$\ast$}{*}key\+Counts, int \texorpdfstring{$\ast$}{*}ancien, int \texorpdfstring{$\ast$}{*}etat\+Age, int \texorpdfstring{$\ast$}{*}ancien\+Son)
+\begin{DoxyCompactList}\small\item\em Fonction de destruction des variables pour le menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gestion_8h_a78a065eeb4d024efdafada7c4ca943bf}{touches}} (SDL\+\_\+\+Event evenement, int \texorpdfstring{$\ast$}{*}text\+Input\+Active, int \texorpdfstring{$\ast$}{*}key\+Counts, int \texorpdfstring{$\ast$}{*}is\+Valid, char \texorpdfstring{$\ast$}{*}text\+Input, const char \texorpdfstring{$\ast$}{*}ip\+Pattern, int \texorpdfstring{$\ast$}{*}valide)
+\begin{DoxyCompactList}\small\item\em Gère les événements liés à la saisie de texte. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gestion_8h_ac239fb306e5ce712edf5ebe8bdd6d738}{validate\+Regex}} (const char \texorpdfstring{$\ast$}{*}input, const char \texorpdfstring{$\ast$}{*}pattern)
+\begin{DoxyCompactList}\small\item\em Fonction pour vérifier si une chaîne de caractères respecte une expression régulière. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gestion_8h_a744bce58ae8a8ae036c76e91129a1202}{reinitialiser\+\_\+partie}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}player, \mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}ordi)
+\begin{DoxyCompactList}\small\item\em Réinitialise la partie en libérant la mémoire allouée. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gestion_8h_afecde47e916a8831710f18286b346ed8}{fin\+\_\+partie}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}player, \mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}ordi, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}player\+\_\+online, int etat)
+\begin{DoxyCompactList}\small\item\em Détermine l\textquotesingle{}issue de la partie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les élements utilisés par \doxylink{gestion_8c}{gestion.\+c}. 
+
+\begin{DoxyAuthor}{Auteur}
+Poirier Victor 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09 févrirer 2024 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{gestion_8h_aa6f795e72fec0cbc28fee34352b72a61}\label{gestion_8h_aa6f795e72fec0cbc28fee34352b72a61} 
+\index{gestion.h@{gestion.h}!clic@{clic}}
+\index{clic@{clic}!gestion.h@{gestion.h}}
+\doxysubsubsection{\texorpdfstring{clic()}{clic()}}
+{\footnotesize\ttfamily void clic (\begin{DoxyParamCaption}\item[{etat\+\_\+t \texorpdfstring{$\ast$}{*}}]{etat,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{SDL\+\_\+\+Event}]{evenement,  }\item[{\mbox{\hyperlink{structelement__t}{element\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{elm\+\_\+reso,  }\item[{Mix\+\_\+\+Chunk \texorpdfstring{$\ast$}{*}}]{click,  }\item[{int}]{mouseX,  }\item[{int}]{mouseY,  }\item[{int}]{w,  }\item[{int}]{h,  }\item[{float}]{width\+Factor,  }\item[{float}]{height\+Factor,  }\item[{int}]{menuX,  }\item[{int}]{menuY,  }\item[{int \texorpdfstring{$\ast$}{*}}]{index\+\_\+effet,  }\item[{int \texorpdfstring{$\ast$}{*}}]{continuer,  }\item[{int \texorpdfstring{$\ast$}{*}}]{selec\+Element,  }\item[{char \texorpdfstring{$\ast$}{*}}]{effet,  }\item[{int \texorpdfstring{$\ast$}{*}}]{is\+Valid,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{text\+Input,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{ip\+Pattern,  }\item[{int \texorpdfstring{$\ast$}{*}}]{text\+Input\+Active,  }\item[{int \texorpdfstring{$\ast$}{*}}]{key\+Counts,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int \texorpdfstring{$\ast$}{*}}]{ancien\+Son,  }\item[{int \texorpdfstring{$\ast$}{*}}]{ancien\+Reso,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{j1,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tab\+\_\+de\+\_\+charactere,  }\item[{\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ordi }\end{DoxyParamCaption})}
+
+
+
+Gestion des cliques du menu et du jeu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em etat} & L\textquotesingle{}etat actuel du menu \\
+\hline
+{\em fenetre} & La fenetre du programme \\
+\hline
+{\em evenement} & Les evenements SDL \\
+\hline
+{\em elm\+\_\+reso} & Un pointeurs sur un element du menu \\
+\hline
+{\em click} & Son d\textquotesingle{}un clic \\
+\hline
+{\em mouseX} & La position du pointeur de la souris en X \\
+\hline
+{\em mouseY} & La position du pointeur de la souris en Y \\
+\hline
+{\em w} & La longueur de la fenêtre \\
+\hline
+{\em h} & La largeur de la fenêtre \\
+\hline
+{\em width\+Factor} & Un coefficient pour la longueur de la fenetre \\
+\hline
+{\em height\+Factor} & Un coefficient pour la largeur de la fenetre \\
+\hline
+{\em menuX} & La position X des elements dans le menu \\
+\hline
+{\em menuY} & La position Y des elements dans le menu \\
+\hline
+{\em index\+\_\+effet} & Choisir une résoltion \\
+\hline
+{\em continuer} & Arret du programme si il est mis a FAUX \\
+\hline
+{\em selec\+Element} & L\textquotesingle{}élement selectionné \\
+\hline
+{\em effet} & Effet sonore \\
+\hline
+{\em is\+Valid} & Pointeur vers la validité de la saisie de texte. \\
+\hline
+{\em text\+Input} & La chaîne de caractères saisie \\
+\hline
+{\em ip\+Pattern} & Le motif de l\textquotesingle{}expression régulière pour une adresse IP. \\
+\hline
+{\em text\+Input\+Active} & Pointeur vers l\textquotesingle{}état de la saisie de texte \\
+\hline
+{\em key\+Counts} & Pointeur vers le nombre de touches pressées \\
+\hline
+{\em x} & Position en X \\
+\hline
+{\em y} & Position Y \\
+\hline
+{\em ancien\+Son} & L\textquotesingle{}anacien son \\
+\hline
+{\em ancien\+Reso} & L\textquotesingle{}ancienne resolution \\
+\hline
+{\em j1} & Un pointeur sur joueur \\
+\hline
+{\em tab\+\_\+de\+\_\+charactere} & Un tableau de personnage \\
+\hline
+{\em ordi} & Un pointeur sur ordinateur \\
+\hline
+\end{DoxyParams}
+\Hypertarget{gestion_8h_a4d6049f47678e0d1b0f288be7d6b00be}\label{gestion_8h_a4d6049f47678e0d1b0f288be7d6b00be} 
+\index{gestion.h@{gestion.h}!deplacement\_souris@{deplacement\_souris}}
+\index{deplacement\_souris@{deplacement\_souris}!gestion.h@{gestion.h}}
+\doxysubsubsection{\texorpdfstring{deplacement\_souris()}{deplacement\_souris()}}
+{\footnotesize\ttfamily void deplacement\+\_\+souris (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police,  }\item[{Mix\+\_\+\+Chunk \texorpdfstring{$\ast$}{*}}]{music,  }\item[{SDL\+\_\+\+Event}]{evenement,  }\item[{float}]{width\+Factor,  }\item[{float}]{height\+Factor,  }\item[{int}]{etat,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tab\+\_\+charactere,  }\item[{int \texorpdfstring{$\ast$}{*}}]{survol }\end{DoxyParamCaption})}
+
+
+
+Gestion du déplacement de la souris sur les éléments du menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rendu} & Le renderer de la SDL. \\
+\hline
+{\em fenetre} & La fenêtre de la SDL. \\
+\hline
+{\em police} & La police de caractères. \\
+\hline
+{\em music} & Le son de la musique. \\
+\hline
+{\em evenement} & L\textquotesingle{}événement de la SDL. \\
+\hline
+{\em width\+Factor} & Facteur de mise à l\textquotesingle{}échelle horizontale. \\
+\hline
+{\em height\+Factor} & Facteur de mise à l\textquotesingle{}échelle verticale. \\
+\hline
+{\em etat} & L\textquotesingle{}état actuel du jeu. \\
+\hline
+{\em tab\+\_\+charactere} & Le tableau de personnages disponibles. \\
+\hline
+{\em survol} & Pointeur vers la valeur de survol. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{gestion_8h_ac74f14b7098bd75c31accd40fb403717}\label{gestion_8h_ac74f14b7098bd75c31accd40fb403717} 
+\index{gestion.h@{gestion.h}!destruction@{destruction}}
+\index{destruction@{destruction}!gestion.h@{gestion.h}}
+\doxysubsubsection{\texorpdfstring{destruction()}{destruction()}}
+{\footnotesize\ttfamily void destruction (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{selec\+Element,  }\item[{int \texorpdfstring{$\ast$}{*}}]{index\+\_\+effet,  }\item[{int \texorpdfstring{$\ast$}{*}}]{continuer,  }\item[{etat\+\_\+t \texorpdfstring{$\ast$}{*}}]{etat,  }\item[{float \texorpdfstring{$\ast$}{*}}]{width\+Factor,  }\item[{float \texorpdfstring{$\ast$}{*}}]{height\+Factor,  }\item[{int \texorpdfstring{$\ast$}{*}}]{text\+Input\+Active,  }\item[{int \texorpdfstring{$\ast$}{*}}]{is\+Valid,  }\item[{int \texorpdfstring{$\ast$}{*}}]{key\+Counts,  }\item[{int \texorpdfstring{$\ast$}{*}}]{ancien\+Son,  }\item[{int \texorpdfstring{$\ast$}{*}}]{etat\+Age,  }\item[{int \texorpdfstring{$\ast$}{*}}]{ancien\+Reso }\end{DoxyParamCaption})}
+
+
+
+Fonction de destruction des variables pour le menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em selec\+Element} & Pointeur vers l\textquotesingle{}élément sélectionné. \\
+\hline
+{\em index\+\_\+effet} & Pointeur vers l\textquotesingle{}indice de l\textquotesingle{}effet. \\
+\hline
+{\em continuer} & Pointeur vers la variable de boucle de jeu. \\
+\hline
+{\em etat} & Pointeur vers l\textquotesingle{}état du jeu. \\
+\hline
+{\em width\+Factor} & Pointeur vers le facteur de mise à l\textquotesingle{}échelle horizontale. \\
+\hline
+{\em height\+Factor} & Pointeur vers le facteur de mise à l\textquotesingle{}échelle verticale. \\
+\hline
+{\em text\+Input\+Active} & Pointeur vers l\textquotesingle{}état de la saisie de texte. \\
+\hline
+{\em is\+Valid} & Pointeur vers la validité de la saisie de texte. \\
+\hline
+{\em key\+Counts} & Pointeur vers le nombre de touches pressées. \\
+\hline
+{\em ancien\+Son} & Pointeur vers l\textquotesingle{}ancien niveau de son. \\
+\hline
+{\em etat\+Age} & Pointeur vers l\textquotesingle{}état de l\textquotesingle{}âge. \\
+\hline
+{\em ancien\+Reso} & Pointeur vers l\textquotesingle{}ancienne résolution. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{gestion_8h_afecde47e916a8831710f18286b346ed8}\label{gestion_8h_afecde47e916a8831710f18286b346ed8} 
+\index{gestion.h@{gestion.h}!fin\_partie@{fin\_partie}}
+\index{fin\_partie@{fin\_partie}!gestion.h@{gestion.h}}
+\doxysubsubsection{\texorpdfstring{fin\_partie()}{fin\_partie()}}
+{\footnotesize\ttfamily int fin\+\_\+partie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{player,  }\item[{\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ordi,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{player\+\_\+online,  }\item[{int}]{etat }\end{DoxyParamCaption})}
+
+
+
+Détermine l\textquotesingle{}issue de la partie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player} & Le joueur. \\
+\hline
+{\em ordi} & L\textquotesingle{}ordinateur. \\
+\hline
+{\em player\+\_\+online} & Le joueur en ligne. \\
+\hline
+{\em etat} & L\textquotesingle{}état actuel du jeu. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le résultat de la partie. 
+\end{DoxyReturn}
+\Hypertarget{gestion_8h_a744bce58ae8a8ae036c76e91129a1202}\label{gestion_8h_a744bce58ae8a8ae036c76e91129a1202} 
+\index{gestion.h@{gestion.h}!reinitialiser\_partie@{reinitialiser\_partie}}
+\index{reinitialiser\_partie@{reinitialiser\_partie}!gestion.h@{gestion.h}}
+\doxysubsubsection{\texorpdfstring{reinitialiser\_partie()}{reinitialiser\_partie()}}
+{\footnotesize\ttfamily void reinitialiser\+\_\+partie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{player,  }\item[{\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{ordi }\end{DoxyParamCaption})}
+
+
+
+Réinitialise la partie en libérant la mémoire allouée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player} & Pointeur vers le joueur. \\
+\hline
+{\em ordi} & Pointeur vers l\textquotesingle{}ordinateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{gestion_8h_aac337a8b51f748e671103d58d6681aef}\label{gestion_8h_aac337a8b51f748e671103d58d6681aef} 
+\index{gestion.h@{gestion.h}!relachement@{relachement}}
+\index{relachement@{relachement}!gestion.h@{gestion.h}}
+\doxysubsubsection{\texorpdfstring{relachement()}{relachement()}}
+{\footnotesize\ttfamily void relachement (\begin{DoxyParamCaption}\item[{etat\+\_\+t \texorpdfstring{$\ast$}{*}}]{etat,  }\item[{int}]{menuX,  }\item[{int}]{menuY,  }\item[{int}]{w,  }\item[{int}]{h,  }\item[{float \texorpdfstring{$\ast$}{*}}]{width\+Factor,  }\item[{float \texorpdfstring{$\ast$}{*}}]{height\+Factor,  }\item[{int}]{mouseX,  }\item[{int}]{mouseY }\end{DoxyParamCaption})}
+
+
+
+Gestion du relâchement du clic de la souris sur les éléments du menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em etat} & Pointeur vers l\textquotesingle{}état du jeu. \\
+\hline
+{\em menuX} & Position horizontale du menu. \\
+\hline
+{\em menuY} & Position verticale du menu. \\
+\hline
+{\em w} & Largeur de la fenêtre. \\
+\hline
+{\em h} & Hauteur de la fenêtre. \\
+\hline
+{\em width\+Factor} & Facteur de mise à l\textquotesingle{}échelle horizontale. \\
+\hline
+{\em height\+Factor} & Facteur de mise à l\textquotesingle{}échelle verticale. \\
+\hline
+{\em mouseX} & Position horizontale du curseur de la souris. \\
+\hline
+{\em mouseY} & Position verticale du curseur de la souris. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{gestion_8h_a78a065eeb4d024efdafada7c4ca943bf}\label{gestion_8h_a78a065eeb4d024efdafada7c4ca943bf} 
+\index{gestion.h@{gestion.h}!touches@{touches}}
+\index{touches@{touches}!gestion.h@{gestion.h}}
+\doxysubsubsection{\texorpdfstring{touches()}{touches()}}
+{\footnotesize\ttfamily void touches (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event}]{evenement,  }\item[{int \texorpdfstring{$\ast$}{*}}]{text\+Input\+Active,  }\item[{int \texorpdfstring{$\ast$}{*}}]{key\+Counts,  }\item[{int \texorpdfstring{$\ast$}{*}}]{is\+Valid,  }\item[{char \texorpdfstring{$\ast$}{*}}]{text\+Input,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{ip\+Pattern,  }\item[{int \texorpdfstring{$\ast$}{*}}]{valide }\end{DoxyParamCaption})}
+
+
+
+Gère les événements liés à la saisie de texte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em evenement} & L\textquotesingle{}événement SDL. \\
+\hline
+{\em text\+Input\+Active} & Pointeur vers l\textquotesingle{}état de la saisie de texte. \\
+\hline
+{\em key\+Counts} & Pointeur vers le nombre de touches pressées. \\
+\hline
+{\em is\+Valid} & Pointeur vers la validité de la saisie de texte. \\
+\hline
+{\em text\+Input} & La chaîne de caractères saisie. \\
+\hline
+{\em ip\+Pattern} & Le motif de l\textquotesingle{}expression régulière pour une adresse IP. \\
+\hline
+{\em valide} & Pointeur vers la validité de l\textquotesingle{}adresse IP saisie. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{gestion_8h_ac239fb306e5ce712edf5ebe8bdd6d738}\label{gestion_8h_ac239fb306e5ce712edf5ebe8bdd6d738} 
+\index{gestion.h@{gestion.h}!validateRegex@{validateRegex}}
+\index{validateRegex@{validateRegex}!gestion.h@{gestion.h}}
+\doxysubsubsection{\texorpdfstring{validateRegex()}{validateRegex()}}
+{\footnotesize\ttfamily int validate\+Regex (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{input,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{pattern }\end{DoxyParamCaption})}
+
+
+
+Fonction pour vérifier si une chaîne de caractères respecte une expression régulière. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em input} & La chaîne de caractères à vérifier. \\
+\hline
+{\em pattern} & Le motif de l\textquotesingle{}expression régulière. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si la chaîne de caractères respecte le motif, 0 sinon. 
+\end{DoxyReturn}
