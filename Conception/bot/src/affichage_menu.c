@@ -94,6 +94,17 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
             affichage_gagnant(rendu, police, fin_partie, fenetre, *cameraX, *cameraY, win, lose);
             break;
 
+        case MENU_SAUVEGARDER :
+            break;
+        case JOUER_RESEAU_CREER :
+            break;
+        case JOUER_RESEAU_REJOINDRE :
+            break;
+        case JOUER_CHARGER :
+            break;
+        case MENU_SOUS_CREER_VALIDE :
+            break;
+
         case OPTION_JEU:
             afficherOptionJeu(rendu, police, fenetre);
             break;
