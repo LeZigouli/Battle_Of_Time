@@ -664,6 +664,11 @@ void deplacement_souris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* poli
                     mouseY >= (36 * heightFactor) && mouseY <= (100 * heightFactor)){
                 (*survol) = PERSO4;
             }
+            /*Survol du bouton XP*/
+            else if(mouseX >= (20 * widthFactor) && mouseX <= (70 * widthFactor) &&
+                    mouseY >= (105 * heightFactor) && mouseY <= (155 * heightFactor)){
+                (*survol) = XP;
+            }
             else{
                 (*survol) = -1;
             }
