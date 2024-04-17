@@ -64,7 +64,6 @@ int init_reseau_serveur()
 	mon_address_longueur = sizeof(client_address);
 	
     /* on attend que le client se connecte */
-    printf("Attente de la connection du client...");
     client_socket = accept(ma_socket, (struct sockaddr *)&client_address, &mon_address_longueur);
     if (client_socket == -1) {
         perror("accept");

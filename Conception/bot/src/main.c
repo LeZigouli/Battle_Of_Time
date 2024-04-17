@@ -230,8 +230,8 @@ int main(int argc, char* argv[]) {
     ordi_t * o = NULL; 
 
     player_t * buffer_player = NULL;
-    player_t * buffer_player_online = NULL;
-    ordi_t * buffer_ordi;
+    //player_t * buffer_player_online = NULL;
+    ordi_t   * buffer_ordi = NULL;
 
     SDL_Texture* image[8]={IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+melee].sprite),
                            IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+marksman].sprite),
@@ -419,13 +419,12 @@ int main(int argc, char* argv[]) {
         {
             if ( init_reseau_serveur() && !connexion_reussi )
             {
-                printf("Connecté au client...\n");
                 connexion_reussi = TRUE;
                 (*etat) = JOUER_RESEAU_CREER;
             }
             else
             {
-                printf("Erreur lors de la connexion...\n");
+                // si la connection echoue
                 (*etat) = MENU_SOUS_ENLIGNE;
             }
         }
@@ -439,12 +438,12 @@ int main(int argc, char* argv[]) {
         if ( (*etat) == JOUER_RESEAU_CREER )
         {
             if ( envoi ){
-                afficher_player(j1);
+                player_t j_1, j_2;
                 envoyer_structure(client_socket, *j1, *joueur_online);
-                recevoir_structure(client_socket, buffer_player, buffer_player_online);
-                printf("OK");
+                recevoir_structure(client_socket, &j_1, &j_2);
                 envoi = FALSE;
-                afficher_player(buffer_player);
+                afficher_player(&j_1);
+                afficher_player(&j_2);
             }
         }
 
@@ -452,12 +451,12 @@ int main(int argc, char* argv[]) {
         if ( (*etat) == JOUER_RESEAU_REJOINDRE )
         {
             if ( envoi ){
-                afficher_player(j1);
-                recevoir_structure(client_socket, buffer_player, buffer_player_online);
-                envoyer_structure(client_socket, *j1, *joueur_online);
-                printf("OK");
+                player_t j_1, j_2;
+                recevoir_structure(to_server_socket, &j_1, &j_2);
+                envoyer_structure(to_server_socket, j_1, j_2);
                 envoi = FALSE;
-                afficher_player(buffer_player);
+                afficher_player(&j_2);
+                afficher_player(&j_1);
             }
         }
 

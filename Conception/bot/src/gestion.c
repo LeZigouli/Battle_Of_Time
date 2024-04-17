@@ -732,12 +732,10 @@ void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isV
             {
                 if( init_reseau_client(textInput) )
                 {
-                    printf("Connecté en tant que client !\n");
                     *valide = TRUE;
                 }
                 else
                 {
-                    printf("Erreur lors de la connection\n");
                     strcpy(textInput,"");
                 }
             }
