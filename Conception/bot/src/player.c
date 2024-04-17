@@ -14,7 +14,7 @@ player_t * initplayer(int owner)
 {
 	player_t * main_player = malloc(sizeof(player_t));
 	
-	char name[MAX_STR] = "Player ";
+	char name[MAX_STR] = "Player";
 
 	if ( owner == OWNER_1 )
 	{

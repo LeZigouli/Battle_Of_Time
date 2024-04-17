@@ -67,7 +67,9 @@ typedef enum etat_s {
     MENU_DIFFICULTE,
     JOUER,
     OPTION_JEU,
+    MENU_SAUVEGARDER,
     JOUER_RESEAU_CREER,
+    JOUER_CHARGER,
     JOUER_RESEAU_REJOINDRE
 }etat_t;
 

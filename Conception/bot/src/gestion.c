@@ -319,6 +319,8 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
+                    (*etat) = JOUER_CHARGER;
+
                     
                 } 
                 /*Clic sur le bouton "Retour"*/
@@ -565,7 +567,7 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                         Mix_PlayChannel(1, click, 0);
                     }
                     /*Changement d'état du menu*/
-                    //(*etat) = ;
+                    (*etat) = MENU_SAUVEGARDER;
                 }
                 /*Clic sur le bouton 'Musique/Son'*/
                 else if(mouseY >= menuY + ((MENU_HEIGHT + 2 * SPACING) + 10) * heightFactor && mouseY <= menuY + (( 2 * (MENU_HEIGHT + SPACING) - 10) * heightFactor) ){

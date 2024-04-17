@@ -13,6 +13,7 @@
 #include "../lib/commun_SDL.h"
 #include "../socket/serveur.h"
 #include "../socket/client.h"
+#include "../lib/save.h"
 
 
 /*************************/
@@ -202,7 +203,9 @@ int main(int argc, char* argv[]) {
     int* ancien_lvl = malloc(sizeof(int));
     (*ancien_lvl) = 0;
     int i;
-        int a_deja_lancer_partie = FALSE;
+    int a_deja_lancer_partie = FALSE;
+    player_t * buffer_player;
+    ordi_t * buffer_ordi;
 
 
     Uint32 lastMovement = 0; //dernier mouvement du sprite
@@ -364,6 +367,27 @@ int main(int argc, char* argv[]) {
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY);
         }
 
+        /* si le joueur clique sur reprendre partie */
+        if ( (*etat) == JOUER_CHARGER )
+        {   
+            reinitialiser_partie(&j1,&o);
+            load(&buffer_ordi, &buffer_player, tab_de_charactere);
+            j1 = buffer_player;
+            o = buffer_ordi;
+            buffer_player = NULL;
+            buffer_ordi = NULL;
+            afficher_player(j1);
+            (*etat) = JOUER;
+        }
+
+        /* quand l'utilisateur clique sur sauvegarder */
+        if ( (*etat) == MENU_SAUVEGARDER )
+        {
+            save(o,j1);
+            (*etat) = OPTION_JEU;
+        }
+
+
             
         /*================ RESEAU INITIALISATION ================*/
         /* si le choix était de creer une partie */
@@ -395,9 +419,6 @@ int main(int argc, char* argv[]) {
 	destruction(selecElement, index_effet, continuer, etat, widthFactor, heightFactor, textInputActive, isValide, keyCounts, ancienSon, etatAge, ancienReso);
     free(ancien_lvl);
 
-    /*================ RESEAU ================*/
-
-    /*========================================*/
 
     destroy_tab_character(&tab_de_charactere);
     destroy_player(&j1);
