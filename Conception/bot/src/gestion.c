@@ -395,7 +395,7 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                     (*textInputActive) = SDL_FALSE;
                     /*Incrémentation du compteur */
                     (*keyCounts)++;
-                    (*etat) = MENU_SOUS_CREER_VALIDE;
+                    (*etat) = JOUER_RESEAU_REJOINDRE;
                 }
                 /*Clic sur le bouton "Retour"*/
                 else if(mouseY >= menuY + (240 * heightFactor) && mouseY <= menuY + (290 * heightFactor)){
@@ -717,7 +717,7 @@ int validateRegex(const char *input, const char *pattern)
     return valid == 0 ? 1 : 0;
 }
 
-void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern, int *valide)
+void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern, int * valide)
 {
     /*Si la saisie du texte est activée*/
     if ((*textInputActive)) {

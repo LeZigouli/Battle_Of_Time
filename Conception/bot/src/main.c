@@ -214,7 +214,7 @@ int main(int argc, char* argv[]) {
     /* variable pour la fin de partie */
     int resultat = AUCUN_GAGNANT;
     int connexion_reussi = FALSE;
-    int valide = FALSE;
+    int valide = FALSE, envoi = FALSE;
 
 
     Uint32 lastMovement = 0; //dernier mouvement du sprite
@@ -323,10 +323,6 @@ int main(int argc, char* argv[]) {
                     
                     /*Gestion des touches pour l'adresse IP*/
                     touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern, &valide);
-                    if ( valide )
-                    {
-                        (*etat) == JOUER_RESEAU_REJOINDRE;
-                    }
 
                     if ( *etat == FIN_PARTIE )
                     {
@@ -357,9 +353,6 @@ int main(int argc, char* argv[]) {
                     
             }
         }
-        
-        //j1->building->pv = 0;
-
         /*Afficher l'image du menu*/
         SDL_RenderCopy(rendu, textureFond, NULL, NULL);
 
@@ -436,20 +429,35 @@ int main(int argc, char* argv[]) {
             }
         }
 
+
+        printf("Etat = %d\n",*etat);
+        printf("Valide = %d\n",valide);
+        if ( valide )
+        {
+            (*etat) = JOUER_RESEAU_REJOINDRE;
+        }
         /* QUAND ON CREER UNE PARTIE */
         if ( (*etat) == JOUER_RESEAU_CREER )
         {
-            envoyer_structure(client_socket, *j1, *joueur_online);
-            recevoir_structure(client_socket, buffer_player, buffer_player_online);
-            printf("OK");
+            if ( !envoi ){
+                envoyer_structure(client_socket, *j1, *joueur_online);
+                recevoir_structure(client_socket, buffer_player, buffer_player_online);
+                printf("OK");
+                envoi = TRUE
+            }
+            afficher_player(buffer_player);
         }
 
         /* QUAND ON REJOINT UNE PARTIE */
         if ( (*etat) == JOUER_RESEAU_REJOINDRE )
         {
-            recevoir_structure(client_socket, buffer_player, buffer_player_online);
-            envoyer_structure(client_socket, *j1, *joueur_online);
-            printf("OK");
+            if ( !envoi ){
+                recevoir_structure(client_socket, buffer_player, buffer_player_online);
+                envoyer_structure(client_socket, *j1, *joueur_online);
+                printf("OK");
+                envoi = TRUE
+            }
+            afficher_player(buffer_player);
         }
 
 
@@ -468,8 +476,6 @@ int main(int argc, char* argv[]) {
 	/*Destruction des éléments du menu*/
 	destruction(selecElement, index_effet, continuer, etat, widthFactor, heightFactor, textInputActive, isValide, keyCounts, ancienSon, etatAge, ancienReso);
     free(ancien_lvl);
-
-    connexion_reussi = FALSE;
 
     destroy_tab_character(&tab_de_charactere);
     destroy_player(&j1);
