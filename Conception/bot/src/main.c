@@ -418,7 +418,7 @@ int main(int argc, char* argv[]) {
         {
             if ( init_reseau_serveur() )
             {
-                print(f"Connecté au client...\n");
+                print("Connecté au client...\n");
             }
             else
             {
