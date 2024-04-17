@@ -209,7 +209,7 @@ int main(int argc, char* argv[]) {
     int i;
     int a_deja_lancer_partie = FALSE;
     player_t * joueur_online = NULL;
-     char * buffer = malloc(sizeof(100));
+    char * buffer = malloc(sizeof(100));
 
     /* variable pour la fin de partie */
     int resultat = AUCUN_GAGNANT;
@@ -227,6 +227,8 @@ int main(int argc, char* argv[]) {
     character_t * tab_de_charactere = initcharacter();
     player_t * j1 = NULL; 
     ordi_t * o = NULL; 
+    player_t * buffer_player;
+    ordi_t * buffer_ordi;
 
     SDL_Texture* image[8]={IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+melee].sprite),
                            IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+marksman].sprite),
@@ -346,6 +348,8 @@ int main(int argc, char* argv[]) {
             }
         }
         
+        j1->building->pv = 0;
+
         /*Afficher l'image du menu*/
         SDL_RenderCopy(rendu, textureFond, NULL, NULL);
 

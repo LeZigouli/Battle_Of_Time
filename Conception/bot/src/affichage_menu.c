@@ -10,7 +10,7 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
                int* isValid, int* keyCounts, SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp,
                SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age,
                SDL_Texture* moderne, SDL_Texture* futuriste, player_t* joueur, SDL_Texture** sprite_hud, SDL_Texture* upgrade,
-               ordi_t* ordi, int* cameraX, int* cameraY, SDL_Texture* ultim, SDL_Texture* building[])
+               ordi_t* ordi, int* cameraX, int* cameraY, SDL_Texture* ultim, SDL_Texture* building[], int fin_partie, SDL_Texture * win, SDL_Texture * lose)
 {
     /*Affiche le titre du jeu*/
     afficherTitre(rendu, fenetre, ((WINDOW_WIDTH - 800) / 2), ((WINDOW_HEIGHT - 1000) / 2), 800, 600);
@@ -89,7 +89,6 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
         case FIN_PARTIE :
             /*Effacement de l'ancien rendu*/
             SDL_RenderClear(rendu);   
-            printf("%d\n",fin_partie);
             affichage_gagnant(rendu, police, fin_partie, fenetre, *cameraX, *cameraY, win, lose);
             break;
 
