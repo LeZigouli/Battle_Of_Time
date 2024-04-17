@@ -10,20 +10,21 @@ SRCDIR = src
 BINDIR = bin
 OBJDIR = obj
 LIBDIR = lib
+SAVEDIR = save
 
 #Appel pour la création des dossiers
 DIRS = $(OBJDIR) $(BINDIR)
 
 .PHONY: DIRS
-all: $(OBJDIR)/serveur.o $(OBJDIR)/client.o $(DIRS) $(BINDIR)/$(TARGET)
+all: $(DIRS) $(OBJDIR)/serveur.o $(OBJDIR)/client.o $(BINDIR)/$(TARGET)
 
 #Création des dossiers
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
 $(BINDIR):
 	mkdir -p $(BINDIR)
-$(LIBDIR):
-	mkdir -p $(LIBDIR)
+$(SAVEDIR):
+	mkdir -p $(SAVEDIR)
 
 SOURCES := $(wildcard $(SRCDIR)/*.c)
 OBJECTS := $(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
