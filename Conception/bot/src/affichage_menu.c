@@ -85,13 +85,18 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
             afficherHUD(rendu, fenetre, police_texte, parametre, upgrade, gold, xp, joueur, sprite_hud, ultim, (*etatAge));
             affichageBulding(rendu, fenetre, building, *cameraX, *cameraY, joueur->building->level, ordi->building->level);
             affichagePointDeVie(rendu, police, joueur->building->pv, ordi->building->pv, fenetre, (*cameraX), (*cameraY));
-            
             break;
-
+        case FIN_PARTIE :
+            /*Effacement de l'ancien rendu*/
+            SDL_RenderClear(rendu);   
+            printf("%d\n",fin_partie);
+            affichage_gagnant(rendu, police, fin_partie, fenetre, *cameraX, *cameraY, win, lose);
+            break;
 
         case OPTION_JEU:
             afficherOptionJeu(rendu, police, fenetre);
             break;
+ 
     }
 }
 

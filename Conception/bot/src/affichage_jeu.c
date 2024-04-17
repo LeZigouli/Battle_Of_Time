@@ -484,3 +484,34 @@ void affichageSurvolPerso1(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* p
     SDL_RenderFillRect(rendu, &Perso1);
     
 }
+
+void affichage_gagnant( SDL_Renderer * rendu, TTF_Font * font, int choix ,SDL_Window* fenetre, int cameraX, int cameraY, SDL_Texture * win, SDL_Texture * lose )
+{
+    int w, h, x, y;    
+    SDL_GetWindowSize(fenetre, &w, &h);
+    x = w/2;
+    y = h/2;
+
+    /* pour image */
+    if (  choix == JOUEUR_GAGNE )
+    {
+        SDL_Rect rec_win = creationRectangle(fenetre, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+        SDL_RenderCopy(rendu, win, NULL, &rec_win);
+    }
+    else
+    {
+        SDL_Rect rec_lose = creationRectangle(fenetre, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+        SDL_RenderCopy(rendu, lose, NULL, &rec_lose);
+    }
+
+    /* affichage message */
+    char * chaine = malloc(sizeof(char) * MAX_DESCRIPTION);
+    strcpy(chaine,"APPUYER SUR UNE TOUCHE POUR CONTINUER...");
+    SDL_Surface * surface2 = TTF_RenderUTF8_Solid(font, chaine, WHITE);;
+    SDL_Texture * texture2 = SDL_CreateTextureFromSurface(rendu, surface2);
+    SDL_Rect rect_winner2 = creationRectangle(fenetre, x-400, y+200, surface2->w, surface2->h);
+    SDL_RenderCopy(rendu, texture2, NULL, &rect_winner2);
+    SDL_FreeSurface(surface2);
+    SDL_DestroyTexture(texture2);
+    free(chaine);
+}

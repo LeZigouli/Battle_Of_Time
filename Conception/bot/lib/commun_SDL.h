@@ -70,7 +70,8 @@ typedef enum etat_s {
     MENU_SAUVEGARDER,
     JOUER_RESEAU_CREER,
     JOUER_CHARGER,
-    JOUER_RESEAU_REJOINDRE
+    JOUER_RESEAU_REJOINDRE,
+    FIN_PARTIE
 }etat_t;
 
 /*Énumération des ages du jeu*/

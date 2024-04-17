@@ -154,7 +154,11 @@ int main(int argc, char* argv[]) {
     SDL_Texture* gold = chargementImg(rendu, fenetre, "img/HUD/gold.png");
     SDL_Texture* xp = chargementImg(rendu, fenetre, "img/HUD/xp.png");
     SDL_Texture* ultim = chargementImg(rendu, fenetre, "img/HUD/ultimate.png");
-
+	
+	/* chargement image pour la fin de partie */
+    SDL_Texture* fin_partie_win = chargementImg(rendu, fenetre, "img/Fin_partie/you_win.png");
+    SDL_Texture* fin_partie_lose = chargementImg(rendu, fenetre, "img/Fin_partie/game_over.jpeg");
+	
     /*Chargement des imges d'arrière plan*/
     SDL_Texture* prehistoire = chargementImg(rendu, fenetre, "img/Fond/Préhistoire_v2.jpg");
     SDL_Texture* antiquite = chargementImg(rendu, fenetre, "img/Fond/Antiquité_v2.jpg");
@@ -204,8 +208,13 @@ int main(int argc, char* argv[]) {
     (*ancien_lvl) = 0;
     int i;
     int a_deja_lancer_partie = FALSE;
-    player_t * buffer_player;
-    ordi_t * buffer_ordi;
+    player_t * joueur_online = NULL;
+     char * buffer = malloc(sizeof(100));
+
+    /* variable pour la fin de partie */
+    int resultat = AUCUN_GAGNANT;
+
+    
 
 
     Uint32 lastMovement = 0; //dernier mouvement du sprite
@@ -307,6 +316,10 @@ int main(int argc, char* argv[]) {
                     
                     /*Gestion des touches pour l'adresse IP*/
                     touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern);
+                                        if ( *etat == FIN_PARTIE )
+                    {
+                        *etat = MENU_PRINCIPAL;
+                    }
                     break;
 
                 /*Gestion du texte saisie*/
@@ -339,8 +352,9 @@ int main(int argc, char* argv[]) {
         /*Gestion de l'affichage en fonction de l'état*/
         affichage((*etat), etatAge,rendu, fenetre, police, police_texte, menuX, menuY, elm_reso, selecElement, 
                   effet, textInput, isValide, keyCounts, parametre, gold, xp, prehistoire, antiquite,
-                  moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building);
+                  moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building, resultat, fin_partie_win, fin_partie_lose );
         
+        /* qaund on lance une nouvelle partie, on detruit bien toute les données */
         if ( !a_deja_lancer_partie && ( *etat == JOUER || *etat == JOUER_RESEAU_CREER || *etat == JOUER_RESEAU_REJOINDRE ) )
         {
             a_deja_lancer_partie = TRUE;
@@ -360,7 +374,6 @@ int main(int argc, char* argv[]) {
     
         /*On appelle les fonctions du jeu si on est dans une partie*/
         if((*etat) == JOUER){
-            
             envoie_char(&j1);
             jeu_ordi(o,j1,tab_de_charactere);
             affichageSprite(rendu, j1, o, &playerImg, &ordiImg, attaque, playerPosition, ordiPosition, ancien_lvl, 
@@ -386,22 +399,12 @@ int main(int argc, char* argv[]) {
             save(o,j1);
             (*etat) = OPTION_JEU;
         }
-
-
-            
-        /*================ RESEAU INITIALISATION ================*/
-        /* si le choix était de creer une partie */
-        /* et que on a pas deja reussi une connection */
-        
-        /*=======================================================*/
-        /* jeu */
-        /*=============== RESEAU ENVOIE/RECEPTION ===============*/
-        // envoyer_structure()
-        // recevoir_structure()
-        /*=======================================================*/
-        /* traitement */
-
     
+        if ( *etat == JOUER )
+        {
+            resultat = fin_partie(j1,o,joueur_online,(*etat));
+            if ( resultat != AUCUN_GAGNANT ) (*etat) = FIN_PARTIE;
+        }
 
         /*Amélioration antialiasing*/
         SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"2");
@@ -430,10 +433,11 @@ int main(int argc, char* argv[]) {
     free(cameraX);
     free(cameraY);
     
+    free(buffer);
 
     destruction_SDL(parametre, gold, xp, textureFond, prehistoire, antiquite, moyen_age,
                     moderne, futuriste, police, police_texte, rendu, fenetre, click, music, sprite_hud,
-                    building);
+                    building, fin_partie_win, fin_partie_lose);
 
     return EXIT_SUCCESS;
 }

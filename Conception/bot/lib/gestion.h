@@ -28,6 +28,8 @@ void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isV
 
 int validateRegex(const char *input, const char *pattern);
 
+/* fonction de la gestion en jeu */
 void reinitialiser_partie(player_t ** player, ordi_t ** ordi);
+int fin_partie(player_t * player, ordi_t * ordi, player_t * player_online, int etat);
 
 #endif

@@ -38,6 +38,12 @@
 /* INITIALISATION DU DÉLAI D'ATTENTE POUR FORMER LES TROUPES */
 #define DELAI_INITIAL -1
 
+/* FIN DE PARTIE */
+#define JOUEUR_GAGNE 100
+#define ORDI_GAGNE 101
+#define AUCUN_GAGNANT 102
+#define JOUEUR_EN_LIGNE_GAGNE 103
+
 typedef enum class_character_s { melee, marksman, tank, specialist }class_character_t;
 
 /* definition d'un type booleen */

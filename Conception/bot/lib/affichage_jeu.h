@@ -37,6 +37,5 @@ void affichageBulding(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* bui
 
 void affichagePointDeVie(SDL_Renderer * rendu, TTF_Font * font, int pointsDeVie_1, int pointsDeVie_2, SDL_Window* fenetre, int cameraX, int cameraY);
 
-void affichageSurvolPerso1(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, character_t* tab_charactere);
-
+void affichage_gagnant( SDL_Renderer * rendu, TTF_Font * font, int choix ,SDL_Window* fenetre, int cameraX, int cameraY, SDL_Texture * win, SDL_Texture * lose );
 #endif

@@ -709,6 +709,26 @@ void reinitialiser_partie(player_t ** player, ordi_t ** ordi)
     detr_ordi(ordi);
 }
 
+int fin_partie(player_t * player, ordi_t * ordi, player_t * player_online, int etat)
+{
+    /* jouer en ligne */
+    if ( etat == JOUER_RESEAU_CREER || etat == JOUER_RESEAU_REJOINDRE )
+    {
+        if ( player->building->pv <= 0 ) return JOUEUR_EN_LIGNE_GAGNE;
+        if ( player_online->building->pv <= 0 ) return JOUEUR_GAGNE;
+    }
+
+    /* si on joue en solo contre ordinateur */
+    if ( etat == JOUER )
+    {
+        if ( player->building->pv <= 0 ) return ORDI_GAGNE;
+        if ( ordi->building->pv <= 0) return JOUEUR_GAGNE;
+    }
+
+    return AUCUN_GAGNANT;
+}
+
+
 
 
 
