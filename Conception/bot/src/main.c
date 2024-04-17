@@ -443,7 +443,7 @@ int main(int argc, char* argv[]) {
                 envoyer_structure(client_socket, *j1, *joueur_online);
                 recevoir_structure(client_socket, buffer_player, buffer_player_online);
                 printf("OK");
-                envoi = TRUE
+                envoi = TRUE;
             }
             afficher_player(buffer_player);
         }
@@ -455,7 +455,7 @@ int main(int argc, char* argv[]) {
                 recevoir_structure(client_socket, buffer_player, buffer_player_online);
                 envoyer_structure(client_socket, *j1, *joueur_online);
                 printf("OK");
-                envoi = TRUE
+                envoi = TRUE;
             }
             afficher_player(buffer_player);
         }
