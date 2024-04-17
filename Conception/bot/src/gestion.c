@@ -717,7 +717,7 @@ int validateRegex(const char *input, const char *pattern)
     return valid == 0 ? 1 : 0;
 }
 
-int touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern)
+void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern, int *valide)
 {
     /*Si la saisie du texte est activée*/
     if ((*textInputActive)) {
@@ -733,7 +733,7 @@ int touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isVa
                 if( init_reseau_client(textInput) )
                 {
                     printf("Connecté en tant que client !\n");
-                    return (1);
+                    *valide = TRUE;
                 }
                 else
                 {

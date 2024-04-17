@@ -208,13 +208,13 @@ int main(int argc, char* argv[]) {
     (*ancien_lvl) = 0;
     int i;
     int a_deja_lancer_partie = FALSE;
-    player_t * joueur_online = NULL;
+    player_t * joueur_online = initplayer(10);
     char * buffer = malloc(sizeof(100));
 
     /* variable pour la fin de partie */
     int resultat = AUCUN_GAGNANT;
     int connexion_reussi = FALSE;
-    
+    int valide = FALSE;
 
 
     Uint32 lastMovement = 0; //dernier mouvement du sprite
@@ -228,8 +228,8 @@ int main(int argc, char* argv[]) {
     player_t * j1 = NULL; 
     ordi_t * o = NULL; 
 
-    player_t * buffer_player;
-    player_t * buffer_player_online;
+    player_t * buffer_player = NULL;
+    player_t * buffer_player_online = NULL;
     ordi_t * buffer_ordi;
 
     SDL_Texture* image[8]={IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+melee].sprite),
@@ -322,11 +322,10 @@ int main(int argc, char* argv[]) {
                 case SDL_KEYDOWN:
                     
                     /*Gestion des touches pour l'adresse IP*/
-                    touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern);
-
-                    if ( touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern) )
+                    touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern, &valide);
+                    if ( valide )
                     {
-                        (*etat) = JOUER_RESEAU_REJOINDRE;
+                        (*etat) == JOUER_RESEAU_REJOINDRE;
                     }
 
                     if ( *etat == FIN_PARTIE )
@@ -437,6 +436,7 @@ int main(int argc, char* argv[]) {
             }
         }
 
+        /* QUAND ON CREER UNE PARTIE */
         if ( (*etat) == JOUER_RESEAU_CREER )
         {
             envoyer_structure(client_socket, *j1, *joueur_online);
@@ -444,6 +444,7 @@ int main(int argc, char* argv[]) {
             printf("OK");
         }
 
+        /* QUAND ON REJOINT UNE PARTIE */
         if ( (*etat) == JOUER_RESEAU_REJOINDRE )
         {
             recevoir_structure(client_socket, buffer_player, buffer_player_online);
