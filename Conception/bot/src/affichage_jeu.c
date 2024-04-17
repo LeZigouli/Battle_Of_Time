@@ -474,13 +474,15 @@ void affichagePointDeVie(SDL_Renderer * rendu, TTF_Font * font, int pointsDeVie_
 }
 
 /*Affichage des informations des personnages*/
-void affichageSurvolSouris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, int survol, character_t* tab_charactere, int age)
+void affichageSurvolSouris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, int survol, character_t* tab_charactere, 
+                           int age, player_t* joueur)
 {
     char desc[100] = "";
     char cost[100] = "";
     char dammage[100] = "";
     char pv[100] = "";
     switch(survol){
+        /*Affichage des information du perso1*/
         case PERSO1:
             /*Affichage du rectangle en fond*/
             SDL_SetRenderDrawColor(rendu, 0, 0, 0, 128);
@@ -525,6 +527,7 @@ void affichageSurvolSouris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* p
             SDL_DestroyTexture(pv_0_texture);
             break;
 
+        /*Affichage des information du perso1*/
         case PERSO2:
             /*Affichage du rectangle en fond*/
             SDL_SetRenderDrawColor(rendu, 0, 0, 0, 128);
@@ -569,6 +572,7 @@ void affichageSurvolSouris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* p
             SDL_DestroyTexture(pv_1_texture);
             break;
     
+        /*Affichage des information du perso1*/
         case PERSO3:
             /*Affichage du rectangle en fond*/
             SDL_SetRenderDrawColor(rendu, 0, 0, 0, 128);
@@ -614,6 +618,7 @@ void affichageSurvolSouris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* p
             
             break;
         
+        /*Affichage des information du perso1*/
         case PERSO4:
             /*Affichage du rectangle en fond*/
             SDL_SetRenderDrawColor(rendu, 0, 0, 0, 128);
@@ -657,11 +662,64 @@ void affichageSurvolSouris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* p
             SDL_FreeSurface(pv_3_surface);
             SDL_DestroyTexture(pv_3_texture);
             break;
+
+        /*Affichage des information de l'XP*/
+        case XP:
+            /*Affichage du rectangle en fond*/
+            SDL_SetRenderDrawColor(rendu, 0, 0, 0, 128);
+            SDL_SetRenderDrawBlendMode(rendu, SDL_BLENDMODE_BLEND);
+            SDL_Rect rect_XP = creationRectangle(fenetre, 15, 157, 200, 80);
+            SDL_RenderFillRect(rendu, &rect_XP);
+
+            switch(joueur->building->level){
+                case Prehistoire:
+                    strcpy(desc,"Prochain âge : Antiquité");
+                    break;
+                
+                case Antiquite:
+                    strcpy(desc,"Prochain âge : Moyen-Âge");
+                    break;
+
+                case Moyen_Age:
+                    strcpy(desc,"Prochain âge : Moderne");
+                    break;
+
+                case Ere_Moderne:
+                    strcpy(desc,"Prochain âge : Futuriste");
+                    break;
+                
+                case Ere_Futuriste:
+                    strcpy(desc,"Dernier âge");
+                    break;
+            }
+            
+            SDL_Surface * next_age_surface = TTF_RenderUTF8_Solid(police, desc, WHITE);
+            SDL_Texture* next_age_texture = SDL_CreateTextureFromSurface(rendu, next_age_surface);
+            SDL_Rect next_age_rect = creationRectangle(fenetre, 15, 157, 190, 40);
+            SDL_RenderCopy(rendu, next_age_texture, NULL, &next_age_rect);
+            SDL_FreeSurface(next_age_surface);
+            SDL_DestroyTexture(next_age_texture);
+
+            if(joueur->building->level != Ere_Futuriste){
+                sprintf(cost,"Coût : %d XP", joueur->building->XP_cost);
+            }
+            else{
+                strcpy(cost,"Gagnez la partie !");
+            }
+            
+            SDL_Surface * next_age_xp_surface = TTF_RenderUTF8_Solid(police, cost, WHITE);
+            SDL_Texture* next_age_xp_texture = SDL_CreateTextureFromSurface(rendu, next_age_xp_surface);
+            SDL_Rect next_age_xp_rect = creationRectangle(fenetre, 15, 197, 190, 40);
+            SDL_RenderCopy(rendu, next_age_xp_texture, NULL, &next_age_xp_rect);
+            SDL_FreeSurface(next_age_xp_surface);
+            SDL_DestroyTexture(next_age_xp_texture);
+            
+            break;
+
         
         default:
             break;
     }
-
 }
 
 void affichage_gagnant( SDL_Renderer * rendu, TTF_Font * font, int choix ,SDL_Window* fenetre, int cameraX, int cameraY, SDL_Texture * win, SDL_Texture * lose )
