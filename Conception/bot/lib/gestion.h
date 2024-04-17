@@ -28,7 +28,7 @@ void deplacement_souris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* poli
 
 void destruction(int* selecElement, int* index_effet, int* continuer, etat_t* etat, float* widthFactor, float* heightFactor, int* textInputActive, 
                 int* isValid, int* keyCounts, int* ancien, int* etatAge, int* ancienSon);
-void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern);
+int touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern);
 
 int validateRegex(const char *input, const char *pattern);
 

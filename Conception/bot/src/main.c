@@ -213,7 +213,7 @@ int main(int argc, char* argv[]) {
 
     /* variable pour la fin de partie */
     int resultat = AUCUN_GAGNANT;
-
+    int connexion_reussi = FALSE;
     
 
 
@@ -227,7 +227,9 @@ int main(int argc, char* argv[]) {
     character_t * tab_de_charactere = initcharacter();
     player_t * j1 = NULL; 
     ordi_t * o = NULL; 
+
     player_t * buffer_player;
+    player_t * buffer_player_online;
     ordi_t * buffer_ordi;
 
     SDL_Texture* image[8]={IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+melee].sprite),
@@ -321,7 +323,13 @@ int main(int argc, char* argv[]) {
                     
                     /*Gestion des touches pour l'adresse IP*/
                     touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern);
-                                        if ( *etat == FIN_PARTIE )
+
+                    if ( touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern) )
+                    {
+                        (*etat) = JOUER_RESEAU_REJOINDRE;
+                    }
+
+                    if ( *etat == FIN_PARTIE )
                     {
                         *etat = MENU_PRINCIPAL;
                     }
@@ -416,9 +424,11 @@ int main(int argc, char* argv[]) {
 
         if ( (*etat) == MENU_SOUS_CREER )
         {
-            if ( init_reseau_serveur() )
+            if ( init_reseau_serveur() && !connexion_reussi )
             {
-                print("Connecté au client...\n");
+                printf("Connecté au client...\n");
+                connexion_reussi = TRUE;
+                (*etat) = JOUER_RESEAU_CREER;
             }
             else
             {
@@ -427,7 +437,20 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        if ( (*etat) == JOUER )
+        if ( (*etat) == JOUER_RESEAU_CREER )
+        {
+            envoyer_structure(client_socket, *j1, *joueur_online);
+            recevoir_structure(client_socket, buffer_player, buffer_player_online);
+            printf("OK");
+        }
+
+        if ( (*etat) == JOUER_RESEAU_REJOINDRE )
+        {
+            recevoir_structure(client_socket, buffer_player, buffer_player_online);
+            envoyer_structure(client_socket, *j1, *joueur_online);
+            printf("OK");
+        }
+
 
         /*Amélioration antialiasing*/
         SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"2");
@@ -445,6 +468,7 @@ int main(int argc, char* argv[]) {
 	destruction(selecElement, index_effet, continuer, etat, widthFactor, heightFactor, textInputActive, isValide, keyCounts, ancienSon, etatAge, ancienReso);
     free(ancien_lvl);
 
+    connexion_reussi = FALSE;
 
     destroy_tab_character(&tab_de_charactere);
     destroy_player(&j1);
