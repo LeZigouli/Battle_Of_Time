@@ -214,7 +214,8 @@ int main(int argc, char* argv[]) {
     /* variable pour la fin de partie */
     int resultat = AUCUN_GAGNANT;
     int connexion_reussi = FALSE;
-    int valide = FALSE, envoi = FALSE;
+    int valide = FALSE;
+    int envoi = TRUE;
 
 
     Uint32 lastMovement = 0; //dernier mouvement du sprite
@@ -430,8 +431,6 @@ int main(int argc, char* argv[]) {
         }
 
 
-        printf("Etat = %d\n",*etat);
-        printf("Valide = %d\n",valide);
         if ( valide )
         {
             (*etat) = JOUER_RESEAU_REJOINDRE;
@@ -439,25 +438,27 @@ int main(int argc, char* argv[]) {
         /* QUAND ON CREER UNE PARTIE */
         if ( (*etat) == JOUER_RESEAU_CREER )
         {
-            if ( !envoi ){
+            if ( envoi ){
+                afficher_player(j1);
                 envoyer_structure(client_socket, *j1, *joueur_online);
                 recevoir_structure(client_socket, buffer_player, buffer_player_online);
                 printf("OK");
-                envoi = TRUE;
+                envoi = FALSE;
+                afficher_player(buffer_player);
             }
-            afficher_player(buffer_player);
         }
 
         /* QUAND ON REJOINT UNE PARTIE */
         if ( (*etat) == JOUER_RESEAU_REJOINDRE )
         {
-            if ( !envoi ){
+            if ( envoi ){
+                afficher_player(j1);
                 recevoir_structure(client_socket, buffer_player, buffer_player_online);
                 envoyer_structure(client_socket, *j1, *joueur_online);
                 printf("OK");
-                envoi = TRUE;
+                envoi = FALSE;
+                afficher_player(buffer_player);
             }
-            afficher_player(buffer_player);
         }
 
 
