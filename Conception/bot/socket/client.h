@@ -16,7 +16,7 @@
 #include <stdbool.h>
 #include <regex.h>
 #define PORT 30000
-#define MAX_IP 10
+#define MAX_IP 20
 #define QUITTER "QUITTER"
 
 char serveurname[MAX_IP];
