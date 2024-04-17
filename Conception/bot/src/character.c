@@ -116,25 +116,126 @@ character_t * initcharacter()
                 switch (age)
                 {
                 case Prehistoire:
+
                     strcpy(tab[age*NB_CHARACTER+classe].sprite,"img/sprite/Préhistoire/");
+                    
+                    switch(classe)
+                    {
+                        case 0 : 
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Combattant massue");
+                            break;
+
+                        case 1 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Combattant caillou");
+                            break;
+
+                        case 2 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Gorille");
+                            break;
+                            
+                         case 3 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Combattant dinosaure");
+                            break;
+                    }
                     break;
                 
                 case Antiquite:
                     strcpy(tab[age*NB_CHARACTER+classe].sprite,"img/sprite/Antiquité/");
+                    
+                    switch(classe)
+                    {
+                        case 0 : 
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Légionnaire épee");
+                            break;
+
+                        case 1 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Légionnaire lance");
+                            break;
+
+                        case 2 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Chevalier");
+                            break;
+                            
+                         case 3 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Sorciere");
+                            break;
+                    }
+                    
                     break;
                 
                 case Moyen_Age:
                     strcpy(tab[age*NB_CHARACTER+classe].sprite,"img/sprite/Moyen age/");
+                    
+                    switch(classe)
+                    {
+                        case 0 : 
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Chevalier épée bouclier");
+                            break;
+
+                        case 1 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Archer");
+                            break;
+
+                        case 2 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Princesse");
+                            break;
+                            
+                         case 3 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Zombie");
+                            break;
+                    }
+                    
                     break;
 
                 case Ere_Moderne:
                     strcpy(tab[age*NB_CHARACTER+classe].sprite,"img/sprite/Ere moderne/");
+                    
+                    switch(classe)
+                    {
+                        case 0 : 
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Samurai");
+                            break;
+
+                        case 1 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Soldat");
+                            break;
+
+                        case 2 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Avatar");
+                            break;
+                            
+                         case 3 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Pere noel");
+                            break;
+                    }
+
                     break;
                 
                 case Ere_Futuriste:
                     strcpy(tab[age*NB_CHARACTER+classe].sprite,"img/sprite/Ere futuriste/");
+                    
+                    switch(classe)
+                    {
+                        case 0 : 
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Jedhi");
+                            break;
+
+                        case 1 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Squellette");
+                            break;
+
+                        case 2 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Ogre");
+                            break;
+                            
+                         case 3 :
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Alien");
+                            break;
+                    }
+                    
                     break;
                 }
+                
                 switch (classe)
                 {
                 case melee:

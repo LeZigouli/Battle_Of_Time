@@ -21,7 +21,10 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                character_t* tab_de_charactere, ordi_t* ordi);
 
 void relachement(etat_t* etat, int menuX, int menuY, int w, int h, float* widthFactor, float* heightFactor, int mouseX, int mouseY);
-void deplacement_souris(Mix_Chunk* music, int mouseX, SDL_Event evenement, float* widthFactor);
+
+void deplacement_souris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, Mix_Chunk* music, SDL_Event evenement, 
+                        float widthFactor, float heightFactor, int etat, character_t* tab_charactere, int* survol);
+
 void destruction(int* selecElement, int* index_effet, int* continuer, etat_t* etat, float* widthFactor, float* heightFactor, int* textInputActive, 
                 int* isValid, int* keyCounts, int* ancien, int* etatAge, int* ancienSon);
 void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern);

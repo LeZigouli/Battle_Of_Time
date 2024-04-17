@@ -473,16 +473,195 @@ void affichagePointDeVie(SDL_Renderer * rendu, TTF_Font * font, int pointsDeVie_
     free(pv_2);
 }
 
-/*Affichage des informations du personnage 1*/
-void affichageSurvolPerso1(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, character_t* tab_charactere)
+/*Affichage des informations des personnages*/
+void affichageSurvolSouris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, int survol, character_t* tab_charactere, int age)
 {
-    /*Affichage du bouton paramètre*/
-    SDL_Rect Perso1 = creationRectangle(fenetre, 250, 56, 100, 80);
-    SDL_SetRenderDrawColor(rendu, 0, 0, 0, 128);
-    SDL_SetRenderDrawBlendMode(rendu, SDL_BLENDMODE_BLEND);
+    char desc[100] = "";
+    char cost[100] = "";
+    char dammage[100] = "";
+    char pv[100] = "";
+    switch(survol){
+        case PERSO1:
+            /*Affichage du rectangle en fond*/
+            SDL_SetRenderDrawColor(rendu, 0, 0, 0, 128);
+            SDL_SetRenderDrawBlendMode(rendu, SDL_BLENDMODE_BLEND);
+            SDL_Rect Perso1 = creationRectangle(fenetre, 250, 36 + TAILLE_SPRITE, 200, 80);
+            SDL_RenderFillRect(rendu, &Perso1);
 
-    SDL_RenderFillRect(rendu, &Perso1);
+            /*Affichage des informations du personnages*/
+            strcpy(desc, tab_charactere[age * NB_CHARACTER + 0].description);
+            SDL_Surface * desc_0_surface = TTF_RenderUTF8_Solid(police, desc, WHITE);
+            sprintf(cost, "Coût : %d", tab_charactere[age * NB_CHARACTER + 0].cost);
+            SDL_Surface * cost_0_surface = TTF_RenderUTF8_Solid(police, cost, WHITE);
+            sprintf(dammage, "Dégat : %d", tab_charactere[age * NB_CHARACTER + 0].dammage);
+            SDL_Surface * dammage_0_surface = TTF_RenderUTF8_Solid(police, dammage, WHITE);
+            sprintf(pv, "Pv : %d", tab_charactere[age * NB_CHARACTER + 0].max_pv);
+            SDL_Surface * pv_0_surface = TTF_RenderUTF8_Solid(police, pv, WHITE);
+
+            SDL_Texture * desc_0_texture = SDL_CreateTextureFromSurface(rendu, desc_0_surface);
+            SDL_Texture * cost_0_texture = SDL_CreateTextureFromSurface(rendu, cost_0_surface);
+            SDL_Texture * dammage_0_texture = SDL_CreateTextureFromSurface(rendu, dammage_0_surface);
+            SDL_Texture * pv_0_texture = SDL_CreateTextureFromSurface(rendu, pv_0_surface);
+
+            
+            SDL_Rect desc_0_rect = creationRectangle(fenetre, 250, 100, 180, 20);
+            SDL_Rect cost_0_rect = creationRectangle(fenetre, 250, 120, 130, 20);
+            SDL_Rect dammage_0_rect = creationRectangle(fenetre, 250, 140, 130, 20);
+            SDL_Rect pv_0_rect = creationRectangle(fenetre, 250, 160, 130, 20);
+
+            
+            SDL_RenderCopy(rendu, desc_0_texture, NULL, &desc_0_rect);
+            SDL_RenderCopy(rendu, cost_0_texture, NULL, &cost_0_rect);
+            SDL_RenderCopy(rendu, dammage_0_texture, NULL, &dammage_0_rect);
+            SDL_RenderCopy(rendu, pv_0_texture, NULL, &pv_0_rect);
+
+            SDL_FreeSurface(desc_0_surface);
+            SDL_DestroyTexture(desc_0_texture);
+            SDL_FreeSurface(cost_0_surface);
+            SDL_DestroyTexture(cost_0_texture);
+            SDL_FreeSurface(dammage_0_surface);
+            SDL_DestroyTexture(dammage_0_texture);
+            SDL_FreeSurface(pv_0_surface);
+            SDL_DestroyTexture(pv_0_texture);
+            break;
+
+        case PERSO2:
+            /*Affichage du rectangle en fond*/
+            SDL_SetRenderDrawColor(rendu, 0, 0, 0, 128);
+            SDL_SetRenderDrawBlendMode(rendu, SDL_BLENDMODE_BLEND);
+            SDL_Rect Perso2 = creationRectangle(fenetre, 319, 36 + TAILLE_SPRITE, 200, 80);
+            SDL_RenderFillRect(rendu, &Perso2);
+            
+            /*Affichage des informations du personnages*/
+            strcpy(desc, tab_charactere[age * NB_CHARACTER + 1].description);
+            SDL_Surface * desc_1_surface = TTF_RenderUTF8_Solid(police, desc, WHITE);
+            sprintf(cost, "Coût : %d", tab_charactere[age * NB_CHARACTER + 1].cost);
+            SDL_Surface * cost_1_surface = TTF_RenderUTF8_Solid(police, cost, WHITE);
+            sprintf(dammage, "Dégat : %d", tab_charactere[age * NB_CHARACTER + 1].dammage);
+            SDL_Surface * dammage_1_surface = TTF_RenderUTF8_Solid(police, dammage, WHITE);
+            sprintf(pv, "Pv : %d", tab_charactere[age * NB_CHARACTER + 1].max_pv);
+            SDL_Surface * pv_1_surface = TTF_RenderUTF8_Solid(police, pv, WHITE);
+
+            SDL_Texture * desc_1_texture = SDL_CreateTextureFromSurface(rendu, desc_1_surface);
+            SDL_Texture * cost_1_texture = SDL_CreateTextureFromSurface(rendu, cost_1_surface);
+            SDL_Texture * dammage_1_texture = SDL_CreateTextureFromSurface(rendu, dammage_1_surface);
+            SDL_Texture * pv_1_texture = SDL_CreateTextureFromSurface(rendu, pv_1_surface);
+
+            
+            SDL_Rect desc_1_rect = creationRectangle(fenetre, 319, 100, 180, 20);
+            SDL_Rect cost_1_rect = creationRectangle(fenetre, 319, 120, 130, 20);
+            SDL_Rect dammage_1_rect = creationRectangle(fenetre, 319, 140, 130, 20);
+            SDL_Rect pv_1_rect = creationRectangle(fenetre, 319, 160, 130, 20);
+
+        
+            SDL_RenderCopy(rendu, desc_1_texture, NULL, &desc_1_rect);
+            SDL_RenderCopy(rendu, cost_1_texture, NULL, &cost_1_rect);
+            SDL_RenderCopy(rendu, dammage_1_texture, NULL, &dammage_1_rect);
+            SDL_RenderCopy(rendu, pv_1_texture, NULL, &pv_1_rect);
+
+            SDL_FreeSurface(desc_1_surface);
+            SDL_DestroyTexture(desc_1_texture);
+            SDL_FreeSurface(cost_1_surface);
+            SDL_DestroyTexture(cost_1_texture);
+            SDL_FreeSurface(dammage_1_surface);
+            SDL_DestroyTexture(dammage_1_texture);
+            SDL_FreeSurface(pv_1_surface);
+            SDL_DestroyTexture(pv_1_texture);
+            break;
     
+        case PERSO3:
+            /*Affichage du rectangle en fond*/
+            SDL_SetRenderDrawColor(rendu, 0, 0, 0, 128);
+            SDL_SetRenderDrawBlendMode(rendu, SDL_BLENDMODE_BLEND);
+            SDL_Rect Perso3 = creationRectangle(fenetre, 388, 36 + TAILLE_SPRITE, 200, 80);
+            SDL_RenderFillRect(rendu, &Perso3);
+            
+            /*Affichage des informations du personnages*/
+            strcpy(desc, tab_charactere[age * NB_CHARACTER + 2].description);
+            SDL_Surface * desc_2_surface = TTF_RenderUTF8_Solid(police, desc, WHITE);
+            sprintf(cost, "Coût : %d", tab_charactere[age * NB_CHARACTER + 2].cost);
+            SDL_Surface * cost_2_surface = TTF_RenderUTF8_Solid(police, cost, WHITE);
+            sprintf(dammage, "Dégat : %d", tab_charactere[age * NB_CHARACTER + 2].dammage);
+            SDL_Surface * dammage_2_surface = TTF_RenderUTF8_Solid(police, dammage, WHITE);
+            sprintf(pv, "Pv : %d", tab_charactere[age * NB_CHARACTER + 2].max_pv);
+            SDL_Surface * pv_2_surface = TTF_RenderUTF8_Solid(police, pv, WHITE);
+
+            SDL_Texture * desc_2_texture = SDL_CreateTextureFromSurface(rendu, desc_2_surface);
+            SDL_Texture * cost_2_texture = SDL_CreateTextureFromSurface(rendu, cost_2_surface);
+            SDL_Texture * dammage_2_texture = SDL_CreateTextureFromSurface(rendu, dammage_2_surface);
+            SDL_Texture * pv_2_texture = SDL_CreateTextureFromSurface(rendu, pv_2_surface);
+
+            
+            SDL_Rect desc_2_rect = creationRectangle(fenetre, 388, 100, 180, 20);
+            SDL_Rect cost_2_rect = creationRectangle(fenetre, 388, 120, 130, 20);
+            SDL_Rect dammage_2_rect = creationRectangle(fenetre, 388, 140, 130, 20);
+            SDL_Rect pv_2_rect = creationRectangle(fenetre, 388, 160, 130, 20);
+
+        
+            SDL_RenderCopy(rendu, desc_2_texture, NULL, &desc_2_rect);
+            SDL_RenderCopy(rendu, cost_2_texture, NULL, &cost_2_rect);
+            SDL_RenderCopy(rendu, dammage_2_texture, NULL, &dammage_2_rect);
+            SDL_RenderCopy(rendu, pv_2_texture, NULL, &pv_2_rect);
+
+            SDL_FreeSurface(desc_2_surface);
+            SDL_DestroyTexture(desc_2_texture);
+            SDL_FreeSurface(cost_2_surface);
+            SDL_DestroyTexture(cost_2_texture);
+            SDL_FreeSurface(dammage_2_surface);
+            SDL_DestroyTexture(dammage_2_texture);
+            SDL_FreeSurface(pv_2_surface);
+            SDL_DestroyTexture(pv_2_texture);
+            
+            break;
+        
+        case PERSO4:
+            /*Affichage du rectangle en fond*/
+            SDL_SetRenderDrawColor(rendu, 0, 0, 0, 128);
+            SDL_SetRenderDrawBlendMode(rendu, SDL_BLENDMODE_BLEND);
+            SDL_Rect Perso4 = creationRectangle(fenetre, 457, 36 + TAILLE_SPRITE, 200, 80);
+            SDL_RenderFillRect(rendu, &Perso4);
+            
+            /*Affichage des informations du personnages*/
+            strcpy(desc, tab_charactere[age * NB_CHARACTER + 3].description);
+            SDL_Surface * desc_3_surface = TTF_RenderUTF8_Solid(police, desc, WHITE);
+            sprintf(cost, "Coût : %d", tab_charactere[age * NB_CHARACTER + 3].cost);
+            SDL_Surface * cost_3_surface = TTF_RenderUTF8_Solid(police, cost, WHITE);
+            sprintf(dammage, "Dégat : %d", tab_charactere[age * NB_CHARACTER + 3].dammage);
+            SDL_Surface * dammage_3_surface = TTF_RenderUTF8_Solid(police, dammage, WHITE);
+            sprintf(pv, "Pv : %d", tab_charactere[age * NB_CHARACTER + 3].max_pv);
+            SDL_Surface * pv_3_surface = TTF_RenderUTF8_Solid(police, pv, WHITE);
+
+            SDL_Texture * desc_3_texture = SDL_CreateTextureFromSurface(rendu, desc_3_surface);
+            SDL_Texture * cost_3_texture = SDL_CreateTextureFromSurface(rendu, cost_3_surface);
+            SDL_Texture * dammage_3_texture = SDL_CreateTextureFromSurface(rendu, dammage_3_surface);
+            SDL_Texture * pv_3_texture = SDL_CreateTextureFromSurface(rendu, pv_3_surface);
+
+            
+            SDL_Rect desc_3_rect = creationRectangle(fenetre, 457, 100, 180, 20);
+            SDL_Rect cost_3_rect = creationRectangle(fenetre, 457, 120, 130, 20);
+            SDL_Rect dammage_3_rect = creationRectangle(fenetre, 457, 140, 130, 20);
+            SDL_Rect pv_3_rect = creationRectangle(fenetre, 457, 160, 130, 20);
+
+        
+            SDL_RenderCopy(rendu, desc_3_texture, NULL, &desc_3_rect);
+            SDL_RenderCopy(rendu, cost_3_texture, NULL, &cost_3_rect);
+            SDL_RenderCopy(rendu, dammage_3_texture, NULL, &dammage_3_rect);
+            SDL_RenderCopy(rendu, pv_3_texture, NULL, &pv_3_rect);
+
+            SDL_FreeSurface(desc_3_surface);
+            SDL_DestroyTexture(desc_3_texture);
+            SDL_FreeSurface(cost_3_surface);
+            SDL_DestroyTexture(cost_3_texture);
+            SDL_FreeSurface(dammage_3_surface);
+            SDL_DestroyTexture(dammage_3_texture);
+            SDL_FreeSurface(pv_3_surface);
+            SDL_DestroyTexture(pv_3_texture);
+            break;
+        
+        default:
+            break;
+    }
+
 }
 
 void affichage_gagnant( SDL_Renderer * rendu, TTF_Font * font, int choix ,SDL_Window* fenetre, int cameraX, int cameraY, SDL_Texture * win, SDL_Texture * lose )

@@ -74,6 +74,16 @@ typedef enum etat_s {
     FIN_PARTIE
 }etat_t;
 
+/*Énumération pour le survol des éléments*/
+typedef enum survol_s {
+    PERSO1,
+    PERSO2,
+    PERSO3,
+    PERSO4,
+    XP,
+    ULTIM
+}survol_t;
+
 /*Énumération des ages du jeu*/
 typedef enum age_s { Prehistoire, Antiquite, Moyen_Age, Ere_Moderne, Ere_Futuriste }age_t;
 

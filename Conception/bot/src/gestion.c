@@ -624,19 +624,51 @@ void relachement(etat_t* etat, int menuX, int menuY, int w, int h, float* widthF
 }
 
 /*Gestion du déplacement de la souris sur les éléments du menu*/
-void deplacement_souris(Mix_Chunk* music, int mouseX, SDL_Event evenement, float* widthFactor)
+void deplacement_souris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, Mix_Chunk* music, SDL_Event evenement, 
+                        float widthFactor, float heightFactor, int etat, character_t* tab_charactere, int* survol)
 {
-    /*Déplacer le curseur si l'utilisateur déplace la souris tout en maintenant le bouton de la souris enfoncé*/
-    if (estLache) {
-        mouseX = evenement.motion.x;
-        if (mouseX < volumeBar->x) {
-            mouseX = volumeBar->x;
-        } else if (mouseX > volumeBar->x + (volumeBar->w - 14 )) {
-            mouseX = volumeBar->x + (volumeBar->w - 14);
-        }
-        volume = ((mouseX - volumeBar->x) / 2) / (*widthFactor);
-        Mix_VolumeChunk(music, volume);
-        volumeCursor->x = mouseX;
+    /*Récupère les coordonnées du pointeur de la souris*/
+    int mouseX = evenement.motion.x;
+    int mouseY = evenement.motion.y;
+
+    switch(etat){
+        case MENU_SOUS_SON:
+            /*Déplacer le curseur si l'utilisateur déplace la souris tout en maintenant le bouton de la souris enfoncé*/
+            if (estLache) {
+                if (mouseX < volumeBar->x) {
+                    mouseX = volumeBar->x;
+                } else if (mouseX > volumeBar->x + (volumeBar->w - 14 )) {
+                    mouseX = volumeBar->x + (volumeBar->w - 14);
+                }
+                volume = ((mouseX - volumeBar->x) / 2) / widthFactor;
+                Mix_VolumeChunk(music, volume);
+                volumeCursor->x = mouseX;
+            }
+            break;
+
+        case JOUER:
+            /*Affichage au survol d'un élément*/
+            if(mouseX >= (250 * widthFactor) && mouseX <= (314 * widthFactor) &&
+               mouseY >= (36 * heightFactor) && mouseY <= (100 * heightFactor)){
+                (*survol) = PERSO1;
+            }
+            else if(mouseX >= (319 * widthFactor) && mouseX <= (383 * widthFactor) &&
+                    mouseY >= (36 * heightFactor) && mouseY <= (100 * heightFactor)){
+                (*survol) = PERSO2;
+            }
+            else if(mouseX >= (388 * widthFactor) && mouseX <= (452 * widthFactor) &&
+                    mouseY >= (36 * heightFactor) && mouseY <= (100 * heightFactor)){
+                (*survol) = PERSO3;
+            }
+            else if(mouseX >= (457 * widthFactor) && mouseX <= (521 * widthFactor) &&
+                    mouseY >= (36 * heightFactor) && mouseY <= (100 * heightFactor)){
+                (*survol) = PERSO4;
+            }
+            else{
+                (*survol) = -1;
+            }
+            
+            break;
     }
 }
 

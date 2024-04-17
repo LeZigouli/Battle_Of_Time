@@ -255,6 +255,9 @@ int main(int argc, char* argv[]) {
     }
 
 
+    int* survol = malloc(sizeof(int));
+    (*survol) = -1;
+
     /*********************/
     /*-Boucle Principale-*/
     /*********************/
@@ -310,7 +313,8 @@ int main(int argc, char* argv[]) {
                 case SDL_MOUSEMOTION:
                 
 					/*Gestion du déplacement de la souris sur les éléments du menu*/
-				   	deplacement_souris(music, mouseX, evenement, widthFactor);
+				   	deplacement_souris(rendu, fenetre, police_texte, music, evenement, (*widthFactor),
+                                       (*heightFactor), (*etat), tab_de_charactere, survol);
                 	break;
 
                 /*Gestion des touches du clavier*/
@@ -348,7 +352,7 @@ int main(int argc, char* argv[]) {
             }
         }
         
-        j1->building->pv = 0;
+        //j1->building->pv = 0;
 
         /*Afficher l'image du menu*/
         SDL_RenderCopy(rendu, textureFond, NULL, NULL);
@@ -356,7 +360,8 @@ int main(int argc, char* argv[]) {
         /*Gestion de l'affichage en fonction de l'état*/
         affichage((*etat), etatAge,rendu, fenetre, police, police_texte, menuX, menuY, elm_reso, selecElement, 
                   effet, textInput, isValide, keyCounts, parametre, gold, xp, prehistoire, antiquite,
-                  moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building, resultat, fin_partie_win, fin_partie_lose );
+                  moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building, resultat, 
+                  fin_partie_win, fin_partie_lose, tab_de_charactere, (*survol));
         
         /* qaund on lance une nouvelle partie, on detruit bien toute les données */
         if ( !a_deja_lancer_partie && ( *etat == JOUER || *etat == JOUER_RESEAU_CREER || *etat == JOUER_RESEAU_REJOINDRE ) )
