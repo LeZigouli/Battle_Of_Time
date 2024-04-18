@@ -181,12 +181,15 @@ void ataquage(SDL_Rect * atimg,SDL_Rect * position, character_t * c, int * attaq
         case 13:
         case 14:
         case 19:
-            if(atimg->x == TAILLE_SPRITE*5){
-                atimg->x=0;
-                *attaque=TRUE;
-            }else 
-                atimg->x+=TAILLE_SPRITE;
-            break;
+                if(atimg->x == TAILLE_SPRITE*7){
+                    atimg->x=0;
+                    *attaque=TRUE;
+                }else 
+                {
+                    atimg->y = TAILLE_SPRITE * 7;
+                    atimg->x+=TAILLE_SPRITE;
+                }
+                break;
 
 
         /* le gorille */
