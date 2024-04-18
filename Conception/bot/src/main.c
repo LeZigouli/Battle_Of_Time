@@ -1,6 +1,9 @@
-/*
- * Projet Battle Of Time
- * Le 28 janvier 2024, 17:00
+/**
+ * \file main.c
+ * \brief Fonction principal du programme
+ * \author Proudy Vincent, Roquain Louison, Poirier Victor et Wolter Thomas
+ * \date 09 févrirer 2024
+ * \version 1.0
 */
 
 /**************/
@@ -203,6 +206,8 @@ int main(int argc, char* argv[]) {
     /*****************/
     /*-Variables jeu-*/
     /*****************/
+    int first_attaque = FALSE;
+
     int attaque = 0;
     int* ancien_lvl = malloc(sizeof(int));
     (*ancien_lvl) = 0;
@@ -220,10 +225,12 @@ int main(int argc, char* argv[]) {
 
     Uint32 lastMovement = 0; //dernier mouvement du sprite
 
-    SDL_Rect playerImg = {TAILLE_SPRITE*0 , TAILLE_SPRITE*11, TAILLE_SPRITE*1, TAILLE_SPRITE*1};   //position sur le png avec tous les sprite
-    SDL_Rect ordiImg = {TAILLE_SPRITE*0 , TAILLE_SPRITE*9, TAILLE_SPRITE*1, TAILLE_SPRITE*1};
+    SDL_Rect playerImg = {0 , TAILLE_SPRITE*11, TAILLE_SPRITE, TAILLE_SPRITE};   //position sur le png avec tous les sprite
+    SDL_Rect ordiImg = {0 , TAILLE_SPRITE*9, TAILLE_SPRITE, TAILLE_SPRITE};
     SDL_Rect playerPosition[MAX_POSSESSED]; // position et taille du sprite sur l'écran
     SDL_Rect ordiPosition[MAX_POSSESSED];
+    SDL_Rect playerAttackImg = {0,0,TAILLE_SPRITE,TAILLE_SPRITE};
+    SDL_Rect ordiAttackImg = {0,0,TAILLE_SPRITE,TAILLE_SPRITE};
 
     character_t * tab_de_charactere = initcharacter();
     player_t * j1 = NULL; 
@@ -386,7 +393,7 @@ int main(int argc, char* argv[]) {
         if((*etat) == JOUER){
             envoie_char(&j1);
             jeu_ordi(o,j1,tab_de_charactere);
-            affichageSprite(rendu, j1, o, &playerImg, &ordiImg, attaque, playerPosition, ordiPosition, ancien_lvl, 
+        affichageSprite(rendu, j1, o, &playerImg, &ordiImg, &playerAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY);
         }
 

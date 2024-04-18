@@ -40,6 +40,7 @@ typedef struct character_s {
     int cost;                       /**< Coût du personnage. */
     int dammage;                     /**< Dégâts infligés par le personnage. */
     char description[MAX_DESCRIPTION]; /**< Description du personnage. */
+    int first_Attaque;
     int max_pv;                     /**< Points de vie maximum du personnage. */
     char name[MAX_STR];             /**< Nom du personnage. */
     int owner;                      /**< Propriétaire du personnage. */

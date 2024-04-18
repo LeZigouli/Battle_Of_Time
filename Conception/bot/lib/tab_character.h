@@ -20,6 +20,7 @@
 typedef struct tab_charactere_s {
     character_t * tab[MAX_POSSESSED]; /**< Tableau de personnages */
     int nb; /**< Nombre de personnages dans le tableau */
+    int ind_first_vivant;
 } tab_charactere_t;
 
 void deplacement(tab_charactere_t * characters, character_t * first_Adverser, int x_building_adverser);

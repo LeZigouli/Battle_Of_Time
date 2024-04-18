@@ -16,6 +16,7 @@
 #include "affichage_menu.h"
 #include "player.h"
 #include "ordinateur.h"
+#include "../lib/attaque.h"
 
 /***************/
 /*--Fonctions--*/
@@ -35,7 +36,7 @@ void afficherOptionJeu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetr
 
 void img_charactere_inser(tab_charactere_t * characters, int age, SDL_Texture* img_c[], SDL_Texture* tab[]);
 
-void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, int attaque,
+void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, SDL_Rect* playerAttackImg, int * first_Attaque,
                      SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* ancien_lvl, character_t* tab_de_charactere,
                      SDL_Texture* image[], SDL_Texture* img_char[], SDL_Texture* img_c_ordi[], Uint32 currentTime, Uint32* lastMovement,
                      int w, int h, int* cameraX, int* cameraY);

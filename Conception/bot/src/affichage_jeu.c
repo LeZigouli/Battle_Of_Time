@@ -335,12 +335,13 @@ float lerp(float a, float b, float t) {
  * @param h Hauteur de la fenêtre.
  * @param cameraX Pointeur vers la position horizontale de la caméra.
  * @param cameraY Pointeur vers la position verticale de la caméra.
- */void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, int attaque,
+ * */
+void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, SDL_Rect* playerAttackImg, int * first_Attaque,
                      SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* ancien_lvl, character_t* tab_de_charactere,
                      SDL_Texture* image[], SDL_Texture* img_char[], SDL_Texture* img_c_ordi[], Uint32 currentTime, Uint32* lastMovement,
                      int w, int h, int* cameraX, int* cameraY)
 {
-    int i,level, frame_deplace;
+    int i,level, frame_deplace,attaque=FALSE;
 
     /*Calcul du temps écoulé depuis la dernière mise à jour*/
     float t = (float)(currentTime - *lastMovement) / MOVEMENT_DURATION;
@@ -390,7 +391,7 @@ float lerp(float a, float b, float t) {
 
 
     /*Déplacement du sprite*/
-    if(currentTime - (*lastMovement) >= 100 && attaque == 0 && (j1->characters->nb > 0 || o->characters->nb > 0)){ /*le sprite va avancer tout les 100 ms*/
+    if(currentTime - (*lastMovement) >= 100 && (j1->characters->nb > 0 || o->characters->nb > 0)){ /*le sprite va avancer tout les 100 ms*/
         if(playerImg->x == TAILLE_SPRITE*8) 
             playerImg->x = TAILLE_SPRITE; /*si on arrive a la fin de l'animation on retourne a la premiere pour faire l'animation en continu*/
         else {
@@ -403,12 +404,32 @@ float lerp(float a, float b, float t) {
             ordiImg->x += TAILLE_SPRITE;/*on passe a l'image suivante pour l'animation*/
         }
 
+        o->characters->ind_first_vivant=0;
+        j1->characters->ind_first_vivant=0;
+        for(i=0;i<MAX_POSSESSED;i++){
+            if(i<j1->characters->nb){
+                if(j1->characters->tab[i]->pv < 0)
+                    j1->characters->ind_first_vivant++;
+            }else if(!j1->characters->nb)
+                j1->characters->ind_first_vivant=-1;
+            
+            if(i<o->characters->nb){
+                if(o->characters->tab[i]->pv < 0)
+                    o->characters->ind_first_vivant++;
+            }else if(!o->characters->nb)
+                o->characters->ind_first_vivant=-1;
+        }
+        
+        
         deplacement(j1->characters, o->characters->tab[0], POS_DEP_AD);
         deplacement(o->characters, j1->characters->tab[0], POS_DEP);
+        
+    
 
-        for(i=0; i<j1->characters->nb; i++){
+        for(i=0; i<j1->characters->nb; i++){                
             playerPosition[i].x = j1->characters->tab[i]->x - (*cameraX);//on avance
             playerPosition[i].y = h - (TAILLE_SPRITE * 2) - 16;
+                
         }
         for(i=0; i<o->characters->nb; i++){
             ordiPosition[i].x = o->characters->tab[i]->x - (*cameraX);
@@ -431,16 +452,38 @@ float lerp(float a, float b, float t) {
         
     img_charactere_inser(j1->characters,level,img_char,image);
     img_charactere_inser(o->characters,level,img_c_ordi,image);
-        
+
+    
     for(i=0;i<j1->characters->nb;i++){
         if(j1->characters->tab[i]->x == j1->characters->tab[i]->x_pred){
-            frame_deplace=playerImg->x;
-            playerImg->x=0;
+            if(i==0){
+                (*first_Attaque)=TRUE;
+                if(j1->characters->tab[i]->first_Attaque){
+                    resize_att(playerAttackImg,&playerPosition[i],j1->characters->tab[i]);
+                    j1->characters->tab[i]->first_Attaque=FALSE;
+                }
+                ataquage(playerAttackImg,&playerPosition[i],j1->characters->tab[i],&attaque);
+                
+                SDL_RenderCopy(rendu, img_char[i],playerAttackImg,&playerPosition[i]);
+                if(attaque){
+                    attaque=FALSE;
+                    if(o->characters->tab[0]==NULL)
+                        character_attack_building(&o->building,&j1->characters->tab[i]);
+                    else
+                        character_attack_character(&o->characters->tab[o->characters->ind_first_vivant],&j1->characters->tab[i]);
+                }
+                if(&o->characters->tab[o->characters->ind_first_vivant] <=0)
+                    resize_dep(playerAttackImg,&playerPosition[i],j1->characters->tab[i]);
+            }else{
+                frame_deplace=playerImg->x;
+                playerImg->x=0;
+                SDL_RenderCopy(rendu, img_char[i], playerImg, &playerPosition[i]);
+                playerImg->x=frame_deplace;
+            }
+        }else{
+            
             SDL_RenderCopy(rendu, img_char[i], playerImg, &playerPosition[i]);
-            playerImg->x=frame_deplace;
-        }else
-            SDL_RenderCopy(rendu, img_char[i], playerImg, &playerPosition[i]);
-
+        }
     }
     for(i=0;i<o->characters->nb;i++){
         if(o->characters->tab[i]->x == o->characters->tab[i]->x_pred){
