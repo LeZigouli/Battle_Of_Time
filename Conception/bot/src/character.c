@@ -146,7 +146,7 @@ character_t * initcharacter()
                 tab[age*NB_CHARACTER+classe].pv               =((age+1)*8)*((age+2)*7)*20+(classe+1)*(classe+2)*48;
                 tab[age*NB_CHARACTER+classe].ratio_ressources =RATIO_RESSOURCES;
                 tab[age*NB_CHARACTER+classe].time             =temp_former(age*NB_CHARACTER+classe+1);
-                tab[age*NB_CHARACTER+classe].vector           =(age*NB_CHARACTER+classe+1)/4 + 20;
+                tab[age*NB_CHARACTER+classe].vector           =(age*NB_CHARACTER+classe+1)/4 + 50;
                 tab[age*NB_CHARACTER+classe].x                =0;
                 tab[age*NB_CHARACTER+classe].x_pred           =0;
                 tab[age*NB_CHARACTER+classe].y                =0;
