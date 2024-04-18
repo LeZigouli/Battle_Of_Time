@@ -1035,8 +1035,8 @@ void affichage_gagnant( SDL_Renderer * rendu, TTF_Font * font, int choix ,SDL_Wi
 {
     int w, h, x, y;    
     SDL_GetWindowSize(fenetre, &w, &h);
-    x = w/2;
-    y = h/2;
+    x = WINDOW_WIDTH/2;
+    y = WINDOW_HEIGHT/2;
 
     /* pour image */
     if (  choix == JOUEUR_GAGNE )
