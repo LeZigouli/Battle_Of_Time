@@ -43,6 +43,7 @@
 #define POS_DEP_AD IMAGE_WIDTH - 300 /*Spawn des caractères de l'adversaire*/
 
 #define MOVEMENT_DURATION 100 /*Durée du mouvement en millisecondes des sprites*/
+#define DELAI_ULTI 180000 /*Délai de temps entre 2 utilisations d'ulti*/
 
 /*Code couleur */
 #define BLACK (SDL_Color){0, 0, 0}

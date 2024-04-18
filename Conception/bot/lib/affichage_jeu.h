@@ -23,7 +23,8 @@
 /***************/
 void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_texte, SDL_Texture* parametre, 
                  SDL_Texture* upgrade, SDL_Texture* gold, SDL_Texture* xp, player_t* joueur, SDL_Texture* sprite_hud[],
-                 SDL_Texture* ultim, int age);
+                 SDL_Texture* ultim, int age, int** troupe_formee, Uint32 currentTime, Uint32** lastTroupe,
+                 character_t* tab_character, int** nb);
 
 void afficherJeuFond(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* fond_jeu, int* cameraX, int* cameraY);
 
@@ -50,6 +51,6 @@ void affichage_gagnant( SDL_Renderer * rendu, TTF_Font * font, int choix ,SDL_Wi
 
 
 void affichageSurvolSouris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, int survol, character_t* tab_charactere, 
-                           int age, player_t* joueur);
+                           int age, player_t* joueur, Uint32 delai_ulti, Uint32 diff_time);
 
 #endif

@@ -268,8 +268,38 @@ int main(int argc, char* argv[]) {
     }
 
 
+    /*Pointeur pour déterminer sur quel élément est survolé*/
     int* survol = malloc(sizeof(int));
     (*survol) = -1;
+
+    /*Pointeur sur la différence temps pour l'utilisation de l'ulti*/
+    Uint32* diff_time = malloc(sizeof(Uint32));
+    (*diff_time) = 0;
+
+    Uint32* lastUlti = malloc(sizeof(Uint32));
+    (*lastUlti) = 0;
+
+    Uint32* delai_ulti = malloc(sizeof(Uint32));
+    (*delai_ulti) = 0;
+
+    
+    int* troupe_formee[4];
+    for(i = 0; i < 4; i++){
+        troupe_formee[i] = malloc(sizeof(int));
+        *troupe_formee[i] = -1;
+    }
+    
+    Uint32* lastTroupe[4];
+    for(i = 0; i < 4; i++){
+        lastTroupe[i] = malloc(sizeof(Uint32));
+        *lastTroupe[i] = 0;
+    }
+
+    int* nb[4];
+    for(i = 0; i < 4; i++){
+        nb[i] = malloc(sizeof(int));
+        *nb[i] = 0;
+    }
 
     /*********************/
     /*-Boucle Principale-*/
@@ -311,7 +341,8 @@ int main(int argc, char* argv[]) {
                     clic(etat, fenetre, evenement, elm_reso, click, mouseX, mouseY, w, h, 
                               (*widthFactor), (*heightFactor), menuX, menuY, index_effet, continuer, 
                               selecElement, effet, isValide, textInput, ipPattern, textInputActive, keyCounts,
-                              x, y, ancienSon, ancienReso, j1, tab_de_charactere, o);
+                              x, y, ancienSon, ancienReso, j1, tab_de_charactere, o, currentTime, lastUlti, diff_time, 
+                              delai_ulti, troupe_formee, lastTroupe, nb);
                     break;
 
                 /*Gestion du relachement du clic de la souris*/
@@ -374,7 +405,8 @@ int main(int argc, char* argv[]) {
         affichage((*etat), etatAge,rendu, fenetre, police, police_texte, menuX, menuY, elm_reso, selecElement, 
                   effet, textInput, isValide, keyCounts, parametre, gold, xp, prehistoire, antiquite,
                   moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building, resultat, 
-                  fin_partie_win, fin_partie_lose, tab_de_charactere, (*survol));
+                  fin_partie_win, fin_partie_lose, tab_de_charactere, (*survol), (*delai_ulti), (*diff_time), troupe_formee,
+                  currentTime, lastTroupe, nb);
         
         
         /* qaund on lance une nouvelle partie, on detruit bien toute les données */
@@ -397,6 +429,9 @@ int main(int argc, char* argv[]) {
     
         /*On appelle les fonctions du jeu si on est dans une partie*/
         if((*etat) == JOUER){
+            /*Calcul du temps avant d'utiliser l'ulti*/
+            (*diff_time) = currentTime - (*lastUlti);
+            (*delai_ulti) = DELAI_ULTI - (*diff_time);
             envoie_char(&j1);
             jeu_ordi(o,j1,tab_de_charactere);
         affichageSprite(rendu, j1, o, &playerImg, &ordiImg, &playerAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
@@ -502,6 +537,19 @@ int main(int argc, char* argv[]) {
     free(cameraY);
     
     free(buffer);
+    free(survol);
+    free(lastUlti);
+    free(diff_time);
+    free(lastTroupe);
+    free(delai_ulti);
+
+    for(i = 0; i < 4; i++){
+        free(troupe_formee[i]);
+    }
+    for(i = 0; i < 4; i++){
+        free(nb[i]);
+    }
+
 
     destruction_SDL(parametre, gold, xp, textureFond, prehistoire, antiquite, moyen_age,
                     moderne, futuriste, police, police_texte, rendu, fenetre, click, music, sprite_hud,

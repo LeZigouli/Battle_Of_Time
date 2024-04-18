@@ -25,7 +25,8 @@
  */
 void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_texte, SDL_Texture* parametre, 
                  SDL_Texture* upgrade, SDL_Texture* gold, SDL_Texture* xp, player_t* joueur, SDL_Texture* sprite_hud[],
-                 SDL_Texture* ultim, int age)
+                 SDL_Texture* ultim, int age, int** troupe_formee, Uint32 currentTime, Uint32** lastTroupe,
+                 character_t* tab_character, int** nb)
 {
     /*Affichage du bouton paramètre*/
     SDL_Rect rect_parametre = creationRectangle(fenetre, WINDOW_WIDTH - 60, 10, 50, 50);
@@ -126,6 +127,107 @@ void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_text
             SDL_RenderCopy(rendu, sprite_hud[18], &tete_perso, &Perso3);
             SDL_RenderCopy(rendu, sprite_hud[19], &tete_perso, &Perso4);
             break;
+    }
+
+    /*Affichage du temps de formation des troupes*/
+    /*Affichage des rectangles derrière les personnages*/
+    SDL_SetRenderDrawColor(rendu, 0, 0, 0, 180);/*Couleur semi-transparente*/
+    SDL_Rect temps_perso1 = creationRectangle(fenetre, 250, 16, TAILLE_SPRITE, 20);
+    SDL_Rect temps_perso2 = creationRectangle(fenetre, 319, 16, TAILLE_SPRITE, 20);
+    SDL_Rect temps_perso3 = creationRectangle(fenetre, 388, 16, TAILLE_SPRITE, 20);
+    SDL_Rect temps_perso4 = creationRectangle(fenetre, 457, 16, TAILLE_SPRITE, 20);
+
+    Uint32 diff_time1;
+    Uint32 diff_time2;
+    Uint32 diff_time3;
+    Uint32 diff_time4;
+
+    Uint32 temps1;
+    Uint32 temps2;
+    Uint32 temps3;
+    Uint32 temps4;
+
+    char delai1[20];
+    char delai2[20];
+    char delai3[20];
+    char delai4[20]; 
+
+    if(joueur->characters->nb + joueur->file_attente->nb >= MAX_POSSESSED){
+        SDL_Rect file_pleine_rect = creationRectangle(fenetre, 526, 52, 300, 32);
+        SDL_RenderFillRect(rendu, &file_pleine_rect);
+        char info[100] = "Nombre maximal de troupe sur le terrain atteint !";
+        SDL_Surface* file_pleine_surface = TTF_RenderUTF8_Solid(police_texte, info, WHITE);
+        SDL_Texture* file_pleine_texture = SDL_CreateTextureFromSurface(rendu, file_pleine_surface);
+        SDL_Rect affichage_info = creationRectangle(fenetre, 526, 52, 300, 32);
+        SDL_RenderCopy(rendu, file_pleine_texture, NULL, &affichage_info);
+        (*nb)[0] = 0;
+        (*nb)[1] = 0;
+        (*nb)[2] = 0;
+        (*nb)[3] = 0;
+    }
+
+    if(joueur->file_attente->nb == 0){
+        (*nb)[0] = 0;
+        (*nb)[1] = 0;
+        (*nb)[2] = 0;
+        (*nb)[3] = 0;
+    }
+
+    if((*nb)[0] > 0){
+        diff_time1 = (currentTime - (*lastTroupe)[0]);
+        temps1 = ((tab_character[age * NB_CHARACTER + 0].time*1000) * (*nb)[0]) - diff_time1;
+    }
+
+    if((*nb)[1] > 0){
+        diff_time2 = (currentTime - (*lastTroupe)[1]);
+        temps2 = ((tab_character[age * NB_CHARACTER + 1].time*1000) * (*nb)[1]) - diff_time2;
+    }
+
+    if((*nb)[2] > 0){
+        diff_time3 = (currentTime - (*lastTroupe)[2]);
+        temps3 = ((tab_character[age * NB_CHARACTER + 1].time*1000) * (*nb)[2]) - diff_time3;
+    }
+
+    if((*nb)[3] > 0){
+        diff_time4 = (currentTime - (*lastTroupe)[3]);
+        temps4 = ((tab_character[age * NB_CHARACTER + 1].time*1000) * (*nb)[3]) - diff_time4;
+    }
+
+
+    if((*troupe_formee)[0] == melee && diff_time1 < (tab_character[age * NB_CHARACTER + 0].time*1000) * (*nb)[0]){
+        sprintf(delai1,"%ds", (temps1 + 600)/1000);
+        SDL_Surface* delai1_surface = TTF_RenderUTF8_Solid(police_texte, delai1, WHITE);
+        SDL_Texture* delai1_texture = SDL_CreateTextureFromSurface(rendu, delai1_surface);
+        SDL_RenderFillRect(rendu, &temps_perso1);
+        SDL_Rect delai_rect1 = creationRectangle(fenetre, 266, 16, 32, 20);
+        SDL_RenderCopy(rendu, delai1_texture, NULL, &delai_rect1);
+    }
+
+    if((*troupe_formee)[1] == marksman && diff_time2 < (tab_character[age * NB_CHARACTER + 1].time*1000) * (*nb)[1]){
+        sprintf(delai2,"%ds", (temps2 + 600)/1000);
+        SDL_Surface* delai2_surface = TTF_RenderUTF8_Solid(police_texte, delai2, WHITE);
+        SDL_Texture* delai2_texture = SDL_CreateTextureFromSurface(rendu, delai2_surface);
+        SDL_RenderFillRect(rendu, &temps_perso2);
+        SDL_Rect delai_rect2 = creationRectangle(fenetre, 335, 16, 32, 20);
+        SDL_RenderCopy(rendu, delai2_texture, NULL, &delai_rect2);
+    }
+
+    if((*troupe_formee)[2] == tank && diff_time3 < (tab_character[age * NB_CHARACTER + 1].time*1000) * (*nb)[2]){
+        sprintf(delai3,"%ds", (temps3 + 600)/1000);
+        SDL_Surface* delai3_surface = TTF_RenderUTF8_Solid(police_texte, delai3, WHITE);
+        SDL_Texture* delai3_texture = SDL_CreateTextureFromSurface(rendu, delai3_surface);
+        SDL_RenderFillRect(rendu, &temps_perso3);
+        SDL_Rect delai_rect3 = creationRectangle(fenetre, 404, 16, 32, 20);
+        SDL_RenderCopy(rendu, delai3_texture, NULL, &delai_rect3);
+    }  
+
+    if((*troupe_formee)[3] == specialist && diff_time4 < (tab_character[age * NB_CHARACTER + 1].time*1000) * (*nb)[3]){
+        sprintf(delai4,"%ds", (temps4 + 600)/1000);
+        SDL_Surface* delai4_surface = TTF_RenderUTF8_Solid(police_texte, delai4, WHITE);
+        SDL_Texture* delai4_texture = SDL_CreateTextureFromSurface(rendu, delai4_surface);
+        SDL_RenderFillRect(rendu, &temps_perso4);
+        SDL_Rect delai_rect4 = creationRectangle(fenetre, 473, 16, 32, 20);
+        SDL_RenderCopy(rendu, delai4_texture, NULL, &delai_rect4);
     }
 }
 
@@ -635,12 +737,13 @@ void affichagePointDeVie(SDL_Renderer * rendu, TTF_Font * font, int pointsDeVie_
  * @param joueur Structure de données représentant le joueur.
  */
 void affichageSurvolSouris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, int survol, character_t* tab_charactere, 
-                           int age, player_t* joueur)
+                           int age, player_t* joueur, Uint32 delai_ulti, Uint32 diff_time)
 {
     char desc[100] = "";
     char cost[100] = "";
     char dammage[100] = "";
     char pv[100] = "";
+    char delai[100] = "";
     switch(survol){
         /*Affichage des information du perso1*/
         case PERSO1:
@@ -873,10 +976,33 @@ void affichageSurvolSouris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* p
             SDL_RenderCopy(rendu, next_age_xp_texture, NULL, &next_age_xp_rect);
             SDL_FreeSurface(next_age_xp_surface);
             SDL_DestroyTexture(next_age_xp_texture);
-            
             break;
 
         
+        case ULTIM:
+            /*Affichage du rectangle en fond*/
+            SDL_SetRenderDrawColor(rendu, 0, 0, 0, 128);
+            SDL_SetRenderDrawBlendMode(rendu, SDL_BLENDMODE_BLEND);
+            SDL_Rect rect_ultim = creationRectangle(fenetre, 80, 157, 150, 30);
+            SDL_RenderFillRect(rendu, &rect_ultim);
+
+            Uint32 min = delai_ulti/60000;
+            Uint32 sec = (delai_ulti % 60000)/1000;
+            if(diff_time < DELAI_ULTI ){
+                sprintf(delai,"Délai : %dm%ds", min, sec);
+            }
+            else{
+                strcpy(delai,"Ulti prêt !");
+            }
+
+            SDL_Surface * delai_surface = TTF_RenderUTF8_Solid(police, delai, WHITE);
+            SDL_Texture* delai_texture = SDL_CreateTextureFromSurface(rendu, delai_surface);
+            SDL_Rect delai_rect = creationRectangle(fenetre, 80, 157, 150, 30);
+            SDL_RenderCopy(rendu, delai_texture, NULL, &delai_rect);
+            SDL_FreeSurface(delai_surface);
+            SDL_DestroyTexture(delai_texture);
+            break;
+
         default:
             break;
     }
