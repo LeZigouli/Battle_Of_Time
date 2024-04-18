@@ -331,6 +331,7 @@ booleen_t copie_character(character_t ** destination, character_t * src)
     (*destination)->classe           = src->classe;
     (*destination)->cost             = src->cost;
     (*destination)->dammage          = src->dammage;
+    (*destination)->first_Attaque    = src->first_Attaque;
     strcpy((*destination)->description,"");
     (*destination)->max_pv           = src->max_pv;
     strcpy((*destination)->name,"");

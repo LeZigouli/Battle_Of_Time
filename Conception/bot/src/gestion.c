@@ -665,82 +665,6 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
     }
 }
 
-/*Gestion du relachement du clic de la souris sur les éléments du menu*/
-void relachement(etat_t* etat, int menuX, int menuY, int w, int h, float* widthFactor, float* heightFactor, int mouseX, int mouseY)
-{
-    /*Gestion du relachement du clique de la souris*/
-    if((*etat) == MENU_SOUS_SON){
-        /*Calcul de la position de x et y*/
-        menuX = (w - (MENU_WIDTH * (*widthFactor))) / 2; //Position horizontale
-        menuY = (h - ((MENU_HEIGHT * (*heightFactor)) + (SPACING * (*heightFactor)))) / 2; //Position verticale
-
-        if (mouseX >= menuX && mouseX <= menuX + (MENU_WIDTH * (*widthFactor)) + 15 && 
-            mouseY >= menuY && mouseY <= menuY + (30  * (*heightFactor))) {
-            /*Arrêter de déplacer le curseur lorsque le bouton de la souris est relâché*/
-            estLache = SDL_FALSE;
-        }
-    }
-}
-
-/*Gestion du déplacement de la souris sur les éléments du menu*/
-void deplacement_souris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, Mix_Chunk* music, SDL_Event evenement, 
-                        float widthFactor, float heightFactor, int etat, character_t* tab_charactere, int* survol)
-{
-    /*Récupère les coordonnées du pointeur de la souris*/
-    int mouseX = evenement.motion.x;
-    int mouseY = evenement.motion.y;
-
-    switch(etat){
-        case MENU_SOUS_SON:
-            /*Déplacer le curseur si l'utilisateur déplace la souris tout en maintenant le bouton de la souris enfoncé*/
-            if (estLache) {
-                if (mouseX < volumeBar->x) {
-                    mouseX = volumeBar->x;
-                } else if (mouseX > volumeBar->x + (volumeBar->w - 14 )) {
-                    mouseX = volumeBar->x + (volumeBar->w - 14);
-                }
-                volume = ((mouseX - volumeBar->x) / 2) / widthFactor;
-                Mix_VolumeChunk(music, volume);
-                volumeCursor->x = mouseX;
-            }
-            break;
-
-        case JOUER:
-            /*Affichage au survol d'un élément*/
-            if(mouseX >= (250 * widthFactor) && mouseX <= (314 * widthFactor) &&
-               mouseY >= (36 * heightFactor) && mouseY <= (100 * heightFactor)){
-                (*survol) = PERSO1;
-            }
-            else if(mouseX >= (319 * widthFactor) && mouseX <= (383 * widthFactor) &&
-                    mouseY >= (36 * heightFactor) && mouseY <= (100 * heightFactor)){
-                (*survol) = PERSO2;
-            }
-            else if(mouseX >= (388 * widthFactor) && mouseX <= (452 * widthFactor) &&
-                    mouseY >= (36 * heightFactor) && mouseY <= (100 * heightFactor)){
-                (*survol) = PERSO3;
-            }
-            else if(mouseX >= (457 * widthFactor) && mouseX <= (521 * widthFactor) &&
-                    mouseY >= (36 * heightFactor) && mouseY <= (100 * heightFactor)){
-                (*survol) = PERSO4;
-            }
-            /*Survol du bouton XP*/
-            else if(mouseX >= (20 * widthFactor) && mouseX <= (70 * widthFactor) &&
-                    mouseY >= (105 * heightFactor) && mouseY <= (155 * heightFactor)){
-                (*survol) = XP;
-            }
-            /*Survol du bouton Ulti*/
-            else if(mouseX >= (85 * widthFactor) && mouseX <= (125 * widthFactor) &&
-                    mouseY >= (105 * heightFactor) && mouseY <= (155 * heightFactor)){
-                (*survol) = ULTIM;
-            }
-            else{
-                (*survol) = -1;
-            }
-            
-            break;
-    }
-}
-
 /**
  * @brief Gestion du relâchement du clic de la souris sur les éléments du menu.
  * 
@@ -769,7 +693,6 @@ void relachement(etat_t* etat, int menuX, int menuY, int w, int h, float* widthF
         }
     }
 }
-
 
 /**
  * @brief Gestion du déplacement de la souris sur les éléments du menu.
@@ -830,6 +753,11 @@ void deplacement_souris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* poli
                     mouseY >= (105 * heightFactor) && mouseY <= (155 * heightFactor)){
                 (*survol) = XP;
             }
+            /*Survol du bouton Ulti*/
+            else if(mouseX >= (85 * widthFactor) && mouseX <= (125 * widthFactor) &&
+                    mouseY >= (105 * heightFactor) && mouseY <= (155 * heightFactor)){
+                (*survol) = ULTIM;
+            }
             else{
                 (*survol) = -1;
             }
@@ -837,6 +765,8 @@ void deplacement_souris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* poli
             break;
     }
 }
+
+
 
 /**
  * @brief Fonction de destruction des variables pour le menu.

@@ -440,7 +440,7 @@ void afficherSousMenuCredits(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font*
     SDL_RenderFillRect(rendu, &rect_menu);
 
     /*Chargement de l'image des crédits*/
-    SDL_Texture* texture_credit = chargementImg(rendu, fenetre, "../img/credits.png");
+    SDL_Texture* texture_credit = chargementImg(rendu, fenetre, "img/credits.png");
 
     /*Affichage de l'image chargée*/
     SDL_Rect rect_credit = creationRectangle(fenetre, menuX_img, menuY_img + 100, img_w, img_h);
