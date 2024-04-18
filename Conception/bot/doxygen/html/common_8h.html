@@ -3,12 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battle of Time: Référence du fichier /info/etu/l2info/s2205576/Documents/Projet/Battle_Of_Time/Conception/bot/lib/common.h</title>
+<title>Battle of Time: Référence du fichier /Users/vic/Documents/Battle_Of_Time/Conception/bot/lib/common.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -20,7 +22,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Battle of Time
    </div>
@@ -30,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.9.8 -->
+<!-- Généré par Doxygen 1.10.0 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -42,7 +43,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
   initMenu('',true,false,'search.php','Recherche');
-  $(document).ready(function() { init_search(); });
+  $(function() { init_search(); });
 });
 /* @license-end */
 </script>
@@ -88,105 +89,105 @@ $(function() {
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="commun__SDL_8h_source.html">commun_SDL.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="commun___s_d_l_8h_source.html">commun_SDL.h</a>&quot;</code><br />
 </div>
 <p><a href="common_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ac66bbcbd9e9d5a4fcb435b50133ba061"><td class="memItemLeft" align="right" valign="top"><a id="ac66bbcbd9e9d5a4fcb435b50133ba061" name="ac66bbcbd9e9d5a4fcb435b50133ba061"></a>
+<tr class="memitem:ac66bbcbd9e9d5a4fcb435b50133ba061" id="r_ac66bbcbd9e9d5a4fcb435b50133ba061"><td class="memItemLeft" align="right" valign="top"><a id="ac66bbcbd9e9d5a4fcb435b50133ba061" name="ac66bbcbd9e9d5a4fcb435b50133ba061"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>NB_AGE</b>&#160;&#160;&#160;5</td></tr>
 <tr class="memdesc:ac66bbcbd9e9d5a4fcb435b50133ba061"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre d'âges et nombre de personnages par âge. <br /></td></tr>
 <tr class="separator:ac66bbcbd9e9d5a4fcb435b50133ba061"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a864e23e4ec147f2f3f061437c6cea310"><td class="memItemLeft" align="right" valign="top"><a id="a864e23e4ec147f2f3f061437c6cea310" name="a864e23e4ec147f2f3f061437c6cea310"></a>
+<tr class="memitem:a864e23e4ec147f2f3f061437c6cea310" id="r_a864e23e4ec147f2f3f061437c6cea310"><td class="memItemLeft" align="right" valign="top"><a id="a864e23e4ec147f2f3f061437c6cea310" name="a864e23e4ec147f2f3f061437c6cea310"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>NB_CHARACTER</b>&#160;&#160;&#160;4</td></tr>
 <tr class="separator:a864e23e4ec147f2f3f061437c6cea310"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b6d77865140befe3a9bc16132d2e696"><td class="memItemLeft" align="right" valign="top"><a id="a8b6d77865140befe3a9bc16132d2e696" name="a8b6d77865140befe3a9bc16132d2e696"></a>
+<tr class="memitem:a8b6d77865140befe3a9bc16132d2e696" id="r_a8b6d77865140befe3a9bc16132d2e696"><td class="memItemLeft" align="right" valign="top"><a id="a8b6d77865140befe3a9bc16132d2e696" name="a8b6d77865140befe3a9bc16132d2e696"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_STR</b>&#160;&#160;&#160;40</td></tr>
 <tr class="memdesc:a8b6d77865140befe3a9bc16132d2e696"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limite pour les tableaux et chaînes de caractères. <br /></td></tr>
 <tr class="separator:a8b6d77865140befe3a9bc16132d2e696"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ae67ca726ed4de74ba7b1dca925d030"><td class="memItemLeft" align="right" valign="top"><a id="a0ae67ca726ed4de74ba7b1dca925d030" name="a0ae67ca726ed4de74ba7b1dca925d030"></a>
+<tr class="memitem:a0ae67ca726ed4de74ba7b1dca925d030" id="r_a0ae67ca726ed4de74ba7b1dca925d030"><td class="memItemLeft" align="right" valign="top"><a id="a0ae67ca726ed4de74ba7b1dca925d030" name="a0ae67ca726ed4de74ba7b1dca925d030"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_POSSESSED</b>&#160;&#160;&#160;10</td></tr>
 <tr class="separator:a0ae67ca726ed4de74ba7b1dca925d030"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b9d4cb1200ff8c085b0a4902e0d7229"><td class="memItemLeft" align="right" valign="top"><a id="a2b9d4cb1200ff8c085b0a4902e0d7229" name="a2b9d4cb1200ff8c085b0a4902e0d7229"></a>
+<tr class="memitem:a2b9d4cb1200ff8c085b0a4902e0d7229" id="r_a2b9d4cb1200ff8c085b0a4902e0d7229"><td class="memItemLeft" align="right" valign="top"><a id="a2b9d4cb1200ff8c085b0a4902e0d7229" name="a2b9d4cb1200ff8c085b0a4902e0d7229"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_DESCRIPTION</b>&#160;&#160;&#160;100</td></tr>
 <tr class="separator:a2b9d4cb1200ff8c085b0a4902e0d7229"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0560e96e46037caf6bf2283a1e4092f8"><td class="memItemLeft" align="right" valign="top"><a id="a0560e96e46037caf6bf2283a1e4092f8" name="a0560e96e46037caf6bf2283a1e4092f8"></a>
+<tr class="memitem:a0560e96e46037caf6bf2283a1e4092f8" id="r_a0560e96e46037caf6bf2283a1e4092f8"><td class="memItemLeft" align="right" valign="top"><a id="a0560e96e46037caf6bf2283a1e4092f8" name="a0560e96e46037caf6bf2283a1e4092f8"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>EASY</b>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:a0560e96e46037caf6bf2283a1e4092f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Niveaux de difficulté du jeu. <br /></td></tr>
 <tr class="separator:a0560e96e46037caf6bf2283a1e4092f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a455b219d48b21108576f53129be38c32"><td class="memItemLeft" align="right" valign="top"><a id="a455b219d48b21108576f53129be38c32" name="a455b219d48b21108576f53129be38c32"></a>
+<tr class="memitem:a455b219d48b21108576f53129be38c32" id="r_a455b219d48b21108576f53129be38c32"><td class="memItemLeft" align="right" valign="top"><a id="a455b219d48b21108576f53129be38c32" name="a455b219d48b21108576f53129be38c32"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MEDIUM</b>&#160;&#160;&#160;2</td></tr>
 <tr class="separator:a455b219d48b21108576f53129be38c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d14a79c82f3f831303e38487811eda4"><td class="memItemLeft" align="right" valign="top"><a id="a4d14a79c82f3f831303e38487811eda4" name="a4d14a79c82f3f831303e38487811eda4"></a>
+<tr class="memitem:a4d14a79c82f3f831303e38487811eda4" id="r_a4d14a79c82f3f831303e38487811eda4"><td class="memItemLeft" align="right" valign="top"><a id="a4d14a79c82f3f831303e38487811eda4" name="a4d14a79c82f3f831303e38487811eda4"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>HARD</b>&#160;&#160;&#160;3</td></tr>
 <tr class="separator:a4d14a79c82f3f831303e38487811eda4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88248ee212da086f00d7c091d86ccbec"><td class="memItemLeft" align="right" valign="top"><a id="a88248ee212da086f00d7c091d86ccbec" name="a88248ee212da086f00d7c091d86ccbec"></a>
+<tr class="memitem:a88248ee212da086f00d7c091d86ccbec" id="r_a88248ee212da086f00d7c091d86ccbec"><td class="memItemLeft" align="right" valign="top"><a id="a88248ee212da086f00d7c091d86ccbec" name="a88248ee212da086f00d7c091d86ccbec"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>COEF_LEVEL_UP_DAMMAGE</b>&#160;&#160;&#160;1.5</td></tr>
 <tr class="memdesc:a88248ee212da086f00d7c091d86ccbec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficients pour le niveau de mise à niveau du bâtiment. <br /></td></tr>
 <tr class="separator:a88248ee212da086f00d7c091d86ccbec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa16f57bb2f059e82f527bf93963dacf7"><td class="memItemLeft" align="right" valign="top"><a id="aa16f57bb2f059e82f527bf93963dacf7" name="aa16f57bb2f059e82f527bf93963dacf7"></a>
+<tr class="memitem:aa16f57bb2f059e82f527bf93963dacf7" id="r_aa16f57bb2f059e82f527bf93963dacf7"><td class="memItemLeft" align="right" valign="top"><a id="aa16f57bb2f059e82f527bf93963dacf7" name="aa16f57bb2f059e82f527bf93963dacf7"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>COEF_LEVEL_UP_MAX_PV</b>&#160;&#160;&#160;2.0</td></tr>
 <tr class="separator:aa16f57bb2f059e82f527bf93963dacf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d6bb7ccdc63a1f14a196daf35ac0c44"><td class="memItemLeft" align="right" valign="top"><a id="a3d6bb7ccdc63a1f14a196daf35ac0c44" name="a3d6bb7ccdc63a1f14a196daf35ac0c44"></a>
+<tr class="memitem:a3d6bb7ccdc63a1f14a196daf35ac0c44" id="r_a3d6bb7ccdc63a1f14a196daf35ac0c44"><td class="memItemLeft" align="right" valign="top"><a id="a3d6bb7ccdc63a1f14a196daf35ac0c44" name="a3d6bb7ccdc63a1f14a196daf35ac0c44"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>COEF_LEVEL_UP_MAX_GOLD_COST</b>&#160;&#160;&#160;3</td></tr>
 <tr class="separator:a3d6bb7ccdc63a1f14a196daf35ac0c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae922370f885804372e9d02939467f837"><td class="memItemLeft" align="right" valign="top"><a id="ae922370f885804372e9d02939467f837" name="ae922370f885804372e9d02939467f837"></a>
+<tr class="memitem:ae922370f885804372e9d02939467f837" id="r_ae922370f885804372e9d02939467f837"><td class="memItemLeft" align="right" valign="top"><a id="ae922370f885804372e9d02939467f837" name="ae922370f885804372e9d02939467f837"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_LEVEL_UP</b>&#160;&#160;&#160;4</td></tr>
 <tr class="memdesc:ae922370f885804372e9d02939467f837"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limite du nombre de fois qu'on peut améliorer le bâtiment. <br /></td></tr>
 <tr class="separator:ae922370f885804372e9d02939467f837"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6989f7b773d5fb56895495247a22733"><td class="memItemLeft" align="right" valign="top"><a id="ab6989f7b773d5fb56895495247a22733" name="ab6989f7b773d5fb56895495247a22733"></a>
+<tr class="memitem:ab6989f7b773d5fb56895495247a22733" id="r_ab6989f7b773d5fb56895495247a22733"><td class="memItemLeft" align="right" valign="top"><a id="ab6989f7b773d5fb56895495247a22733" name="ab6989f7b773d5fb56895495247a22733"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>OWNER_1</b>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:ab6989f7b773d5fb56895495247a22733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numéros de propriétaire. <br /></td></tr>
 <tr class="separator:ab6989f7b773d5fb56895495247a22733"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52d7d7012fc215dd505f3d8c307a48a1"><td class="memItemLeft" align="right" valign="top"><a id="a52d7d7012fc215dd505f3d8c307a48a1" name="a52d7d7012fc215dd505f3d8c307a48a1"></a>
+<tr class="memitem:a52d7d7012fc215dd505f3d8c307a48a1" id="r_a52d7d7012fc215dd505f3d8c307a48a1"><td class="memItemLeft" align="right" valign="top"><a id="a52d7d7012fc215dd505f3d8c307a48a1" name="a52d7d7012fc215dd505f3d8c307a48a1"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>OWNER_2</b>&#160;&#160;&#160;2</td></tr>
 <tr class="separator:a52d7d7012fc215dd505f3d8c307a48a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed9e4dbf250a6c8bdea8a0d3acb732e4"><td class="memItemLeft" align="right" valign="top"><a id="aed9e4dbf250a6c8bdea8a0d3acb732e4" name="aed9e4dbf250a6c8bdea8a0d3acb732e4"></a>
+<tr class="memitem:aed9e4dbf250a6c8bdea8a0d3acb732e4" id="r_aed9e4dbf250a6c8bdea8a0d3acb732e4"><td class="memItemLeft" align="right" valign="top"><a id="aed9e4dbf250a6c8bdea8a0d3acb732e4" name="aed9e4dbf250a6c8bdea8a0d3acb732e4"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>ORDINATEUR</b>&#160;&#160;&#160;3</td></tr>
 <tr class="separator:aed9e4dbf250a6c8bdea8a0d3acb732e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa31d048bddc6a4cdec63280b0691adef"><td class="memItemLeft" align="right" valign="top"><a id="aa31d048bddc6a4cdec63280b0691adef" name="aa31d048bddc6a4cdec63280b0691adef"></a>
+<tr class="memitem:aa31d048bddc6a4cdec63280b0691adef" id="r_aa31d048bddc6a4cdec63280b0691adef"><td class="memItemLeft" align="right" valign="top"><a id="aa31d048bddc6a4cdec63280b0691adef" name="aa31d048bddc6a4cdec63280b0691adef"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>DELAI_INITIAL</b>&#160;&#160;&#160;-1</td></tr>
 <tr class="memdesc:aa31d048bddc6a4cdec63280b0691adef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation du délai d'attente pour former les troupes. <br /></td></tr>
 <tr class="separator:aa31d048bddc6a4cdec63280b0691adef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a354004dad185b65dda9a8aa132459515"><td class="memItemLeft" align="right" valign="top"><a id="a354004dad185b65dda9a8aa132459515" name="a354004dad185b65dda9a8aa132459515"></a>
+<tr class="memitem:a354004dad185b65dda9a8aa132459515" id="r_a354004dad185b65dda9a8aa132459515"><td class="memItemLeft" align="right" valign="top"><a id="a354004dad185b65dda9a8aa132459515" name="a354004dad185b65dda9a8aa132459515"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>JOUEUR_GAGNE</b>&#160;&#160;&#160;100</td></tr>
 <tr class="memdesc:a354004dad185b65dda9a8aa132459515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Codes de fin de partie. <br /></td></tr>
 <tr class="separator:a354004dad185b65dda9a8aa132459515"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15846f75381029de46fc719e23819312"><td class="memItemLeft" align="right" valign="top"><a id="a15846f75381029de46fc719e23819312" name="a15846f75381029de46fc719e23819312"></a>
+<tr class="memitem:a15846f75381029de46fc719e23819312" id="r_a15846f75381029de46fc719e23819312"><td class="memItemLeft" align="right" valign="top"><a id="a15846f75381029de46fc719e23819312" name="a15846f75381029de46fc719e23819312"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>ORDI_GAGNE</b>&#160;&#160;&#160;101</td></tr>
 <tr class="separator:a15846f75381029de46fc719e23819312"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05e5f58ab75bc54fb781fc68d535293c"><td class="memItemLeft" align="right" valign="top"><a id="a05e5f58ab75bc54fb781fc68d535293c" name="a05e5f58ab75bc54fb781fc68d535293c"></a>
+<tr class="memitem:a05e5f58ab75bc54fb781fc68d535293c" id="r_a05e5f58ab75bc54fb781fc68d535293c"><td class="memItemLeft" align="right" valign="top"><a id="a05e5f58ab75bc54fb781fc68d535293c" name="a05e5f58ab75bc54fb781fc68d535293c"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>AUCUN_GAGNANT</b>&#160;&#160;&#160;102</td></tr>
 <tr class="separator:a05e5f58ab75bc54fb781fc68d535293c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6f970f4e35e5419bb227c49324e9eb0"><td class="memItemLeft" align="right" valign="top"><a id="ad6f970f4e35e5419bb227c49324e9eb0" name="ad6f970f4e35e5419bb227c49324e9eb0"></a>
+<tr class="memitem:ad6f970f4e35e5419bb227c49324e9eb0" id="r_ad6f970f4e35e5419bb227c49324e9eb0"><td class="memItemLeft" align="right" valign="top"><a id="ad6f970f4e35e5419bb227c49324e9eb0" name="ad6f970f4e35e5419bb227c49324e9eb0"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>JOUEUR_EN_LIGNE_GAGNE</b>&#160;&#160;&#160;103</td></tr>
 <tr class="separator:ad6f970f4e35e5419bb227c49324e9eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Définitions de type</h2></td></tr>
-<tr class="memitem:a0dd582b18f116aff3d264ef7be8e95c0"><td class="memItemLeft" align="right" valign="top"><a id="a0dd582b18f116aff3d264ef7be8e95c0" name="a0dd582b18f116aff3d264ef7be8e95c0"></a>
-typedef enum <a class="el" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269c">class_character_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>class_character_t</b></td></tr>
+<tr class="memitem:a0dd582b18f116aff3d264ef7be8e95c0" id="r_a0dd582b18f116aff3d264ef7be8e95c0"><td class="memItemLeft" align="right" valign="top"><a id="a0dd582b18f116aff3d264ef7be8e95c0" name="a0dd582b18f116aff3d264ef7be8e95c0"></a>
+typedef enum <a class="el" href="#aa92d6a1d34d51fad72dee6b89b86269c">class_character_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>class_character_t</b></td></tr>
 <tr class="memdesc:a0dd582b18f116aff3d264ef7be8e95c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Énumération représentant les classes de personnage. <br /></td></tr>
 <tr class="separator:a0dd582b18f116aff3d264ef7be8e95c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd19d995e55194c70a06080ef3ceb5a8"><td class="memItemLeft" align="right" valign="top"><a id="afd19d995e55194c70a06080ef3ceb5a8" name="afd19d995e55194c70a06080ef3ceb5a8"></a>
-typedef enum <a class="el" href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d47">booleen_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>booleen_t</b></td></tr>
+<tr class="memitem:afd19d995e55194c70a06080ef3ceb5a8" id="r_afd19d995e55194c70a06080ef3ceb5a8"><td class="memItemLeft" align="right" valign="top"><a id="afd19d995e55194c70a06080ef3ceb5a8" name="afd19d995e55194c70a06080ef3ceb5a8"></a>
+typedef enum <a class="el" href="#a93f4b57ac6d7583da8a6665c47bb8d47">booleen_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>booleen_t</b></td></tr>
 <tr class="memdesc:afd19d995e55194c70a06080ef3ceb5a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition d'un type booléen. <br /></td></tr>
 <tr class="separator:afd19d995e55194c70a06080ef3ceb5a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Énumérations</h2></td></tr>
-<tr class="memitem:aa92d6a1d34d51fad72dee6b89b86269c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269c">class_character_s</a> { <a class="el" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269ca2122acc39b69d471380b7d986b6515bf">melee</a>
-, <a class="el" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269cac1215dafde67928af3c0ba2bce29938d">marksman</a>
-, <a class="el" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269ca5970642cf6e8bb17100a6ac4ecfa0a36">tank</a>
-, <a class="el" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269ca335926ce37f081753f90f194bf2e71ae">specialist</a>
+<tr class="memitem:aa92d6a1d34d51fad72dee6b89b86269c" id="r_aa92d6a1d34d51fad72dee6b89b86269c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa92d6a1d34d51fad72dee6b89b86269c">class_character_s</a> { <a class="el" href="#aa92d6a1d34d51fad72dee6b89b86269ca2122acc39b69d471380b7d986b6515bf">melee</a>
+, <a class="el" href="#aa92d6a1d34d51fad72dee6b89b86269cac1215dafde67928af3c0ba2bce29938d">marksman</a>
+, <a class="el" href="#aa92d6a1d34d51fad72dee6b89b86269ca5970642cf6e8bb17100a6ac4ecfa0a36">tank</a>
+, <a class="el" href="#aa92d6a1d34d51fad72dee6b89b86269ca335926ce37f081753f90f194bf2e71ae">specialist</a>
  }</td></tr>
-<tr class="memdesc:aa92d6a1d34d51fad72dee6b89b86269c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Énumération représentant les classes de personnage.  <a href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269c">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:aa92d6a1d34d51fad72dee6b89b86269c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Énumération représentant les classes de personnage.  <a href="#aa92d6a1d34d51fad72dee6b89b86269c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aa92d6a1d34d51fad72dee6b89b86269c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93f4b57ac6d7583da8a6665c47bb8d47"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d47">booleen_s</a> { <a class="el" href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d47aa1e095cc966dbecf6a0d8aad75348d1a">FALSE</a>
-, <a class="el" href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d47aa82764c3079aea4e60c80e45befbb839">TRUE</a>
+<tr class="memitem:a93f4b57ac6d7583da8a6665c47bb8d47" id="r_a93f4b57ac6d7583da8a6665c47bb8d47"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93f4b57ac6d7583da8a6665c47bb8d47">booleen_s</a> { <a class="el" href="#a93f4b57ac6d7583da8a6665c47bb8d47aa1e095cc966dbecf6a0d8aad75348d1a">FALSE</a>
+, <a class="el" href="#a93f4b57ac6d7583da8a6665c47bb8d47aa82764c3079aea4e60c80e45befbb839">TRUE</a>
  }</td></tr>
-<tr class="memdesc:a93f4b57ac6d7583da8a6665c47bb8d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition d'un type booléen.  <a href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d47">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a93f4b57ac6d7583da8a6665c47bb8d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition d'un type booléen.  <a href="#a93f4b57ac6d7583da8a6665c47bb8d47">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a93f4b57ac6d7583da8a6665c47bb8d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -202,7 +203,7 @@ typedef enum <a class="el" href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d4
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d47">booleen_s</a></td>
+          <td class="memname">enum <a class="el" href="#a93f4b57ac6d7583da8a6665c47bb8d47">booleen_s</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -224,7 +225,7 @@ typedef enum <a class="el" href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d4
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="common_8h.html#aa92d6a1d34d51fad72dee6b89b86269c">class_character_s</a></td>
+          <td class="memname">enum <a class="el" href="#aa92d6a1d34d51fad72dee6b89b86269c">class_character_s</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -246,7 +247,7 @@ typedef enum <a class="el" href="common_8h.html#a93f4b57ac6d7583da8a6665c47bb8d4
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
 </small></address>
 </body>
 </html>

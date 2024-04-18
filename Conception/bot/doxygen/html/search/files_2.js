@@ -5,6 +5,6 @@ var searchData=
   ['client_2ec_2',['client.c',['../client_8c.html',1,'']]],
   ['client_2eh_3',['client.h',['../client_8h.html',1,'']]],
   ['common_2eh_4',['common.h',['../common_8h.html',1,'']]],
-  ['commun_5fsdl_2ec_5',['commun_SDL.c',['../commun__SDL_8c.html',1,'']]],
-  ['commun_5fsdl_2eh_6',['commun_SDL.h',['../commun__SDL_8h.html',1,'']]]
+  ['commun_5fsdl_2ec_5',['commun_SDL.c',['../commun___s_d_l_8c.html',1,'']]],
+  ['commun_5fsdl_2eh_6',['commun_SDL.h',['../commun___s_d_l_8h.html',1,'']]]
 ];

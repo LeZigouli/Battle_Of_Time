@@ -1,15 +1,15 @@
-\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/src/affichage\+\_\+menu.c}
-\hypertarget{affichage__menu_8c}{}\label{affichage__menu_8c}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/src/affichage\_menu.c@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/src/affichage\_menu.c}}
+\doxysection{Référence du fichier /\+Users/vic/\+Documents/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/src/affichage\+\_\+menu.c}
+\hypertarget{affichage__menu_8c}{}\label{affichage__menu_8c}\index{/Users/vic/Documents/Battle\_Of\_Time/Conception/bot/src/affichage\_menu.c@{/Users/vic/Documents/Battle\_Of\_Time/Conception/bot/src/affichage\_menu.c}}
 
 
 Contient les fonctions d\textquotesingle{}affichages du menu.  
 
 
-{\ttfamily \#include \"{}../lib/affichage\+\_\+menu.\+h\"{}}\newline
+{\ttfamily \#include "{}../lib/affichage\+\_\+menu.\+h"{}}\newline
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{affichage__menu_8c_a9a30a229fe15bbf113dde51914cfa338}{affichage}} (etat\+\_\+t etat, int \texorpdfstring{$\ast$}{*}etat\+Age, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police\+\_\+texte, int menuX, int menuY, \mbox{\hyperlink{structelement__t}{element\+\_\+t}} \texorpdfstring{$\ast$}{*}elm\+\_\+reso, int \texorpdfstring{$\ast$}{*}selec\+Element, const char \texorpdfstring{$\ast$}{*}effet, char \texorpdfstring{$\ast$}{*}text\+Input, int \texorpdfstring{$\ast$}{*}is\+Valid, int \texorpdfstring{$\ast$}{*}key\+Counts, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}parametre, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}gold, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}xp, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}prehistoire, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}antiquite, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}moyen\+\_\+age, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}moderne, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}futuriste, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}joueur, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}sprite\+\_\+hud, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}upgrade, \mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}ordi, int \texorpdfstring{$\ast$}{*}cameraX, int \texorpdfstring{$\ast$}{*}cameraY, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}ultim, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}building\mbox{[}$\,$\mbox{]}, int \mbox{\hyperlink{gestion_8c_afecde47e916a8831710f18286b346ed8}{fin\+\_\+partie}}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}lose, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}tab\+\_\+charactere, int survol)
+void \mbox{\hyperlink{affichage__menu_8c_a4f46622d6f1d976fb5039fc67688ce88}{affichage}} (etat\+\_\+t etat, int \texorpdfstring{$\ast$}{*}etat\+Age, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police\+\_\+texte, int menuX, int menuY, \mbox{\hyperlink{structelement__t}{element\+\_\+t}} \texorpdfstring{$\ast$}{*}elm\+\_\+reso, int \texorpdfstring{$\ast$}{*}selec\+Element, const char \texorpdfstring{$\ast$}{*}effet, char \texorpdfstring{$\ast$}{*}text\+Input, int \texorpdfstring{$\ast$}{*}is\+Valid, int \texorpdfstring{$\ast$}{*}key\+Counts, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}parametre, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}gold, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}xp, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}prehistoire, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}antiquite, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}moyen\+\_\+age, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}moderne, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}futuriste, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}joueur, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}sprite\+\_\+hud, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}upgrade, \mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}ordi, int \texorpdfstring{$\ast$}{*}cameraX, int \texorpdfstring{$\ast$}{*}cameraY, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}ultim, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}building\mbox{[}$\,$\mbox{]}, int \mbox{\hyperlink{gestion_8c_afecde47e916a8831710f18286b346ed8}{fin\+\_\+partie}}, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}lose, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}tab\+\_\+charactere, int survol, Uint32 delai\+\_\+ulti, Uint32 diff\+\_\+time, int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}troupe\+\_\+formee, Uint32 current\+Time, Uint32 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}last\+Troupe, int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}nb)
 \begin{DoxyCompactList}\small\item\em Affichage en fonction de l\textquotesingle{}etat. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage__menu_8c_ad3807074a946be85ba3f6c5858abe487}{afficher\+Titre}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, int x, int y, int largeur, int hauteur)
 \begin{DoxyCompactList}\small\item\em Affiche le titre du jeu à une position donnée sur l\textquotesingle{}écran. \end{DoxyCompactList}\item 
@@ -22,23 +22,23 @@ void \mbox{\hyperlink{affichage__menu_8c_ac46f63bde9c78a0c1c2aeabf71091daa}{affi
 void \mbox{\hyperlink{affichage__menu_8c_a9a6f0534c73c251060d09baf83cc134f}{afficher\+Sous\+Menu\+Resolution}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre)
 \begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu des résolutions. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage__menu_8c_a33cc099eeaa7aaf9c0308ce72a3bbae5}{afficher\+Sous\+Menu\+Jouer}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police)
-\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu pour le menu \"{}\+Jouer\"{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu pour le menu "{}\+Jouer"{}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage__menu_8c_a21663b3145f16d13b891e5229d4bbca1}{afficher\+Sous\+Menu\+Solo}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police)
-\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu pour le menu \"{}\+Solo\"{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu pour le menu "{}\+Solo"{}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage__menu_8c_ae5492d293f1ce667af9869336b29e50f}{afficher\+Sous\+Menu\+En\+Ligne}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police)
-\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu pour le menu \"{}\+En ligne\"{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu pour le menu "{}\+En ligne"{}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage__menu_8c_a288065efb139b60752ba45973eceb148}{init\+Elements}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, \mbox{\hyperlink{structelement__t}{element\+\_\+t}} \texorpdfstring{$\ast$}{*}elm\+\_\+reso)
 \begin{DoxyCompactList}\small\item\em Initialise les éléments nécessaires pour afficher les résolutions dans le sous-\/menu des résolutions. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage__menu_8c_a629a2a5eb7bd5e1835d38a3801145a14}{resolution}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, \mbox{\hyperlink{structelement__t}{element\+\_\+t}} \texorpdfstring{$\ast$}{*}elm\+\_\+reso, int \texorpdfstring{$\ast$}{*}selec\+Element)
 \begin{DoxyCompactList}\small\item\em Affiche les résolutions dans le sous-\/menu des résolutions. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage__menu_8c_a2f1009327e38c74ea5accabdf5d745ba}{afficher\+Sous\+Menu\+Credits}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police)
-\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu \"{}\+Crédits\"{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu "{}\+Crédits"{}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage__menu_8c_a68f1fbe86fd1df022bef8a61eb3bf1df}{afficher\+Sous\+Menu\+Son}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, const char \texorpdfstring{$\ast$}{*}texte)
-\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu \"{}\+Son\"{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu "{}\+Son"{}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage__menu_8c_aa2e7999d606400a4babe9d37ddbf686b}{afficher\+Sous\+Menu\+Rejoindre}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police, char \texorpdfstring{$\ast$}{*}text\+Input, int \texorpdfstring{$\ast$}{*}is\+Valid, int \texorpdfstring{$\ast$}{*}key\+Counts)
-\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu \"{}\+Rejoindre partie\"{} pour le jeu en ligne. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu "{}\+Rejoindre partie"{} pour le jeu en ligne. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage__menu_8c_a86cd81986d513fe9ba13c59898d8751a}{afficher\+Sous\+Menu\+Difficulte}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police)
-\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu \"{}\+Difficulté\"{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu "{}\+Difficulté"{}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage__menu_8c_a9394c47a086b2a8c72c39fdddab0fefb}{afficher\+Sous\+Menu\+Creer}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}rendu, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}fenetre, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}police)
 \begin{DoxyCompactList}\small\item\em Affiche le sous-\/menu pour créer une partie en ligne. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -58,11 +58,11 @@ Poirier Victor
 
 
 \doxysubsection{Documentation des fonctions}
-\Hypertarget{affichage__menu_8c_a9a30a229fe15bbf113dde51914cfa338}\label{affichage__menu_8c_a9a30a229fe15bbf113dde51914cfa338} 
+\Hypertarget{affichage__menu_8c_a4f46622d6f1d976fb5039fc67688ce88}\label{affichage__menu_8c_a4f46622d6f1d976fb5039fc67688ce88} 
 \index{affichage\_menu.c@{affichage\_menu.c}!affichage@{affichage}}
 \index{affichage@{affichage}!affichage\_menu.c@{affichage\_menu.c}}
 \doxysubsubsection{\texorpdfstring{affichage()}{affichage()}}
-{\footnotesize\ttfamily void affichage (\begin{DoxyParamCaption}\item[{etat\+\_\+t}]{etat,  }\item[{int \texorpdfstring{$\ast$}{*}}]{etat\+Age,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police\+\_\+texte,  }\item[{int}]{menuX,  }\item[{int}]{menuY,  }\item[{\mbox{\hyperlink{structelement__t}{element\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{elm\+\_\+reso,  }\item[{int \texorpdfstring{$\ast$}{*}}]{selec\+Element,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{effet,  }\item[{char \texorpdfstring{$\ast$}{*}}]{text\+Input,  }\item[{int \texorpdfstring{$\ast$}{*}}]{is\+Valid,  }\item[{int \texorpdfstring{$\ast$}{*}}]{key\+Counts,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{parametre,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{gold,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{xp,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{prehistoire,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{antiquite,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{moyen\+\_\+age,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{moderne,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{futuriste,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{joueur,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{sprite\+\_\+hud,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{upgrade,  }\item[{\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ordi,  }\item[{int \texorpdfstring{$\ast$}{*}}]{cameraX,  }\item[{int \texorpdfstring{$\ast$}{*}}]{cameraY,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{ultim,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{building\mbox{[}$\,$\mbox{]},  }\item[{int}]{fin\+\_\+partie,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{lose,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tab\+\_\+charactere,  }\item[{int}]{survol }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void affichage (\begin{DoxyParamCaption}\item[{etat\+\_\+t}]{etat,  }\item[{int \texorpdfstring{$\ast$}{*}}]{etat\+Age,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{rendu,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{fenetre,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{police\+\_\+texte,  }\item[{int}]{menuX,  }\item[{int}]{menuY,  }\item[{\mbox{\hyperlink{structelement__t}{element\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{elm\+\_\+reso,  }\item[{int \texorpdfstring{$\ast$}{*}}]{selec\+Element,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{effet,  }\item[{char \texorpdfstring{$\ast$}{*}}]{text\+Input,  }\item[{int \texorpdfstring{$\ast$}{*}}]{is\+Valid,  }\item[{int \texorpdfstring{$\ast$}{*}}]{key\+Counts,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{parametre,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{gold,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{xp,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{prehistoire,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{antiquite,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{moyen\+\_\+age,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{moderne,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{futuriste,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{joueur,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{sprite\+\_\+hud,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{upgrade,  }\item[{\mbox{\hyperlink{structordi__t}{ordi\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ordi,  }\item[{int \texorpdfstring{$\ast$}{*}}]{cameraX,  }\item[{int \texorpdfstring{$\ast$}{*}}]{cameraY,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{ultim,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{building\mbox{[}$\,$\mbox{]},  }\item[{int}]{fin\+\_\+partie,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{lose,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tab\+\_\+charactere,  }\item[{int}]{survol,  }\item[{Uint32}]{delai\+\_\+ulti,  }\item[{Uint32}]{diff\+\_\+time,  }\item[{int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{troupe\+\_\+formee,  }\item[{Uint32}]{current\+Time,  }\item[{Uint32 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{last\+Troupe,  }\item[{int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{nb }\end{DoxyParamCaption})}
 
 
 
@@ -190,7 +190,7 @@ Affiche les sous-\/menus avec leurs options.
 
 
 
-Affiche le sous-\/menu \"{}\+Crédits\"{}. 
+Affiche le sous-\/menu "{}\+Crédits"{}. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -228,7 +228,7 @@ Affiche le sous-\/menu pour créer une partie en ligne.
 
 
 
-Affiche le sous-\/menu \"{}\+Difficulté\"{}. 
+Affiche le sous-\/menu "{}\+Difficulté"{}. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -247,7 +247,7 @@ Affiche le sous-\/menu \"{}\+Difficulté\"{}.
 
 
 
-Affiche le sous-\/menu pour le menu \"{}\+En ligne\"{}. 
+Affiche le sous-\/menu pour le menu "{}\+En ligne"{}. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -266,7 +266,7 @@ Affiche le sous-\/menu pour le menu \"{}\+En ligne\"{}.
 
 
 
-Affiche le sous-\/menu pour le menu \"{}\+Jouer\"{}. 
+Affiche le sous-\/menu pour le menu "{}\+Jouer"{}. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -310,7 +310,7 @@ Affiche le sous-\/menu des options.
 
 
 
-Affiche le sous-\/menu \"{}\+Rejoindre partie\"{} pour le jeu en ligne. 
+Affiche le sous-\/menu "{}\+Rejoindre partie"{} pour le jeu en ligne. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -354,7 +354,7 @@ Affiche le sous-\/menu des résolutions.
 
 
 
-Affiche le sous-\/menu pour le menu \"{}\+Solo\"{}. 
+Affiche le sous-\/menu pour le menu "{}\+Solo"{}. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -373,7 +373,7 @@ Affiche le sous-\/menu pour le menu \"{}\+Solo\"{}.
 
 
 
-Affiche le sous-\/menu \"{}\+Son\"{}. 
+Affiche le sous-\/menu "{}\+Son"{}. 
 
 
 \begin{DoxyParams}{Paramètres}
