@@ -2,7 +2,7 @@
  * \file gestion.h
  * \brief Contient les élements utilisés par gestion.c
  * \author Poirier Victor
- * \date 09 févrirer 2024
+ * \date 09 avril 2024
  * \version 1.0
  * 
 */

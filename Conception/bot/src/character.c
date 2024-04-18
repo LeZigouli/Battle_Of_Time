@@ -2,7 +2,7 @@
  * \file character.c
  * \brief Contient les fonction pour les personnages du jeu
  * \author Roquain Lousion Proudy Vincent
- * \date 09 févrirer 2024
+ * \date 02 avril 2024
  * \version 1.0
  * 
 */

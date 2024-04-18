@@ -10,10 +10,19 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,10 +31,24 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Battle of Time
    </div>
+   <div id="projectbrief">Projet L2 Informatique</div>
   </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,17 +60,23 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Recherche');
-  $(function() { init_search(); });
-});
+$(function(){initNavTree('affichage__menu_8c.html',''); initResizable(); });
 /* @license-end */
 </script>
-<div id="main-nav"></div>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -69,11 +98,6 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Fonctions</a>  </div>
@@ -139,7 +163,7 @@ Fonctions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Contient les fonctions d'affichages du menu. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Poirier Victor </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>09 févrirer 2024 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>18 avril 2024 </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="a4f46622d6f1d976fb5039fc67688ce88" name="a4f46622d6f1d976fb5039fc67688ce88"></a>
@@ -363,61 +387,43 @@ Fonctions</h2></td></tr>
     <tr><td class="paramname">etatAge</td><td>Numero de l'age </td></tr>
     <tr><td class="paramname">rendu</td><td>contexte d'affichage de la fenetre </td></tr>
     <tr><td class="paramname">fenetre</td><td>Le pointeur vers la fenêtre SDL </td></tr>
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>param </p><dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">police</td><td>Police d'écriture pour les titre (menu) </td></tr>
+    <tr><td class="paramname">police_texte</td><td>Police d'écriture pour les textes </td></tr>
+    <tr><td class="paramname">menuX</td><td>Position verticale des éléments du menu </td></tr>
+    <tr><td class="paramname">menuY</td><td>Position horizontale des éléments du menu </td></tr>
+    <tr><td class="paramname">elm_reso</td><td>Structure contenant les informations pour la liste défilante dans le menu résolution </td></tr>
+    <tr><td class="paramname">selecElement</td><td>Indice pour savoir quel élément de la liste défilante est sélectionné </td></tr>
+    <tr><td class="paramname">effet</td><td>Chaîne de caractère indiquant si les effets sonores sont activés ou désactivés </td></tr>
+    <tr><td class="paramname">textInput</td><td>Texte saisie par l'utilisateur </td></tr>
+    <tr><td class="paramname">isValid</td><td>Pointeur vérifiant si le texte saisie correspond à une adresse IP valide ou non </td></tr>
+    <tr><td class="paramname">keyCounts</td><td>Permet de savoir quand afficher le message de validité de l'adresse IP </td></tr>
+    <tr><td class="paramname">parametre</td><td>Image de la roue crantée </td></tr>
+    <tr><td class="paramname">gold</td><td>Image des pièces d'or </td></tr>
+    <tr><td class="paramname">xp</td><td>Image de l'XP </td></tr>
+    <tr><td class="paramname">prehistoire</td><td>Image d'arrière plan pour la Préhistoire </td></tr>
+    <tr><td class="paramname">antiquite</td><td>Image d'arrière plan pour l'Antiquité </td></tr>
+    <tr><td class="paramname">moyen_age</td><td>Image d'arrière plan pour le Moyen-Âge </td></tr>
+    <tr><td class="paramname">moderne</td><td>Image d'arrière plan pour l'ère Moderne </td></tr>
+    <tr><td class="paramname">futuriste</td><td>Image d'arrière plan pour l'ère Futuriste </td></tr>
+    <tr><td class="paramname">joueur</td><td>Structure contenant les informations de la partie du joueur </td></tr>
+    <tr><td class="paramname">sprite_hud</td><td>Tableau d'images des portraits des personnages </td></tr>
+    <tr><td class="paramname">upgrade</td><td>Image du bouton d'upgrade </td></tr>
+    <tr><td class="paramname">ordi</td><td>Structure contenant les informations de la partie de l'ordinateur </td></tr>
+    <tr><td class="paramname">cameraX</td><td>Pointeur sur la position x de la caméra </td></tr>
+    <tr><td class="paramname">cameraY</td><td>Pointeur sur la position y de la caméra </td></tr>
+    <tr><td class="paramname">ultim</td><td>Image du bouton de l'ultime </td></tr>
+    <tr><td class="paramname">building</td><td>Tableau d'images des bases de chaque âges </td></tr>
+    <tr><td class="paramname">fin_partie</td><td>Détermine si c'est la fin de la partie </td></tr>
+    <tr><td class="paramname">win</td><td>Image de fin en cas de victoire </td></tr>
+    <tr><td class="paramname">lose</td><td>Image de fin en cas de défaite </td></tr>
+    <tr><td class="paramname">tab_charactere</td><td>Struture contenant les informations des personnages </td></tr>
+    <tr><td class="paramname">survol</td><td>Détermine quel élément est survolé par la souris </td></tr>
+    <tr><td class="paramname">delai_ulti</td><td>Délai d'attente avant d'utiliser l'ultime </td></tr>
+    <tr><td class="paramname">diff_time</td><td>La différence de temps entre le temps actuel et le temps lors de l'utilsation de l'ultim </td></tr>
+    <tr><td class="paramname">troupe_formee</td><td>Tableau de pointeur pour savoir quelles troupes ont été formées </td></tr>
+    <tr><td class="paramname">currentTime</td><td>Temps actuel </td></tr>
+    <tr><td class="paramname">lastTroupe</td><td>Tableau de pointeur sur le temps de formation de chaque personnage </td></tr>
+    <tr><td class="paramname">nb</td><td>Tableau de pointeur sur le nombre de personnages formés pour chaque classe </td></tr>
   </table>
   </dd>
 </dl>
@@ -1091,9 +1097,13 @@ Fonctions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="affichage__menu_8c.html">affichage_menu.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

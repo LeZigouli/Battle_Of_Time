@@ -2,7 +2,7 @@
  * \file gestion.c
  * \brief Contient les fonction permettant la gestion des inputs et certaines fonctions pour le deroulement de la partie.
  * \author Poirier Victor
- * \date 09 févrirer 2024
+ * \date 09 avril 2024
  * \version 1.0
 */
 #include "../lib/gestion.h"

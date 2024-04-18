@@ -8,7 +8,8 @@ var indexSectionsWithContent =
   5: "bct",
   6: "bc",
   7: "fmst",
-  8: "cdejmnort"
+  8: "cdejmnort",
+  9: "r"
 };
 
 var indexSectionNames =
@@ -21,7 +22,8 @@ var indexSectionNames =
   5: "typedefs",
   6: "enums",
   7: "enumvalues",
-  8: "defines"
+  8: "defines",
+  9: "pages"
 };
 
 var indexSectionLabels =
@@ -34,6 +36,7 @@ var indexSectionLabels =
   5: "Définitions de type",
   6: "Énumérations",
   7: "Valeurs énumérées",
-  8: "Macros"
+  8: "Macros",
+  9: "Pages"
 };
 

@@ -10,10 +10,19 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,10 +31,24 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Battle of Time
    </div>
+   <div id="projectbrief">Projet L2 Informatique</div>
   </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,22 +60,23 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Recherche');
-  $(function() { init_search(); });
-});
+$(function(){initNavTree('affichage__jeu_8h_source.html',''); initResizable(); });
 /* @license-end */
 </script>
-<div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() { codefold.init(0); });
-/* @license-end */
-</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -74,11 +98,6 @@ $(function() { codefold.init(0); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">affichage_jeu.h</div></div>
 </div><!--header-->
@@ -132,13 +151,13 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                           <span class="keywordtype">int</span> age, <a class="code hl_struct" href="structplayer__t.html">player_t</a>* joueur, Uint32 delai_ulti, Uint32 diff_time);</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aaffichage__jeu_8h_html_a002bcd89275a49ff676a7ca643374313"><div class="ttname"><a href="affichage__jeu_8h.html#a002bcd89275a49ff676a7ca643374313">affichageSurvolSouris</a></div><div class="ttdeci">void affichageSurvolSouris(SDL_Renderer *rendu, SDL_Window *fenetre, TTF_Font *police, int survol, character_t *tab_charactere, int age, player_t *joueur, Uint32 delai_ulti, Uint32 diff_time)</div><div class="ttdoc">Affiche les informations des personnages lorsque la souris survole leur image.</div><div class="ttdef"><b>Definition</b> affichage_jeu.c:739</div></div>
+<div class="ttc" id="aaffichage__jeu_8h_html_a002bcd89275a49ff676a7ca643374313"><div class="ttname"><a href="affichage__jeu_8h.html#a002bcd89275a49ff676a7ca643374313">affichageSurvolSouris</a></div><div class="ttdeci">void affichageSurvolSouris(SDL_Renderer *rendu, SDL_Window *fenetre, TTF_Font *police, int survol, character_t *tab_charactere, int age, player_t *joueur, Uint32 delai_ulti, Uint32 diff_time)</div><div class="ttdoc">Affiche les informations des personnages lorsque la souris survole leur image.</div><div class="ttdef"><b>Definition</b> affichage_jeu.c:749</div></div>
 <div class="ttc" id="aaffichage__jeu_8h_html_a01b45288db7ab79d1ffec97752b5a0ae"><div class="ttname"><a href="affichage__jeu_8h.html#a01b45288db7ab79d1ffec97752b5a0ae">gestionAffichageFondJeu</a></div><div class="ttdeci">void gestionAffichageFondJeu(SDL_Renderer *rendu, SDL_Window *fenetre, int *etatAge, SDL_Texture *prehistoire, SDL_Texture *antiquite, SDL_Texture *moyen_age, SDL_Texture *moderne, SDL_Texture *futuriste, player_t *j1, ordi_t *o, int *cameraX, int *cameraY)</div><div class="ttdoc">Affiche l'image de fond en fonction de l'âge du jeu.</div><div class="ttdef"><b>Definition</b> affichage_jeu.c:299</div></div>
-<div class="ttc" id="aaffichage__jeu_8h_html_a0fa35d2337ca4c0e6ade4c3e56ac76e4"><div class="ttname"><a href="affichage__jeu_8h.html#a0fa35d2337ca4c0e6ade4c3e56ac76e4">affichageBulding</a></div><div class="ttdeci">void affichageBulding(SDL_Renderer *rendu, SDL_Window *fenetre, SDL_Texture *building[], int cameraX, int cameraY, int joueur_level, int ordi_level)</div><div class="ttdoc">Affiche les bâtiments en fonction de l'âge du joueur et de l'ordinateur.</div><div class="ttdef"><b>Definition</b> affichage_jeu.c:613</div></div>
-<div class="ttc" id="aaffichage__jeu_8h_html_a39ae4b55db4b8bebd3c27caa8344e69d"><div class="ttname"><a href="affichage__jeu_8h.html#a39ae4b55db4b8bebd3c27caa8344e69d">affichagePointDeVie</a></div><div class="ttdeci">void affichagePointDeVie(SDL_Renderer *rendu, TTF_Font *font, int pointsDeVie_1, int pointsDeVie_2, SDL_Window *fenetre, int cameraX, int cameraY)</div><div class="ttdoc">Affiche les points de vie des bases des joueurs.</div><div class="ttdef"><b>Definition</b> affichage_jeu.c:676</div></div>
+<div class="ttc" id="aaffichage__jeu_8h_html_a0fa35d2337ca4c0e6ade4c3e56ac76e4"><div class="ttname"><a href="affichage__jeu_8h.html#a0fa35d2337ca4c0e6ade4c3e56ac76e4">affichageBulding</a></div><div class="ttdeci">void affichageBulding(SDL_Renderer *rendu, SDL_Window *fenetre, SDL_Texture *building[], int cameraX, int cameraY, int joueur_level, int ordi_level)</div><div class="ttdoc">Affiche les bâtiments en fonction de l'âge du joueur et de l'ordinateur.</div><div class="ttdef"><b>Definition</b> affichage_jeu.c:623</div></div>
+<div class="ttc" id="aaffichage__jeu_8h_html_a39ae4b55db4b8bebd3c27caa8344e69d"><div class="ttname"><a href="affichage__jeu_8h.html#a39ae4b55db4b8bebd3c27caa8344e69d">affichagePointDeVie</a></div><div class="ttdeci">void affichagePointDeVie(SDL_Renderer *rendu, TTF_Font *font, int pointsDeVie_1, int pointsDeVie_2, SDL_Window *fenetre, int cameraX, int cameraY)</div><div class="ttdoc">Affiche les points de vie des bases des joueurs.</div><div class="ttdef"><b>Definition</b> affichage_jeu.c:686</div></div>
 <div class="ttc" id="aaffichage__jeu_8h_html_a3a2f821ce279cefaa254f9b75e865655"><div class="ttname"><a href="affichage__jeu_8h.html#a3a2f821ce279cefaa254f9b75e865655">afficherOptionJeu</a></div><div class="ttdeci">void afficherOptionJeu(SDL_Renderer *rendu, TTF_Font *police, SDL_Window *fenetre)</div><div class="ttdoc">Affiche le menu des options en jeu.</div><div class="ttdef"><b>Definition</b> affichage_jeu.c:336</div></div>
 <div class="ttc" id="aaffichage__jeu_8h_html_a414a9839418aa5edb062bc2b55011e50"><div class="ttname"><a href="affichage__jeu_8h.html#a414a9839418aa5edb062bc2b55011e50">img_charactere_inser</a></div><div class="ttdeci">void img_charactere_inser(tab_charactere_t *characters, int age, SDL_Texture *img_c[], SDL_Texture *tab[])</div><div class="ttdoc">Insère les images des personnages en fonction de leur âge dans un tableau.</div><div class="ttdef"><b>Definition</b> affichage_jeu.c:364</div></div>
-<div class="ttc" id="aaffichage__jeu_8h_html_a9a29ab1ff4cc4f085a3208b4d0b8e839"><div class="ttname"><a href="affichage__jeu_8h.html#a9a29ab1ff4cc4f085a3208b4d0b8e839">affichage_gagnant</a></div><div class="ttdeci">void affichage_gagnant(SDL_Renderer *rendu, TTF_Font *font, int choix, SDL_Window *fenetre, int cameraX, int cameraY, SDL_Texture *win, SDL_Texture *lose)</div><div class="ttdoc">Affiche l'image de victoire ou de défaite et un message associé.</div><div class="ttdef"><b>Definition</b> affichage_jeu.c:1023</div></div>
+<div class="ttc" id="aaffichage__jeu_8h_html_a9a29ab1ff4cc4f085a3208b4d0b8e839"><div class="ttname"><a href="affichage__jeu_8h.html#a9a29ab1ff4cc4f085a3208b4d0b8e839">affichage_gagnant</a></div><div class="ttdeci">void affichage_gagnant(SDL_Renderer *rendu, TTF_Font *font, int choix, SDL_Window *fenetre, int cameraX, int cameraY, SDL_Texture *win, SDL_Texture *lose)</div><div class="ttdoc">Affiche l'image de victoire ou de défaite et un message associé.</div><div class="ttdef"><b>Definition</b> affichage_jeu.c:1034</div></div>
 <div class="ttc" id="aaffichage__jeu_8h_html_aa3254951a1deda0a9ff442c390936271"><div class="ttname"><a href="affichage__jeu_8h.html#aa3254951a1deda0a9ff442c390936271">affichageSprite</a></div><div class="ttdeci">void affichageSprite(SDL_Renderer *rendu, player_t *j1, ordi_t *o, SDL_Rect *playerImg, SDL_Rect *ordiImg, SDL_Rect *playerAttackImg, int *first_Attaque, SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int *ancien_lvl, character_t *tab_de_charactere, SDL_Texture *image[], SDL_Texture *img_char[], SDL_Texture *img_c_ordi[], Uint32 currentTime, Uint32 *lastMovement, int w, int h, int *cameraX, int *cameraY, unsigned long *debut, unsigned long *fin)</div><div class="ttdoc">Affiche les sprites des personnages et gère leur déplacement.</div><div class="ttdef"><b>Definition</b> affichage_jeu.c:441</div></div>
 <div class="ttc" id="aaffichage__jeu_8h_html_ac125d564c51538937dbb4704b3c0494f"><div class="ttname"><a href="affichage__jeu_8h.html#ac125d564c51538937dbb4704b3c0494f">afficherHUD</a></div><div class="ttdeci">void afficherHUD(SDL_Renderer *rendu, SDL_Window *fenetre, TTF_Font *police_texte, SDL_Texture *parametre, SDL_Texture *upgrade, SDL_Texture *gold, SDL_Texture *xp, player_t *joueur, SDL_Texture *sprite_hud[], SDL_Texture *ultim, int age, int **troupe_formee, Uint32 currentTime, Uint32 **lastTroupe, character_t *tab_character, int **nb)</div><div class="ttdoc">Affiche l'interface utilisateur du HUD (Heads-Up Display) comprenant divers éléments tels que les bou...</div><div class="ttdef"><b>Definition</b> affichage_jeu.c:26</div></div>
 <div class="ttc" id="aaffichage__jeu_8h_html_ad153730c419b8c96be63f4a4b979cef9"><div class="ttname"><a href="affichage__jeu_8h.html#ad153730c419b8c96be63f4a4b979cef9">afficherJeuFond</a></div><div class="ttdeci">void afficherJeuFond(SDL_Renderer *rendu, SDL_Window *fenetre, SDL_Texture *fond_jeu, int *cameraX, int *cameraY)</div><div class="ttdoc">Affiche l'image de fond du jeu et gère le déplacement de la souris pour défiler l'image.</div><div class="ttdef"><b>Definition</b> affichage_jeu.c:243</div></div>
@@ -150,9 +169,13 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="astructplayer__t_html"><div class="ttname"><a href="structplayer__t.html">player_t</a></div><div class="ttdoc">Structure représentant un joueur.</div><div class="ttdef"><b>Definition</b> player.h:18</div></div>
 <div class="ttc" id="astructtab__charactere__s_html"><div class="ttname"><a href="structtab__charactere__s.html">tab_charactere_s</a></div><div class="ttdoc">Structure représentant un tableau de personnages.</div><div class="ttdef"><b>Definition</b> tab_character.h:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="affichage__jeu_8h.html">affichage_jeu.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

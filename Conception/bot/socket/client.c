@@ -2,7 +2,7 @@
  * \file client.c
  * \brief Contient les fonctions pour le reseau coté client
  * \author Proudy Vincent
- * \date 09 févrirer 2024
+ * \date 09 avril 2024
  * \version 1.0
  * 
 */

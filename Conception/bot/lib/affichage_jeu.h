@@ -2,7 +2,7 @@
  * \file affichage_jeu.h
  * \brief Contient les élements utilisés par le affichage_jeu.c
  * \author Poirier Victor
- * \date 09 févrirer 2024
+ * \date 16 avril 2024
  * \version 1.0
  * 
 */

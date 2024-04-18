@@ -2,7 +2,7 @@
  * \file tab_character.c
  * \brief Contient les fonctions pour la gestion du tableau de personnage
  * \author Proudy Vincent et Louison Roquain
- * \date 09 févrirer 2024
+ * \date 09 avril 2024
  * \version 1.0
  * 
 */

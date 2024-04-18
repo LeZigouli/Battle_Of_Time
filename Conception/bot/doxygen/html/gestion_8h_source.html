@@ -10,10 +10,19 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,10 +31,24 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
    <div id="projectname">Battle of Time
    </div>
+   <div id="projectbrief">Projet L2 Informatique</div>
   </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -37,22 +60,23 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Recherche');
-  $(function() { init_search(); });
-});
+$(function(){initNavTree('gestion_8h_source.html',''); initResizable(); });
 /* @license-end */
 </script>
-<div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() { codefold.init(0); });
-/* @license-end */
-</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -74,11 +98,6 @@ $(function() { codefold.init(0); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">gestion.h</div></div>
 </div><!--header-->
@@ -131,21 +150,25 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="acommun___s_d_l_8h_html"><div class="ttname"><a href="commun___s_d_l_8h.html">commun_SDL.h</a></div><div class="ttdoc">Contient les élements utilisés par les autres fichiers SDL.</div></div>
 <div class="ttc" id="agestion_8h_html_a06dca7c03165878b28bd1b77d1b14a5d"><div class="ttname"><a href="gestion_8h.html#a06dca7c03165878b28bd1b77d1b14a5d">clic</a></div><div class="ttdeci">void clic(etat_t *etat, SDL_Window *fenetre, SDL_Event evenement, element_t *elm_reso, Mix_Chunk *click, int mouseX, int mouseY, int w, int h, float widthFactor, float heightFactor, int menuX, int menuY, int *index_effet, int *continuer, int *selecElement, char *effet, int *isValid, const char *textInput, const char *ipPattern, int *textInputActive, int *keyCounts, int x, int y, int *ancienSon, int *ancienReso, player_t *j1, character_t *tab_de_charactere, ordi_t *ordi, Uint32 currentTime, Uint32 *lastUlti, Uint32 *diff_time, Uint32 *delai_ulti, int **troupe_formee, Uint32 **lastTroupe, int **nb)</div><div class="ttdoc">Gestion des cliques du menu et du jeu.</div><div class="ttdef"><b>Definition</b> gestion.c:43</div></div>
 <div class="ttc" id="agestion_8h_html_a4d6049f47678e0d1b0f288be7d6b00be"><div class="ttname"><a href="gestion_8h.html#a4d6049f47678e0d1b0f288be7d6b00be">deplacement_souris</a></div><div class="ttdeci">void deplacement_souris(SDL_Renderer *rendu, SDL_Window *fenetre, TTF_Font *police, Mix_Chunk *music, SDL_Event evenement, float widthFactor, float heightFactor, int etat, character_t *tab_charactere, int *survol)</div><div class="ttdoc">Gestion du déplacement de la souris sur les éléments du menu.</div><div class="ttdef"><b>Definition</b> gestion.c:711</div></div>
-<div class="ttc" id="agestion_8h_html_a744bce58ae8a8ae036c76e91129a1202"><div class="ttname"><a href="gestion_8h.html#a744bce58ae8a8ae036c76e91129a1202">reinitialiser_partie</a></div><div class="ttdeci">void reinitialiser_partie(player_t **player, ordi_t **ordi)</div><div class="ttdoc">Réinitialise la partie en libérant la mémoire allouée.</div><div class="ttdef"><b>Definition</b> gestion.c:880</div></div>
-<div class="ttc" id="agestion_8h_html_a78a065eeb4d024efdafada7c4ca943bf"><div class="ttname"><a href="gestion_8h.html#a78a065eeb4d024efdafada7c4ca943bf">touches</a></div><div class="ttdeci">void touches(SDL_Event evenement, int *textInputActive, int *keyCounts, int *isValid, char *textInput, const char *ipPattern, int *valide)</div><div class="ttdoc">Gère les événements liés à la saisie de texte.</div><div class="ttdef"><b>Definition</b> gestion.c:840</div></div>
+<div class="ttc" id="agestion_8h_html_a744bce58ae8a8ae036c76e91129a1202"><div class="ttname"><a href="gestion_8h.html#a744bce58ae8a8ae036c76e91129a1202">reinitialiser_partie</a></div><div class="ttdeci">void reinitialiser_partie(player_t **player, ordi_t **ordi)</div><div class="ttdoc">Réinitialise la partie en libérant la mémoire allouée.</div><div class="ttdef"><b>Definition</b> gestion.c:882</div></div>
+<div class="ttc" id="agestion_8h_html_a78a065eeb4d024efdafada7c4ca943bf"><div class="ttname"><a href="gestion_8h.html#a78a065eeb4d024efdafada7c4ca943bf">touches</a></div><div class="ttdeci">void touches(SDL_Event evenement, int *textInputActive, int *keyCounts, int *isValid, char *textInput, const char *ipPattern, int *valide)</div><div class="ttdoc">Gère les événements liés à la saisie de texte.</div><div class="ttdef"><b>Definition</b> gestion.c:842</div></div>
 <div class="ttc" id="agestion_8h_html_aac337a8b51f748e671103d58d6681aef"><div class="ttname"><a href="gestion_8h.html#aac337a8b51f748e671103d58d6681aef">relachement</a></div><div class="ttdeci">void relachement(etat_t *etat, int menuX, int menuY, int w, int h, float *widthFactor, float *heightFactor, int mouseX, int mouseY)</div><div class="ttdoc">Gestion du relâchement du clic de la souris sur les éléments du menu.</div><div class="ttdef"><b>Definition</b> gestion.c:681</div></div>
-<div class="ttc" id="agestion_8h_html_ac239fb306e5ce712edf5ebe8bdd6d738"><div class="ttname"><a href="gestion_8h.html#ac239fb306e5ce712edf5ebe8bdd6d738">validateRegex</a></div><div class="ttdeci">int validateRegex(const char *input, const char *pattern)</div><div class="ttdoc">Fonction pour vérifier si une chaîne de caractères respecte une expression régulière.</div><div class="ttdef"><b>Definition</b> gestion.c:811</div></div>
-<div class="ttc" id="agestion_8h_html_ac74f14b7098bd75c31accd40fb403717"><div class="ttname"><a href="gestion_8h.html#ac74f14b7098bd75c31accd40fb403717">destruction</a></div><div class="ttdeci">void destruction(int *selecElement, int *index_effet, int *continuer, etat_t *etat, float *widthFactor, float *heightFactor, int *textInputActive, int *isValid, int *keyCounts, int *ancien, int *etatAge, int *ancienSon)</div><div class="ttdoc">Fonction de destruction des variables pour le menu.</div><div class="ttdef"><b>Definition</b> gestion.c:785</div></div>
-<div class="ttc" id="agestion_8h_html_afecde47e916a8831710f18286b346ed8"><div class="ttname"><a href="gestion_8h.html#afecde47e916a8831710f18286b346ed8">fin_partie</a></div><div class="ttdeci">int fin_partie(player_t *player, ordi_t *ordi, player_t *player_online, int etat)</div><div class="ttdoc">Détermine l'issue de la partie.</div><div class="ttdef"><b>Definition</b> gestion.c:895</div></div>
+<div class="ttc" id="agestion_8h_html_ac239fb306e5ce712edf5ebe8bdd6d738"><div class="ttname"><a href="gestion_8h.html#ac239fb306e5ce712edf5ebe8bdd6d738">validateRegex</a></div><div class="ttdeci">int validateRegex(const char *input, const char *pattern)</div><div class="ttdoc">Fonction pour vérifier si une chaîne de caractères respecte une expression régulière.</div><div class="ttdef"><b>Definition</b> gestion.c:813</div></div>
+<div class="ttc" id="agestion_8h_html_ac74f14b7098bd75c31accd40fb403717"><div class="ttname"><a href="gestion_8h.html#ac74f14b7098bd75c31accd40fb403717">destruction</a></div><div class="ttdeci">void destruction(int *selecElement, int *index_effet, int *continuer, etat_t *etat, float *widthFactor, float *heightFactor, int *textInputActive, int *isValid, int *keyCounts, int *ancien, int *etatAge, int *ancienSon)</div><div class="ttdoc">Fonction de destruction des variables pour le menu.</div><div class="ttdef"><b>Definition</b> gestion.c:787</div></div>
+<div class="ttc" id="agestion_8h_html_afecde47e916a8831710f18286b346ed8"><div class="ttname"><a href="gestion_8h.html#afecde47e916a8831710f18286b346ed8">fin_partie</a></div><div class="ttdeci">int fin_partie(player_t *player, ordi_t *ordi, player_t *player_online, int etat)</div><div class="ttdoc">Détermine l'issue de la partie.</div><div class="ttdef"><b>Definition</b> gestion.c:897</div></div>
 <div class="ttc" id="aplayer_8h_html"><div class="ttname"><a href="player_8h.html">player.h</a></div><div class="ttdoc">Contient les élements utilisés par les autres fichiers.</div></div>
 <div class="ttc" id="astructcharacter__s_html"><div class="ttname"><a href="structcharacter__s.html">character_s</a></div><div class="ttdoc">Structure représentant un personnage.</div><div class="ttdef"><b>Definition</b> character.h:37</div></div>
 <div class="ttc" id="astructelement__t_html"><div class="ttname"><a href="structelement__t.html">element_t</a></div><div class="ttdef"><b>Definition</b> commun_SDL.h:55</div></div>
 <div class="ttc" id="astructordi__t_html"><div class="ttname"><a href="structordi__t.html">ordi_t</a></div><div class="ttdoc">Structure représentant un adversaire contrôlé par l'ordinateur.</div><div class="ttdef"><b>Definition</b> ordinateur.h:22</div></div>
 <div class="ttc" id="astructplayer__t_html"><div class="ttname"><a href="structplayer__t.html">player_t</a></div><div class="ttdoc">Structure représentant un joueur.</div><div class="ttdef"><b>Definition</b> player.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="gestion_8h.html">gestion.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

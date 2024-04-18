@@ -2,7 +2,7 @@
  * \file affichage_jeu.c
  * \brief Contient les fonctions d'affichages en jeu
  * \author Poirier Victor
- * \date 09 févrirer 2024
+ * \date 16 avril 2024
  * \version 1.0
  * 
 */
