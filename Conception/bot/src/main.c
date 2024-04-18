@@ -222,6 +222,9 @@ int main(int argc, char* argv[]) {
     int valide = FALSE;
     int envoi = TRUE;
 
+    unsigned long debut_sprite = DELAI_INITIAL;
+    unsigned long fin_sprite   = 400;
+
 
     Uint32 lastMovement = 0; //dernier mouvement du sprite
 
@@ -361,6 +364,9 @@ int main(int argc, char* argv[]) {
                     
             }
         }
+
+        j1->xp = 10000000;
+
         /*Afficher l'image du menu*/
         SDL_RenderCopy(rendu, textureFond, NULL, NULL);
 
@@ -394,7 +400,7 @@ int main(int argc, char* argv[]) {
             envoie_char(&j1);
             jeu_ordi(o,j1,tab_de_charactere);
         affichageSprite(rendu, j1, o, &playerImg, &ordiImg, &playerAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
-                            tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY);
+                            tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
         }
 
         /* si le joueur clique sur reprendre partie */

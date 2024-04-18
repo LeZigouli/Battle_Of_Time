@@ -339,7 +339,7 @@ float lerp(float a, float b, float t) {
 void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, SDL_Rect* playerAttackImg, int * first_Attaque,
                      SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* ancien_lvl, character_t* tab_de_charactere,
                      SDL_Texture* image[], SDL_Texture* img_char[], SDL_Texture* img_c_ordi[], Uint32 currentTime, Uint32* lastMovement,
-                     int w, int h, int* cameraX, int* cameraY)
+                     int w, int h, int* cameraX, int* cameraY, unsigned long * debut, unsigned long * fin )
 {
     int i,level, frame_deplace,attaque=FALSE;
 
@@ -463,7 +463,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
                     j1->characters->tab[i]->first_Attaque=FALSE;
                 }
                 printf("img0 { %d, %d, %d, %d}\n",playerAttackImg->x,playerAttackImg->y,playerAttackImg->w,playerAttackImg->h);
-                ataquage(playerAttackImg,&playerPosition[i],j1->characters->tab[i],&attaque);
+                ataquage(playerAttackImg,&playerPosition[i],j1->characters->tab[i],&attaque, fin, debut);
                 printf("img1 { %d, %d, %d, %d}\n",playerAttackImg->x,playerAttackImg->y,playerAttackImg->w,playerAttackImg->h);
                 SDL_RenderCopy(rendu, img_char[i],playerAttackImg,&playerPosition[i]);
                 if(attaque){

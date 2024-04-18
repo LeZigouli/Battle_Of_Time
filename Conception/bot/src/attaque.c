@@ -120,49 +120,41 @@ void resize_att(SDL_Rect * atimg,SDL_Rect * position, character_t * c){
     }
 }
 
-void ataquage(SDL_Rect * atimg,SDL_Rect * position, character_t * c, int * attaque){
+void ataquage(SDL_Rect * atimg,SDL_Rect * position, character_t * c, int * attaque, unsigned long * fin, unsigned long * debut){
     int ind = c->classe+c->age*NB_CHARACTER;
+    switch(ind){    
 
-    switch(ind){
-        case 1:
-        case 2:
-        case 5:
-            if(atimg->x == TAILLE_SPRITE*7){
-                atimg->x=0;
-                *attaque=TRUE;
-            }else 
-                atimg->x+=TAILLE_SPRITE;
-            break;
-        
         case 0:
+        case 1:
+        case 5:
+        case 3:
+        case 9:
         case 4:
         case 7:
         case 8:
         case 16:
         case 17:
         case 18:
-            if(atimg->x == TAILLE_SPRITE*3*5){
-                atimg->x=0;
-                *attaque=TRUE;
-            }else 
-                atimg->x+=TAILLE_SPRITE*3;
-            break;
-        
-        case 3:
-        case 9:
             if(atimg->x == TAILLE_SPRITE*12){
                 atimg->x=0;
                 *attaque=TRUE;
             }else 
+            {
+                atimg->y = TAILLE_SPRITE*19;
                 atimg->x+=TAILLE_SPRITE;
+            }
             break;
-        
+
+        /* le cheval */
         case 6:
-            if(atimg->x == 48*28){
-                atimg->x=48*20;
+            if(atimg->x == 48*20){
+                atimg->x=0;
                 *attaque=TRUE;
             }else 
+            {
+                atimg->y = 48;
                 atimg->x+=48;
+            }
             break;
         
         case 11:
@@ -171,16 +163,19 @@ void ataquage(SDL_Rect * atimg,SDL_Rect * position, character_t * c, int * attaq
                 atimg->x=0;
                 *attaque=TRUE;
             }else 
-                atimg->x+=TAILLE_SPRITE*3;
+                atimg->x+=TAILLE_SPRITE;
             break;
         
         case 10:
         case 12:
-            if(atimg->x == TAILLE_SPRITE*2*5){
+            if(atimg->x == TAILLE_SPRITE*12){
                 atimg->x=0;
                 *attaque=TRUE;
             }else 
-                atimg->x+=TAILLE_SPRITE*2;
+            {
+                atimg->y = TAILLE_SPRITE * 19;
+                atimg->x+=TAILLE_SPRITE;
+            }
             break;
         
         case 13:
@@ -192,5 +187,30 @@ void ataquage(SDL_Rect * atimg,SDL_Rect * position, character_t * c, int * attaq
             }else 
                 atimg->x+=TAILLE_SPRITE;
             break;
+
+
+        /* le gorille */
+        case 2 :
+            if(atimg->x == TAILLE_SPRITE*5){
+                atimg->x=0;
+                *attaque=TRUE;
+            }else 
+            {
+                if ( *debut == DELAI_INITIAL ) *debut = time(NULL);
+                *fin = time(NULL);
+                if ( *fin - *debut > 0 )
+                {
+                    atimg->y = TAILLE_SPRITE * 15;
+                    atimg->x += TAILLE_SPRITE;
+                }
+                else
+                {
+                    atimg->y = TAILLE_SPRITE * 3;
+                    atimg->x = TAILLE_SPRITE;
+                }
+
+            }
+            break;
+
     }
 }
