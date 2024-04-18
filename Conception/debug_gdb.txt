@@ -403,3 +403,52 @@ A debugging session is active.
 	Inferior 1 [process 8807] will be killed.
 
 Quit anyway? (y or n) y
+
+=====================================================================
+
+s2202705@ic2s114-13:~/Documents/Projet/Battle_Of_Time/Conception/bot$ gdb ./bin/prog 
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.1) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./bin/prog...
+(gdb) b affichage_jeu.c:460
+Breakpoint 1 at 0x8523: file src/affichage_jeu.c, line 460.
+(gdb) r
+Starting program: /info/etu/l2info/s2202705/Documents/Projet/Battle_Of_Time/Conception/bot/bin/prog 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7fffed708700 (LWP 5524)]
+[New Thread 0x7fffecec7700 (LWP 5525)]
+[Thread 0x7fffecec7700 (LWP 5525) exited]
+[New Thread 0x7fffecec7700 (LWP 5526)]
+[Thread 0x7fffecec7700 (LWP 5526) exited]
+[New Thread 0x7fffec6b6700 (LWP 5528)]
+[New Thread 0x7fffecec7700 (LWP 5529)]
+[New Thread 0x7fffbffff700 (LWP 5530)]
+[Thread 0x7fffbffff700 (LWP 5530) exited]
+[New Thread 0x7fffbffff700 (LWP 5531)]
+
+Thread 1 "prog" hit Breakpoint 1, affichageSprite (rendu=0x5555557bf290, j1=0x555555e02600, o=0x555555db60d0, playerImg=0x7fffffffde20, ordiImg=0x7fffffffde30, playerAttackImg=0x7fffffffde40, 
+    first_Attaque=0x7fffffffdc88, playerPosition=0x7fffffffe1b0, ordiPosition=0x7fffffffe250, ancien_lvl=0x555555dcb830, tab_de_charactere=0x555555e0e350, image=0x7fffffffdea0, img_char=0x7fffffffdf30, 
+    img_c_ordi=0x7fffffffdf80, currentTime=12492, lastMovement=0x7fffffffdc90, w=1080, h=720, cameraX=0x5555555ad290, cameraY=0x5555555ad610) at src/affichage_jeu.c:460
+warning: Source file is more recent than executable.
+460	                (*first_Attaque)=TRUE;
+(gdb) n
+461	                if(j1->characters->tab[i]->first_Attaque){
+(gdb) display j1->characters->tab[i]->first_Attaque
+1: j1->characters->tab[i]->first_Attaque = 0
+(gdb) print i
+$1 = 0
+(gdb) 
