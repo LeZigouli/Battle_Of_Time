@@ -141,6 +141,7 @@ character_t * initcharacter()
                 tab[age*NB_CHARACTER+classe].classe           =classe;
                 tab[age*NB_CHARACTER+classe].cost             =calcule_prix(age*NB_CHARACTER+classe+1);
                 tab[age*NB_CHARACTER+classe].dammage          =(((age+1)*8)*((age+2)*7)*20+(classe+1)*(classe+2)*48)/5;
+                tab[age*NB_CHARACTER+classe].first_Attaque    = TRUE;
                 tab[age*NB_CHARACTER+classe].max_pv           =((age+1)*8)*((age+2)*7)*20+(classe+1)*(classe+2)*48;
                 tab[age*NB_CHARACTER+classe].owner            =OWNER_INIT;
                 tab[age*NB_CHARACTER+classe].pv               =((age+1)*8)*((age+2)*7)*20+(classe+1)*(classe+2)*48;

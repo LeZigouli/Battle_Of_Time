@@ -189,13 +189,15 @@ void deplacement(tab_charactere_t * characters, character_t * first_Adverser, in
     int i;
 	if(characters !=NULL)
 		if(characters->nb>0){
-			if(first_Adverser==NULL)
-				mouvement(&characters->tab[0],x_building_adverser);
-			else
-				mouvement(&characters->tab[0],first_Adverser->x);
-				
-			for(i=1;i<characters->nb;i++){
-				mouvement(&characters->tab[i],characters->tab[i-1]->x);
+			if(characters->ind_first_vivant!=-1){
+				if(first_Adverser==NULL)
+					mouvement(&characters->tab[characters->ind_first_vivant],x_building_adverser);
+				else
+					mouvement(&characters->tab[characters->ind_first_vivant],first_Adverser->x);
+					
+				for(i=characters->ind_first_vivant+1;i<characters->nb;i++){
+					mouvement(&characters->tab[i],characters->tab[i-1]->x);
+				}
 			}
 		}
 }

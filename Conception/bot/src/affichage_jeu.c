@@ -462,8 +462,9 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
                     resize_att(playerAttackImg,&playerPosition[i],j1->characters->tab[i]);
                     j1->characters->tab[i]->first_Attaque=FALSE;
                 }
+                printf("img0 { %d, %d, %d, %d}\n",playerAttackImg->x,playerAttackImg->y,playerAttackImg->w,playerAttackImg->h);
                 ataquage(playerAttackImg,&playerPosition[i],j1->characters->tab[i],&attaque);
-                
+                printf("img1 { %d, %d, %d, %d}\n",playerAttackImg->x,playerAttackImg->y,playerAttackImg->w,playerAttackImg->h);
                 SDL_RenderCopy(rendu, img_char[i],playerAttackImg,&playerPosition[i]);
                 if(attaque){
                     attaque=FALSE;
@@ -472,7 +473,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
                     else
                         character_attack_character(&o->characters->tab[o->characters->ind_first_vivant],&j1->characters->tab[i]);
                 }
-                if(&o->characters->tab[o->characters->ind_first_vivant] <=0)
+                if(o->characters->tab[o->characters->ind_first_vivant]->pv <=0)
                     resize_dep(playerAttackImg,&playerPosition[i],j1->characters->tab[i]);
             }else{
                 frame_deplace=playerImg->x;

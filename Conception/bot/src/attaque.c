@@ -81,12 +81,12 @@ void resize_att(SDL_Rect * atimg,SDL_Rect * position, character_t * c){
         case 16:
         case 17:
         case 18:
-            position->h=128 * 3;
-            position->w=128 * 3; 
+            position->h=128*3;
+            position->w=128*3;
             position->x-=128;
             position->y-=128;
             atimg->x=0;
-            atimg->y=TAILLE_ATTAQUE;
+            atimg->y=TAILLE_ATTAQUE*10;
             atimg->w=TAILLE_ATTAQUE;
             atimg->h=TAILLE_ATTAQUE;
             break;
@@ -144,12 +144,8 @@ void ataquage(SDL_Rect * atimg,SDL_Rect * position, character_t * c, int * attaq
             if(atimg->x == TAILLE_SPRITE*3*5){
                 atimg->x=0;
                 *attaque=TRUE;
-                atimg->x+=TAILLE_ATTAQUE;
-            }
-            else 
-            {
-                atimg->y = TAILLE_SPRITE * 20;
-            }
+            }else 
+                atimg->x+=TAILLE_SPRITE*3;
             break;
         
         case 3:
