@@ -438,7 +438,7 @@ float lerp(float a, float b, float t) {
  * @param cameraX Pointeur vers la position horizontale de la caméra.
  * @param cameraY Pointeur vers la position verticale de la caméra.
  * */
-void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, SDL_Rect* playerAttackImg, int * finich_atk,
+void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, SDL_Rect* playerAttackImg, SDL_Rect* ordiAttackImg, int * finich_atk,
                      SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* ancien_lvl, character_t* tab_de_charactere,
                      SDL_Texture* image[], SDL_Texture* img_char[], SDL_Texture* img_c_ordi[], Uint32 currentTime, Uint32* lastMovement,
                      int w, int h, int* cameraX, int* cameraY, unsigned long * debut, unsigned long * fin )
@@ -572,8 +572,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
                     j1->characters->tab[i]->first_Attaque=FALSE;
                 }
                 //printf("img0 { %d, %d, %d, %d}\n",playerAttackImg->x,playerAttackImg->y,playerAttackImg->w,playerAttackImg->h);
-                
-                ataquage(playerAttackImg,j1->characters->tab[i],&attaque,fin,debut);
+                ataquage(playerAttackImg,j1->characters->tab[i],&attaque,j1->owner);
                 SDL_RenderCopy(rendu, img_char[i],playerAttackImg,&playerPosition[i]);
                 if(attaque){
                     attaque=FALSE;
@@ -599,13 +598,38 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
         }
     }
     for(i=0;i<o->characters->nb;i++){
-        if(o->characters->tab[i]->x == o->characters->tab[i]->x_pred){
-            frame_deplace=ordiImg->x;
-            ordiImg->x=0;
-            SDL_RenderCopy(rendu, img_c_ordi[i], ordiImg, &ordiPosition[i]);
-            ordiImg->x=frame_deplace;
-        }else
-            SDL_RenderCopy(rendu, img_c_ordi[i], ordiImg, &ordiPosition[i]);
+              if(o->characters->tab[i]->x == o->characters->tab[i]->x_pred){
+            if(i==o->characters->ind_first_vivant){
+                (*finich_atk)=FALSE;
+                if(o->characters->tab[i]->first_Attaque){
+                    resize_att(ordiAttackImg,&ordiPosition[i],o->characters->tab[i]);
+                    o->characters->tab[i]->first_Attaque=FALSE;
+                }
+                //printf("img0 { %d, %d, %d, %d}\n",playerAttackImg->x,playerAttackImg->y,playerAttackImg->w,playerAttackImg->h);
+                ataquage(ordiAttackImg,o->characters->tab[i],&attaque,o->owner);
+                SDL_RenderCopy(rendu, img_char[i],ordiAttackImg,&ordiPosition[i]);
+                if(attaque){
+                    attaque=FALSE;
+                    if(j1->characters->ind_first_vivant==-1)
+                        character_attack_building(&j1->building,&o->characters->tab[i]);
+                    else{
+                        character_attack_character(&j1->characters->tab[j1->characters->ind_first_vivant],&o->characters->tab[i]);
+                        if(j1->characters->tab[j1->characters->ind_first_vivant]->pv <=0)
+                            (*finich_atk)=TRUE;
+                    }
+                }
+                if(*finich_atk)
+                    resize_dep(ordiAttackImg,&ordiPosition[i],o->characters->tab[i]);
+            }else{
+                frame_deplace=ordiImg->x;
+                ordiImg->x=0;
+                SDL_RenderCopy(rendu, img_char[i], ordiImg, &ordiPosition[i]);
+                ordiImg->x=frame_deplace;
+            }
+        }else{
+            
+            SDL_RenderCopy(rendu, img_char[i], ordiImg, &ordiPosition[i]);
+        }
     }
 }
 

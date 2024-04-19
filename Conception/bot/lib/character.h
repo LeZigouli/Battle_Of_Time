@@ -25,6 +25,7 @@
  * @brief Taille d'un sprite en pixels.
  */
 #define TAILLE_SPRITE 64
+#define TAILLE_CHEVAL 48
 
 /**
  * @brief Taille de l'attaque en pixels.
