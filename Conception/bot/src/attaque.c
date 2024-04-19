@@ -185,7 +185,7 @@ void ataquage(SDL_Rect * atimg, character_t * c, int * attaque, int owner){
 
 booleen_t animation_mort(SDL_Rect * atimg, character_t * c)
 {
-    printf("Mort...\n");
+
     if(atimg->x == TAILLE_SPRITE * 5){
         atimg->x=0;
         return TRUE;

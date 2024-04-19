@@ -410,8 +410,6 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        j1->xp = 10000000;
-
         /*Afficher l'image du menu*/
         SDL_RenderCopy(rendu, textureFond, NULL, NULL);
 

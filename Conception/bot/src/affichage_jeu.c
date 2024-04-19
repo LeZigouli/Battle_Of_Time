@@ -593,7 +593,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
 
         (*lastMovement)= SDL_GetTicks();
     }
-    //afficher_player(j1);
+    //
     level = max(o->building->level,j1->building->level);
     if((*ancien_lvl) < level){
         for(i=0;i<NB_CHARACTER;i++)
@@ -607,7 +607,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
         
     img_charactere_inser(j1->characters,level,img_char,image);
     img_charactere_inser(o->characters,level,img_c_ordi,image);
-    afficher_player(j1);
+    
     for(i=0;i<j1->characters->nb;i++){
         if(j1->characters->tab[i]->x == j1->characters->tab[i]->x_pred){
             if(i==j1->characters->ind_first_vivant){
@@ -661,7 +661,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
             SDL_RenderCopy(rendu, img_char[i], playerImg, &playerPosition[i]);
         }
     }
-    afficher_player(j1);
+    
     for(i=0;i<o->characters->nb;i++){
         if(o->characters->tab[i]->x == o->characters->tab[i]->x_pred){
             if(i==o->characters->ind_first_vivant){
