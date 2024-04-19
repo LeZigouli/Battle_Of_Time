@@ -135,7 +135,7 @@ void ataquage(SDL_Rect * atimg,SDL_Rect * position, character_t * c, int * attaq
         case 16:
         case 17:
         case 18:
-            if(atimg->x == TAILLE_SPRITE*12){
+            if(atimg->x == TAILLE_SPRITE*11){
                 atimg->x=0;
                 *attaque=TRUE;
             }else 
@@ -211,7 +211,6 @@ void ataquage(SDL_Rect * atimg,SDL_Rect * position, character_t * c, int * attaq
                     atimg->y = TAILLE_SPRITE * 3;
                     atimg->x = TAILLE_SPRITE;
                 }
-
             }
             break;
 
