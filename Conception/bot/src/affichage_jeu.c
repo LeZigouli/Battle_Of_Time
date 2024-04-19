@@ -160,6 +160,8 @@ void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_text
         SDL_Texture* file_pleine_texture = SDL_CreateTextureFromSurface(rendu, file_pleine_surface);
         SDL_Rect affichage_info = creationRectangle(fenetre, 526, 52, 300, 32);
         SDL_RenderCopy(rendu, file_pleine_texture, NULL, &affichage_info);
+        SDL_FreeSurface(file_pleine_surface);
+        SDL_DestroyTexture(file_pleine_texture);
         (*nb)[0] = 0;
         (*nb)[1] = 0;
         (*nb)[2] = 0;
@@ -251,6 +253,8 @@ void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_text
         SDL_RenderFillRect(rendu, &temps_perso1);
         SDL_Rect delai_rect1 = creationRectangle(fenetre, 266, 16, 32, 20);
         SDL_RenderCopy(rendu, delai1_texture, NULL, &delai_rect1);
+        SDL_FreeSurface(delai1_surface);
+        SDL_DestroyTexture(delai1_texture);
     }
 
     if((*troupe_formee)[1] == marksman && diff_time2 < (tab_character[age * NB_CHARACTER + 1].time*1000) * (*nb)[1]){
@@ -260,6 +264,8 @@ void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_text
         SDL_RenderFillRect(rendu, &temps_perso2);
         SDL_Rect delai_rect2 = creationRectangle(fenetre, 335, 16, 32, 20);
         SDL_RenderCopy(rendu, delai2_texture, NULL, &delai_rect2);
+        SDL_FreeSurface(delai2_surface);
+        SDL_DestroyTexture(delai2_texture);
     }
 
     if((*troupe_formee)[2] == tank && diff_time3 < (tab_character[age * NB_CHARACTER + 1].time*1000) * (*nb)[2]){
@@ -269,6 +275,8 @@ void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_text
         SDL_RenderFillRect(rendu, &temps_perso3);
         SDL_Rect delai_rect3 = creationRectangle(fenetre, 404, 16, 32, 20);
         SDL_RenderCopy(rendu, delai3_texture, NULL, &delai_rect3);
+        SDL_FreeSurface(delai3_surface);
+        SDL_DestroyTexture(delai3_texture);
     }  
 
     if((*troupe_formee)[3] == specialist && diff_time4 < (tab_character[age * NB_CHARACTER + 1].time*1000) * (*nb)[3]){
@@ -278,6 +286,8 @@ void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_text
         SDL_RenderFillRect(rendu, &temps_perso4);
         SDL_Rect delai_rect4 = creationRectangle(fenetre, 473, 16, 32, 20);
         SDL_RenderCopy(rendu, delai4_texture, NULL, &delai_rect4);
+        SDL_FreeSurface(delai4_surface);
+        SDL_DestroyTexture(delai4_texture);
     }
 }
 
