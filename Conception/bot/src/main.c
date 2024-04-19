@@ -135,7 +135,7 @@ int main(int argc, char* argv[]) {
     (*ancienSon) = MENU_SOUS_OPTIONS;
 
     /*Lecture de la musique en boucle*/
-    //Mix_PlayChannel(0,music,-1);
+    Mix_PlayChannel(0,music,-1);
 
 	/*Variables pour le calcul du ration de la dimension de la fenêtre*/
     float* widthFactor = malloc(sizeof(float));
