@@ -1,5 +1,5 @@
 \doxysection{gestion.\+h}
-\hypertarget{gestion_8h_source}{}\label{gestion_8h_source}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/gestion.h@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/gestion.h}}
+\hypertarget{gestion_8h_source}{}\label{gestion_8h_source}\index{/Users/vic/Documents/Battle\_Of\_Time/Conception/bot/lib/gestion.h@{/Users/vic/Documents/Battle\_Of\_Time/Conception/bot/lib/gestion.h}}
 \mbox{\hyperlink{gestion_8h}{Aller à la documentation de ce fichier.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
@@ -9,7 +9,7 @@
 \DoxyCodeLine{00012\ \textcolor{comment}{/**************/}}
 \DoxyCodeLine{00013\ \textcolor{comment}{/*-\/-\/Includes-\/-\/*/}}
 \DoxyCodeLine{00014\ \textcolor{comment}{/**************/}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{commun__SDL_8h}{commun\_SDL.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{commun___s_d_l_8h}{commun\_SDL.h}}"{}}}
 \DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{affichage__menu_8h}{affichage\_menu.h}}"{}}}
 \DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{affichage__jeu_8h}{affichage\_jeu.h}}"{}}}
 \DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{player_8h}{player.h}}"{}}}
@@ -20,27 +20,29 @@
 \DoxyCodeLine{00023\ \textcolor{comment}{/*-\/-\/Fonctions-\/-\/*/}}
 \DoxyCodeLine{00024\ \textcolor{comment}{/***************/}}
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gestion_8h_aa6f795e72fec0cbc28fee34352b72a61}{clic}}(etat\_t*\ etat,\ SDL\_Window*\ fenetre,\ SDL\_Event\ evenement,\ \mbox{\hyperlink{structelement__t}{element\_t}}*\ elm\_reso,\ Mix\_Chunk*\ click,\ }
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mouseX,\ \textcolor{keywordtype}{int}\ mouseY,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{float}\ widthFactor,\ \textcolor{keywordtype}{float}\ heightFactor,\ \textcolor{keywordtype}{int}\ menuX,\ \textcolor{keywordtype}{int}\ menuY,\ \textcolor{keywordtype}{int}*\ index\_effet,\ }
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ continuer,\ \textcolor{keywordtype}{int}*\ selecElement,\ \textcolor{keywordtype}{char}*\ effet,\ \textcolor{keywordtype}{int}*\ isValid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ textInput,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ipPattern,\ }
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ textInputActive,\ \textcolor{keywordtype}{int}*\ keyCounts,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}*\ ancienSon,\ \textcolor{keywordtype}{int}*\ ancienReso,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ j1,}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcharacter__s}{character\_t}}*\ tab\_de\_charactere,\ \mbox{\hyperlink{structordi__t}{ordi\_t}}*\ ordi);}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gestion_8h_aac337a8b51f748e671103d58d6681aef}{relachement}}(etat\_t*\ etat,\ \textcolor{keywordtype}{int}\ menuX,\ \textcolor{keywordtype}{int}\ menuY,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{float}*\ widthFactor,\ \textcolor{keywordtype}{float}*\ heightFactor,\ \textcolor{keywordtype}{int}\ mouseX,\ \textcolor{keywordtype}{int}\ mouseY);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gestion_8h_a06dca7c03165878b28bd1b77d1b14a5d}{clic}}(etat\_t*\ etat,\ SDL\_Window*\ fenetre,\ SDL\_Event\ evenement,\ \mbox{\hyperlink{structelement__t}{element\_t}}*\ elm\_reso,\ Mix\_Chunk*\ click,\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mouseX,\ \textcolor{keywordtype}{int}\ mouseY,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{float}\ widthFactor,\ \textcolor{keywordtype}{float}\ heightFactor,\ \textcolor{keywordtype}{int}\ menuX,\ \textcolor{keywordtype}{int}\ menuY,\ \textcolor{keywordtype}{int}*\ index\_effet,\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ continuer,\ \textcolor{keywordtype}{int}*\ selecElement,\ \textcolor{keywordtype}{char}*\ effet,\ \textcolor{keywordtype}{int}*\ isValid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ textInput,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ipPattern,\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ textInputActive,\ \textcolor{keywordtype}{int}*\ keyCounts,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}*\ ancienSon,\ \textcolor{keywordtype}{int}*\ ancienReso,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ j1,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcharacter__s}{character\_t}}*\ tab\_de\_charactere,\ \mbox{\hyperlink{structordi__t}{ordi\_t}}*\ ordi,\ Uint32\ currentTime,\ Uint32*\ lastUlti,\ Uint32*\ diff\_time,\ Uint32*\ delai\_ulti,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}**\ troupe\_formee,\ Uint32**\ lastTroupe,\ \textcolor{keywordtype}{int}**\ nb);}
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gestion_8h_a4d6049f47678e0d1b0f288be7d6b00be}{deplacement\_souris}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police,\ Mix\_Chunk*\ music,\ SDL\_Event\ evenement,\ }
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ widthFactor,\ \textcolor{keywordtype}{float}\ heightFactor,\ \textcolor{keywordtype}{int}\ etat,\ \mbox{\hyperlink{structcharacter__s}{character\_t}}*\ tab\_charactere,\ \textcolor{keywordtype}{int}*\ survol);}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gestion_8h_ac74f14b7098bd75c31accd40fb403717}{destruction}}(\textcolor{keywordtype}{int}*\ selecElement,\ \textcolor{keywordtype}{int}*\ index\_effet,\ \textcolor{keywordtype}{int}*\ continuer,\ etat\_t*\ etat,\ \textcolor{keywordtype}{float}*\ widthFactor,\ \textcolor{keywordtype}{float}*\ heightFactor,\ \textcolor{keywordtype}{int}*\ textInputActive,\ }
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ isValid,\ \textcolor{keywordtype}{int}*\ keyCounts,\ \textcolor{keywordtype}{int}*\ ancien,\ \textcolor{keywordtype}{int}*\ etatAge,\ \textcolor{keywordtype}{int}*\ ancienSon);}
-\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gestion_8h_a78a065eeb4d024efdafada7c4ca943bf}{touches}}(SDL\_Event\ evenement,\ \textcolor{keywordtype}{int}*\ textInputActive,\ \textcolor{keywordtype}{int}*\ keyCounts,\ \textcolor{keywordtype}{int}*\ isValid,\ \textcolor{keywordtype}{char}*\ textInput,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ipPattern,\ \textcolor{keywordtype}{int}\ *valide);}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gestion_8h_ac239fb306e5ce712edf5ebe8bdd6d738}{validateRegex}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *input,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *pattern);}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gestion_8h_aac337a8b51f748e671103d58d6681aef}{relachement}}(etat\_t*\ etat,\ \textcolor{keywordtype}{int}\ menuX,\ \textcolor{keywordtype}{int}\ menuY,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{float}*\ widthFactor,\ \textcolor{keywordtype}{float}*\ heightFactor,\ \textcolor{keywordtype}{int}\ mouseX,\ \textcolor{keywordtype}{int}\ mouseY);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gestion_8h_a4d6049f47678e0d1b0f288be7d6b00be}{deplacement\_souris}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police,\ Mix\_Chunk*\ music,\ SDL\_Event\ evenement,\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ widthFactor,\ \textcolor{keywordtype}{float}\ heightFactor,\ \textcolor{keywordtype}{int}\ etat,\ \mbox{\hyperlink{structcharacter__s}{character\_t}}*\ tab\_charactere,\ \textcolor{keywordtype}{int}*\ survol);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gestion_8h_ac74f14b7098bd75c31accd40fb403717}{destruction}}(\textcolor{keywordtype}{int}*\ selecElement,\ \textcolor{keywordtype}{int}*\ index\_effet,\ \textcolor{keywordtype}{int}*\ continuer,\ etat\_t*\ etat,\ \textcolor{keywordtype}{float}*\ widthFactor,\ \textcolor{keywordtype}{float}*\ heightFactor,\ \textcolor{keywordtype}{int}*\ textInputActive,\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ isValid,\ \textcolor{keywordtype}{int}*\ keyCounts,\ \textcolor{keywordtype}{int}*\ ancien,\ \textcolor{keywordtype}{int}*\ etatAge,\ \textcolor{keywordtype}{int}*\ ancienSon);}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gestion_8h_a78a065eeb4d024efdafada7c4ca943bf}{touches}}(SDL\_Event\ evenement,\ \textcolor{keywordtype}{int}*\ textInputActive,\ \textcolor{keywordtype}{int}*\ keyCounts,\ \textcolor{keywordtype}{int}*\ isValid,\ \textcolor{keywordtype}{char}*\ textInput,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ipPattern,\ \textcolor{keywordtype}{int}\ *valide);}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \textcolor{comment}{/*\ fonction\ de\ la\ gestion\ en\ jeu\ */}}
-\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gestion_8h_a744bce58ae8a8ae036c76e91129a1202}{reinitialiser\_partie}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ **\ player,\ \mbox{\hyperlink{structordi__t}{ordi\_t}}\ **\ ordi);}
-\DoxyCodeLine{00045\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gestion_8h_afecde47e916a8831710f18286b346ed8}{fin\_partie}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player,\ \mbox{\hyperlink{structordi__t}{ordi\_t}}\ *\ ordi,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player\_online,\ \textcolor{keywordtype}{int}\ etat);}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gestion_8h_ac239fb306e5ce712edf5ebe8bdd6d738}{validateRegex}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *input,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *pattern);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{/*\ fonction\ de\ la\ gestion\ en\ jeu\ */}}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gestion_8h_a744bce58ae8a8ae036c76e91129a1202}{reinitialiser\_partie}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ **\ player,\ \mbox{\hyperlink{structordi__t}{ordi\_t}}\ **\ ordi);}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gestion_8h_afecde47e916a8831710f18286b346ed8}{fin\_partie}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player,\ \mbox{\hyperlink{structordi__t}{ordi\_t}}\ *\ ordi,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player\_online,\ \textcolor{keywordtype}{int}\ etat);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

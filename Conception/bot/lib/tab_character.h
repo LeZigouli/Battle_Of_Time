@@ -2,7 +2,7 @@
  * \file tab_character.h
  * \brief Definition de la structure contenant plusieur character_t et ses fonction d'accès.
  * \author Proudy Vincent et Roquain Louison
- * \date 09 mars 2024
+ * \date 09 avril 2024
  * \version 1.0
  * 
 */

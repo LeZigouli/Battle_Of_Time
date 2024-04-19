@@ -2,7 +2,7 @@
  * \file ordinateur.c
  * \brief Contient les fonction permettant à l'ordinateur de jouer.
  * \author Roquain Louison
- * \date 09 févrirer 2024
+ * \date 12 avril 2024
  * \version 1.0
  * 
 */

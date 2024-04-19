@@ -2,7 +2,7 @@
  * \file affichage_menu.c
  * \brief Contient les fonctions d'affichages du menu
  * \author Poirier Victor
- * \date 09 févrirer 2024
+ * \date 18 avril 2024
  * \version 1.0
  * 
 */
@@ -15,26 +15,43 @@
  * @param etatAge Numero de l'age
  * @param rendu contexte d'affichage de la fenetre
  * @param fenetre Le pointeur vers la fenêtre SDL
- * @param 
- * @param
- * @param
- * @param
- * @param
- * @param
- * @param
- * @param
- * @param
- * @param
- * @param
- * @param
- * @param
- * @param
- * @param
- * @param
- * @param
- * @param
- * @param
- * 
+ * @param police Police d'écriture pour les titre (menu)
+ * @param police_texte Police d'écriture pour les textes
+ * @param menuX Position verticale des éléments du menu
+ * @param menuY Position horizontale des éléments du menu
+ * @param elm_reso Structure contenant les informations pour la liste défilante dans le menu résolution
+ * @param selecElement Indice pour savoir quel élément de la liste défilante est sélectionné
+ * @param effet Chaîne de caractère indiquant si les effets sonores sont activés ou désactivés
+ * @param textInput Texte saisie par l'utilisateur
+ * @param isValid Pointeur vérifiant si le texte saisie correspond à une adresse IP valide ou non
+ * @param keyCounts Permet de savoir quand afficher le message de validité de l'adresse IP
+ * @param parametre Image de la roue crantée
+ * @param gold Image des pièces d'or
+ * @param xp Image de l'XP
+ * @param prehistoire Image d'arrière plan pour la Préhistoire
+ * @param antiquite Image d'arrière plan pour l'Antiquité
+ * @param moyen_age Image d'arrière plan pour le Moyen-Âge
+ * @param moderne Image d'arrière plan pour l'ère Moderne
+ * @param futuriste Image d'arrière plan pour l'ère Futuriste
+ * @param joueur Structure contenant les informations de la partie du joueur
+ * @param sprite_hud Tableau d'images des portraits des personnages
+ * @param upgrade Image du bouton d'upgrade
+ * @param ordi Structure contenant les informations de la partie de l'ordinateur
+ * @param cameraX Pointeur sur la position x de la caméra
+ * @param cameraY Pointeur sur la position y de la caméra
+ * @param ultim Image du bouton de l'ultime
+ * @param building Tableau d'images des bases de chaque âges
+ * @param fin_partie Détermine si c'est la fin de la partie
+ * @param win Image de fin en cas de victoire
+ * @param lose Image de fin en cas de défaite
+ * @param tab_charactere Struture contenant les informations des personnages
+ * @param survol Détermine quel élément est survolé par la souris
+ * @param delai_ulti Délai d'attente avant d'utiliser l'ultime
+ * @param diff_time La différence de temps entre le temps actuel et le temps lors de l'utilsation de l'ultim
+ * @param troupe_formee Tableau de pointeur pour savoir quelles troupes ont été formées
+ * @param currentTime Temps actuel
+ * @param lastTroupe Tableau de pointeur sur le temps de formation de chaque personnage
+ * @param nb Tableau de pointeur sur le nombre de personnages formés pour chaque classe
  */
 void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police , TTF_Font* police_texte, 
                int menuX, int menuY, element_t* elm_reso, int* selecElement, const char* effet, char* textInput, 
@@ -440,7 +457,7 @@ void afficherSousMenuCredits(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font*
     SDL_RenderFillRect(rendu, &rect_menu);
 
     /*Chargement de l'image des crédits*/
-    SDL_Texture* texture_credit = chargementImg(rendu, fenetre, "../img/credits.png");
+    SDL_Texture* texture_credit = chargementImg(rendu, fenetre, "img/credits.png");
 
     /*Affichage de l'image chargée*/
     SDL_Rect rect_credit = creationRectangle(fenetre, menuX_img, menuY_img + 100, img_w, img_h);

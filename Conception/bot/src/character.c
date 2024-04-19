@@ -2,7 +2,7 @@
  * \file character.c
  * \brief Contient les fonction pour les personnages du jeu
  * \author Roquain Lousion Proudy Vincent
- * \date 09 févrirer 2024
+ * \date 02 avril 2024
  * \version 1.0
  * 
 */
@@ -331,6 +331,7 @@ booleen_t copie_character(character_t ** destination, character_t * src)
     (*destination)->classe           = src->classe;
     (*destination)->cost             = src->cost;
     (*destination)->dammage          = src->dammage;
+    (*destination)->first_Attaque    = src->first_Attaque;
     strcpy((*destination)->description,"");
     (*destination)->max_pv           = src->max_pv;
     strcpy((*destination)->name,"");

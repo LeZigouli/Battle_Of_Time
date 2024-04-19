@@ -2,7 +2,7 @@
  * \file affichage_jeu.c
  * \brief Contient les fonctions d'affichages en jeu
  * \author Poirier Victor
- * \date 09 févrirer 2024
+ * \date 16 avril 2024
  * \version 1.0
  * 
 */
@@ -438,7 +438,7 @@ float lerp(float a, float b, float t) {
  * @param cameraX Pointeur vers la position horizontale de la caméra.
  * @param cameraY Pointeur vers la position verticale de la caméra.
  * */
-void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, SDL_Rect* playerAttackImg, int * first_Attaque,
+void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, SDL_Rect* playerAttackImg, int * finich_atk,
                      SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* ancien_lvl, character_t* tab_de_charactere,
                      SDL_Texture* image[], SDL_Texture* img_char[], SDL_Texture* img_c_ordi[], Uint32 currentTime, Uint32* lastMovement,
                      int w, int h, int* cameraX, int* cameraY, unsigned long * debut, unsigned long * fin )
@@ -508,23 +508,30 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
 
         o->characters->ind_first_vivant=0;
         j1->characters->ind_first_vivant=0;
-        for(i=0;i<MAX_POSSESSED;i++){
-            if(i<j1->characters->nb){
-                if(j1->characters->tab[i]->pv < 0)
-                    j1->characters->ind_first_vivant++;
-            }else if(!j1->characters->nb)
-                j1->characters->ind_first_vivant=-1;
-            
-            if(i<o->characters->nb){
-                if(o->characters->tab[i]->pv < 0)
-                    o->characters->ind_first_vivant++;
-            }else if(!o->characters->nb)
-                o->characters->ind_first_vivant=-1;
+        for(i=0;i<j1->characters->nb;i++){
+            if(j1->characters->tab[i]->pv < 0)
+                j1->characters->ind_first_vivant++;
         }
+        if(j1->characters->nb <= j1->characters->ind_first_vivant)
+                j1->characters->ind_first_vivant=-1;
+        for(i=0;i<o->characters->nb;i++){
+            if(o->characters->tab[i]->pv < 0)
+                o->characters->ind_first_vivant++;
+
+        }
+        if(o->characters->nb <= o->characters->ind_first_vivant || o->characters->ind_first_vivant >= MAX_POSSESSED)
+                o->characters->ind_first_vivant=-1;
         
         
-        deplacement(j1->characters, o->characters->tab[0], POS_DEP_AD);
-        deplacement(o->characters, j1->characters->tab[0], POS_DEP);
+        if(o->characters->ind_first_vivant != -1)
+            deplacement(j1->characters, o->characters->tab[o->characters->ind_first_vivant], POS_DEP_AD);
+        else
+            deplacement(j1->characters, NULL, POS_DEP_AD);
+        
+        if(j1->characters->ind_first_vivant != -1)
+            deplacement(o->characters, j1->characters->tab[j1->characters->ind_first_vivant], POS_DEP);
+        else
+            deplacement(o->characters, NULL, POS_DEP);
         
     
 
@@ -555,27 +562,30 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
     img_charactere_inser(j1->characters,level,img_char,image);
     img_charactere_inser(o->characters,level,img_c_ordi,image);
 
-    
+    //printf("position { %d, %d, %d, %d}\n",playerPosition[0].x,playerPosition[0].y,playerPosition[0].w,playerPosition[0].h);
     for(i=0;i<j1->characters->nb;i++){
         if(j1->characters->tab[i]->x == j1->characters->tab[i]->x_pred){
-            if(i==0){
-                (*first_Attaque)=TRUE;
+            if(i==j1->characters->ind_first_vivant){
+                (*finich_atk)=FALSE;
                 if(j1->characters->tab[i]->first_Attaque){
                     resize_att(playerAttackImg,&playerPosition[i],j1->characters->tab[i]);
                     j1->characters->tab[i]->first_Attaque=FALSE;
                 }
-                printf("img0 { %d, %d, %d, %d}\n",playerAttackImg->x,playerAttackImg->y,playerAttackImg->w,playerAttackImg->h);
-                ataquage(playerAttackImg,&playerPosition[i],j1->characters->tab[i],&attaque, fin, debut);
-                printf("img1 { %d, %d, %d, %d}\n",playerAttackImg->x,playerAttackImg->y,playerAttackImg->w,playerAttackImg->h);
+                //printf("img0 { %d, %d, %d, %d}\n",playerAttackImg->x,playerAttackImg->y,playerAttackImg->w,playerAttackImg->h);
+                
+                ataquage(playerAttackImg,j1->characters->tab[i],&attaque,fin,debut);
                 SDL_RenderCopy(rendu, img_char[i],playerAttackImg,&playerPosition[i]);
                 if(attaque){
                     attaque=FALSE;
-                    if(o->characters->tab[0]==NULL)
+                    if(o->characters->ind_first_vivant==-1)
                         character_attack_building(&o->building,&j1->characters->tab[i]);
-                    else
+                    else{
                         character_attack_character(&o->characters->tab[o->characters->ind_first_vivant],&j1->characters->tab[i]);
+                        if(o->characters->tab[o->characters->ind_first_vivant]->pv <=0)
+                            (*finich_atk)=TRUE;
+                    }
                 }
-                if(o->characters->tab[o->characters->ind_first_vivant]->pv <=0)
+                if(*finich_atk)
                     resize_dep(playerAttackImg,&playerPosition[i],j1->characters->tab[i]);
             }else{
                 frame_deplace=playerImg->x;
@@ -976,6 +986,7 @@ void affichageSurvolSouris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* p
             SDL_RenderCopy(rendu, next_age_xp_texture, NULL, &next_age_xp_rect);
             SDL_FreeSurface(next_age_xp_surface);
             SDL_DestroyTexture(next_age_xp_texture);
+            
             break;
 
         
@@ -1024,8 +1035,8 @@ void affichage_gagnant( SDL_Renderer * rendu, TTF_Font * font, int choix ,SDL_Wi
 {
     int w, h, x, y;    
     SDL_GetWindowSize(fenetre, &w, &h);
-    x = w/2;
-    y = h/2;
+    x = WINDOW_WIDTH/2;
+    y = WINDOW_HEIGHT/2;
 
     /* pour image */
     if (  choix == JOUEUR_GAGNE )

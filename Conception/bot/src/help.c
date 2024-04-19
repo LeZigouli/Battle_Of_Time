@@ -2,7 +2,7 @@
  * \file help.c
  * \brief Contient les fonction permettant l'aide au developpement.
  * \author Proudy Vincent
- * \date 09 févrirer 2024
+ * \date 02 avril 2024
  * \version 1.0
  * 
 */

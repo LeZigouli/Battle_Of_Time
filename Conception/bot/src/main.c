@@ -1,8 +1,22 @@
+/*!
+ * \mainpage README
+ * 
+ * \section   Projet L2 Informatique
+ *  Victor Poirier,
+ * Vincent Proudy,
+ * Louison Roquain,
+ * Thomas Wolter
+ * 
+ *  Date : 18/04/24
+ *  
+ *  L2 Informatique 2023-2024
+*/
+
 /**
  * \file main.c
  * \brief Fonction principal du programme
  * \author Proudy Vincent, Roquain Louison, Poirier Victor et Wolter Thomas
- * \date 09 févrirer 2024
+ * \date 18 avril 2024
  * \version 1.0
 */
 
@@ -434,6 +448,8 @@ int main(int argc, char* argv[]) {
             (*delai_ulti) = DELAI_ULTI - (*diff_time);
             envoie_char(&j1);
             jeu_ordi(o,j1,tab_de_charactere);
+            //delete_character(&o->characters);
+            //delete_character(&j1->characters);
         affichageSprite(rendu, j1, o, &playerImg, &ordiImg, &playerAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
         }

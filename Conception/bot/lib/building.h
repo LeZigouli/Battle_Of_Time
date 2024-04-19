@@ -2,7 +2,7 @@
  * \file building.h
  * \brief Contient les élements utilisés par le building.c
  * \author Proudy Vincent
- * \date 09 févrirer 2024
+ * \date 02 avril 2024
  * \version 1.0
  * 
 */

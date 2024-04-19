@@ -120,7 +120,7 @@ void resize_att(SDL_Rect * atimg,SDL_Rect * position, character_t * c){
     }
 }
 
-void ataquage(SDL_Rect * atimg,SDL_Rect * position, character_t * c, int * attaque, unsigned long * fin, unsigned long * debut){
+void ataquage(SDL_Rect * atimg, character_t * c, int * attaque, unsigned long * fin, unsigned long * debut){
     int ind = c->classe+c->age*NB_CHARACTER;
     switch(ind){    
 
