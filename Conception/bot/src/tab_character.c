@@ -16,7 +16,7 @@
  * @return Retourne TRUE si les personnages ont été supprimés avec succès, sinon FALSE.
  */
 booleen_t delete_character(tab_charactere_t ** characters){
-	printf("Entrée dans delete_character\n");
+	
     /* verification préliminaire */
 	if( characters == NULL || (*characters) == NULL)
 	{
@@ -51,8 +51,6 @@ booleen_t delete_character(tab_charactere_t ** characters){
 		//printf("\nLe tableau a bien ete tasse !\n");
 	}
 	(*characters)->nb-=mort;
-
-	printf("Sortie delete_character...\n");
 
     return TRUE;
 }

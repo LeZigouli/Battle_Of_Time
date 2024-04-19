@@ -191,8 +191,6 @@ int main(){
         IMG_LoadTexture(gRenderer,"sprite/Ere futuriste/melee.png"),
         IMG_LoadTexture(gRenderer,"sprite/Ere futuriste/specialist.png"),
         IMG_LoadTexture(gRenderer,"sprite/Ere futuriste/tank.png")
-
-        
     }; 
 
     //texture du sprite qui sera copier dans le rendu pour l'affichage
