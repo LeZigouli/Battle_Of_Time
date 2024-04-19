@@ -105,22 +105,25 @@ int calcule_prix(int n) {
  * @return Le temps de formation calculé.
  */
 int temp_former(int n) {
-    if (n == 1 || n == 2) {
+    switch (n%4)
+    {
+    case 0:
+    case 1:
         return 2;
-    }
-    if (n == 3) {
+        break;
+    
+    case 2:
         return 4;
+        break;
+    
+    default:
+        return 3;
+        break;
     }
-    if (n % 3 == 0) {
-        return temp_former(n - 1);
-    }
-    if (n % 3 == 1) {
-        return temp_former(n - 2);
-    }
-    if (n % 3 == 2) {
-        return temp_former(n - 3) + temp_former(n - 2) + temp_former(n - 1);
-    }
-    return 0;  // Ce cas ne devrait jamais se produire
+}
+
+int vie(int ind){
+    return 500 * pow(2, ind);
 }
 
 /**
@@ -140,14 +143,14 @@ character_t * initcharacter()
                 tab[age*NB_CHARACTER+classe].age              =age;
                 tab[age*NB_CHARACTER+classe].classe           =classe;
                 tab[age*NB_CHARACTER+classe].cost             =calcule_prix(age*NB_CHARACTER+classe+1);
-                tab[age*NB_CHARACTER+classe].dammage          =(((age+1)*8)*((age+2)*7)*20+(classe+1)*(classe+2)*48)/5;
+                tab[age*NB_CHARACTER+classe].dammage          =vie(age*NB_CHARACTER+classe+1)/5;
                 tab[age*NB_CHARACTER+classe].first_Attaque    = TRUE;
-                tab[age*NB_CHARACTER+classe].max_pv           =((age+1)*8)*((age+2)*7)*20+(classe+1)*(classe+2)*48;
+                tab[age*NB_CHARACTER+classe].max_pv           =vie(age*NB_CHARACTER+classe+1);
                 tab[age*NB_CHARACTER+classe].owner            =OWNER_INIT;
-                tab[age*NB_CHARACTER+classe].pv               =((age+1)*8)*((age+2)*7)*20+(classe+1)*(classe+2)*48;
+                tab[age*NB_CHARACTER+classe].pv               =vie(age*NB_CHARACTER+classe+1);
                 tab[age*NB_CHARACTER+classe].ratio_ressources =RATIO_RESSOURCES;
                 tab[age*NB_CHARACTER+classe].time             =temp_former(0);
-                tab[age*NB_CHARACTER+classe].vector           =(age*NB_CHARACTER+classe+1)/4 + 25;
+                tab[age*NB_CHARACTER+classe].vector           =(age*NB_CHARACTER+classe+1)/4 + 15;
                 tab[age*NB_CHARACTER+classe].x                =0;
                 tab[age*NB_CHARACTER+classe].x_pred           =0;
                 tab[age*NB_CHARACTER+classe].y                =0;

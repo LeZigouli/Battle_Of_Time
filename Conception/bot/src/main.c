@@ -252,7 +252,7 @@ int main(int argc, char* argv[]) {
     character_t * tab_de_charactere = initcharacter();
     player_t * j1 = NULL; 
     ordi_t * o = NULL; 
-
+    afficher_all_character(tab_de_charactere);
     player_t * buffer_player = NULL;
     //player_t * buffer_player_online = NULL;
     ordi_t   * buffer_ordi = NULL;

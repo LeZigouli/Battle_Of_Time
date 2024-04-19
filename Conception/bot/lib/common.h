@@ -40,7 +40,7 @@
  * @brief Coefficients pour le niveau de mise à niveau du bâtiment.
  */
 #define COEF_LEVEL_UP_DAMMAGE 1.5
-#define COEF_LEVEL_UP_MAX_PV 2.0
+#define COEF_LEVEL_UP_MAX_PV 16.0
 #define COEF_LEVEL_UP_MAX_GOLD_COST 3
 
 /**

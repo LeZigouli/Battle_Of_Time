@@ -462,7 +462,7 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                       Mix_PlayChannel(1, click, 0);
                     }
                     /*Modifie la difficulté*/
-                    j1->gold = 80000;
+                    j1->gold = 800;
                     ordi->difficulte = EASY;
                     (*etat) = JOUER;
                     (*lastUlti) = currentTime;
