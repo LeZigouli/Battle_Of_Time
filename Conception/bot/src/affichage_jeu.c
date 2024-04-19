@@ -173,6 +173,56 @@ void afficherHUD(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police_text
         (*nb)[3] = 0;
     }
 
+    Uint32 delai_gold1 = currentTime - (*lastTroupe)[0];
+    Uint32 delai_gold2 = currentTime - (*lastTroupe)[1];
+    Uint32 delai_gold3 = currentTime - (*lastTroupe)[2];
+    Uint32 delai_gold4 = currentTime - (*lastTroupe)[3];
+
+    if((*troupe_formee)[0] == melee && joueur->gold < tab_character[age * NB_CHARACTER + 0].cost && delai_gold1 < 3000){
+        SDL_Rect manque_gold = creationRectangle(fenetre, 526, 52, 300, 32);
+        SDL_RenderFillRect(rendu, &manque_gold);
+        char info_gold[100] = "Plus assez d'argent pour acheter le combattant !";
+        SDL_Surface* manque_gold_surface = TTF_RenderUTF8_Solid(police_texte, info_gold, WHITE);
+        SDL_Texture* manque_gold_texture = SDL_CreateTextureFromSurface(rendu, manque_gold_surface);
+        SDL_Rect affichage_manque_gold = creationRectangle(fenetre, 526, 52, 300, 32);
+        SDL_RenderCopy(rendu, manque_gold_texture, NULL, &affichage_manque_gold);
+        SDL_FreeSurface(manque_gold_surface);
+        SDL_DestroyTexture(manque_gold_texture);
+    }
+    else if((*troupe_formee)[1] == marksman && joueur->gold < tab_character[age * NB_CHARACTER + 1].cost && delai_gold2 < 3000){
+        SDL_Rect manque_gold = creationRectangle(fenetre, 526, 52, 300, 32);
+        SDL_RenderFillRect(rendu, &manque_gold);
+        char info_gold[100] = "Plus assez d'argent pour acheter le combattant !";
+        SDL_Surface* manque_gold_surface = TTF_RenderUTF8_Solid(police_texte, info_gold, WHITE);
+        SDL_Texture* manque_gold_texture = SDL_CreateTextureFromSurface(rendu, manque_gold_surface);
+        SDL_Rect affichage_manque_gold = creationRectangle(fenetre, 526, 52, 300, 32);
+        SDL_RenderCopy(rendu, manque_gold_texture, NULL, &affichage_manque_gold);
+        SDL_FreeSurface(manque_gold_surface);
+        SDL_DestroyTexture(manque_gold_texture);
+    }
+    else if((*troupe_formee)[2] == tank && joueur->gold < tab_character[age * NB_CHARACTER + 2].cost && delai_gold3 < 3000){
+        SDL_Rect manque_gold = creationRectangle(fenetre, 526, 52, 300, 32);
+        SDL_RenderFillRect(rendu, &manque_gold);
+        char info_gold[100] = "Plus assez d'argent pour acheter le combattant !";
+        SDL_Surface* manque_gold_surface = TTF_RenderUTF8_Solid(police_texte, info_gold, WHITE);
+        SDL_Texture* manque_gold_texture = SDL_CreateTextureFromSurface(rendu, manque_gold_surface);
+        SDL_Rect affichage_manque_gold = creationRectangle(fenetre, 526, 52, 300, 32);
+        SDL_RenderCopy(rendu, manque_gold_texture, NULL, &affichage_manque_gold);
+        SDL_FreeSurface(manque_gold_surface);
+        SDL_DestroyTexture(manque_gold_texture);
+    }
+    else if((*troupe_formee)[3] == specialist && joueur->gold < tab_character[age * NB_CHARACTER + 3].cost && delai_gold4 < 3000){
+        SDL_Rect manque_gold = creationRectangle(fenetre, 526, 52, 300, 32);
+        SDL_RenderFillRect(rendu, &manque_gold);
+        char info_gold[100] = "Plus assez d'argent pour acheter le combattant !";
+        SDL_Surface* manque_gold_surface = TTF_RenderUTF8_Solid(police_texte, info_gold, WHITE);
+        SDL_Texture* manque_gold_texture = SDL_CreateTextureFromSurface(rendu, manque_gold_surface);
+        SDL_Rect affichage_manque_gold = creationRectangle(fenetre, 526, 52, 300, 32);
+        SDL_RenderCopy(rendu, manque_gold_texture, NULL, &affichage_manque_gold);
+        SDL_FreeSurface(manque_gold_surface);
+        SDL_DestroyTexture(manque_gold_texture);
+    }
+
     if((*nb)[0] > 0){
         diff_time1 = (currentTime - (*lastTroupe)[0]);
         temps1 = ((tab_character[age * NB_CHARACTER + 0].time*1000) * (*nb)[0]) - diff_time1;

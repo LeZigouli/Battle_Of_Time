@@ -555,7 +555,6 @@ int main(int argc, char* argv[]) {
     free(survol);
     free(lastUlti);
     free(diff_time);
-    //free(lastTroupe);
     free(delai_ulti);
 
     for(i = 0; i < 4; i++){
@@ -563,6 +562,9 @@ int main(int argc, char* argv[]) {
     }
     for(i = 0; i < 4; i++){
         free(nb[i]);
+    }
+    for(i = 0; i < 4; i++){
+        free(lastTroupe[i]);
     }
 
 
