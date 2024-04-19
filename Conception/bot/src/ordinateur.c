@@ -142,6 +142,4 @@ void jeu_ordi(ordi_t * o, player_t * p, character_t * tab){
         ulti(&p->characters);
         o->delai_ulti=DELAI_INITIAL;
     }
-    give_ressources(p,o);
-
 }

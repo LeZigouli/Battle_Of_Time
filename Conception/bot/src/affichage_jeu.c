@@ -561,7 +561,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
         
     img_charactere_inser(j1->characters,level,img_char,image);
     img_charactere_inser(o->characters,level,img_c_ordi,image);
-    
+
     for(i=0;i<j1->characters->nb;i++){
         if(j1->characters->tab[i]->x == j1->characters->tab[i]->x_pred){
             if(i==j1->characters->ind_first_vivant){
@@ -583,15 +583,33 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
                             (*finich_atk)=TRUE;
                     }
                 }
-                if(*finich_atk)
-                    resize_dep(playerAttackImg,&playerPosition[i],j1->characters->tab[i]);
-            }else{
-                frame_deplace=playerImg->x;
-                playerImg->x=0;
-                SDL_RenderCopy(rendu, img_char[i], playerImg, &playerPosition[i]);
-                playerImg->x=frame_deplace;
+                if(*finich_atk) resize_dep(playerAttackImg,&playerPosition[i],j1->characters->tab[i]);
+
             }
-        }else{
+            else
+            {
+                if ( j1->characters->tab[i]->pv <= 0 )
+                {
+                    frame_deplace=playerImg->x;
+                    int mort = animation_mort(playerImg,j1->characters->tab[i]);
+                    SDL_RenderCopy(rendu, img_char[i],playerImg,&playerPosition[i]);
+                    if ( mort )
+                    {
+                        delete_character(&j1->characters);
+                    }
+                    playerImg->x=frame_deplace;
+                    playerImg->y = TAILLE_SPRITE * 11;
+                }
+                else
+                {
+                    frame_deplace=playerImg->x;
+                    playerImg->x=0;
+                    SDL_RenderCopy(rendu, img_char[i], playerImg, &playerPosition[i]);
+                    playerImg->x=frame_deplace;
+                }
+            }
+        }
+        else{
             
             SDL_RenderCopy(rendu, img_char[i], playerImg, &playerPosition[i]);
         }
@@ -599,7 +617,6 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
 
     for(i=0;i<o->characters->nb;i++){
         if(o->characters->tab[i]->x == o->characters->tab[i]->x_pred){
-            
             if(i==o->characters->ind_first_vivant){
                 (*finich_atk)=FALSE;
                 if(o->characters->tab[i]->first_Attaque){
@@ -608,7 +625,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
                 }
 
                 ataquage(ordiAttackImg,o->characters->tab[i],&attaque,o->owner);
-                SDL_RenderCopy(rendu, img_char[i],ordiAttackImg,&ordiPosition[i]);
+                SDL_RenderCopy(rendu, img_c_ordi[i],ordiAttackImg,&ordiPosition[i]);
                 if(attaque){
                     attaque=FALSE;
                     if(j1->characters->ind_first_vivant==-1)
@@ -619,20 +636,37 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
                             (*finich_atk)=TRUE;
                     }
                 }
-                if(*finich_atk)
-                    resize_dep(ordiAttackImg,&ordiPosition[i],o->characters->tab[i]);
+                if(*finich_atk) resize_dep(ordiAttackImg,&ordiPosition[i],o->characters->tab[i]);
+
             }
             else
             {
-                frame_deplace=ordiImg->x;
-                ordiImg->x=0;
-                SDL_RenderCopy(rendu, img_char[i], ordiImg, &ordiPosition[i]);
-                ordiImg->x=frame_deplace;
+                if ( o->characters->tab[i]->pv <= 0 )
+                {
+                    frame_deplace=ordiImg->x;
+                    int mort = animation_mort(ordiImg,o->characters->tab[i]);
+                    SDL_RenderCopy(rendu, img_c_ordi[i],ordiImg,&ordiPosition[i]);
+
+                    if ( mort )
+                    {
+                        give_ressources(j1,o);
+                        delete_character(&o->characters);
+                    }
+                    ordiImg->x=frame_deplace;
+                    ordiImg->y = TAILLE_SPRITE * 9;
+                }
+                else
+                {
+                    frame_deplace=ordiImg->x;
+                    ordiImg->x=0;
+                    SDL_RenderCopy(rendu, img_c_ordi[i], ordiImg, &ordiPosition[i]);
+                    ordiImg->x=frame_deplace;
+                }
             }
         }
         else
         {
-            SDL_RenderCopy(rendu, img_char[i], ordiImg, &ordiPosition[i]);
+            SDL_RenderCopy(rendu, img_c_ordi[i], ordiImg, &ordiPosition[i]);
         }
     }
 }

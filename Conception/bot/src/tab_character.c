@@ -51,6 +51,9 @@ booleen_t delete_character(tab_charactere_t ** characters){
 		//printf("\nLe tableau a bien ete tasse !\n");
 	}
 	(*characters)->nb-=mort;
+
+	printf("Sortie delete_character...\n");
+
     return TRUE;
 }
 

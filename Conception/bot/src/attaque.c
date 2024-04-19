@@ -150,8 +150,6 @@ void ataquage(SDL_Rect * atimg, character_t * c, int * attaque, int owner){
                 }
                 break;
 
-
-        case 2: //gorille
         case 5: //chevalier lance
         case 18: //l'ogre
             longueur_anim = TAILLE_SPRITE * 7;
@@ -168,5 +166,33 @@ void ataquage(SDL_Rect * atimg, character_t * c, int * attaque, int owner){
             }
             break;
 
+        case 2: //gorille
+            longueur_anim = TAILLE_SPRITE * 6;
+            if ( owner == OWNER_1 ) position_anim = TAILLE_SPRITE * 3;
+            else position_anim = TAILLE_SPRITE * 5;
+
+            if(atimg->x == longueur_anim){
+                    atimg->x=0;
+                    *attaque=TRUE;
+            }else 
+            {
+                    atimg->y = position_anim;
+                    atimg->x+=TAILLE_SPRITE;
+            }
+            break;
+    }
+}
+
+booleen_t animation_mort(SDL_Rect * atimg, character_t * c)
+{
+    printf("Mort...\n");
+    if(atimg->x == TAILLE_SPRITE * 5){
+        atimg->x=0;
+        return TRUE;
+    }else 
+    {
+        atimg->y = TAILLE_SPRITE * 20;
+        atimg->x += TAILLE_SPRITE;
+        return FALSE;
     }
 }
