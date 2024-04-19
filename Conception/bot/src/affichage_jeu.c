@@ -566,21 +566,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
             ordiImg->x += TAILLE_SPRITE;/*on passe a l'image suivante pour l'animation*/
         }
 
-        o->characters->ind_first_vivant=0;
-        j1->characters->ind_first_vivant=0;
-        for(i=0;i<j1->characters->nb;i++){
-            if(j1->characters->tab[i]->pv < 0)
-                j1->characters->ind_first_vivant++;
-        }
-        if(j1->characters->nb <= j1->characters->ind_first_vivant)
-                j1->characters->ind_first_vivant=-1;
-        for(i=0;i<o->characters->nb;i++){
-            if(o->characters->tab[i]->pv < 0)
-                o->characters->ind_first_vivant++;
-
-        }
-        if(o->characters->nb <= o->characters->ind_first_vivant || o->characters->ind_first_vivant >= MAX_POSSESSED)
-                o->characters->ind_first_vivant=-1;
+        maj_first_vivant(j1->characters,o->characters);
         
         
         if(o->characters->ind_first_vivant != -1)
@@ -621,7 +607,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
         
     img_charactere_inser(j1->characters,level,img_char,image);
     img_charactere_inser(o->characters,level,img_c_ordi,image);
-
+    afficher_player(j1);
     for(i=0;i<j1->characters->nb;i++){
         if(j1->characters->tab[i]->x == j1->characters->tab[i]->x_pred){
             if(i==j1->characters->ind_first_vivant){
@@ -656,6 +642,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
                     if ( mort )
                     {
                         delete_character(&j1->characters);
+                        maj_first_vivant(j1->characters,o->characters);
                     }
                     playerImg->x=frame_deplace;
                     playerImg->y = TAILLE_SPRITE * 11;
@@ -674,7 +661,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
             SDL_RenderCopy(rendu, img_char[i], playerImg, &playerPosition[i]);
         }
     }
-
+    afficher_player(j1);
     for(i=0;i<o->characters->nb;i++){
         if(o->characters->tab[i]->x == o->characters->tab[i]->x_pred){
             if(i==o->characters->ind_first_vivant){
@@ -711,6 +698,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
                     {
                         give_ressources(j1,o);
                         delete_character(&o->characters);
+                        maj_first_vivant(j1->characters,o->characters);
                     }
                     ordiImg->x=frame_deplace;
                     ordiImg->y = TAILLE_SPRITE * 9;

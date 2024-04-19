@@ -28,5 +28,6 @@ booleen_t delete_character(tab_charactere_t ** characters);
 booleen_t tasser_tab( tab_charactere_t **  characters, int nb_mort);
 booleen_t afficher_characters(tab_charactere_t * characters);
 booleen_t ulti(tab_charactere_t ** cible);
+void maj_first_vivant(tab_charactere_t * player, tab_charactere_t * ordi);
 
 #endif

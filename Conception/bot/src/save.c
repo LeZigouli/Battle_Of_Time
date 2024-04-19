@@ -274,7 +274,9 @@ booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab){
         fscanf(fd_player, "%d %d %d %d\n",    &((*player)->characters->tab[i]->classe), &x, &y, &x_pred);
         copie_character(&(*player)->characters->tab[i], &tab[(*player)->characters->tab[i]->classe]);
         (*player)->characters->tab[i]->owner=OWNER_1;
-        (*player)->characters->tab[i]->pv = pv;
+        if(i==0){
+            (*player)->characters->tab[i]->pv = pv;
+        }
         (*player)->characters->tab[i]->x = x;
         (*player)->characters->tab[i]->y = y;
         (*player)->characters->tab[i]->x_pred = x_pred;

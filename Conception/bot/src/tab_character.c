@@ -203,3 +203,23 @@ void deplacement(tab_charactere_t * characters, character_t * first_Adverser, in
 			}
 		}
 }
+
+void maj_first_vivant(tab_charactere_t * player, tab_charactere_t * ordi){
+	int i;
+	player->ind_first_vivant=0;
+	ordi->ind_first_vivant=0;
+	for(i=0;i<player->nb;i++){
+		if(player->tab[i]->pv < 0)
+			player->ind_first_vivant++;
+	}
+	if(player->nb <= player->ind_first_vivant || player->ind_first_vivant >= MAX_POSSESSED)
+			player->ind_first_vivant=-1;
+	
+	for(i=0;i<ordi->nb;i++){
+		if(ordi->tab[i]->pv < 0)
+			ordi->ind_first_vivant++;
+
+	}
+	if(ordi->nb <= ordi->ind_first_vivant || ordi->ind_first_vivant >= MAX_POSSESSED)
+			ordi->ind_first_vivant=-1;
+}
