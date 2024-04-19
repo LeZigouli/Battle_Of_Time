@@ -200,7 +200,8 @@ booleen_t exist(void * type)
  * @return TRUE si la récupération des ressources a réussi, FALSE sinon.
  */
 booleen_t get_ressources(player_t * player1, player_t * player2)
-{
+{	
+	printf("Entrée dans get ressource \n");
 	if (player1 == NULL || player2 == NULL)
 	{
 		return FALSE;

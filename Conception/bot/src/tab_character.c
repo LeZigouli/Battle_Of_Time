@@ -16,6 +16,7 @@
  * @return Retourne TRUE si les personnages ont été supprimés avec succès, sinon FALSE.
  */
 booleen_t delete_character(tab_charactere_t ** characters){
+	printf("Entrée dans delete_character\n");
     /* verification préliminaire */
 	if( characters == NULL || (*characters) == NULL)
 	{

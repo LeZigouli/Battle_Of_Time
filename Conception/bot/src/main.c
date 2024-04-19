@@ -463,7 +463,6 @@ int main(int argc, char* argv[]) {
             o = buffer_ordi;
             buffer_player = NULL;
             buffer_ordi = NULL;
-            afficher_player(j1);
             (*etat) = JOUER;
         }
 

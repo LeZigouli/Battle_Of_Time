@@ -561,8 +561,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
         
     img_charactere_inser(j1->characters,level,img_char,image);
     img_charactere_inser(o->characters,level,img_c_ordi,image);
-
-    //printf("position { %d, %d, %d, %d}\n",playerPosition[0].x,playerPosition[0].y,playerPosition[0].w,playerPosition[0].h);
+    
     for(i=0;i<j1->characters->nb;i++){
         if(j1->characters->tab[i]->x == j1->characters->tab[i]->x_pred){
             if(i==j1->characters->ind_first_vivant){
@@ -571,7 +570,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
                     resize_att(playerAttackImg,&playerPosition[i],j1->characters->tab[i]);
                     j1->characters->tab[i]->first_Attaque=FALSE;
                 }
-                //printf("img0 { %d, %d, %d, %d}\n",playerAttackImg->x,playerAttackImg->y,playerAttackImg->w,playerAttackImg->h);
+
                 ataquage(playerAttackImg,j1->characters->tab[i],&attaque,j1->owner);
                 SDL_RenderCopy(rendu, img_char[i],playerAttackImg,&playerPosition[i]);
                 if(attaque){
@@ -597,15 +596,17 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
             SDL_RenderCopy(rendu, img_char[i], playerImg, &playerPosition[i]);
         }
     }
+
     for(i=0;i<o->characters->nb;i++){
-              if(o->characters->tab[i]->x == o->characters->tab[i]->x_pred){
+        if(o->characters->tab[i]->x == o->characters->tab[i]->x_pred){
+            
             if(i==o->characters->ind_first_vivant){
                 (*finich_atk)=FALSE;
                 if(o->characters->tab[i]->first_Attaque){
                     resize_att(ordiAttackImg,&ordiPosition[i],o->characters->tab[i]);
                     o->characters->tab[i]->first_Attaque=FALSE;
                 }
-                //printf("img0 { %d, %d, %d, %d}\n",playerAttackImg->x,playerAttackImg->y,playerAttackImg->w,playerAttackImg->h);
+
                 ataquage(ordiAttackImg,o->characters->tab[i],&attaque,o->owner);
                 SDL_RenderCopy(rendu, img_char[i],ordiAttackImg,&ordiPosition[i]);
                 if(attaque){
@@ -620,14 +621,17 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
                 }
                 if(*finich_atk)
                     resize_dep(ordiAttackImg,&ordiPosition[i],o->characters->tab[i]);
-            }else{
+            }
+            else
+            {
                 frame_deplace=ordiImg->x;
                 ordiImg->x=0;
                 SDL_RenderCopy(rendu, img_char[i], ordiImg, &ordiPosition[i]);
                 ordiImg->x=frame_deplace;
             }
-        }else{
-            
+        }
+        else
+        {
             SDL_RenderCopy(rendu, img_char[i], ordiImg, &ordiPosition[i]);
         }
     }
