@@ -720,6 +720,252 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
 }
 
 /**
+ * @brief Affiche les sprites des personnages et gère leur déplacement ( en reseau ).
+ * 
+ * @param rendu Renderer SDL pour le rendu des éléments.
+ * @param j1 Structure de données représentant le joueur.
+ * @param j2 Structure de données représentant l'adversaire.
+ * @param playerImg Rectangle délimitant le sprite du joueur.
+ * @param ordiImg Rectangle délimitant le sprite de l'ordinateur.
+ * @param attaque Indicateur d'attaque.
+ * @param playerPosition Tableau de rectangles délimitant la position des sprites du joueur.
+ * @param ordiPosition Tableau de rectangles délimitant la position des sprites de l'ordinateur.
+ * @param ancien_lvl Pointeur vers le niveau précédent.
+ * @param tab_de_charactere Tableau des caractéristiques des personnages.
+ * @param image Tableau de textures des images.
+ * @param img_char Tableau de textures des images de personnages du joueur.
+ * @param img_c_ordi Tableau de textures des images de personnages de l'ordinateur.
+ * @param currentTime Temps actuel.
+ * @param lastMovement Pointeur vers le dernier mouvement.
+ * @param w Largeur de la fenêtre.
+ * @param h Hauteur de la fenêtre.
+ * @param cameraX Pointeur vers la position horizontale de la caméra.
+ * @param cameraY Pointeur vers la position verticale de la caméra.
+ * */
+void affichageSpriteReseau(SDL_Renderer* rendu, player_t* j1, player_t* j2, SDL_Rect* playerImg, SDL_Rect* ordiImg, SDL_Rect* playerAttackImg, SDL_Rect* ordiAttackImg, int * finich_atk,
+                     SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* ancien_lvl, character_t* tab_de_charactere,
+                     SDL_Texture* image[], SDL_Texture* img_char[], SDL_Texture* img_c_ordi[], Uint32 currentTime, Uint32* lastMovement,
+                     int w, int h, int* cameraX, int* cameraY, unsigned long * debut, unsigned long * fin )
+{
+    int i,level, frame_deplace,attaque=FALSE;
+
+    /*Calcul du temps écoulé depuis la dernière mise à jour*/
+    float t = (float)(currentTime - *lastMovement) / MOVEMENT_DURATION;
+    if (t > 1.0f) {
+        t = 1.0f;
+    }
+
+    /*Calcul de la position cible de la caméra pour chaque sprite*/
+    int targetCameraX = *cameraX;
+    int targetCameraY = *cameraY;
+
+    /*Interpolation linéaire entre la position actuelle de la caméra et la position cible*/
+    int interpolatedCameraX = lerp(*cameraX, targetCameraX, t);
+    int interpolatedCameraY = lerp(*cameraY, targetCameraY, t);
+
+    for(i=0; i<j1->characters->nb; i++){
+        /*Calcul de la position cible du joueur en fonction de la caméra*/
+        int targetPlayerX = j1->characters->tab[i]->x - interpolatedCameraX;
+        int targetPlayerY = h - (TAILLE_SPRITE * 2) - 16;
+
+        /*Interpolation linéaire entre la position actuelle du joueur et la position cible*/
+        int interpolatedPlayerX = lerp(playerPosition[i].x, targetPlayerX, t);
+        int interpolatedPlayerY = lerp(playerPosition[i].y, targetPlayerY, t);
+
+        /*Mise à jour de la position du joueur*/
+        playerPosition[i].x = interpolatedPlayerX;
+        playerPosition[i].y = interpolatedPlayerY;
+    }
+
+    for(i=0; i<j2->characters->nb; i++){
+        /*Calcul de la position cible de l'ordinateur en fonction de la caméra*/
+        int targetOrdiX = j2->characters->tab[i]->x - interpolatedCameraX;
+        int targetOrdiY = h - (TAILLE_SPRITE * 2) - 16;
+
+        /*Interpolation linéaire entre la position actuelle de l'ordinateur et la position cible*/
+        int interpolatedOrdiX = lerp(ordiPosition[i].x, targetOrdiX, t);
+        int interpolatedOrdiY = lerp(ordiPosition[i].y, targetOrdiY, t);
+
+        /*Mise à jour de la position de l'ordinateur*/
+        ordiPosition[i].x = interpolatedOrdiX;
+        ordiPosition[i].y = interpolatedOrdiY;
+    }
+
+    /*Mise à jour de la position de la caméra*/
+    *cameraX = interpolatedCameraX;
+    *cameraY = interpolatedCameraY;
+
+
+    /*Déplacement du sprite*/
+    if(currentTime - (*lastMovement) >= 100 && (j1->characters->nb > 0 || j2->characters->nb > 0)){ /*le sprite va avancer tout les 100 ms*/
+        if(playerImg->x == TAILLE_SPRITE*8) 
+            playerImg->x = TAILLE_SPRITE; /*si on arrive a la fin de l'animation on retourne a la premiere pour faire l'animation en continu*/
+        else {
+            playerImg->x += TAILLE_SPRITE;/*on passe a l'image suivante pour l'animation*/
+        }
+        
+        if(ordiImg->x == TAILLE_SPRITE*8) 
+            ordiImg->x = TAILLE_SPRITE; /*si on arrive a la fin de l'animation on retourne a la premiere pour faire l'animation en continu*/
+        else {
+            ordiImg->x += TAILLE_SPRITE;/*on passe a l'image suivante pour l'animation*/
+        }
+
+        maj_first_vivant(j1->characters,j2->characters);
+        
+        
+        if(j2->characters->ind_first_vivant != -1)
+            deplacement(j1->characters, j2->characters->tab[j2->characters->ind_first_vivant], POS_DEP_AD);
+        else
+            deplacement(j1->characters, NULL, POS_DEP_AD);
+        
+        if(j1->characters->ind_first_vivant != -1)
+            deplacement(j2->characters, j1->characters->tab[j1->characters->ind_first_vivant], POS_DEP);
+        else
+            deplacement(j2->characters, NULL, POS_DEP);
+        
+    
+
+        for(i=0; i<j1->characters->nb; i++){                
+            playerPosition[i].x = j1->characters->tab[i]->x - (*cameraX);//on avance
+            playerPosition[i].y = h - (TAILLE_SPRITE * 2) - 16;
+                
+        }
+        for(i=0; i<j2->characters->nb; i++){
+            ordiPosition[i].x = j2->characters->tab[i]->x - (*cameraX);
+            ordiPosition[i].y = h - (TAILLE_SPRITE * 2) - 16;
+        }
+
+        (*lastMovement)= SDL_GetTicks();
+    }
+    //
+    level = max(j2->building->level,j1->building->level);
+    if((*ancien_lvl) < level){
+        for(i=0;i<NB_CHARACTER;i++)
+            image[i]= IMG_LoadTexture(rendu,tab_de_charactere[level*NB_CHARACTER+i].sprite);
+        for(i=0;i<NB_CHARACTER;i++)
+            image[i+NB_CHARACTER]= IMG_LoadTexture(rendu,tab_de_charactere[(*ancien_lvl)*NB_CHARACTER+i].sprite);
+        
+        (*ancien_lvl)=level;
+    }
+
+        
+    img_charactere_inser(j1->characters,level,img_char,image);
+    img_charactere_inser(j2->characters,level,img_c_ordi,image);
+    
+    for(i=0;i<j1->characters->nb;i++){
+        if(j1->characters->tab[i]->x == j1->characters->tab[i]->x_pred){
+            if(i==j1->characters->ind_first_vivant){
+                (*finich_atk)=FALSE;
+                if(j1->characters->tab[i]->first_Attaque){
+                    resize_att(playerAttackImg,&playerPosition[i],j1->characters->tab[i]);
+                    j1->characters->tab[i]->first_Attaque=FALSE;
+                }
+
+                ataquage(playerAttackImg,j1->characters->tab[i],&attaque,j1->owner);
+                SDL_RenderCopy(rendu, img_char[i],playerAttackImg,&playerPosition[i]);
+                if(attaque){
+                    attaque=FALSE;
+                    if(j2->characters->ind_first_vivant==-1)
+                        character_attack_building(&j2->building,&j1->characters->tab[i]);
+                    else{
+                        character_attack_character(&j2->characters->tab[j2->characters->ind_first_vivant],&j1->characters->tab[i]);
+                        if(j2->characters->tab[j2->characters->ind_first_vivant]->pv <=0)
+                            (*finich_atk)=TRUE;
+                    }
+                }
+                if(*finich_atk) resize_dep(playerAttackImg,&playerPosition[i],j1->characters->tab[i]);
+
+            }
+            else
+            {
+                if ( j1->characters->tab[i]->pv <= 0 )
+                {
+                    frame_deplace=playerImg->x;
+                    int mort = animation_mort(playerImg,j1->characters->tab[i]);
+                    SDL_RenderCopy(rendu, img_char[i],playerImg,&playerPosition[i]);
+                    if ( mort )
+                    {
+                        delete_character(&j1->characters);
+                        maj_first_vivant(j1->characters,j2->characters);
+                    }
+                    playerImg->x=frame_deplace;
+                    playerImg->y = TAILLE_SPRITE * 11;
+                }
+                else
+                {
+                    frame_deplace=playerImg->x;
+                    playerImg->x=0;
+                    SDL_RenderCopy(rendu, img_char[i], playerImg, &playerPosition[i]);
+                    playerImg->x=frame_deplace;
+                }
+            }
+        }
+        else{
+            
+            SDL_RenderCopy(rendu, img_char[i], playerImg, &playerPosition[i]);
+        }
+    }
+    
+    for(i=0;i<j2->characters->nb;i++){
+        if(j2->characters->tab[i]->x == j2->characters->tab[i]->x_pred){
+            if(i==j2->characters->ind_first_vivant){
+                (*finich_atk)=FALSE;
+                if(j2->characters->tab[i]->first_Attaque){
+                    resize_att(ordiAttackImg,&ordiPosition[i],j2->characters->tab[i]);
+                    j2->characters->tab[i]->first_Attaque=FALSE;
+                }
+
+                ataquage(ordiAttackImg,j2->characters->tab[i],&attaque,j2->owner);
+                SDL_RenderCopy(rendu, img_c_ordi[i],ordiAttackImg,&ordiPosition[i]);
+                if(attaque){
+                    attaque=FALSE;
+                    if(j1->characters->ind_first_vivant==-1)
+                        character_attack_building(&j1->building,&j2->characters->tab[i]);
+                    else{
+                        character_attack_character(&j1->characters->tab[j1->characters->ind_first_vivant],&j2->characters->tab[i]);
+                        if(j1->characters->tab[j1->characters->ind_first_vivant]->pv <=0)
+                            (*finich_atk)=TRUE;
+                    }
+                }
+                if(*finich_atk) resize_dep(ordiAttackImg,&ordiPosition[i],j2->characters->tab[i]);
+
+            }
+            else
+            {
+                if ( j2->characters->tab[i]->pv <= 0 )
+                {
+                    frame_deplace=ordiImg->x;
+                    int mort = animation_mort(ordiImg,j2->characters->tab[i]);
+                    SDL_RenderCopy(rendu, img_c_ordi[i],ordiImg,&ordiPosition[i]);
+
+                    if ( mort )
+                    {
+                        get_ressources(j1,j2);
+                        delete_character(&j2->characters);
+                        maj_first_vivant(j1->characters,j2->characters);
+                    }
+                    ordiImg->x=frame_deplace;
+                    ordiImg->y = TAILLE_SPRITE * 9;
+                }
+                else
+                {
+                    frame_deplace=ordiImg->x;
+                    ordiImg->x=0;
+                    SDL_RenderCopy(rendu, img_c_ordi[i], ordiImg, &ordiPosition[i]);
+                    ordiImg->x=frame_deplace;
+                }
+            }
+        }
+        else
+        {
+            SDL_RenderCopy(rendu, img_c_ordi[i], ordiImg, &ordiPosition[i]);
+        }
+    }
+}
+
+
+
+/**
  * @brief Affiche les bâtiments en fonction de l'âge du joueur et de l'ordinateur.
  * 
  * @param rendu Renderer SDL pour le rendu des éléments.

@@ -36,6 +36,20 @@ void recevoir_structure( int to, player_t * player1, player_t * player2 )
 }
 
 /**
+ * @brief traitement sur les différences entre avant reception et apres reception
+ * 
+ * @param j1_distant structure de l'adversaire (nous)
+ * @param j2_distant structure de l'adversaire (lui)
+ * @param j1_local notre structure 
+ * @param j2_local la structure de notre adversaire
+ */
+void reseau_traitement(player_t * j1_distant, player_t * j2_distant, player_t * j1_local, player_t * j2_local)
+{
+    j2_local = j2_distant;
+}
+
+
+/**
  * @brief Initialise la connexion au serveur.
  * 
  * @param serveurname Nom ou adresse IP du serveur.

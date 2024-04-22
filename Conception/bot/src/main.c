@@ -227,14 +227,15 @@ int main(int argc, char* argv[]) {
     (*ancien_lvl) = 0;
     int i;
     int a_deja_lancer_partie = FALSE;
-    player_t * joueur_online = initplayer(10);
+    player_t * joueur_online = initplayer(OWNER_INIT);
     char * buffer = malloc(sizeof(100));
+
+    player_t j1_distant, j2_distant;
 
     /* variable pour la fin de partie */
     int resultat = AUCUN_GAGNANT;
     int connexion_reussi = FALSE;
     int valide = FALSE;
-    int envoi = TRUE;
 
     unsigned long debut_sprite = DELAI_INITIAL;
     unsigned long fin_sprite   = 400;
@@ -252,7 +253,6 @@ int main(int argc, char* argv[]) {
     character_t * tab_de_charactere = initcharacter();
     player_t * j1 = NULL; 
     ordi_t * o = NULL; 
-    afficher_all_character(tab_de_charactere);
     player_t * buffer_player = NULL;
     //player_t * buffer_player_online = NULL;
     ordi_t   * buffer_ordi = NULL;
@@ -446,9 +446,8 @@ int main(int argc, char* argv[]) {
             (*delai_ulti) = DELAI_ULTI - (*diff_time);
             envoie_char(&j1);
             jeu_ordi(o,j1,tab_de_charactere);
-            //delete_character(&o->characters);
-            //delete_character(&j1->characters);
-        affichageSprite(rendu, j1, o, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
+
+            affichageSprite(rendu, j1, o, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
         }
 
@@ -491,35 +490,40 @@ int main(int argc, char* argv[]) {
             }
         }
 
-
+        /* si la connexion a été acceptée */
         if ( valide )
         {
+            /* on mets l'etat du menu a jour */
             (*etat) = JOUER_RESEAU_REJOINDRE;
         }
         /* QUAND ON CREER UNE PARTIE */
         if ( (*etat) == JOUER_RESEAU_CREER )
         {
-            if ( envoi ){
-                player_t j_1, j_2;
-                envoyer_structure(client_socket, *j1, *joueur_online);
-                recevoir_structure(client_socket, &j_1, &j_2);
-                envoi = FALSE;
-                afficher_player(&j_1);
-                afficher_player(&j_2);
-            }
+            envoyer_structure(client_socket, *j1, *joueur_online); // on envoie données locales
+            recevoir_structure(client_socket, &j1_distant, &j2_distant); // on recoit les données distantes
+
+            // on met a jour notre adversaire
+            destroy_player(&joueur_online);
+            joueur_online = &j2_distant;
+            printf("Reseau terminé...\n");
+            envoie_char(&j1);
+            affichageSpriteReseau(rendu, j1, joueur_online, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
+                            tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
         }
 
         /* QUAND ON REJOINT UNE PARTIE */
         if ( (*etat) == JOUER_RESEAU_REJOINDRE )
-        {
-            if ( envoi ){
-                player_t j_1, j_2;
-                recevoir_structure(to_server_socket, &j_1, &j_2);
-                envoyer_structure(to_server_socket, j_1, j_2);
-                envoi = FALSE;
-                afficher_player(&j_2);
-                afficher_player(&j_1);
-            }
+        {   
+            recevoir_structure(to_server_socket, &j1_distant, &j2_distant); // on recoit les données distantes
+            envoyer_structure(to_server_socket, *j1, *joueur_online); // on envoie données locales
+
+            // on met a jour notre adversaire
+            destroy_player(&joueur_online);
+            joueur_online = &j2_distant;
+            printf("Reseau terminé...\n");
+            envoie_char(&j1);
+            affichageSpriteReseau(rendu, j1, joueur_online, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
+                            tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
         }
 
 
