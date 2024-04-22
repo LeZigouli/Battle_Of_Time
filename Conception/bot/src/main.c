@@ -84,15 +84,26 @@ int main(int argc, char* argv[]) {
     /***********/
     /*-Musique-*/
     /***********/
-    Mix_AllocateChannels(2); // Allouer 2 cannaux 
+    volume = MIX_MAX_VOLUME - 10;
+    Mix_AllocateChannels(3); // Allouer 2 cannaux 
     Mix_Volume(0, volume); // Met le son a 50% en volume pour le premier cannaux
     Mix_Volume(1, MIX_MAX_VOLUME); // Met le son a 100% en volume pour le deuxièmme cannaux 
+    Mix_Volume(2, MIX_MAX_VOLUME); // Met le son a 100% en volume pour le deuxièmme cannaux 
 
     /*Chargement son du clique de la souris*/
     Mix_Chunk* click = chargementAudio(rendu, fenetre, textureFond, "sound/click.mp3");
 
     /*Chargement musique */
     Mix_Chunk* music = chargementAudio(rendu, fenetre, textureFond, "sound/music.mp3");
+
+    /*Lecture de la musique en boucle*/
+    Mix_PlayChannel(0,music,-1);
+
+    /*Chargement musique de fin*/
+    Mix_Chunk* musique_fin = chargementAudio(rendu, fenetre, textureFond, "sound/musique_fin.mp3");
+
+    Mix_PlayChannel(2, musique_fin, -1);
+    Mix_Pause(2);
 
     /*****************/
     /*-Variables SDL-*/
@@ -133,9 +144,6 @@ int main(int argc, char* argv[]) {
     char effet[15] = "Désactiver";
     int* ancienSon = malloc(sizeof(int));
     (*ancienSon) = MENU_SOUS_OPTIONS;
-
-    /*Lecture de la musique en boucle*/
-    Mix_PlayChannel(0,music,-1);
 
 	/*Variables pour le calcul du ration de la dimension de la fenêtre*/
     float* widthFactor = malloc(sizeof(float));
@@ -569,7 +577,7 @@ int main(int argc, char* argv[]) {
         free(lastTroupe[i]);
     }
 
-
+    Mix_FreeChunk(musique_fin);
     destruction_SDL(parametre, gold, xp, textureFond, prehistoire, antiquite, moyen_age,
                     moderne, futuriste, police, police_texte, rendu, fenetre, click, music, sprite_hud,
                     building, fin_partie_win, fin_partie_lose);

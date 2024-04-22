@@ -82,6 +82,8 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
             break;
         
         case MENU_PRINCIPAL:
+            Mix_Pause(2);
+            Mix_Resume(0);
             afficherSousMenu(rendu, police, fenetre, "Jouer", "Options", "Crédit","Quitter");
             break;
 
@@ -140,7 +142,9 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
             break;
         case FIN_PARTIE :
             /*Effacement de l'ancien rendu*/
-            SDL_RenderClear(rendu);   
+            SDL_RenderClear(rendu); 
+            Mix_Pause(0); 
+            Mix_Resume(2);
             affichage_gagnant(rendu, police, fin_partie, fenetre, *cameraX, *cameraY, win, lose);
             break;
 
