@@ -507,6 +507,10 @@ int main(int argc, char* argv[]) {
         /* QUAND ON CREER UNE PARTIE */
         if ( (*etat) == JOUER_RESEAU_CREER )
         {
+            /*Calcul du temps avant d'utiliser l'ulti*/
+            (*diff_time) = currentTime - (*lastUlti);
+            (*delai_ulti) = DELAI_ULTI - (*diff_time);
+
             envoyer_structure(client_socket, *j1, *joueur_online); // on envoie données locales
             recevoir_structure(client_socket, &j1_distant, &j2_distant); // on recoit les données distantes
 
@@ -515,13 +519,19 @@ int main(int argc, char* argv[]) {
             joueur_online = &j2_distant;
             printf("Reseau terminé...\n");
             envoie_char(&j1);
+            printf("oui ");
             affichageSpriteReseau(rendu, j1, joueur_online, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
+            printf("oui ");
         }
 
         /* QUAND ON REJOINT UNE PARTIE */
         if ( (*etat) == JOUER_RESEAU_REJOINDRE )
         {   
+            /*Calcul du temps avant d'utiliser l'ulti*/
+            (*diff_time) = currentTime - (*lastUlti);
+            (*delai_ulti) = DELAI_ULTI - (*diff_time);
+
             recevoir_structure(to_server_socket, &j1_distant, &j2_distant); // on recoit les données distantes
             envoyer_structure(to_server_socket, *j1, *joueur_online); // on envoie données locales
 
@@ -530,8 +540,10 @@ int main(int argc, char* argv[]) {
             joueur_online = &j2_distant;
             printf("Reseau terminé...\n");
             envoie_char(&j1);
+            printf("oui ");
             affichageSpriteReseau(rendu, j1, joueur_online, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
+            printf("oui ");
         }
 
 
