@@ -25,11 +25,11 @@
 
 
 void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm_reso, Mix_Chunk* click, 
-               int mouseX, int mouseY, int w, int h, float widthFactor, float heightFactor, int menuX, int menuY, int* index_effet, 
-               int* continuer, int* selecElement, char* effet, int* isValid, const char* textInput, const char* ipPattern, 
-               int* textInputActive, int* keyCounts, int x, int y, int* ancienSon, int* ancienReso, player_t* j1,
-               character_t* tab_de_charactere, ordi_t* ordi, Uint32 currentTime, Uint32* lastUlti, Uint32* diff_time, Uint32* delai_ulti,
-               int** troupe_formee, Uint32** lastTroupe, int** nb);
+          int mouseX, int mouseY, int w, int h, float widthFactor, float heightFactor, int menuX, int menuY, int* index_effet, 
+          int* continuer, int* selecElement, char* effet, int* isValid, const char* textInput, const char* ipPattern, 
+          int* textInputActive, int* keyCounts, int x, int y, int* ancienSon, int* ancienReso, player_t* j1,
+          character_t* tab_de_charactere, ordi_t* ordi, Uint32 currentTime, Uint32* lastUlti, Uint32* diff_time, Uint32* delai_ulti,
+          int** troupe_formee, Uint32** lastTroupe, int** nb, int * reseau_action, int * reseau_action2, int age, player_t * j2_distant);
 
 void relachement(etat_t* etat, int menuX, int menuY, int w, int h, float* widthFactor, float* heightFactor, int mouseX, int mouseY);
 

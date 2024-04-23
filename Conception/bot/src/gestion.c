@@ -45,7 +45,7 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
           int* continuer, int* selecElement, char* effet, int* isValid, const char* textInput, const char* ipPattern, 
           int* textInputActive, int* keyCounts, int x, int y, int* ancienSon, int* ancienReso, player_t* j1,
           character_t* tab_de_charactere, ordi_t* ordi, Uint32 currentTime, Uint32* lastUlti, Uint32* diff_time, Uint32* delai_ulti,
-          int** troupe_formee, Uint32** lastTroupe, int** nb)
+          int** troupe_formee, Uint32** lastTroupe, int** nb, int * reseau_action, int * reseau_action2, int age, player_t * j2_distant)
 {
     /*Gestion des clics sur les menus*/
     switch((*etat)){
@@ -534,6 +534,10 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                 (*troupe_formee)[1] = -1;
                 (*troupe_formee)[2] = -1;
                 (*troupe_formee)[3] = -1;
+
+                // reseau
+                *reseau_action = PASSAGE_AGE;
+                *reseau_action2 = AUCUN_ACTION;
             }
             /*Clic sur le personnage 1*/
             else if(mouseX >= (250 * widthFactor) && mouseX <= (314 * widthFactor) &&
@@ -548,6 +552,9 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                 (*nb)[0]++;
                 (*lastTroupe)[0] = currentTime;
 
+                // reseau
+                *reseau_action = ACHAT_CHARACTER;
+                *reseau_action2 = age + melee;
             }
             /*Clic sur le personnage 2*/
             else if(mouseX >= (319 * widthFactor) && mouseX <= (383 * widthFactor) &&
@@ -561,6 +568,10 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                 buy_character(&j1, tab_de_charactere, marksman);
                 (*nb)[1]++;
                 (*lastTroupe)[1] = currentTime;
+
+                 // reseau
+                *reseau_action = ACHAT_CHARACTER;
+                *reseau_action2 = age + marksman;
             }
             /*Clic sur le personnage 3*/
             else if(mouseX >= (388 * widthFactor) && mouseX <= (452 * widthFactor) &&
@@ -574,6 +585,10 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                 buy_character(&j1, tab_de_charactere, tank);
                 (*nb)[2]++;
                 (*lastTroupe)[2] = currentTime;
+
+                // reseau
+                *reseau_action = ACHAT_CHARACTER;
+                *reseau_action2 = age + tank;
             }
             /*Clic sur le personnage 4*/
             else if(mouseX >= (457 * widthFactor) && mouseX <= (521 * widthFactor) &&
@@ -587,6 +602,10 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                 buy_character(&j1, tab_de_charactere, specialist);
                 (*nb)[3]++;
                 (*lastTroupe)[3] = currentTime;
+
+                // reseau
+                *reseau_action = ACHAT_CHARACTER;
+                *reseau_action2 = age + specialist;
             }
             /*Clic sur le bouton d'ulti*/
             else if(mouseX >= (85 * widthFactor) && mouseX <= (125 * widthFactor) &&
@@ -597,8 +616,12 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                 }
                 /*Utilisation de l'ulti*/
                 if((*diff_time) >= DELAI_ULTI){
-                    ulti(&(ordi->characters));
+                    ulti(&(j2_distant->characters));
                     (*lastUlti) = currentTime;
+
+                    // reseau
+                    *reseau_action = ULTI;
+                    *reseau_action2 = j1->xp;
                 }
             }
             break;

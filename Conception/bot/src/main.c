@@ -248,7 +248,7 @@ int main(int argc, char* argv[]) {
     unsigned long fin_sprite   = 400;
 
     int * reseau_action = malloc(sizeof(int));
-    int * reseau_character = malloc(sizeof(int));
+    int * reseau_action2 = malloc(sizeof(int));
 
     Uint32 lastMovement = 0; //dernier mouvement du sprite
 
@@ -336,6 +336,11 @@ int main(int argc, char* argv[]) {
             j1 = initplayer(OWNER_1);
             o = init_ordi();
         }
+
+        // reseau
+        *reseau_action = AUCUN_ACTION;
+        *reseau_action2 = AUCUN_ACTION;
+
         Uint32 currentTime = SDL_GetTicks();
 
         /*Récupération dimension fenêtre*/
@@ -365,7 +370,7 @@ int main(int argc, char* argv[]) {
                               (*widthFactor), (*heightFactor), menuX, menuY, index_effet, continuer, 
                               selecElement, effet, isValide, textInput, ipPattern, textInputActive, keyCounts,
                               x, y, ancienSon, ancienReso, j1, tab_de_charactere, o, currentTime, lastUlti, diff_time, 
-                              delai_ulti, troupe_formee, lastTroupe, nb);
+                              delai_ulti, troupe_formee, lastTroupe, nb, reseau_action, reseau_action2, *etatAge, j2_distant);
                     break;
 
                 /*Gestion du relachement du clic de la souris*/
@@ -514,11 +519,11 @@ int main(int argc, char* argv[]) {
             (*delai_ulti) = DELAI_ULTI - (*diff_time);
 
             recevoir(client_socket,&action,&action2);
-            envoyer(client_socket,reseau_action,reseau_character);
+            envoyer(client_socket,reseau_action,reseau_action2);
 
             switch(action)
             {
-                case AUCUN_ACTION :
+                case AUCUN_ACTION : // si adversaire fait aucune action
                     break;
 
                 case ACHAT_CHARACTER : // adversaire achete un perso 
@@ -530,7 +535,7 @@ int main(int argc, char* argv[]) {
                     upgrade_building(&j2_distant->building,&action2);
                     break;
 
-                case ULTI :
+                case ULTI : // adversaire met ultime
                     ulti(&(j1->characters));
                     break;
 
@@ -555,12 +560,12 @@ int main(int argc, char* argv[]) {
 
             int action,action2;
 
-            envoyer(to_server_socket,reseau_action, reseau_character);
+            envoyer(to_server_socket,reseau_action, reseau_action2);
             recevoir(to_server_socket,&action,&action2);
 
             switch(action)
             {
-                case AUCUN_ACTION :
+                case AUCUN_ACTION : // si advesaire fait aucune action
                     break;
 
                 case ACHAT_CHARACTER : // adversaire achete un perso 
@@ -571,7 +576,7 @@ int main(int argc, char* argv[]) {
                     if ( action2 != AUCUN_ACTION ) upgrade_building(&j2_distant->building,&action2);
                     break;
 
-                case ULTI :
+                case ULTI : // si adversaire veut mettre l'ulti
                     ulti(&(j1->characters));
                     break;
 
@@ -620,7 +625,7 @@ int main(int argc, char* argv[]) {
     free(delai_ulti);
 
     free(reseau_action);
-    free(reseau_character);
+    free(reseau_action2);
 
     for(i = 0; i < 4; i++){
         free(troupe_formee[i]);
