@@ -616,7 +616,17 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                 }
                 /*Utilisation de l'ulti*/
                 if((*diff_time) >= DELAI_ULTI){
-                    ulti(&(j2_distant->characters));
+                    switch(*etat){
+                            case JOUER_RESEAU_CREER :
+                            case JOUER_RESEAU_REJOINDRE : 
+                                ulti(&(j2_distant->characters));
+                                break;
+                            case JOUER :
+                                ulti(&(ordi->characters));
+                                break;
+                            default :
+                                break;
+                    }
                     (*lastUlti) = currentTime;
 
                     // reseau
@@ -754,7 +764,9 @@ void deplacement_souris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* poli
                 volumeCursor->x = mouseX;
             }
             break;
-
+        
+        case JOUER_RESEAU_CREER :
+        case JOUER_RESEAU_REJOINDRE :
         case JOUER:
             /*Affichage au survol d'un élément*/
             if(mouseX >= (250 * widthFactor) && mouseX <= (314 * widthFactor) &&

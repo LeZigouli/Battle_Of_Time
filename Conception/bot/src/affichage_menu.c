@@ -140,6 +140,7 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
             affichagePointDeVie(rendu, police, joueur->building->pv, ordi->building->pv, fenetre, (*cameraX), (*cameraY));
             affichageSurvolSouris(rendu, fenetre, police, survol, tab_charactere, joueur->building->level, joueur, delai_ulti, diff_time);
             break;
+            
         case FIN_PARTIE :
             /*Effacement de l'ancien rendu*/
             SDL_RenderClear(rendu); 

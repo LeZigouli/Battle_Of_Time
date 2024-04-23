@@ -237,7 +237,7 @@ int main(int argc, char* argv[]) {
     int a_deja_lancer_partie = FALSE;
     char * buffer = malloc(sizeof(100));
 
-    player_t * j2_distant = initplayer(OWNER_INIT);
+    player_t * j2_distant = initplayer(OWNER_2);
 
     /* variable pour la fin de partie */
     int resultat = AUCUN_GAGNANT;
@@ -484,10 +484,11 @@ int main(int argc, char* argv[]) {
             (*etat) = OPTION_JEU;
         }
     
-        if ( *etat == JOUER )
+        if ( *etat == JOUER  || *etat == JOUER_RESEAU_CREER || *etat == JOUER_RESEAU_REJOINDRE )
         {
             resultat = fin_partie(j1,o,j2_distant,(*etat));
             if ( resultat != AUCUN_GAGNANT ) (*etat) = FIN_PARTIE;
+            if ( (*etat) == FIN_PARTIE ) printf("Un gagnant trouvé \n");
         }
 
         if ( (*etat) == MENU_SOUS_CREER )
@@ -509,6 +510,7 @@ int main(int argc, char* argv[]) {
         {
             /* on mets l'etat du menu a jour */
             (*etat) = JOUER_RESEAU_REJOINDRE;
+            valide = FALSE;
         }
         /* QUAND ON CREER UNE PARTIE */
         if ( (*etat) == JOUER_RESEAU_CREER )
@@ -520,7 +522,8 @@ int main(int argc, char* argv[]) {
 
             recevoir(client_socket,&action,&action2);
             envoyer(client_socket,reseau_action,reseau_action2);
-
+            
+            printf("%d %d\n",action,action2);
             switch(action)
             {
                 case AUCUN_ACTION : // si adversaire fait aucune action
@@ -528,11 +531,19 @@ int main(int argc, char* argv[]) {
 
                 case ACHAT_CHARACTER : // adversaire achete un perso 
                     if ( action2 != AUCUN_ACTION )
-                    buy_character(&j2_distant,tab_de_charactere,action2);
+                    {
+                        printf("Entrée dans l'achat...\n");
+                        buy_character(&j2_distant,tab_de_charactere,action2);
+                        afficher_player(j2_distant);
+                    }
                     break;
 
                 case PASSAGE_AGE : // adversaire passe a l'age suivant
-                    upgrade_building(&j2_distant->building,&action2);
+                    if ( action2 != AUCUN_ACTION )
+                    {
+                        printf("Entrée dans building...\n");
+                        upgrade_building(&j2_distant->building,&action2);
+                    }
                     break;
 
                 case ULTI : // adversaire met ultime
@@ -544,8 +555,8 @@ int main(int argc, char* argv[]) {
                     break;
             }
 
-
             envoie_char(&j1); // on envoie file d'attente
+            envoie_char(&j2_distant);
             
             affichageSpriteReseau(rendu, j1, j2_distant, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
@@ -563,17 +574,27 @@ int main(int argc, char* argv[]) {
             envoyer(to_server_socket,reseau_action, reseau_action2);
             recevoir(to_server_socket,&action,&action2);
 
+            printf("%d %d\n",action,action2);
             switch(action)
             {
                 case AUCUN_ACTION : // si advesaire fait aucune action
                     break;
 
                 case ACHAT_CHARACTER : // adversaire achete un perso 
-                    if ( action2 != AUCUN_ACTION ) buy_character(&j2_distant,tab_de_charactere,action2);
+                    if ( action2 != AUCUN_ACTION )
+                    {
+                        printf("Entrée dans l'achat...\n");
+                        buy_character(&j2_distant,tab_de_charactere,action2);
+                        afficher_player(j2_distant);
+                    }
                     break;
 
                 case PASSAGE_AGE : // adversaire passe a l'age suivant
-                    if ( action2 != AUCUN_ACTION ) upgrade_building(&j2_distant->building,&action2);
+                    if ( action2 != AUCUN_ACTION )
+                    {
+                        printf("Entrée dans building...\n");
+                        upgrade_building(&j2_distant->building,&action2);
+                    }
                     break;
 
                 case ULTI : // si adversaire veut mettre l'ulti
@@ -586,6 +607,7 @@ int main(int argc, char* argv[]) {
             }
 
             envoie_char(&j1); // on envoie file d'attente
+            envoie_char(&j2_distant);
 
             affichageSpriteReseau(rendu, j1, j2_distant, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
