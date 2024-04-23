@@ -249,6 +249,9 @@ int main(int argc, char* argv[]) {
 
     int * reseau_action = malloc(sizeof(int));
     int * reseau_action2 = malloc(sizeof(int));
+    *reseau_action = AUCUN_ACTION;
+    *reseau_action2 = AUCUN_ACTION;
+
 
     Uint32 lastMovement = 0; //dernier mouvement du sprite
 
@@ -513,17 +516,32 @@ int main(int argc, char* argv[]) {
             valide = FALSE;
         }
         /* QUAND ON CREER UNE PARTIE */
-        if ( (*etat) == JOUER_RESEAU_CREER )
+        if ( (*etat) == JOUER_RESEAU_CREER || (*etat) == JOUER_RESEAU_REJOINDRE)
         {
             int action,action2;
             /*Calcul du temps avant d'utiliser l'ulti*/
             (*diff_time) = currentTime - (*lastUlti);
             (*delai_ulti) = DELAI_ULTI - (*diff_time);
 
-            recevoir(client_socket,&action,&action2);
-            envoyer(client_socket,reseau_action,reseau_action2);
-            
-            printf("%d %d\n",action,action2);
+            switch((*etat))
+            {
+                case JOUER_RESEAU_CREER :
+                    recevoir(client_socket,&action,&action2);
+                    envoyer(client_socket,reseau_action,reseau_action2);
+                    break;
+
+                case JOUER_RESEAU_REJOINDRE :
+                    recevoir(to_server_socket,&action,&action2);
+                    envoyer(to_server_socket,reseau_action, reseau_action2);
+                    break;
+                
+                default:
+                    printf("etat inconnu\n");
+                    exit(1);
+                    break;
+                
+            }
+            printf("%d <> %d\n",action,action2);
             switch(action)
             {
                 case AUCUN_ACTION : // si adversaire fait aucune action
@@ -534,14 +552,12 @@ int main(int argc, char* argv[]) {
                     {
                         printf("Entrée dans l'achat...\n");
                         buy_character(&j2_distant,tab_de_charactere,action2);
-                        afficher_player(j2_distant);
                     }
                     break;
 
                 case PASSAGE_AGE : // adversaire passe a l'age suivant
                     if ( action2 != AUCUN_ACTION )
                     {
-                        printf("Entrée dans building...\n");
                         upgrade_building(&j2_distant->building,&action2);
                     }
                     break;
@@ -561,58 +577,6 @@ int main(int argc, char* argv[]) {
             affichageSpriteReseau(rendu, j1, j2_distant, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
         }
-
-        /* QUAND ON REJOINT UNE PARTIE */
-        if ( (*etat) == JOUER_RESEAU_REJOINDRE )
-        {   
-            /*Calcul du temps avant d'utiliser l'ulti*/
-            (*diff_time) = currentTime - (*lastUlti);
-            (*delai_ulti) = DELAI_ULTI - (*diff_time);
-
-            int action,action2;
-
-            envoyer(to_server_socket,reseau_action, reseau_action2);
-            recevoir(to_server_socket,&action,&action2);
-
-            printf("%d %d\n",action,action2);
-            switch(action)
-            {
-                case AUCUN_ACTION : // si advesaire fait aucune action
-                    break;
-
-                case ACHAT_CHARACTER : // adversaire achete un perso 
-                    if ( action2 != AUCUN_ACTION )
-                    {
-                        printf("Entrée dans l'achat...\n");
-                        buy_character(&j2_distant,tab_de_charactere,action2);
-                        afficher_player(j2_distant);
-                    }
-                    break;
-
-                case PASSAGE_AGE : // adversaire passe a l'age suivant
-                    if ( action2 != AUCUN_ACTION )
-                    {
-                        printf("Entrée dans building...\n");
-                        upgrade_building(&j2_distant->building,&action2);
-                    }
-                    break;
-
-                case ULTI : // si adversaire veut mettre l'ulti
-                    ulti(&(j1->characters));
-                    break;
-
-                default : 
-                    printf("Reseau : Code inconnu !\n");
-                    break;
-            }
-
-            envoie_char(&j1); // on envoie file d'attente
-            envoie_char(&j2_distant);
-
-            affichageSpriteReseau(rendu, j1, j2_distant, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
-                            tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
-        }
-
 
         /*Amélioration antialiasing*/
         SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"2");
