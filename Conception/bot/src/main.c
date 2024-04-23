@@ -32,7 +32,6 @@
 #include "../socket/client.h"
 #include "../lib/save.h"
 
-
 /*************************/
 /*--Programme Principal--*/
 /*************************/
@@ -70,7 +69,6 @@ int main(int argc, char* argv[]) {
     /*Chargement de l'image de fond du menu*/
     SDL_Texture* textureFond = chargementImg(rendu, fenetre, "img/Fond/Fond_menu.png");
     
-
     /**********/
     /*-Police-*/
     /**********/
@@ -154,7 +152,6 @@ int main(int argc, char* argv[]) {
     int* cameraY = malloc(sizeof(int));;
     (*cameraY) = 0;
 
-
     /*Variables pour la saisie de texte*/
     char textInput[16] = ""; //Buffer pour stocker le texte saisi
     int* textInputActive = malloc(sizeof(int));
@@ -167,9 +164,6 @@ int main(int argc, char* argv[]) {
     int* keyCounts = malloc(sizeof(int));
     (*keyCounts) = 0;
 
-
-
-    
     /**********/
     /*-Images-*/
     /**********/
@@ -230,31 +224,31 @@ int main(int argc, char* argv[]) {
     /*****************/
     int first_attaque = FALSE;
 
-    int attaque = 0;
+    //int attaque = 0;
     int* ancien_lvl = malloc(sizeof(int));
     (*ancien_lvl) = 0;
     int i;
     int a_deja_lancer_partie = FALSE;
-    char * buffer = malloc(sizeof(100));
-
-    player_t * j2_distant = initplayer(OWNER_2);
+    char * buffer = malloc(100);
 
     /* variable pour la fin de partie */
     int resultat = AUCUN_GAGNANT;
-    int connexion_reussi = FALSE;
-    int valide = FALSE;
 
+    /* variables pour les sprites */
     unsigned long debut_sprite = DELAI_INITIAL;
     unsigned long fin_sprite   = 400;
 
+    /* variables pour le mode reseau */
     int * reseau_action = malloc(sizeof(int));
     int * reseau_action2 = malloc(sizeof(int));
     *reseau_action = AUCUN_ACTION;
     *reseau_action2 = AUCUN_ACTION;
-
+    int connexion_reussi = FALSE;
+    int valide = FALSE;
 
     Uint32 lastMovement = 0; //dernier mouvement du sprite
 
+    /* variables pour affachages des sprites */
     SDL_Rect playerImg = {0 , TAILLE_SPRITE*11, TAILLE_SPRITE, TAILLE_SPRITE};   //position sur le png avec tous les sprite
     SDL_Rect ordiImg = {0 , TAILLE_SPRITE*9, TAILLE_SPRITE, TAILLE_SPRITE};
     SDL_Rect playerPosition[MAX_POSSESSED]; // position et taille du sprite sur l'écran
@@ -262,20 +256,17 @@ int main(int argc, char* argv[]) {
     SDL_Rect playerAttackImg = {0,0,TAILLE_SPRITE,TAILLE_SPRITE};
     SDL_Rect ordiAttackImg = {0,0,TAILLE_SPRITE,TAILLE_SPRITE};
 
+    /* variables pour les entités du jeu */
     character_t * tab_de_charactere = initcharacter();
     player_t * j1 = NULL; 
+    player_t * j2_distant = initplayer(OWNER_2);
     ordi_t * o = NULL; 
-    player_t * buffer_player = NULL;
-    //player_t * buffer_player_online = NULL;
-    ordi_t   * buffer_ordi = NULL;
 
     SDL_Texture* image[8]={IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+melee].sprite),
                            IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+marksman].sprite),
                            IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+tank].sprite),
                            IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+specialist].sprite),
                            NULL,NULL,NULL,NULL};
-
-
 
     SDL_Texture* img_char[MAX_POSSESSED];
     SDL_Texture * img_c_ordi[MAX_POSSESSED];
@@ -293,7 +284,6 @@ int main(int argc, char* argv[]) {
         
     }
 
-
     /*Pointeur pour déterminer sur quel élément est survolé*/
     int* survol = malloc(sizeof(int));
     (*survol) = -1;
@@ -308,7 +298,6 @@ int main(int argc, char* argv[]) {
     Uint32* delai_ulti = malloc(sizeof(Uint32));
     (*delai_ulti) = 0;
 
-    
     int* troupe_formee[4];
     for(i = 0; i < 4; i++){
         troupe_formee[i] = malloc(sizeof(int));
@@ -333,8 +322,9 @@ int main(int argc, char* argv[]) {
     int* continuer = malloc(sizeof(int));
     (*continuer) = SDL_TRUE;
     while ((*continuer)) {
-    
-    	 if ( o == NULL && j1 == NULL )
+
+        // on recreer le joueur et l'ordi si on a quitter une partie sans la sauvegarder
+        if ( o == NULL && j1 == NULL )
         {
             j1 = initplayer(OWNER_1);
             o = init_ordi();
@@ -367,7 +357,6 @@ int main(int argc, char* argv[]) {
                     /*Récupération des coordonnées de la souris*/
                     mouseX = evenement.button.x;
                     mouseY = evenement.button.y;
-
 					/*Gestion des cliquable sur les éléments du menu*/
                     clic(etat, fenetre, evenement, elm_reso, click, mouseX, mouseY, w, h, 
                               (*widthFactor), (*heightFactor), menuX, menuY, index_effet, continuer, 
@@ -378,14 +367,12 @@ int main(int argc, char* argv[]) {
 
                 /*Gestion du relachement du clic de la souris*/
                 case SDL_MOUSEBUTTONUP:
-
 					/*Gestion du relachement du clique de la souris sur les éléments du menu*/
                 	relachement(etat, menuX, menuY, w, h, widthFactor, heightFactor, mouseX, mouseY);
                     break;
                 
                 /*Gestion du déplacement de la souris*/
-                case SDL_MOUSEMOTION:
-                
+                case SDL_MOUSEMOTION:                
 					/*Gestion du déplacement de la souris sur les éléments du menu*/
 				   	deplacement_souris(rendu, fenetre, police_texte, music, evenement, (*widthFactor),
                                        (*heightFactor), (*etat), tab_de_charactere, survol);
@@ -393,19 +380,13 @@ int main(int argc, char* argv[]) {
 
                 /*Gestion des touches du clavier*/
                 case SDL_KEYDOWN:
-                    
                     /*Gestion des touches pour l'adresse IP*/
                     touches(evenement, textInputActive, keyCounts, isValide, textInput, ipPattern, &valide);
-
-                    if ( *etat == FIN_PARTIE )
-                    {
-                        *etat = MENU_PRINCIPAL;
-                    }
+                    if ( *etat == FIN_PARTIE ) *etat = MENU_PRINCIPAL;
                     break;
 
                 /*Gestion du texte saisie*/
                 case SDL_TEXTINPUT:
-
                     /*Gérer les événements de texte saisi*/
                     if ((*textInputActive) && strlen(textInput) + strlen(evenement.text.text) < sizeof(textInput)) {
                         /*Ajouter le texte saisi au buffer*/
@@ -413,20 +394,10 @@ int main(int argc, char* argv[]) {
                     }
                     break;
 
-
-
-                case SDLK_a: //on appuie sur A pour attaquer/ne plus attaquer 
-                    attaque = !attaque;
-                    break;
-
-
                 default:
-                    break;
-
-                    
+                    break;  
             }
         }
-
         /*Afficher l'image du menu*/
         SDL_RenderCopy(rendu, textureFond, NULL, NULL);
 
@@ -436,147 +407,16 @@ int main(int argc, char* argv[]) {
                   moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building, resultat, 
                   fin_partie_win, fin_partie_lose, tab_de_charactere, (*survol), (*delai_ulti), (*diff_time), troupe_formee,
                   currentTime, lastTroupe, nb, j2_distant);
-        
-        
-        /* qaund on lance une nouvelle partie, on detruit bien toute les données */
-        if ( !a_deja_lancer_partie && ( *etat == JOUER || *etat == JOUER_RESEAU_CREER || *etat == JOUER_RESEAU_REJOINDRE ) )
-        {
-            a_deja_lancer_partie = TRUE;
-        }
 
-        if ( a_deja_lancer_partie && (*etat) == MENU_PRINCIPAL )
-        {
-            reinitialiser_partie(&j1,&o);
-            for(i=0;i< NB_CHARACTER*2;i++)
-                if(i<4)
-                    image[i]=IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+i].sprite);
-                else
-                    image[i]=NULL;
-            (*ancien_lvl)=Prehistoire;
-            a_deja_lancer_partie = FALSE;
-        }
-    
-        /*On appelle les fonctions du jeu si on est dans une partie*/
-        if((*etat) == JOUER){
-            /*Calcul du temps avant d'utiliser l'ulti*/
-            (*diff_time) = currentTime - (*lastUlti);
-            (*delai_ulti) = DELAI_ULTI - (*diff_time);
-            envoie_char(&j1);
-            jeu_ordi(o,j1,tab_de_charactere);
+        /* traitement avant de lancer une partie */
+        traitement_pre_jeu(etat, &a_deja_lancer_partie, &j1, &o, j2_distant, image, ancien_lvl,
+                                tab_de_charactere, &connexion_reussi, &valide, &resultat, rendu);
 
-            affichageSprite(rendu, j1, o, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
-                            tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
-        }
-
-        /* si le joueur clique sur reprendre partie */
-        if ( (*etat) == JOUER_CHARGER )
-        {   
-            reinitialiser_partie(&j1,&o);
-            load(&buffer_ordi, &buffer_player, tab_de_charactere);
-            j1 = buffer_player;
-            o = buffer_ordi;
-            buffer_player = NULL;
-            buffer_ordi = NULL;
-            (*etat) = JOUER;
-        }
-
-        /* quand l'utilisateur clique sur sauvegarder */
-        if ( (*etat) == MENU_SAUVEGARDER )
-        {
-            save(o,j1);
-            (*etat) = OPTION_JEU;
-        }
-    
-        if ( *etat == JOUER  || *etat == JOUER_RESEAU_CREER || *etat == JOUER_RESEAU_REJOINDRE )
-        {
-            resultat = fin_partie(j1,o,j2_distant,(*etat));
-            if ( resultat != AUCUN_GAGNANT ) (*etat) = FIN_PARTIE;
-            if ( (*etat) == FIN_PARTIE ) printf("Un gagnant trouvé \n");
-        }
-
-        if ( (*etat) == MENU_SOUS_CREER )
-        {
-            if ( init_reseau_serveur() && !connexion_reussi )
-            {
-                connexion_reussi = TRUE;
-                (*etat) = JOUER_RESEAU_CREER;
-            }
-            else
-            {
-                // si la connection echoue
-                (*etat) = MENU_SOUS_ENLIGNE;
-            }
-        }
-
-        /* si la connexion a été acceptée */
-        if ( valide )
-        {
-            /* on mets l'etat du menu a jour */
-            (*etat) = JOUER_RESEAU_REJOINDRE;
-            valide = FALSE;
-        }
-        /* QUAND ON CREER UNE PARTIE */
-        if ( (*etat) == JOUER_RESEAU_CREER || (*etat) == JOUER_RESEAU_REJOINDRE)
-        {
-            int action,action2;
-            /*Calcul du temps avant d'utiliser l'ulti*/
-            (*diff_time) = currentTime - (*lastUlti);
-            (*delai_ulti) = DELAI_ULTI - (*diff_time);
-
-            switch((*etat))
-            {
-                case JOUER_RESEAU_CREER :
-                    recevoir(client_socket,&action,&action2);
-                    envoyer(client_socket,reseau_action,reseau_action2);
-                    break;
-
-                case JOUER_RESEAU_REJOINDRE :
-                    recevoir(to_server_socket,&action,&action2);
-                    envoyer(to_server_socket,reseau_action, reseau_action2);
-                    break;
-                
-                default:
-                    printf("etat inconnu\n");
-                    exit(1);
-                    break;
-                
-            }
-            printf("%d <> %d\n",action,action2);
-            switch(action)
-            {
-                case AUCUN_ACTION : // si adversaire fait aucune action
-                    break;
-
-                case ACHAT_CHARACTER : // adversaire achete un perso 
-                    if ( action2 != AUCUN_ACTION )
-                    {
-                        printf("Entrée dans l'achat...\n");
-                        buy_character(&j2_distant,tab_de_charactere,action2);
-                    }
-                    break;
-
-                case PASSAGE_AGE : // adversaire passe a l'age suivant
-                    if ( action2 != AUCUN_ACTION )
-                    {
-                        upgrade_building(&j2_distant->building,&action2);
-                    }
-                    break;
-
-                case ULTI : // adversaire met ultime
-                    ulti(&(j1->characters));
-                    break;
-
-                default : 
-                    printf("Reseau : Code inconnu !\n");
-                    break;
-            }
-
-            envoie_char(&j1); // on envoie file d'attente
-            envoie_char(&j2_distant);
-            
-            affichageSpriteReseau(rendu, j1, j2_distant, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
-                            tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
-        }
+        /* traitement pendant une partie */
+        traitement_en_jeu( etat, &j1, &j2_distant, &o, diff_time, lastUlti, delai_ulti, reseau_action, reseau_action2,
+                                &to_server_socket, &client_socket, tab_de_charactere, rendu, &playerImg, &ordiImg, &playerAttackImg,
+                                &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, image, img_char, currentTime,
+                                &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite, img_c_ordi);
 
         /*Amélioration antialiasing*/
         SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"2");
@@ -588,45 +428,21 @@ int main(int argc, char* argv[]) {
         SDL_Delay(16);
     }
 
+    /************************/
     /*Libérer les ressources*/
+    /************************/
 
 	/*Destruction des éléments du menu*/
 	destruction(selecElement, index_effet, continuer, etat, widthFactor, heightFactor, textInputActive, isValide, keyCounts, ancienSon, etatAge, ancienReso);
-    free(ancien_lvl);
-
-    destroy_tab_character(&tab_de_charactere);
-    destroy_player(&j1);
-    detr_ordi(&o);
-    /*****************************/
-    /*-Libération des ressources-*/
-    /*****************************/
-
-    free(cameraX);
-    free(cameraY);
     
-    free(buffer);
-    free(survol);
-    free(lastUlti);
-    free(diff_time);
-    free(delai_ulti);
-
-    free(reseau_action);
-    free(reseau_action2);
-
-    for(i = 0; i < 4; i++){
-        free(troupe_formee[i]);
-    }
-    for(i = 0; i < 4; i++){
-        free(nb[i]);
-    }
-    for(i = 0; i < 4; i++){
-        free(lastTroupe[i]);
-    }
-
-    Mix_FreeChunk(musique_fin);
+    /*Destruction des éléments du jeu*/
     destruction_SDL(parametre, gold, xp, textureFond, prehistoire, antiquite, moyen_age,
                     moderne, futuriste, police, police_texte, rendu, fenetre, click, music, sprite_hud,
                     building, fin_partie_win, fin_partie_lose);
+
+    /*Destruction des éléments restants */
+    traitement_post_jeu(&tab_de_charactere, &j1, &j2_distant, &o, cameraX, cameraY, buffer, survol, lastUlti, diff_time,
+                        delai_ulti, reseau_action, reseau_action2, troupe_formee, nb, lastTroupe, musique_fin, ancien_lvl);
 
     return EXIT_SUCCESS;
 }

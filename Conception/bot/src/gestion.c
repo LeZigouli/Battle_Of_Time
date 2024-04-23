@@ -950,9 +950,204 @@ int fin_partie(player_t * player, ordi_t * ordi, player_t * player_online, int e
     return AUCUN_GAGNANT;
 }
 
+void traitement_pre_jeu(   etat_t * etat, int * a_deja_lancer_partie, player_t ** j1, ordi_t ** o, 
+                                player_t * j2_distant, SDL_Texture * image[], int * ancien_lvl, character_t * tab_de_charactere, 
+                                int * connexion_reussi, int * valide, int * resultat, SDL_Renderer* rendu)
+{        
+        /* variables locales tampons */
+        player_t * buffer_player = NULL;
+        ordi_t   * buffer_ordi = NULL;
+        int i;
 
+        /* qaund on lance une nouvelle partie, on detruit bien toute les données */
+        if ( !(*a_deja_lancer_partie) && ( *etat == JOUER || *etat == JOUER_RESEAU_CREER || *etat == JOUER_RESEAU_REJOINDRE ) )
+        {
+            (*a_deja_lancer_partie) = TRUE;
+        }
 
+        /* si le joueur est retourné au menu principal et qu'il a déja creer une partie */
+        if ( (*a_deja_lancer_partie) && (*etat) == MENU_PRINCIPAL )
+        {
+            reinitialiser_partie(j1,o);
+            for(i=0;i< NB_CHARACTER*2;i++)
+                if(i<4)
+                    image[i]=IMG_LoadTexture(rendu,tab_de_charactere[Prehistoire+i].sprite);
+                else
+                    image[i]=NULL;
+            (*ancien_lvl)=Prehistoire;
+            (*a_deja_lancer_partie) = FALSE;
+        }
 
+        /* si la connexion a été acceptée */
+        if ( (*valide) ) // si on souhaite rejoindre une partie en ligne
+        {
+            /* on mets l'etat du menu a jour */
+            (*etat) = JOUER_RESEAU_REJOINDRE;
+            (*valide) = FALSE;
+        }
+
+        switch((*etat))
+        {
+            /* si le joueur clique sur reprendre partie */
+            case JOUER_CHARGER : 
+                reinitialiser_partie(j1,o);
+                load(&buffer_ordi, &buffer_player, tab_de_charactere);
+                (*j1) = buffer_player;
+                (*o) = buffer_ordi;
+                buffer_player = NULL;
+                buffer_ordi = NULL;
+                (*etat) = JOUER;
+                break;
+
+            /* quand l'utilisateur clique sur sauvegarder */
+            case MENU_SAUVEGARDER :
+                save((*o),(*j1));
+                (*etat) = OPTION_JEU;
+                break;
+            
+            /* on chercher un gagnant dans une partie en cours */
+            case JOUER :
+            case JOUER_RESEAU_CREER :
+            case JOUER_RESEAU_REJOINDRE :
+                (*resultat) = fin_partie((*j1),(*o),j2_distant,(*etat));
+                if ( (*resultat) != AUCUN_GAGNANT ) (*etat) = FIN_PARTIE;
+                break;
+            
+            /* quand on essaie de jouer une partie en mode reseau etant le serveur (creer) */
+            case MENU_SOUS_CREER :
+                if ( init_reseau_serveur() && !(*connexion_reussi) )
+                {
+                    (*connexion_reussi) = TRUE;
+                    (*etat) = JOUER_RESEAU_CREER;
+                }
+                else (*etat) = MENU_SOUS_ENLIGNE;
+                break;
+            
+            default :
+                break;
+        }
+    
+}
+
+void traitement_en_jeu(    etat_t * etat, player_t ** j1, player_t ** j2_distant, ordi_t ** o, 
+                                Uint32 * diff_time, Uint32 * lastUlti, Uint32 * delai_ulti, 
+                                int * reseau_action, int * reseau_action2, int * to_server_socket, int * client_socket, 
+                                character_t * tab_de_charactere, SDL_Renderer * rendu, SDL_Rect * playerImg, SDL_Rect * ordiImg, 
+                                SDL_Rect * playerAttackImg, SDL_Rect * ordiAttackImg, int * first_attaque, SDL_Rect playerPosition[], 
+                                SDL_Rect ordiPosition[], int * ancien_lvl, SDL_Texture * image[], SDL_Texture * img_char[], 
+                                Uint32 currentTime, Uint32 * lastMovement, int w, int h, int * cameraX, int * cameraY, 
+                                unsigned long int * debut_sprite, unsigned long int * fin_sprite, SDL_Texture * img_c_ordi[])
+{
+    int action,action2;
+
+    switch((*etat))
+    {
+        case JOUER : // si on joue une partie classique contre un ordinateur
+             /*Calcul du temps avant d'utiliser l'ulti*/
+            (*diff_time) = currentTime - (*lastUlti);
+            (*delai_ulti) = DELAI_ULTI - (*diff_time);
+            envoie_char(j1);
+            jeu_ordi((*o),(*j1),tab_de_charactere);
+
+            affichageSprite(rendu, (*j1), (*o), playerImg, ordiImg, playerAttackImg, ordiAttackImg, first_attaque, playerPosition, ordiPosition, ancien_lvl, 
+                            tab_de_charactere, image, img_char, img_c_ordi, currentTime, lastMovement, w, h, cameraX, cameraY, debut_sprite, fin_sprite);
+            break;
+        
+        case JOUER_RESEAU_CREER :
+        case JOUER_RESEAU_REJOINDRE :
+
+            /*Calcul du temps avant d'utiliser l'ulti*/
+            (*diff_time) = currentTime - (*lastUlti);
+            (*delai_ulti) = DELAI_ULTI - (*diff_time);
+
+            switch((*etat))
+            {
+                case JOUER_RESEAU_CREER :
+                    recevoir((*client_socket),&action,&action2);
+                    envoyer((*client_socket),reseau_action,reseau_action2);
+                    break;
+
+                case JOUER_RESEAU_REJOINDRE :
+                    recevoir((*to_server_socket),&action,&action2);
+                    envoyer((*to_server_socket),reseau_action, reseau_action2);
+                    break;
+                
+                default:
+                    break;
+            }
+            printf("%d <> %d\n",action,action2);
+            switch(action)
+            {
+                case AUCUN_ACTION : // si adversaire fait aucune action
+                    break;
+
+                case ACHAT_CHARACTER : // adversaire achete un perso 
+                    if ( action2 != AUCUN_ACTION )
+                    {
+                        buy_character(j2_distant,tab_de_charactere,action2);
+                    }
+                    break;
+
+                case PASSAGE_AGE : // adversaire passe a l'age suivant
+                    if ( action2 != AUCUN_ACTION )
+                    {
+                        upgrade_building(&((*j2_distant)->building),&action2);
+                    }
+                    break;
+
+                case ULTI : // adversaire met ultime
+                    ulti(&((*j1)->characters));
+                    break;
+
+                default : 
+                    break;
+            }
+
+            envoie_char(j1); // on envoie file d'attente
+            envoie_char(j2_distant); // envoie file d'attente du joueur 2
+            
+            affichageSpriteReseau(  rendu, (*j1), (*j2_distant), playerImg, ordiImg, playerAttackImg, ordiAttackImg, first_attaque, playerPosition, ordiPosition, ancien_lvl, 
+                                    tab_de_charactere, image, img_char, img_c_ordi, currentTime, lastMovement, w, h, cameraX, cameraY, debut_sprite, fin_sprite);
+            break;
+
+    default :
+        break;
+    }
+}                           
+
+void traitement_post_jeu(   character_t ** tab_de_charactere, player_t ** j1, player_t ** j2_distant, ordi_t ** o, int * cameraX,
+                            int * cameraY, char * buffer, int * survol, Uint32 * lastUlti, Uint32 * diff_time, Uint32 * delai_ulti,
+                            int * reseau_action, int * reseau_action2, int * troupe_formee[], int * nb[], Uint32 * lastTroupe[],
+                            Mix_Chunk * musique_fin, int * ancien_lvl )
+{
+    int i;
+
+    free(ancien_lvl);
+    destroy_tab_character(tab_de_charactere);
+    destroy_player(j1);
+    destroy_player(j2_distant);
+    detr_ordi(o);
+    free(cameraX);
+    free(cameraY);
+    free(buffer);
+    free(survol);
+    free(lastUlti);
+    free(diff_time);
+    free(delai_ulti);
+    free(reseau_action);
+    free(reseau_action2);
+
+    for(i = 0; i < 4; i++){
+        free(troupe_formee[i]);
+    }
+    for(i = 0; i < 4; i++){
+        free(nb[i]);
+    }
+    for(i = 0; i < 4; i++){
+        free(lastTroupe[i]);
+    }
+    Mix_FreeChunk(musique_fin);
+}
 
 
 
