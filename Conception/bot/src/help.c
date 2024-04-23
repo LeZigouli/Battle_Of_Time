@@ -9,9 +9,9 @@
 #include "../lib/help.h"
 
 /**
- * @brief Affiche les caractéristiques d'un personnage.
+ * \brief Affiche les caractéristiques d'un personnage.
  * 
- * @param character Le personnage à afficher.
+ * \param character Le personnage à afficher.
  */
 void afficher_character_tab_tab(character_t character)
 {
@@ -32,10 +32,10 @@ void afficher_character_tab_tab(character_t character)
 }
 
 /**
- * @brief Affiche toutes les caractéristiques des personnages dans un tableau.
+ * \brief Affiche toutes les caractéristiques des personnages dans un tableau.
  * 
- * @param tab Le tableau de personnages à afficher.
- * @return TRUE si le tableau n'est pas NULL, FALSE sinon.
+ * \param tab Le tableau de personnages à afficher.
+ * \return TRUE si le tableau n'est pas NULL, FALSE sinon.
  */
 booleen_t afficher_all_character(character_t * tab)
 {

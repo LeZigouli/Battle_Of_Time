@@ -11,9 +11,9 @@
 
 
 /**
- * @brief Initialise SDL, SDL_image, SDL_ttf, et SDL_Mixer.
+ * \brief Initialise SDL, SDL_image, SDL_ttf, et SDL_Mixer.
  * 
- * @return 0 en cas de succès, 1 en cas d'erreur.
+ * \return 0 en cas de succès, 1 en cas d'erreur.
  */
 int initialisation()
 {
@@ -54,14 +54,14 @@ int initialisation()
 }
 
 /**
- * @brief Charge une police à partir d'un fichier.
+ * \brief Charge une police à partir d'un fichier.
  * 
- * @param rendu Le renderer associé à la fenêtre.
- * @param fenetre La fenêtre où afficher le texte.
- * @param textureFond La texture de fond de l'interface.
- * @param path Le chemin vers le fichier de la police.
- * @param taille La taille de la police à charger.
- * @return Un pointeur vers la police chargée.
+ * \param rendu Le renderer associé à la fenêtre.
+ * \param fenetre La fenêtre où afficher le texte.
+ * \param textureFond La texture de fond de l'interface.
+ * \param path Le chemin vers le fichier de la police.
+ * \param taille La taille de la police à charger.
+ * \return Un pointeur vers la police chargée.
  */
 TTF_Font* chargementPolice(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* textureFond, char* path, int taille)
 {
@@ -83,13 +83,13 @@ TTF_Font* chargementPolice(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture
 }
 
 /**
- * @brief Charge un fichier audio dans un chunk.
+ * \brief Charge un fichier audio dans un chunk.
  * 
- * @param rendu Le renderer associé à la fenêtre.
- * @param fenetre La fenêtre où afficher le texte.
- * @param textureFond La texture de fond de l'interface.
- * @param path Le chemin vers le fichier audio.
- * @return Un pointeur vers le chunk audio chargé.
+ * \param rendu Le renderer associé à la fenêtre.
+ * \param fenetre La fenêtre où afficher le texte.
+ * \param textureFond La texture de fond de l'interface.
+ * \param path Le chemin vers le fichier audio.
+ * \return Un pointeur vers le chunk audio chargé.
  */
 Mix_Chunk* chargementAudio(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* textureFond, char* path)
 {
@@ -111,12 +111,12 @@ Mix_Chunk* chargementAudio(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture
 }
 
 /**
- * @brief Charge une image à partir d'un fichier.
+ * \brief Charge une image à partir d'un fichier.
  * 
- * @param rendu Le renderer associé à la fenêtre.
- * @param fenetre La fenêtre où afficher le texte.
- * @param path Le chemin vers le fichier image.
- * @return Une texture contenant l'image chargée.
+ * \param rendu Le renderer associé à la fenêtre.
+ * \param fenetre La fenêtre où afficher le texte.
+ * \param path Le chemin vers le fichier image.
+ * \return Une texture contenant l'image chargée.
  */
 SDL_Texture* chargementImg(SDL_Renderer* rendu, SDL_Window* fenetre, char* path)
 {
@@ -138,14 +138,14 @@ SDL_Texture* chargementImg(SDL_Renderer* rendu, SDL_Window* fenetre, char* path)
 
 
 /**
- * @brief Crée un rectangle dynamique en fonction des dimensions de la fenêtre.
+ * \brief Crée un rectangle dynamique en fonction des dimensions de la fenêtre.
  * 
- * @param fenetre La fenêtre où afficher le rectangle.
- * @param x La position horizontale du rectangle.
- * @param y La position verticale du rectangle.
- * @param largeur La largeur du rectangle.
- * @param hauteur La hauteur du rectangle.
- * @return Le rectangle créé.
+ * \param fenetre La fenêtre où afficher le rectangle.
+ * \param x La position horizontale du rectangle.
+ * \param y La position verticale du rectangle.
+ * \param largeur La largeur du rectangle.
+ * \param hauteur La hauteur du rectangle.
+ * \return Le rectangle créé.
  */
 SDL_Rect creationRectangle(SDL_Window* fenetre, int x, int y, int largeur, int hauteur)
 {
@@ -164,27 +164,27 @@ SDL_Rect creationRectangle(SDL_Window* fenetre, int x, int y, int largeur, int h
 }
 
 /**
- * @brief Libère la mémoire allouée pour les variables SDL et ferme SDL.
+ * \brief Libère la mémoire allouée pour les variables SDL et ferme SDL.
  * 
- * @param parametre La texture du paramètre.
- * @param gold La texture de l'or.
- * @param xp La texture de l'expérience.
- * @param textureFond La texture de fond de l'interface.
- * @param prehistoire La texture pour la période préhistorique.
- * @param antiquite La texture pour la période de l'Antiquité.
- * @param moyen_age La texture pour la période du Moyen Âge.
- * @param moderne La texture pour la période moderne.
- * @param futuriste La texture pour la période futuriste.
- * @param police La police de caractères utilisée.
- * @param police_texte La police de caractères pour le texte.
- * @param rendu Le renderer associé à la fenêtre.
- * @param fenetre La fenêtre principale.
- * @param click Le son du clic.
- * @param music La musique du jeu.
- * @param sprite_hud Le tableau de textures pour l'interface HUD.
- * @param building Le tableau de textures pour les bâtiments.
- * @param win La texture pour l'écran de victoire.
- * @param lose La texture pour l'écran de défaite.
+ * \param parametre La texture du paramètre.
+ * \param gold La texture de l'or.
+ * \param xp La texture de l'expérience.
+ * \param textureFond La texture de fond de l'interface.
+ * \param prehistoire La texture pour la période préhistorique.
+ * \param antiquite La texture pour la période de l'Antiquité.
+ * \param moyen_age La texture pour la période du Moyen Âge.
+ * \param moderne La texture pour la période moderne.
+ * \param futuriste La texture pour la période futuriste.
+ * \param police La police de caractères utilisée.
+ * \param police_texte La police de caractères pour le texte.
+ * \param rendu Le renderer associé à la fenêtre.
+ * \param fenetre La fenêtre principale.
+ * \param click Le son du clic.
+ * \param music La musique du jeu.
+ * \param sprite_hud Le tableau de textures pour l'interface HUD.
+ * \param building Le tableau de textures pour les bâtiments.
+ * \param win La texture pour l'écran de victoire.
+ * \param lose La texture pour l'écran de défaite.
  */
 void destruction_SDL(SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp, SDL_Texture* textureFond, 
                      SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age, SDL_Texture* moderne,

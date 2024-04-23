@@ -9,11 +9,11 @@
 #include "../lib/character.h"
 
 /**
- * @brief Fonction permettant à un personnage d'attaquer un autre personnage.
+ * \brief Fonction permettant à un personnage d'attaquer un autre personnage.
  * 
- * @param destination Le personnage cible de l'attaque.
- * @param src Le personnage effectuant l'attaque.
- * @return TRUE si l'opération s'est déroulée avec succès, FALSE sinon.
+ * \param destination Le personnage cible de l'attaque.
+ * \param src Le personnage effectuant l'attaque.
+ * \return TRUE si l'opération s'est déroulée avec succès, FALSE sinon.
  */
 booleen_t character_attack_character(character_t ** destination, character_t ** src)
 {
@@ -30,11 +30,11 @@ booleen_t character_attack_character(character_t ** destination, character_t ** 
 
 
 /**
- * @brief Fonction permettant à un personnage d'attaquer un bâtiment.
+ * \brief Fonction permettant à un personnage d'attaquer un bâtiment.
  * 
- * @param destination Le bâtiment cible de l'attaque.
- * @param src Le personnage effectuant l'attaque.
- * @return TRUE si l'opération s'est déroulée avec succès, FALSE sinon.
+ * \param destination Le bâtiment cible de l'attaque.
+ * \param src Le personnage effectuant l'attaque.
+ * \return TRUE si l'opération s'est déroulée avec succès, FALSE sinon.
  */
 booleen_t character_attack_building(building_t ** destination, character_t ** src)
 {
@@ -51,9 +51,9 @@ booleen_t character_attack_building(building_t ** destination, character_t ** sr
 
 
 /**
- * @brief Déplace un personnage vers la gauche.
+ * \brief Déplace un personnage vers la gauche.
  * 
- * @param character Le personnage à déplacer.
+ * \param character Le personnage à déplacer.
  */
 void deplacement_gauche(character_t ** character)
 {
@@ -61,9 +61,9 @@ void deplacement_gauche(character_t ** character)
 }
 
 /**
- * @brief Déplace un personnage vers la droite.
+ * \brief Déplace un personnage vers la droite.
  * 
- * @param character Le personnage à déplacer.
+ * \param character Le personnage à déplacer.
  */
 void deplacement_droit(character_t ** character)
 {
@@ -72,10 +72,10 @@ void deplacement_droit(character_t ** character)
 
 
 /**
- * @brief Calcule le prix d'un personnage en fonction de son niveau.
+ * \brief Calcule le prix d'un personnage en fonction de son niveau.
  * 
- * @param n Le niveau du personnage.
- * @return Le prix calculé.
+ * \param n Le niveau du personnage.
+ * \return Le prix calculé.
  */
 int calcule_prix(int n) {
     int term = 50;
@@ -99,10 +99,10 @@ int calcule_prix(int n) {
 }
 
 /**
- * @brief Calcule le temps nécessaire à la formation d'un personnage en fonction de son niveau.
+ * \brief Calcule le temps nécessaire à la formation d'un personnage en fonction de son niveau.
  * 
- * @param n Le niveau du personnage.
- * @return Le temps de formation calculé.
+ * \param n Le niveau du personnage.
+ * \return Le temps de formation calculé.
  */
 int temp_former(int n) {
     switch (n%4)
@@ -127,9 +127,9 @@ int vie(int ind){
 }
 
 /**
- * @brief Initialise tous les personnages du jeu.
+ * \brief Initialise tous les personnages du jeu.
  * 
- * @return Un pointeur vers un tableau de personnages initialisés.
+ * \return Un pointeur vers un tableau de personnages initialisés.
  */
 character_t * initcharacter()
 {
@@ -304,10 +304,10 @@ character_t * initcharacter()
 
 
 /**
- * @brief Libère la mémoire allouée pour le tableau de personnages.
+ * \brief Libère la mémoire allouée pour le tableau de personnages.
  * 
- * @param tab Un pointeur vers le tableau de personnages à détruire.
- * @return TRUE si l'opération s'est déroulée avec succès, FALSE sinon.
+ * \param tab Un pointeur vers le tableau de personnages à détruire.
+ * \return TRUE si l'opération s'est déroulée avec succès, FALSE sinon.
  */
 booleen_t destroy_tab_character(character_t ** tab )
 {
@@ -317,11 +317,11 @@ booleen_t destroy_tab_character(character_t ** tab )
 }
 
 /**
- * @brief Copie les données d'un personnage source vers un personnage destination.
+ * \brief Copie les données d'un personnage source vers un personnage destination.
  * 
- * @param destination Le personnage de destination.
- * @param src Le personnage source.
- * @return TRUE si l'opération s'est déroulée avec succès, FALSE sinon.
+ * \param destination Le personnage de destination.
+ * \param src Le personnage source.
+ * \return TRUE si l'opération s'est déroulée avec succès, FALSE sinon.
  */
 booleen_t copie_character(character_t ** destination, character_t * src)
 {

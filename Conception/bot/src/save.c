@@ -9,10 +9,10 @@
 #include "../lib/save.h"
 
 /**
- * @brief Sauvegarde le joueur et l'ordinateur dans un fichier.
- * @param ordi L'ordinateur à sauvegarder.
- * @param player Le joueur à sauvegarder.
- * @return TRUE si la sauvegarde réussit, FALSE sinon.
+ * \brief Sauvegarde le joueur et l'ordinateur dans un fichier.
+ * \param ordi L'ordinateur à sauvegarder.
+ * \param player Le joueur à sauvegarder.
+ * \return TRUE si la sauvegarde réussit, FALSE sinon.
  */
 booleen_t save(ordi_t * ordi, player_t * player){
 
@@ -141,11 +141,11 @@ booleen_t save(ordi_t * ordi, player_t * player){
 }
 
 /**
- * @brief Charge le joueur et l'ordinateur depuis un fichier.
- * @param ordi Un pointeur vers le pointeur de l'ordinateur.
- * @param player Un pointeur vers le pointeur du joueur.
- * @param tab Un tableau de personnages.
- * @return TRUE si le chargement réussit, FALSE sinon.
+ * \brief Charge le joueur et l'ordinateur depuis un fichier.
+ * \param ordi Un pointeur vers le pointeur de l'ordinateur.
+ * \param player Un pointeur vers le pointeur du joueur.
+ * \param tab Un tableau de personnages.
+ * \return TRUE si le chargement réussit, FALSE sinon.
  */
 booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab){
 

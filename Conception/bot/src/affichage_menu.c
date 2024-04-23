@@ -9,49 +9,49 @@
 #include "../lib/affichage_menu.h"
 
 /**
- * @brief Affichage en fonction de l'etat.
+ * \brief Affichage en fonction de l'etat.
  * 
- * @param etat Etat du jeu
- * @param etatAge Numero de l'age
- * @param rendu contexte d'affichage de la fenetre
- * @param fenetre Le pointeur vers la fenêtre SDL
- * @param police Police d'écriture pour les titre (menu)
- * @param police_texte Police d'écriture pour les textes
- * @param menuX Position verticale des éléments du menu
- * @param menuY Position horizontale des éléments du menu
- * @param elm_reso Structure contenant les informations pour la liste défilante dans le menu résolution
- * @param selecElement Indice pour savoir quel élément de la liste défilante est sélectionné
- * @param effet Chaîne de caractère indiquant si les effets sonores sont activés ou désactivés
- * @param textInput Texte saisie par l'utilisateur
- * @param isValid Pointeur vérifiant si le texte saisie correspond à une adresse IP valide ou non
- * @param keyCounts Permet de savoir quand afficher le message de validité de l'adresse IP
- * @param parametre Image de la roue crantée
- * @param gold Image des pièces d'or
- * @param xp Image de l'XP
- * @param prehistoire Image d'arrière plan pour la Préhistoire
- * @param antiquite Image d'arrière plan pour l'Antiquité
- * @param moyen_age Image d'arrière plan pour le Moyen-Âge
- * @param moderne Image d'arrière plan pour l'ère Moderne
- * @param futuriste Image d'arrière plan pour l'ère Futuriste
- * @param joueur Structure contenant les informations de la partie du joueur
- * @param sprite_hud Tableau d'images des portraits des personnages
- * @param upgrade Image du bouton d'upgrade
- * @param ordi Structure contenant les informations de la partie de l'ordinateur
- * @param cameraX Pointeur sur la position x de la caméra
- * @param cameraY Pointeur sur la position y de la caméra
- * @param ultim Image du bouton de l'ultime
- * @param building Tableau d'images des bases de chaque âges
- * @param fin_partie Détermine si c'est la fin de la partie
- * @param win Image de fin en cas de victoire
- * @param lose Image de fin en cas de défaite
- * @param tab_charactere Struture contenant les informations des personnages
- * @param survol Détermine quel élément est survolé par la souris
- * @param delai_ulti Délai d'attente avant d'utiliser l'ultime
- * @param diff_time La différence de temps entre le temps actuel et le temps lors de l'utilsation de l'ultim
- * @param troupe_formee Tableau de pointeur pour savoir quelles troupes ont été formées
- * @param currentTime Temps actuel
- * @param lastTroupe Tableau de pointeur sur le temps de formation de chaque personnage
- * @param nb Tableau de pointeur sur le nombre de personnages formés pour chaque classe
+ * \param etat Etat du jeu
+ * \param etatAge Numero de l'age
+ * \param rendu contexte d'affichage de la fenetre
+ * \param fenetre Le pointeur vers la fenêtre SDL
+ * \param police Police d'écriture pour les titre (menu)
+ * \param police_texte Police d'écriture pour les textes
+ * \param menuX Position verticale des éléments du menu
+ * \param menuY Position horizontale des éléments du menu
+ * \param elm_reso Structure contenant les informations pour la liste défilante dans le menu résolution
+ * \param selecElement Indice pour savoir quel élément de la liste défilante est sélectionné
+ * \param effet Chaîne de caractère indiquant si les effets sonores sont activés ou désactivés
+ * \param textInput Texte saisie par l'utilisateur
+ * \param isValid Pointeur vérifiant si le texte saisie correspond à une adresse IP valide ou non
+ * \param keyCounts Permet de savoir quand afficher le message de validité de l'adresse IP
+ * \param parametre Image de la roue crantée
+ * \param gold Image des pièces d'or
+ * \param xp Image de l'XP
+ * \param prehistoire Image d'arrière plan pour la Préhistoire
+ * \param antiquite Image d'arrière plan pour l'Antiquité
+ * \param moyen_age Image d'arrière plan pour le Moyen-Âge
+ * \param moderne Image d'arrière plan pour l'ère Moderne
+ * \param futuriste Image d'arrière plan pour l'ère Futuriste
+ * \param joueur Structure contenant les informations de la partie du joueur
+ * \param sprite_hud Tableau d'images des portraits des personnages
+ * \param upgrade Image du bouton d'upgrade
+ * \param ordi Structure contenant les informations de la partie de l'ordinateur
+ * \param cameraX Pointeur sur la position x de la caméra
+ * \param cameraY Pointeur sur la position y de la caméra
+ * \param ultim Image du bouton de l'ultime
+ * \param building Tableau d'images des bases de chaque âges
+ * \param fin_partie Détermine si c'est la fin de la partie
+ * \param win Image de fin en cas de victoire
+ * \param lose Image de fin en cas de défaite
+ * \param tab_charactere Struture contenant les informations des personnages
+ * \param survol Détermine quel élément est survolé par la souris
+ * \param delai_ulti Délai d'attente avant d'utiliser l'ultime
+ * \param diff_time La différence de temps entre le temps actuel et le temps lors de l'utilsation de l'ultim
+ * \param troupe_formee Tableau de pointeur pour savoir quelles troupes ont été formées
+ * \param currentTime Temps actuel
+ * \param lastTroupe Tableau de pointeur sur le temps de formation de chaque personnage
+ * \param nb Tableau de pointeur sur le nombre de personnages formés pour chaque classe
  */
 void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police , TTF_Font* police_texte, 
                int menuX, int menuY, element_t* elm_reso, int* selecElement, const char* effet, char* textInput, 
@@ -176,14 +176,14 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
 }
 
 /**
- * @brief Affiche le titre du jeu à une position donnée sur l'écran.
+ * \brief Affiche le titre du jeu à une position donnée sur l'écran.
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param fenetre Le pointeur vers la fenêtre SDL.
- * @param x La position en x du coin supérieur gauche du titre.
- * @param y La position en y du coin supérieur gauche du titre.
- * @param largeur La largeur du titre.
- * @param hauteur La hauteur du titre.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
+ * \param x La position en x du coin supérieur gauche du titre.
+ * \param y La position en y du coin supérieur gauche du titre.
+ * \param largeur La largeur du titre.
+ * \param hauteur La hauteur du titre.
  */
 void afficherTitre(SDL_Renderer * rendu, SDL_Window* fenetre, int x, int y, int largeur, int hauteur)
 {
@@ -196,16 +196,16 @@ void afficherTitre(SDL_Renderer * rendu, SDL_Window* fenetre, int x, int y, int 
 }
 
 /**
- * @brief Affiche un élément du menu à une position donnée sur l'écran.
+ * \brief Affiche un élément du menu à une position donnée sur l'écran.
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param police La police de caractères à utiliser.
- * @param fenetre Le pointeur vers la fenêtre SDL.
- * @param texte Le texte à afficher.
- * @param x La position en x du coin supérieur gauche de l'élément.
- * @param y La position en y du coin supérieur gauche de l'élément.
- * @param largeur La largeur de l'élément.
- * @param hauteur La hauteur de l'élément.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param police La police de caractères à utiliser.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
+ * \param texte Le texte à afficher.
+ * \param x La position en x du coin supérieur gauche de l'élément.
+ * \param y La position en y du coin supérieur gauche de l'élément.
+ * \param largeur La largeur de l'élément.
+ * \param hauteur La hauteur de l'élément.
  */
 void afficherMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte, int x, int y, int largeur, int hauteur)
 {
@@ -223,15 +223,15 @@ void afficherMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, co
 }
 
 /**
- * @brief Affiche les sous-menus avec leurs options.
+ * \brief Affiche les sous-menus avec leurs options.
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param police La police de caractères à utiliser.
- * @param fenetre Le pointeur vers la fenêtre SDL.
- * @param texte1 Texte pour le premier onglet.
- * @param texte2 Texte pour le deuxième onglet.
- * @param texte3 Texte pour le troisième onglet.
- * @param texte4 Texte pour le quatrième onglet.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param police La police de caractères à utiliser.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
+ * \param texte1 Texte pour le premier onglet.
+ * \param texte2 Texte pour le deuxième onglet.
+ * \param texte3 Texte pour le troisième onglet.
+ * \param texte4 Texte pour le quatrième onglet.
  */
 void afficherSousMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte1, const char* texte2, const char* texte3, const char* texte4)
 {
@@ -253,14 +253,14 @@ void afficherSousMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre
 }
 
 /**
- * @brief Affiche le sous-menu des options.
+ * \brief Affiche le sous-menu des options.
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param police La police de caractères à utiliser.
- * @param fenetre Le pointeur vers la fenêtre SDL.
- * @param texte1 Texte pour la première option.
- * @param texte2 Texte pour la deuxième option.
- * @param texte3 Texte pour la troisième option.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param police La police de caractères à utiliser.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
+ * \param texte1 Texte pour la première option.
+ * \param texte2 Texte pour la deuxième option.
+ * \param texte3 Texte pour la troisième option.
  */
 void afficherSousMenuOption(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte1, const char* texte2, const char* texte3)
 {
@@ -281,11 +281,11 @@ void afficherSousMenuOption(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* f
 }
 
 /**
- * @brief Affiche le sous-menu des résolutions.
+ * \brief Affiche le sous-menu des résolutions.
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param police La police de caractères à utiliser.
- * @param fenetre Le pointeur vers la fenêtre SDL.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param police La police de caractères à utiliser.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
  */
 void afficherSousMenuResolution(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre)
 {
@@ -318,11 +318,11 @@ void afficherSousMenuResolution(SDL_Renderer* rendu, TTF_Font* police, SDL_Windo
 }
 
 /**
- * @brief Affiche le sous-menu pour le menu "Jouer".
+ * \brief Affiche le sous-menu pour le menu "Jouer".
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param fenetre Le pointeur vers la fenêtre SDL.
- * @param police La police de caractères à utiliser.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
+ * \param police La police de caractères à utiliser.
  */
 void afficherSousMenuJouer(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
 {
@@ -344,11 +344,11 @@ void afficherSousMenuJouer(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* p
 }
 
 /**
- * @brief Affiche le sous-menu pour le menu "Solo".
+ * \brief Affiche le sous-menu pour le menu "Solo".
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param fenetre Le pointeur vers la fenêtre SDL.
- * @param police La police de caractères à utiliser.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
+ * \param police La police de caractères à utiliser.
  */
 void afficherSousMenuSolo(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
 {
@@ -369,11 +369,11 @@ void afficherSousMenuSolo(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* po
 }
 
 /**
- * @brief Affiche le sous-menu pour le menu "En ligne".
+ * \brief Affiche le sous-menu pour le menu "En ligne".
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param fenetre Le pointeur vers la fenêtre SDL.
- * @param police La police de caractères à utiliser.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
+ * \param police La police de caractères à utiliser.
  */
 void afficherSousMenuEnLigne(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
 {
@@ -395,11 +395,11 @@ void afficherSousMenuEnLigne(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font*
 
 
 /**
- * @brief Initialise les éléments nécessaires pour afficher les résolutions dans le sous-menu des résolutions.
+ * \brief Initialise les éléments nécessaires pour afficher les résolutions dans le sous-menu des résolutions.
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param fenetre Le pointeur vers la fenêtre SDL.
- * @param elm_reso Le pointeur vers les éléments de résolution à initialiser.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
+ * \param elm_reso Le pointeur vers les éléments de résolution à initialiser.
  */
 void initElements(SDL_Renderer* rendu, SDL_Window* fenetre, element_t* elm_reso) 
 {
@@ -422,13 +422,13 @@ void initElements(SDL_Renderer* rendu, SDL_Window* fenetre, element_t* elm_reso)
 }
 
 /**
- * @brief Affiche les résolutions dans le sous-menu des résolutions.
+ * \brief Affiche les résolutions dans le sous-menu des résolutions.
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param fenetre Le pointeur vers la fenêtre SDL.
- * @param police La police de caractères à utiliser.
- * @param elm_reso Le pointeur vers les éléments de résolution.
- * @param selecElement Le pointeur vers l'élément sélectionné.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
+ * \param police La police de caractères à utiliser.
+ * \param elm_reso Le pointeur vers les éléments de résolution.
+ * \param selecElement Le pointeur vers l'élément sélectionné.
  */
 void resolution(SDL_Renderer* rendu, SDL_Window* fenetre , TTF_Font* police, element_t* elm_reso, int* selecElement)
 {
@@ -445,11 +445,11 @@ void resolution(SDL_Renderer* rendu, SDL_Window* fenetre , TTF_Font* police, ele
 }
 
 /**
- * @brief Affiche le sous-menu "Crédits".
+ * \brief Affiche le sous-menu "Crédits".
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param fenetre Le pointeur vers la fenêtre SDL.
- * @param police La police de caractères à utiliser.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
+ * \param police La police de caractères à utiliser.
  */
 void afficherSousMenuCredits(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
 {
@@ -482,12 +482,12 @@ void afficherSousMenuCredits(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font*
 }
 
 /**
- * @brief Affiche le sous-menu "Son".
+ * \brief Affiche le sous-menu "Son".
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param police La police de caractères à utiliser.
- * @param fenetre Le pointeur vers la fenêtre SDL.
- * @param texte Le texte à afficher.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param police La police de caractères à utiliser.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
+ * \param texte Le texte à afficher.
  */
 void afficherSousMenuSon(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte)
 {
@@ -521,14 +521,14 @@ void afficherSousMenuSon(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fene
 }
 
 /**
- * @brief Affiche le sous-menu "Rejoindre partie" pour le jeu en ligne.
+ * \brief Affiche le sous-menu "Rejoindre partie" pour le jeu en ligne.
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param fenetre Le pointeur vers la fenêtre SDL.
- * @param police La police de caractères à utiliser.
- * @param textInput Le texte saisi par l'utilisateur.
- * @param isValid Indique si l'adresse IP saisie est valide.
- * @param keyCounts Le nombre de touches saisis par l'utilisateur.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
+ * \param police La police de caractères à utiliser.
+ * \param textInput Le texte saisi par l'utilisateur.
+ * \param isValid Indique si l'adresse IP saisie est valide.
+ * \param keyCounts Le nombre de touches saisis par l'utilisateur.
  */
 void afficherSousMenuRejoindre(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, char* textInput, int* isValid, int* keyCounts)
 {
@@ -595,11 +595,11 @@ void afficherSousMenuRejoindre(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Fon
 }
 
 /**
- * @brief Affiche le sous-menu "Difficulté".
+ * \brief Affiche le sous-menu "Difficulté".
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param fenetre Le pointeur vers la fenêtre SDL.
- * @param police La police de caractères à utiliser.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
+ * \param police La police de caractères à utiliser.
  */
 void afficherSousMenuDifficulte(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
 {
@@ -621,11 +621,11 @@ void afficherSousMenuDifficulte(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Fo
 }
 
 /**
- * @brief Affiche le sous-menu pour créer une partie en ligne.
+ * \brief Affiche le sous-menu pour créer une partie en ligne.
  * 
- * @param rendu Le pointeur vers le renderer SDL.
- * @param fenetre Le pointeur vers la fenêtre SDL.
- * @param police La police de caractères à utiliser.
+ * \param rendu Le pointeur vers le renderer SDL.
+ * \param fenetre Le pointeur vers la fenêtre SDL.
+ * \param police La police de caractères à utiliser.
  */
 void afficherSousMenuCreer(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
 {
