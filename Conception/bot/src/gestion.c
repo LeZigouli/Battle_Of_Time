@@ -507,6 +507,8 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
         /*********/
         /*--JEU--*/
         /*********/
+        case JOUER_RESEAU_CREER :
+        case JOUER_RESEAU_REJOINDRE :
         /*Vérifier si le clic est dans la zone du Jeu*/   
         case JOUER:
             /*Clic sur la roue crantée*/

@@ -61,8 +61,8 @@ char buffer[512];
 int to_server_socket;
 
 int init_reseau_client(char serveurname[MAX_IP]);
-void envoyer_structure( int to, player_t player1, player_t player2 );
-void recevoir_structure( int to, player_t * player1, player_t * player2 );
+void envoyer( int to, int * action, int * characters );
+void recevoir( int to, int * action, int * characters );
 void client_fermeture(int * socket);
 void reseau_traitement(player_t * j_1, player_t * j_2, player_t * j1, player_t * joueur_online);
 

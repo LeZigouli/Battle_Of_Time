@@ -235,10 +235,9 @@ int main(int argc, char* argv[]) {
     (*ancien_lvl) = 0;
     int i;
     int a_deja_lancer_partie = FALSE;
-    player_t * joueur_online = initplayer(OWNER_INIT);
     char * buffer = malloc(sizeof(100));
 
-    player_t j1_distant, j2_distant;
+    player_t * j2_distant = initplayer(OWNER_INIT);
 
     /* variable pour la fin de partie */
     int resultat = AUCUN_GAGNANT;
@@ -248,6 +247,8 @@ int main(int argc, char* argv[]) {
     unsigned long debut_sprite = DELAI_INITIAL;
     unsigned long fin_sprite   = 400;
 
+    int * reseau_action = malloc(sizeof(int));
+    int * reseau_character = malloc(sizeof(int));
 
     Uint32 lastMovement = 0; //dernier mouvement du sprite
 
@@ -426,7 +427,7 @@ int main(int argc, char* argv[]) {
                   effet, textInput, isValide, keyCounts, parametre, gold, xp, prehistoire, antiquite,
                   moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building, resultat, 
                   fin_partie_win, fin_partie_lose, tab_de_charactere, (*survol), (*delai_ulti), (*diff_time), troupe_formee,
-                  currentTime, lastTroupe, nb);
+                  currentTime, lastTroupe, nb, j2_distant);
         
         
         /* qaund on lance une nouvelle partie, on detruit bien toute les données */
@@ -480,7 +481,7 @@ int main(int argc, char* argv[]) {
     
         if ( *etat == JOUER )
         {
-            resultat = fin_partie(j1,o,joueur_online,(*etat));
+            resultat = fin_partie(j1,o,j2_distant,(*etat));
             if ( resultat != AUCUN_GAGNANT ) (*etat) = FIN_PARTIE;
         }
 
@@ -507,22 +508,42 @@ int main(int argc, char* argv[]) {
         /* QUAND ON CREER UNE PARTIE */
         if ( (*etat) == JOUER_RESEAU_CREER )
         {
+            int action,action2;
             /*Calcul du temps avant d'utiliser l'ulti*/
             (*diff_time) = currentTime - (*lastUlti);
             (*delai_ulti) = DELAI_ULTI - (*diff_time);
 
-            envoyer_structure(client_socket, *j1, *joueur_online); // on envoie données locales
-            recevoir_structure(client_socket, &j1_distant, &j2_distant); // on recoit les données distantes
+            recevoir(client_socket,&action,&action2);
+            envoyer(client_socket,reseau_action,reseau_character);
 
-            // on met a jour notre adversaire
-            destroy_player(&joueur_online);
-            joueur_online = &j2_distant;
-            printf("Reseau terminé...\n");
-            envoie_char(&j1);
-            printf("oui ");
-            affichageSpriteReseau(rendu, j1, joueur_online, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
+            switch(action)
+            {
+                case AUCUN_ACTION :
+                    break;
+
+                case ACHAT_CHARACTER : // adversaire achete un perso 
+                    if ( action2 != AUCUN_ACTION )
+                    buy_character(&j2_distant,tab_de_charactere,action2);
+                    break;
+
+                case PASSAGE_AGE : // adversaire passe a l'age suivant
+                    upgrade_building(&j2_distant->building,&action2);
+                    break;
+
+                case ULTI :
+                    ulti(&(j1->characters));
+                    break;
+
+                default : 
+                    printf("Reseau : Code inconnu !\n");
+                    break;
+            }
+
+
+            envoie_char(&j1); // on envoie file d'attente
+            
+            affichageSpriteReseau(rendu, j1, j2_distant, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
-            printf("oui ");
         }
 
         /* QUAND ON REJOINT UNE PARTIE */
@@ -532,18 +553,37 @@ int main(int argc, char* argv[]) {
             (*diff_time) = currentTime - (*lastUlti);
             (*delai_ulti) = DELAI_ULTI - (*diff_time);
 
-            recevoir_structure(to_server_socket, &j1_distant, &j2_distant); // on recoit les données distantes
-            envoyer_structure(to_server_socket, *j1, *joueur_online); // on envoie données locales
+            int action,action2;
 
-            // on met a jour notre adversaire
-            destroy_player(&joueur_online);
-            joueur_online = &j2_distant;
-            printf("Reseau terminé...\n");
-            envoie_char(&j1);
-            printf("oui ");
-            affichageSpriteReseau(rendu, j1, joueur_online, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
+            envoyer(to_server_socket,reseau_action, reseau_character);
+            recevoir(to_server_socket,&action,&action2);
+
+            switch(action)
+            {
+                case AUCUN_ACTION :
+                    break;
+
+                case ACHAT_CHARACTER : // adversaire achete un perso 
+                    if ( action2 != AUCUN_ACTION ) buy_character(&j2_distant,tab_de_charactere,action2);
+                    break;
+
+                case PASSAGE_AGE : // adversaire passe a l'age suivant
+                    if ( action2 != AUCUN_ACTION ) upgrade_building(&j2_distant->building,&action2);
+                    break;
+
+                case ULTI :
+                    ulti(&(j1->characters));
+                    break;
+
+                default : 
+                    printf("Reseau : Code inconnu !\n");
+                    break;
+            }
+
+            envoie_char(&j1); // on envoie file d'attente
+
+            affichageSpriteReseau(rendu, j1, j2_distant, &playerImg, &ordiImg, &playerAttackImg, &ordiAttackImg, &first_attaque, playerPosition, ordiPosition, ancien_lvl, 
                             tab_de_charactere, image, img_char, img_c_ordi, currentTime, &lastMovement, w, h, cameraX, cameraY, &debut_sprite, &fin_sprite);
-            printf("oui ");
         }
 
 
@@ -578,6 +618,9 @@ int main(int argc, char* argv[]) {
     free(lastUlti);
     free(diff_time);
     free(delai_ulti);
+
+    free(reseau_action);
+    free(reseau_character);
 
     for(i = 0; i < 4; i++){
         free(troupe_formee[i]);

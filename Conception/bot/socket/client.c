@@ -9,45 +9,18 @@
 
 #include "client.h"
 
-/**
- * @brief Envoie les structures des joueurs au serveur.
- * 
- * @param to Socket vers laquelle envoyer les structures.
- * @param player1 Structure représentant le joueur 1.
- * @param player2 Structure représentant le joueur 2.
- */
-void envoyer_structure( int to, player_t player1, player_t player2 )
+
+void envoyer( int to, int * action, int * characters )
 {
-	send(to, &player1, sizeof(player1),0);
-	send(to, &player2, sizeof(player2),0);
+	send(to, action, sizeof(*action),0);
+    send(to, characters, sizeof(*characters),0);
 }
 
-/**
- * @brief Reçoit les structures des joueurs depuis le serveur.
- * 
- * @param to Socket depuis laquelle recevoir les structures.
- * @param player1 Pointeur vers la structure représentant le joueur 1.
- * @param player2 Pointeur vers la structure représentant le joueur 2.
- */
-void recevoir_structure( int to, player_t * player1, player_t * player2 )
+void recevoir( int to, int * action, int * characters )
 {
-	recv(to,player1,sizeof(*player1),0);
-	recv(to,player2,sizeof(*player2),0);
+	recv(to, action, sizeof(*action),0);
+    recv(to, characters, sizeof(*characters),0);
 }
-
-/**
- * @brief traitement sur les différences entre avant reception et apres reception
- * 
- * @param j1_distant structure de l'adversaire (nous)
- * @param j2_distant structure de l'adversaire (lui)
- * @param j1_local notre structure 
- * @param j2_local la structure de notre adversaire
- */
-void reseau_traitement(player_t * j1_distant, player_t * j2_distant, player_t * j1_local, player_t * j2_local)
-{
-    j2_local = j2_distant;
-}
-
 
 /**
  * @brief Initialise la connexion au serveur.

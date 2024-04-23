@@ -60,7 +60,7 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
                SDL_Texture* moderne, SDL_Texture* futuriste, player_t* joueur, SDL_Texture** sprite_hud, SDL_Texture* upgrade,
                ordi_t* ordi, int* cameraX, int* cameraY, SDL_Texture* ultim, SDL_Texture* building[], int fin_partie, SDL_Texture * win,
                SDL_Texture * lose, character_t* tab_charactere, int survol, Uint32 delai_ulti, Uint32 diff_time, int** troupe_formee,
-               Uint32 currentTime, Uint32** lastTroupe, int** nb)
+               Uint32 currentTime, Uint32** lastTroupe, int** nb, player_t * j2)
 {
     /*Affiche le titre du jeu*/
     afficherTitre(rendu, fenetre, ((WINDOW_WIDTH - 800) / 2), ((WINDOW_HEIGHT - 1000) / 2), 800, 600);
@@ -150,9 +150,18 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
 
         case MENU_SAUVEGARDER :
             break;
+
         case JOUER_RESEAU_CREER :
-            break;
         case JOUER_RESEAU_REJOINDRE :
+            /*Effacement de l'ancien rendu*/
+            SDL_RenderClear(rendu);   
+            gestionAffichageFondJeu(rendu, fenetre, etatAge, prehistoire, antiquite, moyen_age, moderne, futuriste, joueur, ordi, 
+                                    cameraX, cameraY);
+            afficherHUD(rendu, fenetre, police_texte, parametre, upgrade, gold, xp, joueur, sprite_hud, ultim, joueur->building->level, 
+                        troupe_formee, currentTime, lastTroupe, tab_charactere, nb);
+            affichageBulding(rendu, fenetre, building, *cameraX, *cameraY, joueur->building->level, j2->building->level);
+            affichagePointDeVie(rendu, police, joueur->building->pv, j2->building->pv, fenetre, (*cameraX), (*cameraY));
+            affichageSurvolSouris(rendu, fenetre, police, survol, tab_charactere, joueur->building->level, joueur, delai_ulti, diff_time);
             break;
         case JOUER_CHARGER :
             break;

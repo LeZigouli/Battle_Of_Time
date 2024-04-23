@@ -45,6 +45,11 @@
 #define MOVEMENT_DURATION 100 /*Durée du mouvement en millisecondes des sprites*/
 #define DELAI_ULTI 180000 /*Délai de temps entre 2 utilisations d'ulti*/
 
+#define AUCUN_ACTION -1
+#define ACHAT_CHARACTER 0
+#define PASSAGE_AGE 1
+#define ULTI 2
+
 /*Code couleur */
 #define BLACK (SDL_Color){0, 0, 0}
 #define WHITE (SDL_Color){255, 255, 255}

@@ -29,6 +29,7 @@ player_t * initplayer(int owner)
 
 	strcpy(main_player->name,name);
 	main_player->owner = owner;
+	main_player->gold = 800;
 	main_player->xp = 100000;
 	main_player->debut=DELAI_INITIAL;
 	main_player->characters = malloc(sizeof(tab_charactere_t));
@@ -165,20 +166,23 @@ booleen_t buy_character(player_t ** player, character_t tab_character[NB_AGE*NB_
  * @param  player Le joueur dont les personnages doivent être envoyés.
  */
 void envoie_char(player_t ** player){
-	/*Formation des troupes*/
-	if((*player)->file_attente->nb > 0){
-		(*player)->delai=(*player)->file_attente->tab[0]->time;
-		if((*player)->debut==DELAI_INITIAL)
-			(*player)->debut=time(NULL);
-		(*player)->fin=time(NULL);
-		if(difftime((*player)->fin,(*player)->debut)>= (*player)->delai){
-			(*player)->characters->tab[(*player)->characters->nb]=(*player)->file_attente->tab[0];
-			for(int i = 0; i<(*player)->file_attente->nb-1;i++){
-				(*player)->file_attente->tab[i]=(*player)->file_attente->tab[i+1];
+	
+	if ( (*player)->file_attente != NULL )
+	{
+		if((*player)->file_attente->nb > 0){
+			(*player)->delai=(*player)->file_attente->tab[0]->time;
+			if((*player)->debut==DELAI_INITIAL)
+				(*player)->debut=time(NULL);
+			(*player)->fin=time(NULL);
+			if(difftime((*player)->fin,(*player)->debut)>= (*player)->delai){
+				(*player)->characters->tab[(*player)->characters->nb]=(*player)->file_attente->tab[0];
+				for(int i = 0; i<(*player)->file_attente->nb-1;i++){
+					(*player)->file_attente->tab[i]=(*player)->file_attente->tab[i+1];
+				}
+				(*player)->file_attente->nb--;
+				(*player)->characters->nb++;
+				(*player)->debut=DELAI_INITIAL;
 			}
-			(*player)->file_attente->nb--;
-			(*player)->characters->nb++;
-			(*player)->debut=DELAI_INITIAL;
 		}
 	}
 }
@@ -247,6 +251,11 @@ booleen_t afficher_player(player_t * player)
     {
         return FALSE;
     }
+	if ( player->characters == NULL )
+	{
+		printf("Rien\n");
+		return FALSE;
+	}
     printf("<----- Player ----->\n");
 	printf("Nom : %s\nPV : %d\nXP : %d\nGOLD : %f\nOwner : %d\n",player->name,player->building->pv,player->xp,player->gold,player->owner);
 	printf("debut : %ld, fin : %ld delai : %d difftime: %f\n\n",player->debut,player->fin,player->delai,difftime(player->fin,player->debut));
