@@ -623,6 +623,7 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                                 break;
                             case JOUER :
                                 ulti(&(ordi->characters));
+                                delete_character(&(ordi->characters));
                                 break;
                             default :
                                 break;

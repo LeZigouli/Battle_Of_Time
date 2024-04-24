@@ -135,8 +135,8 @@ int temp_former(int n) {
     }
 }
 
-int vie(int ind){
-    return 500 * pow(2, ind);
+int vie(int ind, int age){
+    return (10 * ind) * age;
 }
 
 /**
@@ -156,11 +156,11 @@ character_t * initcharacter()
                 tab[age*NB_CHARACTER+classe].age              =age;
                 tab[age*NB_CHARACTER+classe].classe           =classe;
                 tab[age*NB_CHARACTER+classe].cost             =calcule_prix(age*NB_CHARACTER+classe+1);
-                tab[age*NB_CHARACTER+classe].dammage          =vie(age*NB_CHARACTER+classe+1)/5;
+                tab[age*NB_CHARACTER+classe].dammage          =vie(age*NB_CHARACTER+classe+1, age + 1)/5;
                 tab[age*NB_CHARACTER+classe].first_Attaque    = TRUE;
-                tab[age*NB_CHARACTER+classe].max_pv           =vie(age*NB_CHARACTER+classe+1);
+                tab[age*NB_CHARACTER+classe].max_pv           =vie(age*NB_CHARACTER+classe+1, age + 1);
                 tab[age*NB_CHARACTER+classe].owner            =OWNER_INIT;
-                tab[age*NB_CHARACTER+classe].pv               =vie(age*NB_CHARACTER+classe+1);
+                tab[age*NB_CHARACTER+classe].pv               =vie(age*NB_CHARACTER+classe+1, age + 1);
                 tab[age*NB_CHARACTER+classe].ratio_ressources =RATIO_RESSOURCES;
                 tab[age*NB_CHARACTER+classe].time             =temp_former(1);
                 tab[age*NB_CHARACTER+classe].vector           =(age*NB_CHARACTER+classe+1)/4 + 15;

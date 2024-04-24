@@ -387,6 +387,8 @@ int main(int argc, char* argv[]) {
         /*Afficher l'image du menu*/
         SDL_RenderCopy(rendu, textureFond, NULL, NULL);
 
+        afficher_player(j1);
+
         /*Gestion de l'affichage en fonction de l'état*/
         affichage((*etat), etatAge,rendu, fenetre, police, police_texte, menuX, menuY, elm_reso, selecElement, 
                   effet, textInput, isValide, keyCounts, parametre, gold, xp, prehistoire, antiquite,
