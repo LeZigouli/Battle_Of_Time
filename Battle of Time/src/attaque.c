@@ -29,6 +29,7 @@ void resize_dep(SDL_Rect * atimg,SDL_Rect * position, character_t * c){
         case 2:
         case 3:
         case 5:
+        case 6:
         case 9:
         case 13:
         case 14:
@@ -46,12 +47,6 @@ void resize_dep(SDL_Rect * atimg,SDL_Rect * position, character_t * c){
         case 18:
             position->h=TAILLE_SPRITE * 2;
             position->w=TAILLE_SPRITE * 2;
-            break;
-        
-        //le cheval
-        case 6:
-            atimg->x=TAILLE_CHEVAL * 19;
-            atimg->y=0;
             break;
     }
 }
@@ -81,6 +76,7 @@ void resize_att(SDL_Rect * atimg,SDL_Rect * position, character_t * c){
 
         case 0:
         case 4:
+        case 6:
         case 7:
         case 8:
         case 10:
@@ -98,11 +94,6 @@ void resize_att(SDL_Rect * atimg,SDL_Rect * position, character_t * c){
         case 5:
             atimg->x = 0;
             atimg->y = TAILLE_SPRITE*7;
-            break;
-        
-        case 6:
-            atimg->x = TAILLE_CHEVAL * 19;
-            atimg->y=0;
             break;
         
         case 13:
@@ -139,6 +130,7 @@ void ataquage(SDL_Rect * atimg, character_t * c, int * attaque, int owner){
         case 3:
         case 9:
         case 4:
+        case 6:
         case 7:
         case 8:
         case 10:
@@ -158,17 +150,6 @@ void ataquage(SDL_Rect * atimg, character_t * c, int * attaque, int owner){
             {
                 atimg->y = position_anim;
                 atimg->x+=TAILLE_SPRITE;
-            }
-            break;
-
-        case 6: //cheval
-            if(atimg->x == 48*20){
-                atimg->x=0;
-                *attaque=TRUE;
-            }else 
-            {
-                atimg->y = 48;
-                atimg->x+=48;
             }
             break;
 
