@@ -189,8 +189,8 @@ void ataquage(SDL_Rect * atimg, character_t * c, int * attaque, int owner){
             break;
 
         case 2: //gorille
-            longueur_anim = TAILLE_SPRITE * 6;
-            if ( owner == OWNER_1 ) position_anim = TAILLE_SPRITE * 3;
+            longueur_anim = TAILLE_SPRITE * 7;
+            if ( owner == OWNER_1 ) position_anim = TAILLE_SPRITE * 7;
             else position_anim = TAILLE_SPRITE * 5;
 
             if(atimg->x == longueur_anim){
