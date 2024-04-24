@@ -11,6 +11,8 @@
 /* POUR LE MODE RESEAU, QUAND VOUS CLIQUEREZ SUR CREER, REGARDER DANS LE TERMINAL POUR L'IP CAR LA FONCTION EST BLOQUANTE */
 /**************************************************************************************************************************/
 
+/* DE PLUS QUAND VOUD REJOINDRER UNE PARTIE EN LIGNE IL EST PREFERABLE POUR VALIDER LA SAISIE DE CLIQUER SUR LA TOUCHE ENTRER DU CLAVIER */
+
 /**************/
 /*--Includes--*/
 /**************/
