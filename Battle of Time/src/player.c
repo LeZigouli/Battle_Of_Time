@@ -96,7 +96,7 @@ void destroy_player(player_t ** player)
  */
 booleen_t buy_character(player_t ** player, character_t tab_character[NB_AGE*NB_CHARACTER], int newCha)
 {
-
+	printf("Entrée dans buy_character\n");
 	/* verification préliminaire */
 
 	/* si l'objet player n'existe pas */

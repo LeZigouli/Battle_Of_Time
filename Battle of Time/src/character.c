@@ -208,7 +208,7 @@ character_t * initcharacter()
                             break;
 
                         case 2 :
-                            strcpy(tab[age*NB_CHARACTER+classe].description,"Chevalier");
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Souris malicieuse");
                             break;
                             
                          case 3 :
@@ -236,7 +236,7 @@ character_t * initcharacter()
                             break;
                             
                          case 3 :
-                            strcpy(tab[age*NB_CHARACTER+classe].description,"Princesse");
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Princesse Py");
                             break;
                     }
                     
@@ -252,7 +252,7 @@ character_t * initcharacter()
                             break;
 
                         case 1 :
-                            strcpy(tab[age*NB_CHARACTER+classe].description,"Soldat");
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Soldat Laurent");
                             break;
 
                         case 2 :
@@ -260,7 +260,7 @@ character_t * initcharacter()
                             break;
                             
                          case 3 :
-                            strcpy(tab[age*NB_CHARACTER+classe].description,"Pere noel");
+                            strcpy(tab[age*NB_CHARACTER+classe].description,"Pere joel");
                             break;
                     }
 
