@@ -78,6 +78,7 @@ typedef enum etat_s {
     MENU_SOUS_CREER_VALIDE, /**< Sous-menu Valider la création */
     MENU_DIFFICULTE, /**< Menu de sélection de la difficulté */
     JOUER, /**< Jouer */
+    ULTIME,
     OPTION_JEU, /**< Options du jeu */
     MENU_SAUVEGARDER, /**< Menu de sauvegarde */
     JOUER_RESEAU_CREER, /**< Jouer en réseau (création) */
@@ -118,6 +119,7 @@ SDL_Rect creationRectangle(SDL_Window* fenetre, int x, int y, int largeur, int h
 void destruction_SDL(SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp, SDL_Texture* textureFond, 
                      SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age, SDL_Texture* moderne,
                      SDL_Texture* futuriste, TTF_Font* police, TTF_Font* police_texte, SDL_Renderer* rendu,
-                     SDL_Window* fenetre, Mix_Chunk* click, Mix_Chunk* music, SDL_Texture* sprite_hud[], SDL_Texture* building[], SDL_Texture* win, SDL_Texture* lose);
+                     SDL_Window* fenetre, Mix_Chunk* click, Mix_Chunk* music, SDL_Texture* sprite_hud[], 
+                     SDL_Texture* building[], SDL_Texture* win, SDL_Texture* lose, SDL_Texture* boum);
 
 #endif

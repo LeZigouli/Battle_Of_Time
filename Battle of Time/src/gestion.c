@@ -633,6 +633,7 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
                     // reseau
                     *reseau_action = ULTI;
                     *reseau_action2 = j1->xp;
+                    (*etat) = ULTIME;
                 }
             }
             break;
@@ -1228,16 +1229,3 @@ void traitement_post_jeu(   character_t ** tab_de_charactere, player_t ** j1, pl
     }
     Mix_FreeChunk(musique_fin);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

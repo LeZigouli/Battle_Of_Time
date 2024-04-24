@@ -159,6 +159,9 @@ int main(int argc, char* argv[]) {
     SDL_Texture* gold = chargementImg(rendu, fenetre, "img/HUD/gold.png");
     SDL_Texture* xp = chargementImg(rendu, fenetre, "img/HUD/xp.png");
     SDL_Texture* ultim = chargementImg(rendu, fenetre, "img/HUD/ultimate.png");
+
+    /*Chargement images Ultim*/
+    SDL_Texture* boum = chargementImg(rendu, fenetre, "img/boum.png");
 	
 	/* chargement image pour la fin de partie */
     SDL_Texture* fin_partie_win = chargementImg(rendu, fenetre, "img/Fin_partie/you_win.png");
@@ -302,6 +305,7 @@ int main(int argc, char* argv[]) {
         *nb[i] = 0;
     }
 
+    float alpha = 0.0f;
     /*********************/
     /*-Boucle Principale-*/
     /*********************/
@@ -388,11 +392,11 @@ int main(int argc, char* argv[]) {
         SDL_RenderCopy(rendu, textureFond, NULL, NULL);
 
         /*Gestion de l'affichage en fonction de l'état*/
-        affichage((*etat), etatAge,rendu, fenetre, police, police_texte, menuX, menuY, elm_reso, selecElement, 
+        affichage(etat, etatAge,rendu, fenetre, police, police_texte, menuX, menuY, elm_reso, selecElement, 
                   effet, textInput, isValide, keyCounts, parametre, gold, xp, prehistoire, antiquite,
                   moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building, resultat, 
                   fin_partie_win, fin_partie_lose, tab_de_charactere, (*survol), (*delai_ulti), (*diff_time), troupe_formee,
-                  currentTime, lastTroupe, nb, j2_distant);
+                  currentTime, lastTroupe, nb, j2_distant, boum, &alpha);
 
         /* traitement avant de lancer une partie */
         traitement_pre_jeu(etat, &a_deja_lancer_partie, &j1, &o, j2_distant, image, ancien_lvl,
@@ -424,7 +428,7 @@ int main(int argc, char* argv[]) {
     /*Destruction des éléments du jeu*/
     destruction_SDL(parametre, gold, xp, textureFond, prehistoire, antiquite, moyen_age,
                     moderne, futuriste, police, police_texte, rendu, fenetre, click, music, sprite_hud,
-                    building, fin_partie_win, fin_partie_lose);
+                    building, fin_partie_win, fin_partie_lose, boum);
 
     /*Destruction des éléments restants */
     traitement_post_jeu(&tab_de_charactere, &j1, &j2_distant, &o, cameraX, cameraY, buffer, survol, lastUlti, diff_time,

@@ -54,20 +54,20 @@
  * \param nb Tableau de pointeur sur le nombre de personnages formés pour chaque classe
  * \param j2 Pointeurs vers une structure joueur.
  */
-void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police , TTF_Font* police_texte, 
+void affichage(etat_t* etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police , TTF_Font* police_texte, 
                int menuX, int menuY, element_t* elm_reso, int* selecElement, const char* effet, char* textInput, 
                int* isValid, int* keyCounts, SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp,
                SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age,
                SDL_Texture* moderne, SDL_Texture* futuriste, player_t* joueur, SDL_Texture** sprite_hud, SDL_Texture* upgrade,
                ordi_t* ordi, int* cameraX, int* cameraY, SDL_Texture* ultim, SDL_Texture* building[], int fin_partie, SDL_Texture * win,
                SDL_Texture * lose, character_t* tab_charactere, int survol, Uint32 delai_ulti, Uint32 diff_time, int** troupe_formee,
-               Uint32 currentTime, Uint32** lastTroupe, int** nb, player_t * j2)
+               Uint32 currentTime, Uint32** lastTroupe, int** nb, player_t * j2, SDL_Texture* image_ultim, float* alpha)
 {
     /*Affiche le titre du jeu*/
     afficherTitre(rendu, fenetre, ((WINDOW_WIDTH - 800) / 2), ((WINDOW_HEIGHT - 1000) / 2), 800, 600);
 
     /*Afficher le menu en fonction de l'état*/
-    switch(etat){
+    switch(*etat){
 
         case PAGE_ACCUEIL:
             menuX = (WINDOW_WIDTH - MENU_WIDTH ) / 2;
@@ -142,6 +142,27 @@ void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenet
             affichageSurvolSouris(rendu, fenetre, police, survol, tab_charactere, joueur->building->level, joueur, delai_ulti, diff_time);
             break;
             
+        case ULTIME:
+            gestionAffichageFondJeu(rendu, fenetre, etatAge, prehistoire, antiquite, moyen_age, moderne, futuriste, joueur, ordi, 
+                                    cameraX, cameraY);
+            afficherHUD(rendu, fenetre, police_texte, parametre, upgrade, gold, xp, joueur, sprite_hud, ultim, joueur->building->level, 
+                        troupe_formee, currentTime, lastTroupe, tab_charactere, nb);
+            affichageBulding(rendu, fenetre, building, *cameraX, *cameraY, joueur->building->level, ordi->building->level);
+            affichagePointDeVie(rendu, police, joueur->building->pv, ordi->building->pv, fenetre, (*cameraX), (*cameraY));
+            affichageSurvolSouris(rendu, fenetre, police, survol, tab_charactere, joueur->building->level, joueur, delai_ulti, diff_time);
+
+            SDL_Rect boum_rect = creationRectangle(fenetre, 0, 200, WINDOW_WIDTH, WINDOW_HEIGHT);
+            SDL_SetTextureAlphaMod(image_ultim, (Uint8)(255 * (*alpha)));
+            SDL_RenderCopy(rendu, image_ultim, NULL, &boum_rect);
+
+            // Mettre à jour l'opacité pour le fondu
+            (*alpha) += 0.05f; // Modifier cette valeur pour ajuster la vitesse du fondu
+
+            if ((*alpha) > 1.0f) {
+                (*alpha) = 0.0f; // Assurer que l'opacité ne dépasse pas 1
+                (*etat) = JOUER;
+            }
+            break;
         case FIN_PARTIE :
             /*Effacement de l'ancien rendu*/
             SDL_RenderClear(rendu); 
