@@ -1,0 +1,11 @@
+Battle of Time 
+Victor Poirier
+Vincent Proudy
+Louison Roquain
+Thomas Wolter
+
+Modifications et améliorations réalisées sur le rapport entre le 19/04 et le 24/04 :
+    - Correction des fautes d'orthorgraphes et syntaxiques
+    - Ajout et précisions sur la structure du dossier 'Battle of Time'
+    - Suppression d'une redite des règles du jeu dans la partie 3.2
+    - Mis en Annexe d'images et de l'exemple d'utilisation de GDB
