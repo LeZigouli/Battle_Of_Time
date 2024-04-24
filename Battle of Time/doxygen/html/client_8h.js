@@ -1,9 +1,9 @@
 var client_8h =
 [
     [ "client_fermeture", "client_8h.html#aa467a3eaa123b1ce5de6517e44287dbd", null ],
-    [ "envoyer_structure", "client_8h.html#a8be8a7f6d79b8eb5ed1012550d941006", null ],
+    [ "envoyer", "client_8h.html#af91db94e287ff62fb672bdf05b267bc4", null ],
     [ "init_reseau_client", "client_8h.html#ad37e484426af955bee33a6387e5134e1", null ],
-    [ "recevoir_structure", "client_8h.html#a6721d4af4737eea7dbb85d14fda79746", null ],
+    [ "recevoir", "client_8h.html#a27ade0b90ec4af1eb68f8c734b884834", null ],
     [ "buffer", "client_8h.html#a3cb8e52446a79c20206ad6ab5ab46fea", null ],
     [ "hostAddr", "client_8h.html#a2b7285561617d39b08c42119caeed532", null ],
     [ "serveur_addr", "client_8h.html#aa638ca51455ca92313282871c4e7c8f2", null ],

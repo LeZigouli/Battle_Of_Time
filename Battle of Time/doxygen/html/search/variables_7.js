@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['level_0',['level',['../structbuilding__s.html#a4e027ebf287fdac9a041b3230e476e2d',1,'building_s']]],
-  ['lg_1',['lg',['../serveur_8h.html#a9c434a7a034140d98c96221b0c908ede',1,'serveur.h']]]
+  ['h_0',['h',['../structelement__t.html#a3307b2abca9ad5e82f651637c8a79f79',1,'element_t']]],
+  ['hostaddr_1',['hostAddr',['../client_8h.html#a2b7285561617d39b08c42119caeed532',1,'client.h']]]
 ];

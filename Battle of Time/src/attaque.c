@@ -1,3 +1,12 @@
+/**
+ * \file attaque.c
+ * \brief Contient les fonctions pour les animations des sprites
+ * \author Victor Poirier Vincent Proudy Louison Roquain Thomas Wolter
+ * \date 16 avril 2024
+ * \version 1.0
+ * 
+*/
+
 #include "../lib/attaque.h"
 
 /**

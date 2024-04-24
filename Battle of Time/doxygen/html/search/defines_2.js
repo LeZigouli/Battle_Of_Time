@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['easy_0',['EASY',['../common_8h.html#a0560e96e46037caf6bf2283a1e4092f8',1,'common.h']]]
+  ['coef_5flevel_5fup_5fdammage_0',['COEF_LEVEL_UP_DAMMAGE',['../common_8h.html#a88248ee212da086f00d7c091d86ccbec',1,'common.h']]]
 ];

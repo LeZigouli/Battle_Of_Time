@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['x_0',['x',['../structcharacter__s.html#a42017fc00e65e993f91b2f84a9fde4a6',1,'character_s']]],
-  ['x_5fpred_1',['x_pred',['../structcharacter__s.html#a6c9afb920504abded97ecf00f0a19da9',1,'character_s']]],
-  ['xp_2',['xp',['../structordi__t.html#a69b793472bd01ee64bc9bc6d7427ad6d',1,'ordi_t::xp'],['../structplayer__t.html#a79252da5c6182b3f25569f2aec3fac6c',1,'player_t::xp']]],
-  ['xp_5fcost_3',['XP_cost',['../structbuilding__s.html#a40944c0fd26c83c327785bb801c5e9ed',1,'building_s']]]
+  ['w_0',['w',['../structelement__t.html#a1718fcb02b8d54093c5f11e7260ae614',1,'element_t']]],
+  ['white_1',['WHITE',['../commun___s_d_l_8h.html#a87b537f5fa5c109d3c05c13d6b18f382',1,'commun_SDL.h']]],
+  ['window_5fheight_2',['WINDOW_HEIGHT',['../commun___s_d_l_8h.html#a5473cf64fa979b48335079c99532e243',1,'commun_SDL.h']]],
+  ['window_5fwidth_3',['WINDOW_WIDTH',['../commun___s_d_l_8h.html#a498d9f026138406895e9a34b504ac6a6',1,'commun_SDL.h']]]
 ];

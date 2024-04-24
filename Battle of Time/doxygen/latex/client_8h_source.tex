@@ -1,5 +1,5 @@
 \doxysection{client.\+h}
-\hypertarget{client_8h_source}{}\label{client_8h_source}\index{/Users/vic/Documents/Battle\_Of\_Time/Conception/bot/socket/client.h@{/Users/vic/Documents/Battle\_Of\_Time/Conception/bot/socket/client.h}}
+\hypertarget{client_8h_source}{}\label{client_8h_source}\index{/Users/vic/Documents/Battle\_Of\_Time/Battle of Time/socket/client.h@{/Users/vic/Documents/Battle\_Of\_Time/Battle of Time/socket/client.h}}
 \mbox{\hyperlink{client_8h}{Aller à la documentation de ce fichier.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
@@ -39,10 +39,9 @@
 \DoxyCodeLine{00061\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{client_8h_ac97a0a9092b8a469854077bfba6e6f49}{to\_server\_socket}};}
 \DoxyCodeLine{00062\ }
 \DoxyCodeLine{00063\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{client_8h_ad37e484426af955bee33a6387e5134e1}{init\_reseau\_client}}(\textcolor{keywordtype}{char}\ \mbox{\hyperlink{client_8h_a345bd426338703d46f62a0585631016f}{serveurname}}[MAX\_IP]);}
-\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_a8be8a7f6d79b8eb5ed1012550d941006}{envoyer\_structure}}(\ \textcolor{keywordtype}{int}\ to,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ player1,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ player2\ );}
-\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_a6721d4af4737eea7dbb85d14fda79746}{recevoir\_structure}}(\ \textcolor{keywordtype}{int}\ to,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player1,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ player2\ );}
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_af91db94e287ff62fb672bdf05b267bc4}{envoyer}}(\ \textcolor{keywordtype}{int}\ to,\ \textcolor{keywordtype}{int}\ *\ action,\ \textcolor{keywordtype}{int}\ *\ action2\ );}
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_a27ade0b90ec4af1eb68f8c734b884834}{recevoir}}(\ \textcolor{keywordtype}{int}\ to,\ \textcolor{keywordtype}{int}\ *\ action,\ \textcolor{keywordtype}{int}\ *\ action2\ );}
 \DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_aa467a3eaa123b1ce5de6517e44287dbd}{client\_fermeture}}(\textcolor{keywordtype}{int}\ *\ socket);}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -1,5 +1,5 @@
-\doxysection{Référence du fichier /\+Users/vic/\+Documents/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/lib/character.h}
-\hypertarget{character_8h}{}\label{character_8h}\index{/Users/vic/Documents/Battle\_Of\_Time/Conception/bot/lib/character.h@{/Users/vic/Documents/Battle\_Of\_Time/Conception/bot/lib/character.h}}
+\doxysection{Référence du fichier /\+Users/vic/\+Documents/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Battle of Time/lib/character.h}
+\hypertarget{character_8h}{}\label{character_8h}\index{/Users/vic/Documents/Battle\_Of\_Time/Battle of Time/lib/character.h@{/Users/vic/Documents/Battle\_Of\_Time/Battle of Time/lib/character.h}}
 
 
 Contient les élements utilisés par le \doxylink{character_8c}{character.\+c}.  
@@ -24,6 +24,9 @@ struct \mbox{\hyperlink{structcharacter__s}{character\+\_\+s}}
 \Hypertarget{character_8h_a39f85a01939e4b4ec928d4c6a90e45c2}\label{character_8h_a39f85a01939e4b4ec928d4c6a90e45c2} 
 \#define {\bfseries TAILLE\+\_\+\+SPRITE}~64
 \begin{DoxyCompactList}\small\item\em Taille d\textquotesingle{}un sprite en pixels. \end{DoxyCompactList}\item 
+\Hypertarget{character_8h_a05470f0fb2f2d80552d5b57b4cf65843}\label{character_8h_a05470f0fb2f2d80552d5b57b4cf65843} 
+\#define {\bfseries TAILLE\+\_\+\+CHEVAL}~48
+\item 
 \Hypertarget{character_8h_ad56f2d3fff8366567db3df903285dde9}\label{character_8h_ad56f2d3fff8366567db3df903285dde9} 
 \#define {\bfseries TAILLE\+\_\+\+ATTAQUE}~(\mbox{\hyperlink{character_8h_a39f85a01939e4b4ec928d4c6a90e45c2}{TAILLE\+\_\+\+SPRITE}} \texorpdfstring{$\ast$}{*} 3)
 \begin{DoxyCompactList}\small\item\em Taille de l\textquotesingle{}attaque en pixels. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -46,6 +49,9 @@ typedef struct \mbox{\hyperlink{structcharacter__s}{character\+\_\+s}} {\bfserie
 \begin{DoxyCompactList}\small\item\em Fonction permettant à un personnage d\textquotesingle{}attaquer un autre personnage. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{character_8h_ade98f572cf5953151368ff1593a0af34}{character\+\_\+attack\+\_\+building}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}destination, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}src)
 \begin{DoxyCompactList}\small\item\em Fonction permettant à un personnage d\textquotesingle{}attaquer un bâtiment. \end{DoxyCompactList}\item 
+\Hypertarget{character_8h_a239e2315f3d820fd4ad521e7c7558b26}\label{character_8h_a239e2315f3d820fd4ad521e7c7558b26} 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} {\bfseries building\+\_\+attack\+\_\+chatacter} (\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}destination, \mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}src)
+\item 
 void \mbox{\hyperlink{character_8h_a795d9f9c5f814a249f967dfc5a0c2b91}{deplacement\+\_\+gauche}} (\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}character)
 \begin{DoxyCompactList}\small\item\em Déplace un personnage vers la gauche. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{character_8h_a93eb67eebd7c4e70330c634b3ef6d114}{deplacement\+\_\+droit}} (\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}character)

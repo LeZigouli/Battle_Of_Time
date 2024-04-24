@@ -6,5 +6,6 @@ var searchData=
   ['get_5fip_5fserveur_3',['get_ip_serveur',['../serveur_8c.html#ab60185638299eec6f8f34fcdeb8febba',1,'get_ip_serveur():&#160;serveur.c'],['../serveur_8h.html#ab60185638299eec6f8f34fcdeb8febba',1,'get_ip_serveur():&#160;serveur.c']]],
   ['get_5fressources_4',['get_ressources',['../player_8c.html#a7036fb438a4439085772acde3f53dbe5',1,'get_ressources(player_t *player1, player_t *player2):&#160;player.c'],['../player_8h.html#a7036fb438a4439085772acde3f53dbe5',1,'get_ressources(player_t *player1, player_t *player2):&#160;player.c']]],
   ['give_5fressources_5',['give_ressources',['../ordinateur_8c.html#a35b7da43c64d1b7fa173d5b0b428a3b6',1,'ordinateur.c']]],
-  ['gold_6',['gold',['../structplayer__t.html#aae7337139d58a4ee0d6b570f80be45ae',1,'player_t']]]
+  ['gold_6',['gold',['../structplayer__t.html#aae7337139d58a4ee0d6b570f80be45ae',1,'player_t']]],
+  ['green_7',['GREEN',['../commun___s_d_l_8h.html#acfbc006ea433ad708fdee3e82996e721',1,'commun_SDL.h']]]
 ];

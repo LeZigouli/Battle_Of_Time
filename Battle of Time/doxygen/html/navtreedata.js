@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Battle of Time", "index.html", [
-    [ "README", "index.html", "index" ],
+    [ "Battle_Of_Time", "md__2_users_2vic_2_documents_2_battle___of___time_2_r_e_a_d_m_e.html", null ],
     [ "Structures de données", "annotated.html", [
       [ "Structures de données", "annotated.html", "annotated_dup" ],
       [ "Index des structures de données", "classes.html", null ],
@@ -52,7 +52,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "affichage__jeu_8c.html",
-"serveur_8c.html#a0dc0fcc6e5ed53b493ffde2842788391"
+"globals_defs.html"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

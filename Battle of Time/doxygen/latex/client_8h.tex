@@ -1,5 +1,5 @@
-\doxysection{Référence du fichier /\+Users/vic/\+Documents/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Conception/bot/socket/client.h}
-\hypertarget{client_8h}{}\label{client_8h}\index{/Users/vic/Documents/Battle\_Of\_Time/Conception/bot/socket/client.h@{/Users/vic/Documents/Battle\_Of\_Time/Conception/bot/socket/client.h}}
+\doxysection{Référence du fichier /\+Users/vic/\+Documents/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Battle of Time/socket/client.h}
+\hypertarget{client_8h}{}\label{client_8h}\index{/Users/vic/Documents/Battle\_Of\_Time/Battle of Time/socket/client.h@{/Users/vic/Documents/Battle\_Of\_Time/Battle of Time/socket/client.h}}
 
 
 Contient les élements utilisé par le \doxylink{client_8c}{client.\+c}.  
@@ -37,10 +37,10 @@ Contient les élements utilisé par le \doxylink{client_8c}{client.\+c}.
 \item 
 int \mbox{\hyperlink{client_8h_ad37e484426af955bee33a6387e5134e1}{init\+\_\+reseau\+\_\+client}} (char \mbox{\hyperlink{client_8h_a345bd426338703d46f62a0585631016f}{serveurname}}\mbox{[}MAX\+\_\+\+IP\mbox{]})
 \begin{DoxyCompactList}\small\item\em Initialise la connexion au serveur. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{client_8h_a8be8a7f6d79b8eb5ed1012550d941006}{envoyer\+\_\+structure}} (int to, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} player1, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} player2)
-\begin{DoxyCompactList}\small\item\em Envoie les structures des joueurs au serveur. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{client_8h_a6721d4af4737eea7dbb85d14fda79746}{recevoir\+\_\+structure}} (int to, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}player2)
-\begin{DoxyCompactList}\small\item\em Reçoit les structures des joueurs depuis le serveur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{client_8h_af91db94e287ff62fb672bdf05b267bc4}{envoyer}} (int to, int \texorpdfstring{$\ast$}{*}action, int \texorpdfstring{$\ast$}{*}action2)
+\begin{DoxyCompactList}\small\item\em Envoie des données via le socket spécifié. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{client_8h_a27ade0b90ec4af1eb68f8c734b884834}{recevoir}} (int to, int \texorpdfstring{$\ast$}{*}action, int \texorpdfstring{$\ast$}{*}action2)
+\begin{DoxyCompactList}\small\item\em Réception des données depuis le socket spécifié. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{client_8h_aa467a3eaa123b1ce5de6517e44287dbd}{client\+\_\+fermeture}} (int \texorpdfstring{$\ast$}{*}socket)
 \begin{DoxyCompactList}\small\item\em Ferme la connexion au serveur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
@@ -96,23 +96,23 @@ Ferme la connexion au serveur.
 {\em socket} & Pointeur vers la socket à fermer. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{client_8h_a8be8a7f6d79b8eb5ed1012550d941006}\label{client_8h_a8be8a7f6d79b8eb5ed1012550d941006} 
-\index{client.h@{client.h}!envoyer\_structure@{envoyer\_structure}}
-\index{envoyer\_structure@{envoyer\_structure}!client.h@{client.h}}
-\doxysubsubsection{\texorpdfstring{envoyer\_structure()}{envoyer\_structure()}}
-{\footnotesize\ttfamily void envoyer\+\_\+structure (\begin{DoxyParamCaption}\item[{int}]{to,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}}}]{player1,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}}}]{player2 }\end{DoxyParamCaption})}
+\Hypertarget{client_8h_af91db94e287ff62fb672bdf05b267bc4}\label{client_8h_af91db94e287ff62fb672bdf05b267bc4} 
+\index{client.h@{client.h}!envoyer@{envoyer}}
+\index{envoyer@{envoyer}!client.h@{client.h}}
+\doxysubsubsection{\texorpdfstring{envoyer()}{envoyer()}}
+{\footnotesize\ttfamily void envoyer (\begin{DoxyParamCaption}\item[{int}]{to,  }\item[{int \texorpdfstring{$\ast$}{*}}]{action,  }\item[{int \texorpdfstring{$\ast$}{*}}]{action2 }\end{DoxyParamCaption})}
 
 
 
-Envoie les structures des joueurs au serveur. 
+Envoie des données via le socket spécifié. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em to} & Socket vers laquelle envoyer les structures. \\
+{\em to} & Le socket destinataire. \\
 \hline
-{\em player1} & Structure représentant le joueur 1. \\
+{\em action} & Pointeur vers la première action à envoyer. \\
 \hline
-{\em player2} & Structure représentant le joueur 2. \\
+{\em action2} & Pointeur vers la deuxième action à envoyer. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{client_8h_ad37e484426af955bee33a6387e5134e1}\label{client_8h_ad37e484426af955bee33a6387e5134e1} 
@@ -133,22 +133,22 @@ Initialise la connexion au serveur.
 \begin{DoxyReturn}{Renvoie}
 Retourne 1 si l\textquotesingle{}initialisation est réussie, sinon 0. 
 \end{DoxyReturn}
-\Hypertarget{client_8h_a6721d4af4737eea7dbb85d14fda79746}\label{client_8h_a6721d4af4737eea7dbb85d14fda79746} 
-\index{client.h@{client.h}!recevoir\_structure@{recevoir\_structure}}
-\index{recevoir\_structure@{recevoir\_structure}!client.h@{client.h}}
-\doxysubsubsection{\texorpdfstring{recevoir\_structure()}{recevoir\_structure()}}
-{\footnotesize\ttfamily void recevoir\+\_\+structure (\begin{DoxyParamCaption}\item[{int}]{to,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{player1,  }\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{player2 }\end{DoxyParamCaption})}
+\Hypertarget{client_8h_a27ade0b90ec4af1eb68f8c734b884834}\label{client_8h_a27ade0b90ec4af1eb68f8c734b884834} 
+\index{client.h@{client.h}!recevoir@{recevoir}}
+\index{recevoir@{recevoir}!client.h@{client.h}}
+\doxysubsubsection{\texorpdfstring{recevoir()}{recevoir()}}
+{\footnotesize\ttfamily void recevoir (\begin{DoxyParamCaption}\item[{int}]{to,  }\item[{int \texorpdfstring{$\ast$}{*}}]{action,  }\item[{int \texorpdfstring{$\ast$}{*}}]{action2 }\end{DoxyParamCaption})}
 
 
 
-Reçoit les structures des joueurs depuis le serveur. 
+Réception des données depuis le socket spécifié. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em to} & Socket depuis laquelle recevoir les structures. \\
+{\em to} & Le socket destinataire. \\
 \hline
-{\em player1} & Pointeur vers la structure représentant le joueur 1. \\
+{\em action} & Pointeur vers la première action à recevoir. \\
 \hline
-{\em player2} & Pointeur vers la structure représentant le joueur 2. \\
+{\em action2} & Pointeur vers la deuxième action à recevoir. \\
 \hline
 \end{DoxyParams}

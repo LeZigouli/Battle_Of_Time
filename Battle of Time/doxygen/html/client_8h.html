@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battle of Time: Référence du fichier /Users/vic/Documents/Battle_Of_Time/Conception/bot/socket/client.h</title>
+<title>Battle of Time: Référence du fichier /Users/vic/Documents/Battle_Of_Time/Battle of Time/socket/client.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -144,12 +144,12 @@ Fonctions</h2></td></tr>
 <tr class="memitem:ad37e484426af955bee33a6387e5134e1" id="r_ad37e484426af955bee33a6387e5134e1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad37e484426af955bee33a6387e5134e1">init_reseau_client</a> (char <a class="el" href="#a345bd426338703d46f62a0585631016f">serveurname</a>[MAX_IP])</td></tr>
 <tr class="memdesc:ad37e484426af955bee33a6387e5134e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise la connexion au serveur.  <br /></td></tr>
 <tr class="separator:ad37e484426af955bee33a6387e5134e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8be8a7f6d79b8eb5ed1012550d941006" id="r_a8be8a7f6d79b8eb5ed1012550d941006"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8be8a7f6d79b8eb5ed1012550d941006">envoyer_structure</a> (int to, <a class="el" href="structplayer__t.html">player_t</a> player1, <a class="el" href="structplayer__t.html">player_t</a> player2)</td></tr>
-<tr class="memdesc:a8be8a7f6d79b8eb5ed1012550d941006"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoie les structures des joueurs au serveur.  <br /></td></tr>
-<tr class="separator:a8be8a7f6d79b8eb5ed1012550d941006"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6721d4af4737eea7dbb85d14fda79746" id="r_a6721d4af4737eea7dbb85d14fda79746"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6721d4af4737eea7dbb85d14fda79746">recevoir_structure</a> (int to, <a class="el" href="structplayer__t.html">player_t</a> *player1, <a class="el" href="structplayer__t.html">player_t</a> *player2)</td></tr>
-<tr class="memdesc:a6721d4af4737eea7dbb85d14fda79746"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reçoit les structures des joueurs depuis le serveur.  <br /></td></tr>
-<tr class="separator:a6721d4af4737eea7dbb85d14fda79746"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af91db94e287ff62fb672bdf05b267bc4" id="r_af91db94e287ff62fb672bdf05b267bc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af91db94e287ff62fb672bdf05b267bc4">envoyer</a> (int to, int *action, int *action2)</td></tr>
+<tr class="memdesc:af91db94e287ff62fb672bdf05b267bc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoie des données via le socket spécifié.  <br /></td></tr>
+<tr class="separator:af91db94e287ff62fb672bdf05b267bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27ade0b90ec4af1eb68f8c734b884834" id="r_a27ade0b90ec4af1eb68f8c734b884834"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27ade0b90ec4af1eb68f8c734b884834">recevoir</a> (int to, int *action, int *action2)</td></tr>
+<tr class="memdesc:a27ade0b90ec4af1eb68f8c734b884834"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réception des données depuis le socket spécifié.  <br /></td></tr>
+<tr class="separator:a27ade0b90ec4af1eb68f8c734b884834"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa467a3eaa123b1ce5de6517e44287dbd" id="r_aa467a3eaa123b1ce5de6517e44287dbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa467a3eaa123b1ce5de6517e44287dbd">client_fermeture</a> (int *socket)</td></tr>
 <tr class="memdesc:aa467a3eaa123b1ce5de6517e44287dbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ferme la connexion au serveur.  <br /></td></tr>
 <tr class="separator:aa467a3eaa123b1ce5de6517e44287dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -212,36 +212,36 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>to_server_socket</b></
 
 </div>
 </div>
-<a id="a8be8a7f6d79b8eb5ed1012550d941006" name="a8be8a7f6d79b8eb5ed1012550d941006"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8be8a7f6d79b8eb5ed1012550d941006">&#9670;&#160;</a></span>envoyer_structure()</h2>
+<a id="af91db94e287ff62fb672bdf05b267bc4" name="af91db94e287ff62fb672bdf05b267bc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af91db94e287ff62fb672bdf05b267bc4">&#9670;&#160;</a></span>envoyer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void envoyer_structure </td>
+          <td class="memname">void envoyer </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>to</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a></td>          <td class="paramname"><span class="paramname"><em>player1</em>, </span></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>action</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a></td>          <td class="paramname"><span class="paramname"><em>player2</em></span>&#160;)</td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>action2</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Envoie les structures des joueurs au serveur. </p>
+<p>Envoie des données via le socket spécifié. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">to</td><td>Socket vers laquelle envoyer les structures. </td></tr>
-    <tr><td class="paramname">player1</td><td>Structure représentant le joueur 1. </td></tr>
-    <tr><td class="paramname">player2</td><td>Structure représentant le joueur 2. </td></tr>
+    <tr><td class="paramname">to</td><td>Le socket destinataire. </td></tr>
+    <tr><td class="paramname">action</td><td>Pointeur vers la première action à envoyer. </td></tr>
+    <tr><td class="paramname">action2</td><td>Pointeur vers la deuxième action à envoyer. </td></tr>
   </table>
   </dd>
 </dl>
@@ -274,36 +274,36 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>to_server_socket</b></
 
 </div>
 </div>
-<a id="a6721d4af4737eea7dbb85d14fda79746" name="a6721d4af4737eea7dbb85d14fda79746"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6721d4af4737eea7dbb85d14fda79746">&#9670;&#160;</a></span>recevoir_structure()</h2>
+<a id="a27ade0b90ec4af1eb68f8c734b884834" name="a27ade0b90ec4af1eb68f8c734b884834"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27ade0b90ec4af1eb68f8c734b884834">&#9670;&#160;</a></span>recevoir()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void recevoir_structure </td>
+          <td class="memname">void recevoir </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>to</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> *</td>          <td class="paramname"><span class="paramname"><em>player1</em>, </span></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>action</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> *</td>          <td class="paramname"><span class="paramname"><em>player2</em></span>&#160;)</td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>action2</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reçoit les structures des joueurs depuis le serveur. </p>
+<p>Réception des données depuis le socket spécifié. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">to</td><td>Socket depuis laquelle recevoir les structures. </td></tr>
-    <tr><td class="paramname">player1</td><td>Pointeur vers la structure représentant le joueur 1. </td></tr>
-    <tr><td class="paramname">player2</td><td>Pointeur vers la structure représentant le joueur 2. </td></tr>
+    <tr><td class="paramname">to</td><td>Le socket destinataire. </td></tr>
+    <tr><td class="paramname">action</td><td>Pointeur vers la première action à recevoir. </td></tr>
+    <tr><td class="paramname">action2</td><td>Pointeur vers la deuxième action à recevoir. </td></tr>
   </table>
   </dd>
 </dl>

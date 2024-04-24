@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['file_5fattente_0',['file_attente',['../structplayer__t.html#aa575d3048df6a5e1e79df680308a3518',1,'player_t']]],
-  ['fin_1',['fin',['../structplayer__t.html#a5bfc5d2b9664c3e7241efd6a6cc24179',1,'player_t']]]
+  ['estlache_0',['estLache',['../commun___s_d_l_8h.html#a5a834340eae0614a9961a897aff8221a',1,'commun_SDL.h']]]
 ];

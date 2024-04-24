@@ -1,17 +1,3 @@
-/*!
- * \mainpage README
- * 
- * \section   Projet L2 Informatique
- *  Victor Poirier,
- * Vincent Proudy,
- * Louison Roquain,
- * Thomas Wolter
- * 
- *  Date : 18/04/24
- *  
- *  L2 Informatique 2023-2024
-*/
-
 /**
  * \file main.c
  * \brief Fonction principal du programme

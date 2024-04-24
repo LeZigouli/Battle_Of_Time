@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battle of Time: Référence du fichier /Users/vic/Documents/Battle_Of_Time/Conception/bot/src/gestion.c</title>
+<title>Battle of Time: Référence du fichier /Users/vic/Documents/Battle_Of_Time/Battle of Time/src/gestion.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -111,9 +111,9 @@ $(function(){initNavTree('gestion_8c.html',''); initResizable(); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a06dca7c03165878b28bd1b77d1b14a5d" id="r_a06dca7c03165878b28bd1b77d1b14a5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06dca7c03165878b28bd1b77d1b14a5d">clic</a> (etat_t *etat, SDL_Window *fenetre, SDL_Event evenement, <a class="el" href="structelement__t.html">element_t</a> *elm_reso, Mix_Chunk *click, int mouseX, int mouseY, int w, int h, float widthFactor, float heightFactor, int menuX, int menuY, int *index_effet, int *continuer, int *selecElement, char *effet, int *isValid, const char *textInput, const char *ipPattern, int *textInputActive, int *keyCounts, int x, int y, int *ancienSon, int *ancienReso, <a class="el" href="structplayer__t.html">player_t</a> *j1, <a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *tab_de_charactere, <a class="el" href="structordi__t.html">ordi_t</a> *ordi, Uint32 currentTime, Uint32 *lastUlti, Uint32 *diff_time, Uint32 *delai_ulti, int **troupe_formee, Uint32 **lastTroupe, int **nb)</td></tr>
-<tr class="memdesc:a06dca7c03165878b28bd1b77d1b14a5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestion des cliques du menu et du jeu.  <br /></td></tr>
-<tr class="separator:a06dca7c03165878b28bd1b77d1b14a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40d8fe4cd6ef6e413ebe23ca7e67db9e" id="r_a40d8fe4cd6ef6e413ebe23ca7e67db9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40d8fe4cd6ef6e413ebe23ca7e67db9e">clic</a> (etat_t *etat, SDL_Window *fenetre, SDL_Event evenement, <a class="el" href="structelement__t.html">element_t</a> *elm_reso, Mix_Chunk *click, int mouseX, int mouseY, int w, int h, float widthFactor, float heightFactor, int menuX, int menuY, int *index_effet, int *continuer, int *selecElement, char *effet, int *isValid, const char *textInput, const char *ipPattern, int *textInputActive, int *keyCounts, int x, int y, int *ancienSon, int *ancienReso, <a class="el" href="structplayer__t.html">player_t</a> *j1, <a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *tab_de_charactere, <a class="el" href="structordi__t.html">ordi_t</a> *ordi, Uint32 currentTime, Uint32 *lastUlti, Uint32 *diff_time, Uint32 *delai_ulti, int **troupe_formee, Uint32 **lastTroupe, int **nb, int *reseau_action, int *reseau_action2, int age, <a class="el" href="structplayer__t.html">player_t</a> *j2_distant)</td></tr>
+<tr class="memdesc:a40d8fe4cd6ef6e413ebe23ca7e67db9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestion des cliques du menu et du jeu.  <br /></td></tr>
+<tr class="separator:a40d8fe4cd6ef6e413ebe23ca7e67db9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac337a8b51f748e671103d58d6681aef" id="r_aac337a8b51f748e671103d58d6681aef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac337a8b51f748e671103d58d6681aef">relachement</a> (etat_t *etat, int menuX, int menuY, int w, int h, float *widthFactor, float *heightFactor, int mouseX, int mouseY)</td></tr>
 <tr class="memdesc:aac337a8b51f748e671103d58d6681aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestion du relâchement du clic de la souris sur les éléments du menu.  <br /></td></tr>
 <tr class="separator:aac337a8b51f748e671103d58d6681aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,6 +135,15 @@ Fonctions</h2></td></tr>
 <tr class="memitem:afecde47e916a8831710f18286b346ed8" id="r_afecde47e916a8831710f18286b346ed8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afecde47e916a8831710f18286b346ed8">fin_partie</a> (<a class="el" href="structplayer__t.html">player_t</a> *player, <a class="el" href="structordi__t.html">ordi_t</a> *ordi, <a class="el" href="structplayer__t.html">player_t</a> *player_online, int etat)</td></tr>
 <tr class="memdesc:afecde47e916a8831710f18286b346ed8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détermine l'issue de la partie.  <br /></td></tr>
 <tr class="separator:afecde47e916a8831710f18286b346ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea96c8a533b3bc1c6350aa557ce09825" id="r_aea96c8a533b3bc1c6350aa557ce09825"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea96c8a533b3bc1c6350aa557ce09825">traitement_pre_jeu</a> (etat_t *etat, int *a_deja_lancer_partie, <a class="el" href="structplayer__t.html">player_t</a> **j1, <a class="el" href="structordi__t.html">ordi_t</a> **o, <a class="el" href="structplayer__t.html">player_t</a> *j2_distant, SDL_Texture *image[], int *ancien_lvl, <a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *tab_de_charactere, int *connexion_reussi, int *valide, int *resultat, SDL_Renderer *rendu)</td></tr>
+<tr class="memdesc:aea96c8a533b3bc1c6350aa557ce09825"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traitement avant le début du jeu.  <br /></td></tr>
+<tr class="separator:aea96c8a533b3bc1c6350aa557ce09825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dbe2557ebf663ede9aef1103c752222" id="r_a9dbe2557ebf663ede9aef1103c752222"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9dbe2557ebf663ede9aef1103c752222">traitement_en_jeu</a> (etat_t *etat, <a class="el" href="structplayer__t.html">player_t</a> **j1, <a class="el" href="structplayer__t.html">player_t</a> **j2_distant, <a class="el" href="structordi__t.html">ordi_t</a> **o, Uint32 *diff_time, Uint32 *lastUlti, Uint32 *delai_ulti, int *reseau_action, int *reseau_action2, int *<a class="el" href="client_8h.html#ac97a0a9092b8a469854077bfba6e6f49">to_server_socket</a>, int *<a class="el" href="serveur_8h.html#ae887b77f939a43b6387aa460f46836eb">client_socket</a>, <a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *tab_de_charactere, SDL_Renderer *rendu, SDL_Rect *playerImg, SDL_Rect *ordiImg, SDL_Rect *playerAttackImg, SDL_Rect *ordiAttackImg, int *first_attaque, SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int *ancien_lvl, SDL_Texture *image[], SDL_Texture *img_char[], Uint32 currentTime, Uint32 *lastMovement, int w, int h, int *cameraX, int *cameraY, unsigned long int *debut_sprite, unsigned long int *fin_sprite, SDL_Texture *img_c_ordi[])</td></tr>
+<tr class="memdesc:a9dbe2557ebf663ede9aef1103c752222"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traitement en cours de jeu.  <br /></td></tr>
+<tr class="separator:a9dbe2557ebf663ede9aef1103c752222"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56978e1226d064639c5e4dcbca149af9" id="r_a56978e1226d064639c5e4dcbca149af9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56978e1226d064639c5e4dcbca149af9">traitement_post_jeu</a> (<a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> **tab_de_charactere, <a class="el" href="structplayer__t.html">player_t</a> **j1, <a class="el" href="structplayer__t.html">player_t</a> **j2_distant, <a class="el" href="structordi__t.html">ordi_t</a> **o, int *cameraX, int *cameraY, char *<a class="el" href="client_8h.html#a3cb8e52446a79c20206ad6ab5ab46fea">buffer</a>, int *survol, Uint32 *lastUlti, Uint32 *diff_time, Uint32 *delai_ulti, int *reseau_action, int *reseau_action2, int *troupe_formee[], int *nb[], Uint32 *lastTroupe[], Mix_Chunk *musique_fin, int *ancien_lvl)</td></tr>
+<tr class="memdesc:a56978e1226d064639c5e4dcbca149af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traitement après la fin du jeu.  <br /></td></tr>
+<tr class="separator:a56978e1226d064639c5e4dcbca149af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Contient les fonction permettant la gestion des inputs et certaines fonctions pour le deroulement de la partie. </p>
@@ -142,8 +151,8 @@ Fonctions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>09 avril 2024 </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a06dca7c03165878b28bd1b77d1b14a5d" name="a06dca7c03165878b28bd1b77d1b14a5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06dca7c03165878b28bd1b77d1b14a5d">&#9670;&#160;</a></span>clic()</h2>
+<a id="a40d8fe4cd6ef6e413ebe23ca7e67db9e" name="a40d8fe4cd6ef6e413ebe23ca7e67db9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40d8fe4cd6ef6e413ebe23ca7e67db9e">&#9670;&#160;</a></span>clic()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -326,7 +335,27 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int **</td>          <td class="paramname"><span class="paramname"><em>nb</em></span>&#160;)</td>
+          <td class="paramtype">int **</td>          <td class="paramname"><span class="paramname"><em>nb</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>reseau_action</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>reseau_action2</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>age</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> *</td>          <td class="paramname"><span class="paramname"><em>j2_distant</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -736,6 +765,435 @@ Fonctions</h2></td></tr>
     <tr><td class="paramname">textInput</td><td>La chaîne de caractères saisie. </td></tr>
     <tr><td class="paramname">ipPattern</td><td>Le motif de l'expression régulière pour une adresse IP. </td></tr>
     <tr><td class="paramname">valide</td><td>Pointeur vers la validité de l'adresse IP saisie. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9dbe2557ebf663ede9aef1103c752222" name="a9dbe2557ebf663ede9aef1103c752222"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dbe2557ebf663ede9aef1103c752222">&#9670;&#160;</a></span>traitement_en_jeu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void traitement_en_jeu </td>
+          <td>(</td>
+          <td class="paramtype">etat_t *</td>          <td class="paramname"><span class="paramname"><em>etat</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> **</td>          <td class="paramname"><span class="paramname"><em>j1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> **</td>          <td class="paramname"><span class="paramname"><em>j2_distant</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structordi__t.html">ordi_t</a> **</td>          <td class="paramname"><span class="paramname"><em>o</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32 *</td>          <td class="paramname"><span class="paramname"><em>diff_time</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32 *</td>          <td class="paramname"><span class="paramname"><em>lastUlti</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32 *</td>          <td class="paramname"><span class="paramname"><em>delai_ulti</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>reseau_action</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>reseau_action2</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>to_server_socket</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>client_socket</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *</td>          <td class="paramname"><span class="paramname"><em>tab_de_charactere</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>rendu</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect *</td>          <td class="paramname"><span class="paramname"><em>playerImg</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect *</td>          <td class="paramname"><span class="paramname"><em>ordiImg</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect *</td>          <td class="paramname"><span class="paramname"><em>playerAttackImg</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect *</td>          <td class="paramname"><span class="paramname"><em>ordiAttackImg</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>first_attaque</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect</td>          <td class="paramname"><span class="paramname"><em>playerPosition</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect</td>          <td class="paramname"><span class="paramname"><em>ordiPosition</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>ancien_lvl</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *</td>          <td class="paramname"><span class="paramname"><em>image</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *</td>          <td class="paramname"><span class="paramname"><em>img_char</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32</td>          <td class="paramname"><span class="paramname"><em>currentTime</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32 *</td>          <td class="paramname"><span class="paramname"><em>lastMovement</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>h</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>cameraX</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>cameraY</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long int *</td>          <td class="paramname"><span class="paramname"><em>debut_sprite</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long int *</td>          <td class="paramname"><span class="paramname"><em>fin_sprite</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *</td>          <td class="paramname"><span class="paramname"><em>img_c_ordi</em>[]</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Traitement en cours de jeu. </p>
+<p>Effectue divers traitements pendant le jeu, tels que le calcul des actions, l'affichage, etc.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">etat</td><td>Pointeur vers l'état du jeu. </td></tr>
+    <tr><td class="paramname">j1</td><td>Double pointeur vers le joueur local. </td></tr>
+    <tr><td class="paramname">j2_distant</td><td>Double pointeur vers le joueur distant en cas de jeu en réseau. </td></tr>
+    <tr><td class="paramname">o</td><td>Double pointeur vers l'ordinateur. </td></tr>
+    <tr><td class="paramname">diff_time</td><td>Pointeur vers le temps écoulé depuis la dernière action. </td></tr>
+    <tr><td class="paramname">lastUlti</td><td>Pointeur vers le dernier usage d'une attaque ultime. </td></tr>
+    <tr><td class="paramname">delai_ulti</td><td>Pointeur vers le délai avant la prochaine attaque ultime. </td></tr>
+    <tr><td class="paramname">reseau_action</td><td>Pointeur vers l'action réseau du joueur local. </td></tr>
+    <tr><td class="paramname">reseau_action2</td><td>Pointeur vers l'action réseau du joueur distant. </td></tr>
+    <tr><td class="paramname">to_server_socket</td><td>Pointeur vers le socket du serveur. </td></tr>
+    <tr><td class="paramname">client_socket</td><td>Pointeur vers le socket du client. </td></tr>
+    <tr><td class="paramname">tab_de_charactere</td><td>Tableau de caractères représentant les personnages du jeu. </td></tr>
+    <tr><td class="paramname">rendu</td><td>Le rendu SDL. </td></tr>
+    <tr><td class="paramname">playerImg</td><td>Rectangles représentant la position de l'image du joueur local. </td></tr>
+    <tr><td class="paramname">ordiImg</td><td>Rectangles représentant la position de l'image de l'ordinateur. </td></tr>
+    <tr><td class="paramname">playerAttackImg</td><td>Rectangles représentant la position de l'attaque du joueur local. </td></tr>
+    <tr><td class="paramname">ordiAttackImg</td><td>Rectangles représentant la position de l'attaque de l'ordinateur. </td></tr>
+    <tr><td class="paramname">first_attaque</td><td>Pointeur vers un entier indiquant si c'est la première attaque. </td></tr>
+    <tr><td class="paramname">playerPosition</td><td>Tableau de rectangles représentant la position du joueur local. </td></tr>
+    <tr><td class="paramname">ordiPosition</td><td>Tableau de rectangles représentant la position de l'ordinateur. </td></tr>
+    <tr><td class="paramname">ancien_lvl</td><td>Pointeur vers l'ancien niveau de jeu. </td></tr>
+    <tr><td class="paramname">image</td><td>Tableau de textures pour les images du jeu. </td></tr>
+    <tr><td class="paramname">img_char</td><td>Tableau de textures pour les images de caractères. </td></tr>
+    <tr><td class="paramname">currentTime</td><td>Temps actuel. </td></tr>
+    <tr><td class="paramname">lastMovement</td><td>Pointeur vers le dernier mouvement. </td></tr>
+    <tr><td class="paramname">w</td><td>Largeur de l'écran. </td></tr>
+    <tr><td class="paramname">h</td><td>Hauteur de l'écran. </td></tr>
+    <tr><td class="paramname">cameraX</td><td>Pointeur vers la position horizontale de la caméra. </td></tr>
+    <tr><td class="paramname">cameraY</td><td>Pointeur vers la position verticale de la caméra. </td></tr>
+    <tr><td class="paramname">debut_sprite</td><td>Pointeur vers le début du sprite. </td></tr>
+    <tr><td class="paramname">fin_sprite</td><td>Pointeur vers la fin du sprite. </td></tr>
+    <tr><td class="paramname">img_c_ordi</td><td>Tableau de textures pour les images d'ordinateur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a56978e1226d064639c5e4dcbca149af9" name="a56978e1226d064639c5e4dcbca149af9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56978e1226d064639c5e4dcbca149af9">&#9670;&#160;</a></span>traitement_post_jeu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void traitement_post_jeu </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> **</td>          <td class="paramname"><span class="paramname"><em>tab_de_charactere</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> **</td>          <td class="paramname"><span class="paramname"><em>j1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> **</td>          <td class="paramname"><span class="paramname"><em>j2_distant</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structordi__t.html">ordi_t</a> **</td>          <td class="paramname"><span class="paramname"><em>o</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>cameraX</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>cameraY</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>buffer</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>survol</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32 *</td>          <td class="paramname"><span class="paramname"><em>lastUlti</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32 *</td>          <td class="paramname"><span class="paramname"><em>diff_time</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32 *</td>          <td class="paramname"><span class="paramname"><em>delai_ulti</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>reseau_action</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>reseau_action2</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>troupe_formee</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>nb</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32 *</td>          <td class="paramname"><span class="paramname"><em>lastTroupe</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mix_Chunk *</td>          <td class="paramname"><span class="paramname"><em>musique_fin</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>ancien_lvl</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Traitement après la fin du jeu. </p>
+<p>Effectue divers traitements après la fin d'une partie, tels que la libération de mémoire, etc.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tab_de_charactere</td><td>Double pointeur vers le tableau de caractères. </td></tr>
+    <tr><td class="paramname">j1</td><td>Double pointeur vers le joueur local. </td></tr>
+    <tr><td class="paramname">j2_distant</td><td>Double pointeur vers le joueur distant en cas de jeu en réseau. </td></tr>
+    <tr><td class="paramname">o</td><td>Double pointeur vers l'ordinateur. </td></tr>
+    <tr><td class="paramname">cameraX</td><td>Pointeur vers la position horizontale de la caméra. </td></tr>
+    <tr><td class="paramname">cameraY</td><td>Pointeur vers la position verticale de la caméra. </td></tr>
+    <tr><td class="paramname">buffer</td><td>Pointeur vers le tampon de mémoire. </td></tr>
+    <tr><td class="paramname">survol</td><td>Pointeur vers l'indicateur de survol. </td></tr>
+    <tr><td class="paramname">lastUlti</td><td>Pointeur vers le dernier usage d'une attaque ultime. </td></tr>
+    <tr><td class="paramname">diff_time</td><td>Pointeur vers le temps écoulé depuis la dernière action. </td></tr>
+    <tr><td class="paramname">delai_ulti</td><td>Pointeur vers le délai avant la prochaine attaque ultime. </td></tr>
+    <tr><td class="paramname">reseau_action</td><td>Pointeur vers l'action réseau du joueur distant. </td></tr>
+    <tr><td class="paramname">reseau_action2</td><td>Pointeur vers l'action réseau du joueur distant. </td></tr>
+    <tr><td class="paramname">troupe_formee</td><td>Tableau d'entiers indiquant si une troupe est formée. </td></tr>
+    <tr><td class="paramname">nb</td><td>Tableau d'entiers contenant le nombre. </td></tr>
+    <tr><td class="paramname">lastTroupe</td><td>Tableau de temps de la dernière troupe. </td></tr>
+    <tr><td class="paramname">musique_fin</td><td>Pointeur vers la musique de fin de partie. </td></tr>
+    <tr><td class="paramname">ancien_lvl</td><td>Pointeur vers l'ancien niveau de jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aea96c8a533b3bc1c6350aa557ce09825" name="aea96c8a533b3bc1c6350aa557ce09825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea96c8a533b3bc1c6350aa557ce09825">&#9670;&#160;</a></span>traitement_pre_jeu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void traitement_pre_jeu </td>
+          <td>(</td>
+          <td class="paramtype">etat_t *</td>          <td class="paramname"><span class="paramname"><em>etat</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>a_deja_lancer_partie</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> **</td>          <td class="paramname"><span class="paramname"><em>j1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structordi__t.html">ordi_t</a> **</td>          <td class="paramname"><span class="paramname"><em>o</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> *</td>          <td class="paramname"><span class="paramname"><em>j2_distant</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *</td>          <td class="paramname"><span class="paramname"><em>image</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>ancien_lvl</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="character_8h.html#ab24f44887164d006cb3be7f21e4f4d76">character_t</a> *</td>          <td class="paramname"><span class="paramname"><em>tab_de_charactere</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>connexion_reussi</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>valide</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>resultat</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>rendu</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Traitement avant le début du jeu. </p>
+<p>Effectue divers traitements avant le début d'une partie, tels que la réinitialisation des données, la gestion des sauvegardes, etc.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">etat</td><td>Pointeur vers l'état du jeu. </td></tr>
+    <tr><td class="paramname">a_deja_lancer_partie</td><td>Pointeur vers un entier indiquant si une partie a déjà été lancée. </td></tr>
+    <tr><td class="paramname">j1</td><td>Double pointeur vers le joueur local. </td></tr>
+    <tr><td class="paramname">o</td><td>Double pointeur vers l'ordinateur. </td></tr>
+    <tr><td class="paramname">j2_distant</td><td>Pointeur vers le joueur distant en cas de jeu en réseau. </td></tr>
+    <tr><td class="paramname">image</td><td>Tableau de textures pour les images du jeu. </td></tr>
+    <tr><td class="paramname">ancien_lvl</td><td>Pointeur vers l'ancien niveau de jeu. </td></tr>
+    <tr><td class="paramname">tab_de_charactere</td><td>Tableau de caractères représentant les personnages du jeu. </td></tr>
+    <tr><td class="paramname">connexion_reussi</td><td>Pointeur vers un entier indiquant si la connexion a réussi. </td></tr>
+    <tr><td class="paramname">valide</td><td>Pointeur vers un entier indiquant si une action est valide. </td></tr>
+    <tr><td class="paramname">resultat</td><td>Pointeur vers un entier contenant le résultat de la partie. </td></tr>
+    <tr><td class="paramname">rendu</td><td>Le rendu SDL. </td></tr>
   </table>
   </dd>
 </dl>

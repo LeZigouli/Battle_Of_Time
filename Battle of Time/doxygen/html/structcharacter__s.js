@@ -5,6 +5,7 @@ var structcharacter__s =
     [ "cost", "structcharacter__s.html#a9cc50a933c2529d39c965b5f7d9dce9e", null ],
     [ "dammage", "structcharacter__s.html#ac8526ed1fed5e4d0728f6e5ca02cb1c0", null ],
     [ "description", "structcharacter__s.html#a89d0324ac2a9bedb9505fb7dce146287", null ],
+    [ "first_Attaque", "structcharacter__s.html#a1b14d3067b98f8b50bd42f23ae28de6e", null ],
     [ "max_pv", "structcharacter__s.html#a210e89605cdb27942192a3764653f31f", null ],
     [ "name", "structcharacter__s.html#a0dae2fafb065d613eebe848cedfd273a", null ],
     [ "owner", "structcharacter__s.html#a0e6f9936ae70b0bc91d4bc4e8abc9d2a", null ],
