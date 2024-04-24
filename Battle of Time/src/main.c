@@ -21,6 +21,7 @@
 /*************************/
 /*--Programme Principal--*/
 /*************************/
+
 int main(int argc, char* argv[]) {
     
     /*Initialisation des modules SDL*/

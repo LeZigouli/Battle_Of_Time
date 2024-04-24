@@ -9,12 +9,14 @@
 #include "../lib/save.h"
 
 /**
+ * \fn booleen_t save(ordi_t * ordi, player_t * player)
  * \brief Sauvegarde le joueur et l'ordinateur dans un fichier.
  * \param ordi L'ordinateur à sauvegarder.
  * \param player Le joueur à sauvegarder.
  * \return TRUE si la sauvegarde réussit, FALSE sinon.
  */
-booleen_t save(ordi_t * ordi, player_t * player){
+booleen_t save(ordi_t * ordi, player_t * player)
+{
 
     FILE * fd_player, * fd_ordi;
 
@@ -134,20 +136,21 @@ booleen_t save(ordi_t * ordi, player_t * player){
                                         );
     }
 
-    printf("\nSauvegarde terminée...\n");
     /* on oublie pas de fermé le fichier */
     fclose(fd_ordi);
     return TRUE;
 }
 
 /**
+ * \fn booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab)
  * \brief Charge le joueur et l'ordinateur depuis un fichier.
  * \param ordi Un pointeur vers le pointeur de l'ordinateur.
  * \param player Un pointeur vers le pointeur du joueur.
  * \param tab Un tableau de personnages.
  * \return TRUE si le chargement réussit, FALSE sinon.
  */
-booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab){
+booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab)
+{
 
     FILE * fd_player, * fd_ordi;
 
@@ -227,7 +230,6 @@ booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab){
         fprintf(stderr,"Erreur chargement (allocation dynamique)\n");
         return FALSE;  
     }
-    printf("Malloc terminé !\n");
     /******************************/
     /* On va lire dans le fichier */
     /*******************************/
@@ -251,7 +253,6 @@ booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab){
                                             &(*player)->building->max_pv,
                                             &(*player)->building->XP_cost,
                                             &(*player)->building->pv);
-    printf("OK pour les stats\n");
     /* on lit le nombre de de de personnage dans le tableau 
      * characters qui va nous permettre de boucler dessus
      * pour lire
@@ -261,7 +262,6 @@ booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab){
 
     fscanf(fd_player,"%d\n",&(*player)->characters->nb);
     int pv, x, y, x_pred;
-    printf("NB character = %d",(*player)->characters->nb);
     for (int i = 0; i < (*player)->characters->nb; i++) {
         (*player)->characters->tab[i] = malloc(sizeof(character_t)); // Allocation mémoire
         
@@ -281,7 +281,6 @@ booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab){
         (*player)->characters->tab[i]->y = y;
         (*player)->characters->tab[i]->x_pred = x_pred;
     }
-    printf("OK pour le tab characters\n");
     fscanf(fd_player,"%d\n",&(*player)->file_attente->nb);
 
     for (int i = 0; i < (*player)->file_attente->nb; i++) {
@@ -294,9 +293,7 @@ booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab){
         (*player)->file_attente->tab[i]->owner=OWNER_1;
         
     }
-    printf("OK pour les file d'attente\n");
     fclose(fd_player);
-    printf("Joueur terminé !\n");
         /***************/
         /* pour l'ordi */
         /***************/
@@ -345,6 +342,5 @@ booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab){
 
     fclose(fd_ordi);
 
-    printf("\nChargement reussi...\n");
     return TRUE;
 } 

@@ -8,6 +8,12 @@
 #include "../lib/gestion.h"
 
 /**
+ * \fn void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm_reso, Mix_Chunk* click, 
+          int mouseX, int mouseY, int w, int h, float widthFactor, float heightFactor, int menuX, int menuY, int* index_effet, 
+          int* continuer, int* selecElement, char* effet, int* isValid, const char* textInput, const char* ipPattern, 
+          int* textInputActive, int* keyCounts, int x, int y, int* ancienSon, int* ancienReso, player_t* j1,
+          character_t* tab_de_charactere, ordi_t* ordi, Uint32 currentTime, Uint32* lastUlti, Uint32* diff_time, Uint32* delai_ulti,
+          int** troupe_formee, Uint32** lastTroupe, int** nb, int * reseau_action, int * reseau_action2, int age, player_t * j2_distant)
  * \brief Gestion des cliques du menu et du jeu 
  * 
  * \param etat L'etat actuel du menu
@@ -39,6 +45,17 @@
  * \param j1 Un pointeur sur joueur
  * \param tab_de_charactere Un tableau de personnage
  * \param ordi Un pointeur sur ordinateur
+ * \param currentTime temps actuel
+ * \param lastUlti Temps depuis le dernier ulti
+ * \param diff_time différence de temps
+ * \param delai_ulti Delai de l'ulti
+ * \param troupe_formee tableau de troupe formee
+ * \param lastTroupe temps derniere troupe donnée
+ * \param nb tableau de nombre
+ * \param reseau_action pointeur sur un entier pour le mode reseau
+ * \param reseau_action2 pointeur sur un entier pour le mode reseau
+ * \param age age actuel du jeu
+ * \param j2_distant pointeur sur un joueur en mode reseau
  */
 void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm_reso, Mix_Chunk* click, 
           int mouseX, int mouseY, int w, int h, float widthFactor, float heightFactor, int menuX, int menuY, int* index_effet, 
@@ -703,6 +720,7 @@ void clic(etat_t* etat, SDL_Window* fenetre, SDL_Event evenement, element_t* elm
 }
 
 /**
+ * \fn void relachement(etat_t* etat, int menuX, int menuY, int w, int h, float* widthFactor, float* heightFactor, int mouseX, int mouseY)
  * \brief Gestion du relâchement du clic de la souris sur les éléments du menu.
  * 
  * \param etat Pointeur vers l'état du jeu.
@@ -732,6 +750,8 @@ void relachement(etat_t* etat, int menuX, int menuY, int w, int h, float* widthF
 }
 
 /**
+ * \fn void deplacement_souris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, Mix_Chunk* music, SDL_Event evenement, 
+                        float widthFactor, float heightFactor, int etat, character_t* tab_charactere, int* survol)
  * \brief Gestion du déplacement de la souris sur les éléments du menu.
  * 
  * \param rendu Le renderer de la SDL.
@@ -808,6 +828,7 @@ void deplacement_souris(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* poli
 
 
 /**
+ * \fn void destruction(int* selecElement, int* index_effet, int* continuer, etat_t* etat, float* widthFactor, float* heightFactor, int* textInputActive, int* isValid, int* keyCounts, int* ancienSon, int* etatAge, int* ancienReso)
  * \brief Fonction de destruction des variables pour le menu.
  * 
  * \param selecElement Pointeur vers l'élément sélectionné.
@@ -843,6 +864,7 @@ void destruction(int* selecElement, int* index_effet, int* continuer, etat_t* et
 }
 
 /**
+ * \fn int validateRegex(const char *input, const char *pattern) 
  * \brief Fonction pour vérifier si une chaîne de caractères respecte une expression régulière.
  * 
  * \param input La chaîne de caractères à vérifier.
@@ -868,6 +890,7 @@ int validateRegex(const char *input, const char *pattern)
     return valid == 0 ? 1 : 0;
 }
 /**
+ * \fn void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isValid, char* textInput,const char* ipPattern, int * valide)
  * \brief Gère les événements liés à la saisie de texte.
  * 
  * \param evenement L'événement SDL.
@@ -913,6 +936,7 @@ void touches(SDL_Event evenement, int* textInputActive, int* keyCounts, int* isV
 }
 
 /**
+ * \fn void reinitialiser_partie(player_t ** player, ordi_t ** ordi)
  * \brief Réinitialise la partie en libérant la mémoire allouée.
  * 
  * \param player Pointeur vers le joueur.
@@ -925,6 +949,7 @@ void reinitialiser_partie(player_t ** player, ordi_t ** ordi)
 }
 
 /**
+ * \fn int fin_partie(player_t * player, ordi_t * ordi, player_t * player_online, int etat)
  * \brief Détermine l'issue de la partie.
  * 
  * \param player Le joueur.
@@ -953,6 +978,9 @@ int fin_partie(player_t * player, ordi_t * ordi, player_t * player_online, int e
 }
 
 /**
+ * \fn void traitement_pre_jeu(   etat_t * etat, int * a_deja_lancer_partie, player_t ** j1, ordi_t ** o, 
+                                player_t * j2_distant, SDL_Texture * image[], int * ancien_lvl, character_t * tab_de_charactere, 
+                                int * connexion_reussi, int * valide, int * resultat, SDL_Renderer* rendu)
  * \brief Traitement avant le début du jeu.
  *
  * Effectue divers traitements avant le début d'une partie, tels que la réinitialisation des données, la gestion des sauvegardes, etc.
@@ -1011,12 +1039,19 @@ void traitement_pre_jeu(   etat_t * etat, int * a_deja_lancer_partie, player_t *
             /* si le joueur clique sur reprendre partie */
             case JOUER_CHARGER : 
                 reinitialiser_partie(j1,o);
-                load(&buffer_ordi, &buffer_player, tab_de_charactere);
-                (*j1) = buffer_player;
-                (*o) = buffer_ordi;
-                buffer_player = NULL;
-                buffer_ordi = NULL;
-                (*etat) = JOUER;
+                if ( load(&buffer_ordi, &buffer_player, tab_de_charactere) )
+                {
+                    (*j1) = buffer_player;
+                    (*o) = buffer_ordi;
+                    buffer_player = NULL;
+                    buffer_ordi = NULL;
+                    (*etat) = JOUER;
+                }
+                else
+                {
+                    (*etat) = MENU_SOUS_JOUER;
+                }
+
                 break;
 
             /* quand l'utilisateur clique sur sauvegarder */
@@ -1050,6 +1085,14 @@ void traitement_pre_jeu(   etat_t * etat, int * a_deja_lancer_partie, player_t *
 }
 
 /**
+ * \fn void traitement_en_jeu(    etat_t * etat, player_t ** j1, player_t ** j2_distant, ordi_t ** o, 
+                                Uint32 * diff_time, Uint32 * lastUlti, Uint32 * delai_ulti, 
+                                int * reseau_action, int * reseau_action2, int * to_server_socket, int * client_socket, 
+                                character_t * tab_de_charactere, SDL_Renderer * rendu, SDL_Rect * playerImg, SDL_Rect * ordiImg, 
+                                SDL_Rect * playerAttackImg, SDL_Rect * ordiAttackImg, int * first_attaque, SDL_Rect playerPosition[], 
+                                SDL_Rect ordiPosition[], int * ancien_lvl, SDL_Texture * image[], SDL_Texture * img_char[], 
+                                Uint32 currentTime, Uint32 * lastMovement, int w, int h, int * cameraX, int * cameraY, 
+                                unsigned long int * debut_sprite, unsigned long int * fin_sprite, SDL_Texture * img_c_ordi[])
  * \brief Traitement en cours de jeu.
  *
  * Effectue divers traitements pendant le jeu, tels que le calcul des actions, l'affichage, etc.
@@ -1173,9 +1216,11 @@ void traitement_en_jeu(    etat_t * etat, player_t ** j1, player_t ** j2_distant
 }                           
 
 /**
- * \brief Traitement après la fin du jeu.
- *
- * Effectue divers traitements après la fin d'une partie, tels que la libération de mémoire, etc.
+ * \fn void traitement_post_jeu(   character_t ** tab_de_charactere, player_t ** j1, player_t ** j2_distant, ordi_t ** o, int * cameraX,
+                            int * cameraY, char * buffer, int * survol, Uint32 * lastUlti, Uint32 * diff_time, Uint32 * delai_ulti,
+                            int * reseau_action, int * reseau_action2, int * troupe_formee[], int * nb[], Uint32 * lastTroupe[],
+                            Mix_Chunk * musique_fin, int * ancien_lvl )
+ * \brief Traitement après la fin du jeu, effectue divers traitements après la fin d'une partie, tels que la libération de mémoire, etc.
  *
  * \param tab_de_charactere Double pointeur vers le tableau de caractères.
  * \param j1 Double pointeur vers le joueur local.

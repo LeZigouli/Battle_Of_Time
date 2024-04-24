@@ -12,10 +12,12 @@
 unsigned long int debut,fin,d_ulti,f_ulti;
 
 /**
+ * \fn ordi_t * init_ordi()
  * \brief Initialise et retourne un nouvel objet ordinateur.
  * \return Un pointeur vers l'ordinateur initialisé ou NULL en cas d'échec.
  */
-ordi_t * init_ordi(){
+ordi_t * init_ordi()
+{
     ordi_t * ordi=malloc(sizeof(ordi_t));
     if(ordi !=NULL){
         ordi->owner=ORDINATEUR;
@@ -40,11 +42,13 @@ ordi_t * init_ordi(){
 }
 
 /**
+ * \fn int detr_ordi(ordi_t ** ordi)
  * \brief Libère la mémoire allouée pour l'ordinateur.
  * \param ordi Un pointeur vers le pointeur de l'ordinateur à libérer.
  * \return EXIT_SUCCESS si la libération est réussie, EXIT_FAILURE sinon.
  */
-int detr_ordi(ordi_t ** ordi){
+int detr_ordi(ordi_t ** ordi)
+{
     int i;
     free((*ordi)->building);
     if((*ordi)->characters!=NULL){
@@ -58,12 +62,14 @@ int detr_ordi(ordi_t ** ordi){
 }
 
 /**
+ * \fn int envoie_char_ordi(ordi_t * ordi, character_t * tab)
  * \brief Envoie un personnage de l'ordinateur.
  * \param ordi L'ordinateur qui envoie le personnage.
  * \param tab Le tableau de personnages disponibles.
  * \return EXIT_SUCCESS si l'envoi réussit, EXIT_FAILURE sinon.
  */
-int envoie_char_ordi(ordi_t * ordi, character_t * tab){
+int envoie_char_ordi(ordi_t * ordi, character_t * tab)
+{
     character_t * new=malloc(sizeof(character_t));
     if(new!=NULL){
         int newCha;
@@ -83,12 +89,14 @@ int envoie_char_ordi(ordi_t * ordi, character_t * tab){
 }
 
 /**
+ * \fn booleen_t give_ressources(player_t * player,ordi_t * ordi)
  * \brief Donne des ressources au joueur à partir de l'ordinateur.
  * \param player Le joueur à qui donner les ressources.
  * \param ordi L'ordinateur qui fournit les ressources.
  * \return FALSE si l'opération échoue, TRUE sinon.
  */
-booleen_t give_ressources(player_t * player,ordi_t * ordi){
+booleen_t give_ressources(player_t * player,ordi_t * ordi)
+{
     int gain=0;
     if(ordi->characters->tab[0]!=NULL){
         if(ordi->characters->tab[0]->pv <= 0){
@@ -99,19 +107,6 @@ booleen_t give_ressources(player_t * player,ordi_t * ordi){
         }
     }
     return FALSE;
-}
-
-/**
- * \brief Affiche les informations de l'ordinateur.
- * \param ordi L'ordinateur dont les informations doivent être affichées.
- */
-void afficher_ordi(ordi_t * ordi){
-    printf("{  ################## ORDINATEUR ################## \n");
-    printf("Troupe :\n{\n");
-    if(ordi->characters!=NULL){
-        afficher_characters(ordi->characters);
-    }
-    afficher_building(ordi->building);
 }
 
 /**

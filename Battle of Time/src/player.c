@@ -8,6 +8,7 @@
 #include "../lib/player.h"
 
 /**
+ * \fn player_t * initplayer(int owner)
  * \brief  Initialise un joueur avec le nom par défaut "PlayerX" et une certaine quantité d'XP.
  * \param  owner Identifiant du propriétaire du joueur (OWNER_1 ou OWNER_2).
  * \return Un pointeur vers le joueur initialisé ou NULL en cas d'échec.
@@ -56,6 +57,7 @@ player_t * initplayer(int owner)
 }
 
 /**
+ * \fn void destroy_player(player_t ** player)
  * \brief  Libère la mémoire allouée pour un joueur et ses ressources associées.
  * \param  player Un pointeur vers le pointeur du joueur à libérer.
  */
@@ -88,6 +90,7 @@ void destroy_player(player_t ** player)
 }
 
 /**
+ * \fn booleen_t buy_character(player_t ** player, character_t tab_character[NB_AGE*NB_CHARACTER], int newCha)
  * \brief  Achète un personnage pour le joueur.
  * \param  player Le joueur qui souhaite acheter un personnage.
  * \param  tab_character Le tableau de personnages disponibles.
@@ -96,7 +99,6 @@ void destroy_player(player_t ** player)
  */
 booleen_t buy_character(player_t ** player, character_t tab_character[NB_AGE*NB_CHARACTER], int newCha)
 {
-	printf("Entrée dans buy_character\n");
 	/* verification préliminaire */
 
 	/* si l'objet player n'existe pas */
@@ -162,10 +164,12 @@ booleen_t buy_character(player_t ** player, character_t tab_character[NB_AGE*NB_
 }
 
 /**
+ * \fn void envoie_char(player_t ** player)
  * \brief  Envoie les personnages en attente vers le tableau de personnages possédés.
  * \param  player Le joueur dont les personnages doivent être envoyés.
  */
-void envoie_char(player_t ** player){
+void envoie_char(player_t ** player)
+{
 	
 	if ( (*player)->file_attente != NULL )
 	{
@@ -188,6 +192,7 @@ void envoie_char(player_t ** player){
 }
 
 /**
+ * \fn booleen_t exist(void * type)
  * \brief  Vérifie si un pointeur donné existe (non NULL).
  * \param  type Le pointeur à vérifier.
  * \return TRUE si le pointeur existe, FALSE sinon.
@@ -198,6 +203,7 @@ booleen_t exist(void * type)
 }
 
 /**
+ * \fn booleen_t get_ressources(player_t * player1, player_t * player2)
  * \brief  Récupère les ressources (gold et XP) lorsqu'un personnage meurt.
  * \param  player1 Le premier joueur.
  * \param  player2 Le deuxième joueur.
@@ -237,31 +243,6 @@ booleen_t get_ressources(player_t * player1, player_t * player2)
 		}
 	}
 	return TRUE;
-}
-
-/**
- * \brief  Affiche les informations d'un joueur.
- * \param  player Le joueur dont les informations doivent être affichées.
- * \return TRUE si l'affichage a réussi, FALSE sinon.
- */
-booleen_t afficher_player(player_t * player)
-{
-    if ( player == NULL )
-    {
-        return FALSE;
-    }
-	if ( player->characters == NULL )
-	{
-		printf("Rien\n");
-		return FALSE;
-	}
-    printf("<----- Player ----->\n");
-	printf("Nom : %s\nPV : %d\nXP : %d\nGOLD : %f\nOwner : %d\n",player->name,player->building->pv,player->xp,player->gold,player->owner);
-	printf("debut : %ld, fin : %ld delai : %d difftime: %f\n\n",player->debut,player->fin,player->delai,difftime(player->fin,player->debut));
-    afficher_building(player->building);
-    afficher_characters(player->characters);
-	afficher_characters(player->file_attente);
-    return TRUE;
 }
 
 

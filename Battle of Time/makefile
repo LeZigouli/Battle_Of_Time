@@ -14,7 +14,7 @@ SAVEDIR = save
 SOCKETDIR = socket
 
 #Appel pour la création des dossiers
-DIRS = $(OBJDIR) $(BINDIR)
+DIRS = $(OBJDIR) $(BINDIR) $(SAVEDIR)
 
 .PHONY: DIRS
 all: $(DIRS) $(OBJDIR)/serveur.o $(OBJDIR)/client.o $(BINDIR)/$(TARGET)

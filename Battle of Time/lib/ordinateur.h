@@ -35,8 +35,6 @@ int envoie_char_ordi(ordi_t * ordi, character_t * tab);
 
 booleen_t give_ressources(player_t * player,ordi_t * ordi);
 
-void afficher_ordi(ordi_t * ordi);
-
 void jeu_ordi(ordi_t * o, player_t * p, character_t * tab);
 
 #endif

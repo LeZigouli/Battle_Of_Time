@@ -11,6 +11,7 @@
 
 
 /**
+ * \fn int initialisation()
  * \brief Initialise SDL, SDL_image, SDL_ttf, et SDL_Mixer.
  * 
  * \return 0 en cas de succès, 1 en cas d'erreur.
@@ -54,6 +55,7 @@ int initialisation()
 }
 
 /**
+ * \fn TTF_Font* chargementPolice(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* textureFond, char* path, int taille)
  * \brief Charge une police à partir d'un fichier.
  * 
  * \param rendu Le renderer associé à la fenêtre.
@@ -83,6 +85,7 @@ TTF_Font* chargementPolice(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture
 }
 
 /**
+ * \fn Mix_Chunk* chargementAudio(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture* textureFond, char* path)
  * \brief Charge un fichier audio dans un chunk.
  * 
  * \param rendu Le renderer associé à la fenêtre.
@@ -111,6 +114,7 @@ Mix_Chunk* chargementAudio(SDL_Renderer* rendu, SDL_Window* fenetre, SDL_Texture
 }
 
 /**
+ * \fn SDL_Texture* chargementImg(SDL_Renderer* rendu, SDL_Window* fenetre, char* path)
  * \brief Charge une image à partir d'un fichier.
  * 
  * \param rendu Le renderer associé à la fenêtre.
@@ -138,6 +142,8 @@ SDL_Texture* chargementImg(SDL_Renderer* rendu, SDL_Window* fenetre, char* path)
 
 
 /**
+ * \fn SDL_Rect creationRectangle(SDL_Window* fenetre, int x, int y, int largeur, int hauteur)
+
  * \brief Crée un rectangle dynamique en fonction des dimensions de la fenêtre.
  * 
  * \param fenetre La fenêtre où afficher le rectangle.
@@ -164,6 +170,11 @@ SDL_Rect creationRectangle(SDL_Window* fenetre, int x, int y, int largeur, int h
 }
 
 /**
+ * \fn void destruction_SDL(SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp, SDL_Texture* textureFond, 
+                     SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age, SDL_Texture* moderne,
+                     SDL_Texture* futuriste, TTF_Font* police, TTF_Font* police_texte, SDL_Renderer* rendu,
+                     SDL_Window* fenetre, Mix_Chunk* click, Mix_Chunk* music, SDL_Texture* sprite_hud[], SDL_Texture* building[],
+                    SDL_Texture* win, SDL_Texture* lose, SDL_Texture* boum)
  * \brief Libère la mémoire allouée pour les variables SDL et ferme SDL.
  * 
  * \param parametre La texture du paramètre.
@@ -185,6 +196,7 @@ SDL_Rect creationRectangle(SDL_Window* fenetre, int x, int y, int largeur, int h
  * \param building Le tableau de textures pour les bâtiments.
  * \param win La texture pour l'écran de victoire.
  * \param lose La texture pour l'écran de défaite.
+ * \param boum La texture pour l'explosion de l'ultime.
  */
 void destruction_SDL(SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp, SDL_Texture* textureFond, 
                      SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age, SDL_Texture* moderne,
