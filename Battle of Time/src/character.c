@@ -162,7 +162,7 @@ character_t * initcharacter()
                 tab[age*NB_CHARACTER+classe].owner            =OWNER_INIT;
                 tab[age*NB_CHARACTER+classe].pv               =vie(age*NB_CHARACTER+classe+1);
                 tab[age*NB_CHARACTER+classe].ratio_ressources =RATIO_RESSOURCES;
-                tab[age*NB_CHARACTER+classe].time             =temp_former(0);
+                tab[age*NB_CHARACTER+classe].time             =temp_former(1);
                 tab[age*NB_CHARACTER+classe].vector           =(age*NB_CHARACTER+classe+1)/4 + 15;
                 tab[age*NB_CHARACTER+classe].x                =0;
                 tab[age*NB_CHARACTER+classe].x_pred           =0;
