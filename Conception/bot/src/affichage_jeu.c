@@ -496,12 +496,12 @@ float lerp(float a, float b, float t) {
  * \param w Largeur de la fenêtre.
  * \param h Hauteur de la fenêtre.
  * \param cameraX Pointeur vers la position horizontale de la caméra.
- * \param cameraY Pointeur vers la position verticale de la caméra.
+ * \param cameraY Pointeur vers la position verticale de la caméra. 
  * */
 void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* playerImg, SDL_Rect* ordiImg, SDL_Rect* playerAttackImg, SDL_Rect* ordiAttackImg, int * finich_atk,
                      SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* ancien_lvl, character_t* tab_de_charactere,
                      SDL_Texture* image[], SDL_Texture* img_char[], SDL_Texture* img_c_ordi[], Uint32 currentTime, Uint32* lastMovement,
-                     int w, int h, int* cameraX, int* cameraY, unsigned long * debut, unsigned long * fin )
+                     int w, int h, int* cameraX, int* cameraY)
 {
     int i,level, frame_deplace,attaque=FALSE;
 
@@ -622,7 +622,10 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
                 if(attaque){
                     attaque=FALSE;
                     if(o->characters->ind_first_vivant==-1)
+                    {
                         character_attack_building(&o->building,&j1->characters->tab[i]);
+                        building_attack_chatacter(&j1->characters->tab[i],o->building);
+                    }
                     else{
                         character_attack_character(&o->characters->tab[o->characters->ind_first_vivant],&j1->characters->tab[i]);
                         if(o->characters->tab[o->characters->ind_first_vivant]->pv <=0)
@@ -676,7 +679,10 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
                 if(attaque){
                     attaque=FALSE;
                     if(j1->characters->ind_first_vivant==-1)
+                    {
                         character_attack_building(&j1->building,&o->characters->tab[i]);
+                        building_attack_chatacter(&o->characters->tab[i],j1->building);
+                    }
                     else{
                         character_attack_character(&j1->characters->tab[j1->characters->ind_first_vivant],&o->characters->tab[i]);
                         if(j1->characters->tab[j1->characters->ind_first_vivant]->pv <=0)
@@ -745,7 +751,7 @@ void affichageSprite(SDL_Renderer* rendu, player_t* j1, ordi_t* o, SDL_Rect* pla
 void affichageSpriteReseau(SDL_Renderer* rendu, player_t* j1, player_t* j2, SDL_Rect* playerImg, SDL_Rect* ordiImg, SDL_Rect* playerAttackImg, SDL_Rect* ordiAttackImg, int * finich_atk,
                      SDL_Rect playerPosition[], SDL_Rect ordiPosition[], int* ancien_lvl, character_t* tab_de_charactere,
                      SDL_Texture* image[], SDL_Texture* img_char[], SDL_Texture* img_c_ordi[], Uint32 currentTime, Uint32* lastMovement,
-                     int w, int h, int* cameraX, int* cameraY, unsigned long * debut, unsigned long * fin )
+                     int w, int h, int* cameraX, int* cameraY)
 {
     int i,level, frame_deplace,attaque=FALSE;
 
@@ -866,7 +872,10 @@ void affichageSpriteReseau(SDL_Renderer* rendu, player_t* j1, player_t* j2, SDL_
                 if(attaque){
                     attaque=FALSE;
                     if(j2->characters->ind_first_vivant==-1)
+                    {
                         character_attack_building(&j2->building,&j1->characters->tab[i]);
+                        building_attack_chatacter(&j1->characters->tab[i],j2->building);
+                    }
                     else{
                         character_attack_character(&j2->characters->tab[j2->characters->ind_first_vivant],&j1->characters->tab[i]);
                         if(j2->characters->tab[j2->characters->ind_first_vivant]->pv <=0)
@@ -920,8 +929,10 @@ void affichageSpriteReseau(SDL_Renderer* rendu, player_t* j1, player_t* j2, SDL_
                 if(attaque){
                     attaque=FALSE;
                     if(j1->characters->ind_first_vivant==-1)
+                    {
                         character_attack_building(&j1->building,&j2->characters->tab[i]);
-                    else{
+                        building_attack_chatacter(&j2->characters->tab[i],j1->building);
+                    }else{
                         character_attack_character(&j1->characters->tab[j1->characters->ind_first_vivant],&j2->characters->tab[i]);
                         if(j1->characters->tab[j1->characters->ind_first_vivant]->pv <=0)
                             (*finich_atk)=TRUE;

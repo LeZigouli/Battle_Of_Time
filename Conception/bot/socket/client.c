@@ -9,17 +9,30 @@
 
 #include "client.h"
 
-
-void envoyer( int to, int * action, int * characters )
+/**
+ * @brief Envoie des données via le socket spécifié.
+ *
+ * @param to Le socket destinataire.
+ * @param action Pointeur vers la première action à envoyer.
+ * @param action2 Pointeur vers la deuxième action à envoyer.
+ */
+void envoyer( int to, int * action, int * action2 )
 {
 	send(to, action, sizeof(*action),0);
-    send(to, characters, sizeof(*characters),0);
+    send(to, action2, sizeof(*action2),0);
 }
 
-void recevoir( int to, int * action, int * characters )
+/**
+ * @brief Réception des données depuis le socket spécifié.
+ *
+ * @param to Le socket destinataire.
+ * @param action Pointeur vers la première action à recevoir.
+ * @param action2 Pointeur vers la deuxième action à recevoir.
+ */
+void recevoir( int to, int * action, int * action2 )
 {
 	recv(to, action, sizeof(*action),0);
-    recv(to, characters, sizeof(*characters),0);
+    recv(to, action2, sizeof(*action2),0);
 }
 
 /**
@@ -72,8 +85,7 @@ int init_reseau_client(char serveurname[MAX_IP])
             close(to_server_socket);
             return 0;
     }
-        printf("Connexion en cours...\n");
-
+    
         fd_set write_fds;
         FD_ZERO(&write_fds);
         FD_SET(to_server_socket, &write_fds);

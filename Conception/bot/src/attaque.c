@@ -1,5 +1,15 @@
 #include "../lib/attaque.h"
 
+/**
+ * \brief Redimensionne la position et l'image du personnage pour la taille par défaut.
+ *
+ * Si le personnage n'est pas en train d'attaquer, cette fonction ajuste sa position et son image
+ * à leur taille d'origine pour correspondre à la taille des sprites lors des animations différentes.
+ *
+ * \param atimg Pointeur vers la structure SDL_Rect représentant la position de l'image du personnage.
+ * \param position Pointeur vers la structure SDL_Rect représentant la position du personnage.
+ * \param c Pointeur vers la structure character_t représentant le personnage.
+ */
 void resize_dep(SDL_Rect * atimg,SDL_Rect * position, character_t * c){
 //si le perso n'attaque plus on le remet a sa taille d'origine (car taille des sprite lors des animations différentes)
 //playerPosition pour régler la taille, playerImg pour régler l'animation
@@ -36,6 +46,17 @@ void resize_dep(SDL_Rect * atimg,SDL_Rect * position, character_t * c){
             break;
     }
 }
+
+/**
+ * \brief Redimensionne la position et l'image du personnage pour l'animation d'attaque.
+ *
+ * Cette fonction ajuste la position et l'image du personnage pour l'animation d'attaque, en raison
+ * de la différence de dimensions des sprites d'animation.
+ *
+ * \param atimg Pointeur vers la structure SDL_Rect représentant la position de l'image du personnage en attaque.
+ * \param position Pointeur vers la structure SDL_Rect représentant la position du personnage.
+ * \param c Pointeur vers la structure character_t représentant le personnage.
+ */
 void resize_att(SDL_Rect * atimg,SDL_Rect * position, character_t * c){
     //il faut resize car les png d'animations sont différents
     //les dimensions d'un sprite d'animation d'attaque est 3x plus grand d'ou le 128*3 pour height et width
@@ -85,6 +106,17 @@ void resize_att(SDL_Rect * atimg,SDL_Rect * position, character_t * c){
     }
 }
 
+/**
+ * \brief Gère l'animation de l'attaque du personnage.
+ *
+ * Cette fonction gère l'animation de l'attaque du personnage en ajustant l'image affichée
+ * pour simuler le mouvement d'attaque.
+ *
+ * \param atimg Pointeur vers la structure SDL_Rect représentant la position de l'image d'attaque du personnage.
+ * \param c Pointeur vers la structure character_t représentant le personnage.
+ * \param attaque Pointeur vers un entier indiquant si une attaque est en cours.
+ * \param owner Indicateur du propriétaire de l'attaque (OWNER_1 ou OWNER_2).
+ */
 void ataquage(SDL_Rect * atimg, character_t * c, int * attaque, int owner){
     int ind = c->classe+c->age*NB_CHARACTER;
 
@@ -106,9 +138,9 @@ void ataquage(SDL_Rect * atimg, character_t * c, int * attaque, int owner){
         case 15:
         case 16:
         case 17:
-            longueur_anim = TAILLE_SPRITE*11;
-            if ( owner == OWNER_1 ) position_anim = TAILLE_SPRITE*19;
-            else position_anim = TAILLE_SPRITE*17;
+            longueur_anim = TAILLE_SPRITE*11; // 11 image 
+            if ( owner == OWNER_1 ) position_anim = TAILLE_SPRITE*19; // position dans l'image
+            else position_anim = TAILLE_SPRITE*17; // position dans l'image
 
             if(atimg->x == longueur_anim){
                 atimg->x=0;
@@ -183,6 +215,16 @@ void ataquage(SDL_Rect * atimg, character_t * c, int * attaque, int owner){
     }
 }
 
+/**
+ * \brief Gère l'animation de la mort du personnage.
+ *
+ * Cette fonction gère l'animation de la mort du personnage en ajustant l'image affichée
+ * pour simuler le processus de la mort.
+ *
+ * \param atimg Pointeur vers la structure SDL_Rect représentant la position de l'image du personnage en train de mourir.
+ * \param c Pointeur vers la structure character_t représentant le personnage.
+ * \return Valeur booléenne indiquant si l'animation de la mort est terminée (TRUE) ou non (FALSE).
+ */
 booleen_t animation_mort(SDL_Rect * atimg, character_t * c)
 {
 

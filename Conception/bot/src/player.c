@@ -30,7 +30,7 @@ player_t * initplayer(int owner)
 	strcpy(main_player->name,name);
 	main_player->owner = owner;
 	main_player->gold = 800;
-	main_player->xp = 8000;
+	main_player->xp = 0;
 	main_player->debut=DELAI_INITIAL;
 	main_player->characters = malloc(sizeof(tab_charactere_t));
 	main_player->file_attente = malloc(sizeof(tab_charactere_t));
@@ -205,7 +205,6 @@ booleen_t exist(void * type)
  */
 booleen_t get_ressources(player_t * player1, player_t * player2)
 {	
-	printf("Entrée dans get ressource \n");
 	if (player1 == NULL || player2 == NULL)
 	{
 		return FALSE;

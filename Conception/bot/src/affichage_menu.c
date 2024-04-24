@@ -52,6 +52,7 @@
  * \param currentTime Temps actuel
  * \param lastTroupe Tableau de pointeur sur le temps de formation de chaque personnage
  * \param nb Tableau de pointeur sur le nombre de personnages formés pour chaque classe
+ * \param j2 Pointeurs vers une structure joueur.
  */
 void affichage(etat_t etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police , TTF_Font* police_texte, 
                int menuX, int menuY, element_t* elm_reso, int* selecElement, const char* effet, char* textInput, 

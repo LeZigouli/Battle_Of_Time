@@ -50,11 +50,12 @@ void reinitialiser_partie(player_t ** player, ordi_t ** ordi);
 /* fonction de la gestion en jeu */
 int fin_partie(player_t * player, ordi_t * ordi, player_t * player_online, int etat);
 
-/* fonction de la gestion en jeu */
+/* fonction de la gestion avant jeu */
 void traitement_pre_jeu(   etat_t * etat, int * a_deja_lancer_partie, player_t ** j1, ordi_t ** o, 
                                 player_t * j2_distant, SDL_Texture * image[], int * ancien_lvl, character_t * tab_de_charactere, 
                                 int * connexion_reussi, int * valide, int * resultat, SDL_Renderer* rendu);
 
+/* fonction de la gestion apres jeu */
 void traitement_post_jeu(   character_t ** tab_de_charactere, player_t ** j1, player_t ** j2_distant, ordi_t ** o, int * cameraX,
                             int * cameraY, char * buffer, int * survol, Uint32 * lastUlti, Uint32 * diff_time, Uint32 * delai_ulti,
                             int * reseau_action, int * reseau_action2, int * troupe_formee[], int * nb[], Uint32 * lastTroupe[],
@@ -69,6 +70,5 @@ void traitement_en_jeu(    etat_t * etat, player_t ** j1, player_t ** j2_distant
                                 SDL_Rect ordiPosition[], int * ancien_lvl, SDL_Texture * image[], SDL_Texture * img_char[], 
                                 Uint32 currentTime, Uint32 * lastMovement, int w, int h, int * cameraX, int * cameraY, 
                                 unsigned long int * debut_sprite, unsigned long int * fin_sprite, SDL_Texture * img_c_ordi[]);    
-
 
 #endif

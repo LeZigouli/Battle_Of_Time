@@ -11,6 +11,7 @@ BINDIR = bin
 OBJDIR = obj
 LIBDIR = lib
 SAVEDIR = save
+SOCKETDIR = socket
 
 #Appel pour la création des dossiers
 DIRS = $(OBJDIR) $(BINDIR)
@@ -44,11 +45,11 @@ $(OBJDIR)/%.o : $(SRCDIR)/%.c | $(LIBDIR)
 	@echo "Compilation "$<" réussie!"
 
 # POUR LE SOCKET
-$(OBJDIR)/client.o : socket/client.c socket/client.h
-	gcc -c $< -o $@
+$(OBJDIR)/client.o : $(SOCKETDIR)/client.c $(SOCKETDIR)/client.h
+	@$(CC) -c $< -o $@
 
-$(OBJDIR)/serveur.o : socket/serveur.c socket/serveur.h
-	gcc -c $< -o $@
+$(OBJDIR)/serveur.o : $(SOCKETDIR)/serveur.c $(SOCKETDIR)/serveur.h
+	@$(CC) -c $< -o $@
 
 #################
 #--Utilitaires--#

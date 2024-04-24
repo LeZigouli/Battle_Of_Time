@@ -950,6 +950,24 @@ int fin_partie(player_t * player, ordi_t * ordi, player_t * player_online, int e
     return AUCUN_GAGNANT;
 }
 
+/**
+ * \brief Traitement avant le début du jeu.
+ *
+ * Effectue divers traitements avant le début d'une partie, tels que la réinitialisation des données, la gestion des sauvegardes, etc.
+ *
+ * \param etat Pointeur vers l'état du jeu.
+ * \param a_deja_lancer_partie Pointeur vers un entier indiquant si une partie a déjà été lancée.
+ * \param j1 Double pointeur vers le joueur local.
+ * \param o Double pointeur vers l'ordinateur.
+ * \param j2_distant Pointeur vers le joueur distant en cas de jeu en réseau.
+ * \param image Tableau de textures pour les images du jeu.
+ * \param ancien_lvl Pointeur vers l'ancien niveau de jeu.
+ * \param tab_de_charactere Tableau de caractères représentant les personnages du jeu.
+ * \param connexion_reussi Pointeur vers un entier indiquant si la connexion a réussi.
+ * \param valide Pointeur vers un entier indiquant si une action est valide.
+ * \param resultat Pointeur vers un entier contenant le résultat de la partie.
+ * \param rendu Le rendu SDL.
+ */
 void traitement_pre_jeu(   etat_t * etat, int * a_deja_lancer_partie, player_t ** j1, ordi_t ** o, 
                                 player_t * j2_distant, SDL_Texture * image[], int * ancien_lvl, character_t * tab_de_charactere, 
                                 int * connexion_reussi, int * valide, int * resultat, SDL_Renderer* rendu)
@@ -1029,6 +1047,44 @@ void traitement_pre_jeu(   etat_t * etat, int * a_deja_lancer_partie, player_t *
     
 }
 
+/**
+ * \brief Traitement en cours de jeu.
+ *
+ * Effectue divers traitements pendant le jeu, tels que le calcul des actions, l'affichage, etc.
+ *
+ * \param etat Pointeur vers l'état du jeu.
+ * \param j1 Double pointeur vers le joueur local.
+ * \param j2_distant Double pointeur vers le joueur distant en cas de jeu en réseau.
+ * \param o Double pointeur vers l'ordinateur.
+ * \param diff_time Pointeur vers le temps écoulé depuis la dernière action.
+ * \param lastUlti Pointeur vers le dernier usage d'une attaque ultime.
+ * \param delai_ulti Pointeur vers le délai avant la prochaine attaque ultime.
+ * \param reseau_action Pointeur vers l'action réseau du joueur local.
+ * \param reseau_action2 Pointeur vers l'action réseau du joueur distant.
+ * \param to_server_socket Pointeur vers le socket du serveur.
+ * \param client_socket Pointeur vers le socket du client.
+ * \param tab_de_charactere Tableau de caractères représentant les personnages du jeu.
+ * \param rendu Le rendu SDL.
+ * \param playerImg Rectangles représentant la position de l'image du joueur local.
+ * \param ordiImg Rectangles représentant la position de l'image de l'ordinateur.
+ * \param playerAttackImg Rectangles représentant la position de l'attaque du joueur local.
+ * \param ordiAttackImg Rectangles représentant la position de l'attaque de l'ordinateur.
+ * \param first_attaque Pointeur vers un entier indiquant si c'est la première attaque.
+ * \param playerPosition Tableau de rectangles représentant la position du joueur local.
+ * \param ordiPosition Tableau de rectangles représentant la position de l'ordinateur.
+ * \param ancien_lvl Pointeur vers l'ancien niveau de jeu.
+ * \param image Tableau de textures pour les images du jeu.
+ * \param img_char Tableau de textures pour les images de caractères.
+ * \param currentTime Temps actuel.
+ * \param lastMovement Pointeur vers le dernier mouvement.
+ * \param w Largeur de l'écran.
+ * \param h Hauteur de l'écran.
+ * \param cameraX Pointeur vers la position horizontale de la caméra.
+ * \param cameraY Pointeur vers la position verticale de la caméra.
+ * \param debut_sprite Pointeur vers le début du sprite.
+ * \param fin_sprite Pointeur vers la fin du sprite.
+ * \param img_c_ordi Tableau de textures pour les images d'ordinateur.
+ */
 void traitement_en_jeu(    etat_t * etat, player_t ** j1, player_t ** j2_distant, ordi_t ** o, 
                                 Uint32 * diff_time, Uint32 * lastUlti, Uint32 * delai_ulti, 
                                 int * reseau_action, int * reseau_action2, int * to_server_socket, int * client_socket, 
@@ -1038,7 +1094,7 @@ void traitement_en_jeu(    etat_t * etat, player_t ** j1, player_t ** j2_distant
                                 Uint32 currentTime, Uint32 * lastMovement, int w, int h, int * cameraX, int * cameraY, 
                                 unsigned long int * debut_sprite, unsigned long int * fin_sprite, SDL_Texture * img_c_ordi[])
 {
-    int action,action2;
+    int action = AUCUN_ACTION, action2 = AUCUN_ACTION;
 
     switch((*etat))
     {
@@ -1050,7 +1106,7 @@ void traitement_en_jeu(    etat_t * etat, player_t ** j1, player_t ** j2_distant
             jeu_ordi((*o),(*j1),tab_de_charactere);
 
             affichageSprite(rendu, (*j1), (*o), playerImg, ordiImg, playerAttackImg, ordiAttackImg, first_attaque, playerPosition, ordiPosition, ancien_lvl, 
-                            tab_de_charactere, image, img_char, img_c_ordi, currentTime, lastMovement, w, h, cameraX, cameraY, debut_sprite, fin_sprite);
+                            tab_de_charactere, image, img_char, img_c_ordi, currentTime, lastMovement, w, h, cameraX, cameraY);
             break;
         
         case JOUER_RESEAU_CREER :
@@ -1075,7 +1131,6 @@ void traitement_en_jeu(    etat_t * etat, player_t ** j1, player_t ** j2_distant
                 default:
                     break;
             }
-            printf("%d <> %d\n",action,action2);
             switch(action)
             {
                 case AUCUN_ACTION : // si adversaire fait aucune action
@@ -1107,14 +1162,38 @@ void traitement_en_jeu(    etat_t * etat, player_t ** j1, player_t ** j2_distant
             envoie_char(j2_distant); // envoie file d'attente du joueur 2
             
             affichageSpriteReseau(  rendu, (*j1), (*j2_distant), playerImg, ordiImg, playerAttackImg, ordiAttackImg, first_attaque, playerPosition, ordiPosition, ancien_lvl, 
-                                    tab_de_charactere, image, img_char, img_c_ordi, currentTime, lastMovement, w, h, cameraX, cameraY, debut_sprite, fin_sprite);
+                                    tab_de_charactere, image, img_char, img_c_ordi, currentTime, lastMovement, w, h, cameraX, cameraY);
             break;
 
-    default :
-        break;
+        default :
+            break;
     }
 }                           
 
+/**
+ * \brief Traitement après la fin du jeu.
+ *
+ * Effectue divers traitements après la fin d'une partie, tels que la libération de mémoire, etc.
+ *
+ * \param tab_de_charactere Double pointeur vers le tableau de caractères.
+ * \param j1 Double pointeur vers le joueur local.
+ * \param j2_distant Double pointeur vers le joueur distant en cas de jeu en réseau.
+ * \param o Double pointeur vers l'ordinateur.
+ * \param cameraX Pointeur vers la position horizontale de la caméra.
+ * \param cameraY Pointeur vers la position verticale de la caméra.
+ * \param buffer Pointeur vers le tampon de mémoire.
+ * \param survol Pointeur vers l'indicateur de survol.
+ * \param lastUlti Pointeur vers le dernier usage d'une attaque ultime.
+ * \param diff_time Pointeur vers le temps écoulé depuis la dernière action.
+ * \param delai_ulti Pointeur vers le délai avant la prochaine attaque ultime.
+ * \param reseau_action Pointeur vers l'action réseau du joueur distant.
+ * \param reseau_action2 Pointeur vers l'action réseau du joueur distant.
+ * \param troupe_formee Tableau d'entiers indiquant si une troupe est formée.
+ * \param nb Tableau d'entiers contenant le nombre.
+ * \param lastTroupe Tableau de temps de la dernière troupe.
+ * \param musique_fin Pointeur vers la musique de fin de partie.
+ * \param ancien_lvl Pointeur vers l'ancien niveau de jeu.
+ */
 void traitement_post_jeu(   character_t ** tab_de_charactere, player_t ** j1, player_t ** j2_distant, ordi_t ** o, int * cameraX,
                             int * cameraY, char * buffer, int * survol, Uint32 * lastUlti, Uint32 * diff_time, Uint32 * delai_ulti,
                             int * reseau_action, int * reseau_action2, int * troupe_formee[], int * nb[], Uint32 * lastTroupe[],

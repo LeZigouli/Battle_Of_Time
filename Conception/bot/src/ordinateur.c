@@ -74,7 +74,6 @@ int envoie_char_ordi(ordi_t * ordi, character_t * tab){
             ordi->characters->tab[ordi->characters->nb]->owner=ORDINATEUR;
             ordi->characters->tab[ordi->characters->nb]->x= POS_DEP_AD;
             ordi->characters->nb++;
-            ordi->xp+= new->cost*new->ratio_ressources;
             return EXIT_SUCCESS;
         }
         /*Liberation de l'espace mémoir dans le cas où ordi->characters->nb == Max possesed*/
@@ -93,9 +92,10 @@ booleen_t give_ressources(player_t * player,ordi_t * ordi){
     int gain=0;
     if(ordi->characters->tab[0]!=NULL){
         if(ordi->characters->tab[0]->pv <= 0){
-            gain=ordi->characters->tab[0]->ratio_ressources * ordi->characters->tab[0]->cost;
-            player->gold+= gain;
+            gain=ordi->characters->tab[0]->ratio_ressources * (ordi->characters->tab[0]->cost * 2);
+            player->gold+= gain/3;
             player->xp += gain;
+            ordi->xp+=gain;
         }
     }
     return FALSE;
@@ -129,6 +129,7 @@ void jeu_ordi(ordi_t * o, player_t * p, character_t * tab){
         o->delai_ulti=rand()%(MAX_DELAI_ULTI-MIN_DELAI_ULTI)+MIN_DELAI_ULTI;
         d_ulti=time(NULL);
     }
+    
     if(o->xp > o->building->XP_cost-((o->difficulte*8)/100)*o->building->XP_cost)
         upgrade_building(&o->building,&o->xp);
     

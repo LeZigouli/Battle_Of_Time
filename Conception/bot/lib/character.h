@@ -41,7 +41,7 @@ typedef struct character_s {
     int cost;                       /**< Coût du personnage. */
     int dammage;                     /**< Dégâts infligés par le personnage. */
     char description[MAX_DESCRIPTION]; /**< Description du personnage. */
-    int first_Attaque;
+    int first_Attaque;                 /**< Si l'attaque du personnage est disponible.. */
     int max_pv;                     /**< Points de vie maximum du personnage. */
     char name[MAX_STR];             /**< Nom du personnage. */
     int owner;                      /**< Propriétaire du personnage. */
@@ -61,6 +61,7 @@ booleen_t destroy_tab_character(character_t ** tab );
 
 booleen_t character_attack_character(character_t ** destination, character_t ** src);
 booleen_t character_attack_building(building_t ** destination, character_t ** src);
+booleen_t building_attack_chatacter(character_t ** destination, building_t * src);
 
 void deplacement_gauche(character_t ** character);
 void deplacement_droit(character_t ** character);

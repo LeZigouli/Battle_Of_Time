@@ -1,7 +1,7 @@
 /**
  * \file character.c
  * \brief Contient les fonction pour les personnages du jeu
- * \author Roquain Lousion Proudy Vincent
+ * \author Roquain Lousion et Proudy Vincent
  * \date 02 avril 2024
  * \version 1.0
  * 
@@ -45,6 +45,19 @@ booleen_t character_attack_building(building_t ** destination, character_t ** sr
     }
 
     (*destination)->pv -= (*src)->dammage;
+
+    return TRUE;
+}
+
+booleen_t building_attack_chatacter(character_t ** destination, building_t * src)
+{
+    if(destination == NULL || src == NULL || (*destination) == NULL )
+    {
+        /* les pointeurs sont invalides */
+        return FALSE;
+    }
+
+    (*destination)->pv -= src->dammage;
 
     return TRUE;
 }

@@ -18,94 +18,92 @@
 #include <SDL2/SDL_mixer.h>
 #include <regex.h>
 
-/************/
-/*--Macros--*/
-/************/
+
 /*Dimensions des images de fonds*/
-#define IMAGE_WIDTH 3840 
-#define IMAGE_HEIGHT 720
-/*Vitesse de du déplacement de la caméra*/
-#define SCROLL_SPEED 30
+#define IMAGE_WIDTH 3840 /**< Largeur des images de fond */
+#define IMAGE_HEIGHT 720 /**< Hauteur des images de fond */
+/*Vitesse du déplacement de la caméra*/
+#define SCROLL_SPEED 30 /**< Vitesse du défilement */
 /*Dimensions de base de la fenêtre*/
-#define WINDOW_WIDTH 1080
-#define WINDOW_HEIGHT 720
+#define WINDOW_WIDTH 1080 /**< Largeur de la fenêtre */
+#define WINDOW_HEIGHT 720 /**< Hauteur de la fenêtre */
 /*Taille des éléments du menu*/
-#define MENU_WIDTH 250
-#define MENU_HEIGHT 60
-#define MENU_DECALAGE 50 /*Décalage pour abaisser le menu*/
-#define SPACING 30   /*Espace entre chaque sous-menu*/
+#define MENU_WIDTH 250 /**< Largeur des éléments de menu */
+#define MENU_HEIGHT 60 /**< Hauteur des éléments de menu */
+#define MENU_DECALAGE 50 /**< Décalage pour abaisser le menu */
+#define SPACING 30 /**< Espace entre chaque sous-menu */
 
-#define ELEMENT_WIDTH 100 /*Largeur d'un élément*/
-#define ELEMENT_HEIGHT 50 /*Hauteur d'un élément*/
-#define ELEMENT_SPACING 20 /*Espacement entre les éléments*/
+#define ELEMENT_WIDTH 100 /**< Largeur d'un élément */
+#define ELEMENT_HEIGHT 50 /**< Hauteur d'un élément */
+#define ELEMENT_SPACING 20 /**< Espacement entre les éléments */
 
-#define POS_DEP 170 /*Spawn des caractères du joueur*/
-#define POS_DEP_AD IMAGE_WIDTH - 300 /*Spawn des caractères de l'adversaire*/
+#define POS_DEP 170 /**< Position d'apparition des personnages du joueur */
+#define POS_DEP_AD IMAGE_WIDTH - 300 /**< Position d'apparition des personnages adverses */
 
-#define MOVEMENT_DURATION 100 /*Durée du mouvement en millisecondes des sprites*/
-#define DELAI_ULTI 180000 /*Délai de temps entre 2 utilisations d'ulti*/
+#define MOVEMENT_DURATION 100 /**< Durée du mouvement du sprite en millisecondes */
+#define DELAI_ULTI 180000 /**< Délai entre deux utilisations d'ultime */
 
-#define AUCUN_ACTION -1
-#define ACHAT_CHARACTER 0
-#define PASSAGE_AGE 1
-#define ULTI 2
+#define AUCUN_ACTION -1 /**< Aucune action */
+#define ACHAT_CHARACTER 0 /**< Achat d'un personnage */
+#define PASSAGE_AGE 1 /**< Transition d'âge */
+#define ULTI 2 /**< Action ultime */
 
-/*Code couleur */
-#define BLACK (SDL_Color){0, 0, 0}
-#define WHITE (SDL_Color){255, 255, 255}
-#define GREEN (SDL_Color){0, 255, 0}
-#define RED   (SDL_Color){255, 0, 0}
+/*Couleurs */
+#define BLACK (SDL_Color){0, 0, 0} /**< Couleur noire */
+#define WHITE (SDL_Color){255, 255, 255} /**< Couleur blanche */
+#define GREEN (SDL_Color){0, 255, 0} /**< Couleur verte */
+#define RED (SDL_Color){255, 0, 0} /**< Couleur rouge */
 
-/*Structure menu Resolution*/
+/*Structure du menu Resolution*/
 typedef struct {
-    SDL_Rect rect; // Rectangle représentant l'élément
-    char* info; // Informations spécifiques à l'élément
-    int w;
-    int h;
+    SDL_Rect rect; /**< Rectangle représentant l'élément */
+    char *info; /**< Informations spécifiques à l'élément */
+    int w; /**< Largeur de l'élément */
+    int h; /**< Hauteur de l'élément */
 } element_t;
 
 /*Énumération des états de menu*/
 typedef enum etat_s {
-    PAGE_ACCUEIL,
-    MENU_PRINCIPAL,
-    MENU_SOUS_JOUER,
-    MENU_SOUS_OPTIONS,
-    MENU_SOUS_RESOLUTION,
-    MENU_SOUS_CREDITS,
-    MENU_SOUS_SON,
-    MENU_SOUS_SOLO,
-    MENU_SOUS_ENLIGNE,
-    MENU_SOUS_REJOINDRE,
-    MENU_SOUS_CREER,
-    MENU_SOUS_CREER_VALIDE,
-    MENU_DIFFICULTE,
-    JOUER,
-    OPTION_JEU,
-    MENU_SAUVEGARDER,
-    JOUER_RESEAU_CREER,
-    JOUER_CHARGER,
-    JOUER_RESEAU_REJOINDRE,
-    FIN_PARTIE
-}etat_t;
+    PAGE_ACCUEIL, /**< Page d'accueil */
+    MENU_PRINCIPAL, /**< Menu principal */
+    MENU_SOUS_JOUER, /**< Sous-menu Jouer */
+    MENU_SOUS_OPTIONS, /**< Sous-menu Options */
+    MENU_SOUS_RESOLUTION, /**< Sous-menu Résolution */
+    MENU_SOUS_CREDITS, /**< Sous-menu Crédits */
+    MENU_SOUS_SON, /**< Sous-menu Son */
+    MENU_SOUS_SOLO, /**< Sous-menu Solo */
+    MENU_SOUS_ENLIGNE, /**< Sous-menu En ligne */
+    MENU_SOUS_REJOINDRE, /**< Sous-menu Rejoindre */
+    MENU_SOUS_CREER, /**< Sous-menu Créer */
+    MENU_SOUS_CREER_VALIDE, /**< Sous-menu Valider la création */
+    MENU_DIFFICULTE, /**< Menu de sélection de la difficulté */
+    JOUER, /**< Jouer */
+    OPTION_JEU, /**< Options du jeu */
+    MENU_SAUVEGARDER, /**< Menu de sauvegarde */
+    JOUER_RESEAU_CREER, /**< Jouer en réseau (création) */
+    JOUER_CHARGER, /**< Charger une partie */
+    JOUER_RESEAU_REJOINDRE, /**< Jouer en réseau (rejoindre) */
+    FIN_PARTIE /**< Fin de partie */
+} etat_t;
 
 /*Énumération pour le survol des éléments*/
 typedef enum survol_s {
-    PERSO1,
-    PERSO2,
-    PERSO3,
-    PERSO4,
-    XP,
-    ULTIM
-}survol_t;
+    PERSO1, /**< Personnage 1 */
+    PERSO2, /**< Personnage 2 */
+    PERSO3, /**< Personnage 3 */
+    PERSO4, /**< Personnage 4 */
+    XP, /**< Expérience */
+    ULTIM /**< Ultime */
+} survol_t;
 
-/*Énumération des ages du jeu*/
-typedef enum age_s { Prehistoire, Antiquite, Moyen_Age, Ere_Moderne, Ere_Futuriste }age_t;
+/*Énumération des âges du jeu*/
+typedef enum age_s {Prehistoire, Antiquite, Moyen_Age, Ere_Moderne, Ere_Futuriste} age_t;
 
 /*Pour la gestion du volume*/
-SDL_bool estLache;
-int volume;    
-SDL_Rect* volumeBar;
-SDL_Rect* volumeCursor;
+SDL_bool estLache; /**< Drapeau indiquant si le bouton est relâché */
+int volume; /**< Niveau de volume */
+SDL_Rect *volumeBar; /**< Barre de volume */
+SDL_Rect *volumeCursor; /**< Curseur de volume */
 
 
 /***************/
