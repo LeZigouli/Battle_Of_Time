@@ -9,6 +9,7 @@
 #include "../lib/building.h"
 
 /**
+ * \fn booleen_t init_building(building_t ** building, int owner)
  * \brief Initialise le bâtiment d'un joueur avec des valeurs par défaut.
  * 
  * \param building Pointeur vers le bâtiment à initialiser.
@@ -44,6 +45,7 @@ booleen_t init_building(building_t ** building, int owner)
 }
 
 /**
+ * \fn booleen_t upgrade_building(building_t ** building,int * xp)
  * \brief Améliore le bâtiment d'un joueur en fonction de l'expérience accumulée.
  * 
  * \param building Pointeur vers le bâtiment à améliorer.
@@ -91,6 +93,7 @@ booleen_t upgrade_building(building_t ** building,int * xp)
 }
 
 /**
+ * \fn booleen_t afficher_building(building_t * building)
  * \brief Affiche les caractéristiques du bâtiment.
  * 
  * \param building Le bâtiment à afficher.
@@ -111,13 +114,15 @@ booleen_t afficher_building(building_t * building)
 }
 
 /**
+ * \fn int max(int a, int b)
  * \brief Détermine le maximum entre deux entiers.
  * 
  * \param a Premier entier.
  * \param b Second entier.
  * \return La valeur maximale entre a et b.
  */
-int max(int a, int b){
+int max(int a, int b)
+{
 	if(a>=b)
 		return a;
 	else
@@ -125,13 +130,15 @@ int max(int a, int b){
 }
 
 /**
+ * \fn int min(int a, int b)
  * \brief Détermine le minimum entre deux entiers.
  * 
  * \param a Premier entier.
  * \param b Second entier.
  * \return La valeur minimale entre a et b.
  */
-int min(int a, int b){
+int min(int a, int b)
+{
 	if(a<=b)
 		return a;
 	else

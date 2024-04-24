@@ -9,6 +9,7 @@
 #include "../lib/character.h"
 
 /**
+ * \fn booleen_t character_attack_character(character_t ** destination, character_t ** src)
  * \brief Fonction permettant à un personnage d'attaquer un autre personnage.
  * 
  * \param destination Le personnage cible de l'attaque.
@@ -30,6 +31,7 @@ booleen_t character_attack_character(character_t ** destination, character_t ** 
 
 
 /**
+ * \fn booleen_t character_attack_building(building_t ** destination, character_t ** src)
  * \brief Fonction permettant à un personnage d'attaquer un bâtiment.
  * 
  * \param destination Le bâtiment cible de l'attaque.
@@ -49,6 +51,15 @@ booleen_t character_attack_building(building_t ** destination, character_t ** sr
     return TRUE;
 }
 
+
+/**
+ * \fn booleen_t building_attack_chatacter(character_t ** destination, building_t * src)
+ * \brief Fonction permettant à un building d'attaquer un personnage.
+ * 
+ * \param destination Le personnage cible de l'attaque.
+ * \param src Le building effectuant l'attaque.
+ * \return TRUE si l'opération s'est déroulée avec succès, FALSE sinon.
+ */
 booleen_t building_attack_chatacter(character_t ** destination, building_t * src)
 {
     if(destination == NULL || src == NULL || (*destination) == NULL )
@@ -64,6 +75,7 @@ booleen_t building_attack_chatacter(character_t ** destination, building_t * src
 
 
 /**
+ * \fn void deplacement_gauche(character_t ** character)
  * \brief Déplace un personnage vers la gauche.
  * 
  * \param character Le personnage à déplacer.
@@ -74,6 +86,7 @@ void deplacement_gauche(character_t ** character)
 }
 
 /**
+ * \fn void deplacement_droit(character_t ** character)
  * \brief Déplace un personnage vers la droite.
  * 
  * \param character Le personnage à déplacer.
@@ -85,12 +98,14 @@ void deplacement_droit(character_t ** character)
 
 
 /**
+ * \fn int calcule_prix(int n) 
  * \brief Calcule le prix d'un personnage en fonction de son niveau.
  * 
  * \param n Le niveau du personnage.
  * \return Le prix calculé.
  */
-int calcule_prix(int n) {
+int calcule_prix(int n) 
+{
     int term = 50;
     for (int i = 1; i < n; ++i) {
         switch(i % 4)
@@ -112,12 +127,14 @@ int calcule_prix(int n) {
 }
 
 /**
+ * \fn int temp_former(int n) 
  * \brief Calcule le temps nécessaire à la formation d'un personnage en fonction de son niveau.
  * 
  * \param n Le niveau du personnage.
  * \return Le temps de formation calculé.
  */
-int temp_former(int n) {
+int temp_former(int n) 
+{
     switch (n%4)
     {
     case 0:
@@ -135,11 +152,23 @@ int temp_former(int n) {
     }
 }
 
-int vie(int ind, int age){
+
+/**
+ * \fn int vie(int ind, int age)
+ * \brief Calcul les points de vie d'un personnage
+ * 
+ * \param ind Indice du personnage
+ * \param age Age auquel appartient le personnage
+ * 
+ * \return Les points de vie du perssonnage
+ */
+int vie(int ind, int age)
+{
     return (10 * ind) * age;
 }
 
 /**
+ * \fn character_t * initcharacter()
  * \brief Initialise tous les personnages du jeu.
  * 
  * \return Un pointeur vers un tableau de personnages initialisés.
@@ -317,6 +346,7 @@ character_t * initcharacter()
 
 
 /**
+ * \fn booleen_t destroy_tab_character(character_t ** tab )
  * \brief Libère la mémoire allouée pour le tableau de personnages.
  * 
  * \param tab Un pointeur vers le tableau de personnages à détruire.
@@ -330,6 +360,7 @@ booleen_t destroy_tab_character(character_t ** tab )
 }
 
 /**
+ * \fn booleen_t copie_character(character_t ** destination, character_t * src)
  * \brief Copie les données d'un personnage source vers un personnage destination.
  * 
  * \param destination Le personnage de destination.

@@ -9,6 +9,15 @@
 #include "../lib/affichage_menu.h"
 
 /**
+ * \fn void affichage(etat_t* etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police , TTF_Font* police_texte, 
+               int menuX, int menuY, element_t* elm_reso, int* selecElement, const char* effet, char* textInput, 
+               int* isValid, int* keyCounts, SDL_Texture* parametre, SDL_Texture* gold, SDL_Texture* xp,
+               SDL_Texture* prehistoire, SDL_Texture* antiquite, SDL_Texture* moyen_age,
+               SDL_Texture* moderne, SDL_Texture* futuriste, player_t* joueur, SDL_Texture** sprite_hud, SDL_Texture* upgrade,
+               ordi_t* ordi, int* cameraX, int* cameraY, SDL_Texture* ultim, SDL_Texture* building[], int fin_partie, SDL_Texture * win,
+               SDL_Texture * lose, character_t* tab_charactere, int survol, Uint32 delai_ulti, Uint32 diff_time, int** troupe_formee,
+               Uint32 currentTime, Uint32** lastTroupe, int** nb, player_t * j2, SDL_Texture* image_ultim, float* alpha)
+
  * \brief Affichage en fonction de l'etat.
  * 
  * \param etat Etat du jeu
@@ -53,6 +62,8 @@
  * \param lastTroupe Tableau de pointeur sur le temps de formation de chaque personnage
  * \param nb Tableau de pointeur sur le nombre de personnages formés pour chaque classe
  * \param j2 Pointeurs vers une structure joueur.
+ * \param image_ultim Image pour l'animation de l'Ultime
+ * \param alpha Permet de gérer le fondu d'affichage
  */
 void affichage(etat_t* etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police , TTF_Font* police_texte, 
                int menuX, int menuY, element_t* elm_reso, int* selecElement, const char* effet, char* textInput, 
@@ -199,6 +210,7 @@ void affichage(etat_t* etat, int* etatAge, SDL_Renderer* rendu, SDL_Window* fene
 }
 
 /**
+ * \fn void afficherTitre(SDL_Renderer * rendu, SDL_Window* fenetre, int x, int y, int largeur, int hauteur)
  * \brief Affiche le titre du jeu à une position donnée sur l'écran.
  * 
  * \param rendu Le pointeur vers le renderer SDL.
@@ -219,6 +231,7 @@ void afficherTitre(SDL_Renderer * rendu, SDL_Window* fenetre, int x, int y, int 
 }
 
 /**
+ * \fn void afficherMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte, int x, int y, int largeur, int hauteur)
  * \brief Affiche un élément du menu à une position donnée sur l'écran.
  * 
  * \param rendu Le pointeur vers le renderer SDL.
@@ -246,6 +259,7 @@ void afficherMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, co
 }
 
 /**
+ * \fn void afficherSousMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte1, const char* texte2, const char* texte3, const char* texte4)
  * \brief Affiche les sous-menus avec leurs options.
  * 
  * \param rendu Le pointeur vers le renderer SDL.
@@ -276,6 +290,7 @@ void afficherSousMenu(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre
 }
 
 /**
+ * \fn void afficherSousMenuOption(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte1, const char* texte2, const char* texte3)
  * \brief Affiche le sous-menu des options.
  * 
  * \param rendu Le pointeur vers le renderer SDL.
@@ -304,6 +319,7 @@ void afficherSousMenuOption(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* f
 }
 
 /**
+ * \fn void afficherSousMenuResolution(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre)
  * \brief Affiche le sous-menu des résolutions.
  * 
  * \param rendu Le pointeur vers le renderer SDL.
@@ -341,6 +357,7 @@ void afficherSousMenuResolution(SDL_Renderer* rendu, TTF_Font* police, SDL_Windo
 }
 
 /**
+ * \fn void afficherSousMenuJouer(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
  * \brief Affiche le sous-menu pour le menu "Jouer".
  * 
  * \param rendu Le pointeur vers le renderer SDL.
@@ -367,6 +384,7 @@ void afficherSousMenuJouer(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* p
 }
 
 /**
+ * \fn void afficherSousMenuSolo(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
  * \brief Affiche le sous-menu pour le menu "Solo".
  * 
  * \param rendu Le pointeur vers le renderer SDL.
@@ -392,6 +410,7 @@ void afficherSousMenuSolo(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* po
 }
 
 /**
+ * \fn void afficherSousMenuEnLigne(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
  * \brief Affiche le sous-menu pour le menu "En ligne".
  * 
  * \param rendu Le pointeur vers le renderer SDL.
@@ -418,6 +437,7 @@ void afficherSousMenuEnLigne(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font*
 
 
 /**
+ * \fn void initElements(SDL_Renderer* rendu, SDL_Window* fenetre, element_t* elm_reso) 
  * \brief Initialise les éléments nécessaires pour afficher les résolutions dans le sous-menu des résolutions.
  * 
  * \param rendu Le pointeur vers le renderer SDL.
@@ -445,6 +465,7 @@ void initElements(SDL_Renderer* rendu, SDL_Window* fenetre, element_t* elm_reso)
 }
 
 /**
+ * \fn void resolution(SDL_Renderer* rendu, SDL_Window* fenetre , TTF_Font* police, element_t* elm_reso, int* selecElement)
  * \brief Affiche les résolutions dans le sous-menu des résolutions.
  * 
  * \param rendu Le pointeur vers le renderer SDL.
@@ -468,6 +489,7 @@ void resolution(SDL_Renderer* rendu, SDL_Window* fenetre , TTF_Font* police, ele
 }
 
 /**
+ * \fn void afficherSousMenuCredits(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
  * \brief Affiche le sous-menu "Crédits".
  * 
  * \param rendu Le pointeur vers le renderer SDL.
@@ -505,6 +527,7 @@ void afficherSousMenuCredits(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font*
 }
 
 /**
+ * \fn void afficherSousMenuSon(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fenetre, const char* texte)
  * \brief Affiche le sous-menu "Son".
  * 
  * \param rendu Le pointeur vers le renderer SDL.
@@ -544,6 +567,7 @@ void afficherSousMenuSon(SDL_Renderer* rendu, TTF_Font* police, SDL_Window* fene
 }
 
 /**
+ * \fn void afficherSousMenuRejoindre(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police, char* textInput, int* isValid, int* keyCounts)
  * \brief Affiche le sous-menu "Rejoindre partie" pour le jeu en ligne.
  * 
  * \param rendu Le pointeur vers le renderer SDL.
@@ -618,6 +642,7 @@ void afficherSousMenuRejoindre(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Fon
 }
 
 /**
+ * \fn void afficherSousMenuDifficulte(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
  * \brief Affiche le sous-menu "Difficulté".
  * 
  * \param rendu Le pointeur vers le renderer SDL.
@@ -644,6 +669,7 @@ void afficherSousMenuDifficulte(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Fo
 }
 
 /**
+ * \fn void afficherSousMenuCreer(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* police)
  * \brief Affiche le sous-menu pour créer une partie en ligne.
  * 
  * \param rendu Le pointeur vers le renderer SDL.
