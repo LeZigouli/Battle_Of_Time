@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Battle of Time: Référence du fichier /info/etu/l2info/s2205576/Documents/Projet/Battle_Of_Time/Conception/bot/src/commun_SDL.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Battle of Time
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier commun_SDL.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contient les fonction communes pour l'utilisation de la SDL.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="commun__SDL_8h_source.html">lib/commun_SDL.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a4e83a974c0408e12c591b63c5530231c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun__SDL_8c.html#a4e83a974c0408e12c591b63c5530231c">initialisation</a> ()</td></tr>
+<tr class="memdesc:a4e83a974c0408e12c591b63c5530231c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise SDL, SDL_image, SDL_ttf, et SDL_Mixer.  <br /></td></tr>
+<tr class="separator:a4e83a974c0408e12c591b63c5530231c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69ac6d7b76a3f9c3441f3c58e7908dc8"><td class="memItemLeft" align="right" valign="top">TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun__SDL_8c.html#a69ac6d7b76a3f9c3441f3c58e7908dc8">chargementPolice</a> (SDL_Renderer *rendu, SDL_Window *fenetre, SDL_Texture *textureFond, char *path, int taille)</td></tr>
+<tr class="memdesc:a69ac6d7b76a3f9c3441f3c58e7908dc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge une police à partir d'un fichier.  <br /></td></tr>
+<tr class="separator:a69ac6d7b76a3f9c3441f3c58e7908dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0085ef37e4df688c076c56ff5223f654"><td class="memItemLeft" align="right" valign="top">Mix_Chunk *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun__SDL_8c.html#a0085ef37e4df688c076c56ff5223f654">chargementAudio</a> (SDL_Renderer *rendu, SDL_Window *fenetre, SDL_Texture *textureFond, char *path)</td></tr>
+<tr class="memdesc:a0085ef37e4df688c076c56ff5223f654"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge un fichier audio dans un chunk.  <br /></td></tr>
+<tr class="separator:a0085ef37e4df688c076c56ff5223f654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f70acdbb900e521328c1c6ce2d05fa6"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun__SDL_8c.html#a3f70acdbb900e521328c1c6ce2d05fa6">chargementImg</a> (SDL_Renderer *rendu, SDL_Window *fenetre, char *path)</td></tr>
+<tr class="memdesc:a3f70acdbb900e521328c1c6ce2d05fa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge une image à partir d'un fichier.  <br /></td></tr>
+<tr class="separator:a3f70acdbb900e521328c1c6ce2d05fa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a5452dffe4041ff59dc015d9ddbf30b"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun__SDL_8c.html#a8a5452dffe4041ff59dc015d9ddbf30b">creationRectangle</a> (SDL_Window *fenetre, int x, int y, int largeur, int hauteur)</td></tr>
+<tr class="memdesc:a8a5452dffe4041ff59dc015d9ddbf30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un rectangle dynamique en fonction des dimensions de la fenêtre.  <br /></td></tr>
+<tr class="separator:a8a5452dffe4041ff59dc015d9ddbf30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa3dbabce03b9cf77796891b5f212b36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="commun__SDL_8c.html#afa3dbabce03b9cf77796891b5f212b36">destruction_SDL</a> (SDL_Texture *parametre, SDL_Texture *gold, SDL_Texture *xp, SDL_Texture *textureFond, SDL_Texture *prehistoire, SDL_Texture *antiquite, SDL_Texture *moyen_age, SDL_Texture *moderne, SDL_Texture *futuriste, TTF_Font *police, TTF_Font *police_texte, SDL_Renderer *rendu, SDL_Window *fenetre, Mix_Chunk *click, Mix_Chunk *music, SDL_Texture *sprite_hud[], SDL_Texture *building[], SDL_Texture *win, SDL_Texture *lose)</td></tr>
+<tr class="memdesc:afa3dbabce03b9cf77796891b5f212b36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée pour les variables SDL et ferme SDL.  <br /></td></tr>
+<tr class="separator:afa3dbabce03b9cf77796891b5f212b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Contient les fonction communes pour l'utilisation de la SDL. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Poirier Victor </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>09 févrirer 2024 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a0085ef37e4df688c076c56ff5223f654" name="a0085ef37e4df688c076c56ff5223f654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0085ef37e4df688c076c56ff5223f654">&#9670;&#160;</a></span>chargementAudio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mix_Chunk * chargementAudio </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>textureFond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge un fichier audio dans un chunk. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le renderer associé à la fenêtre. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>La fenêtre où afficher le texte. </td></tr>
+    <tr><td class="paramname">textureFond</td><td>La texture de fond de l'interface. </td></tr>
+    <tr><td class="paramname">path</td><td>Le chemin vers le fichier audio. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un pointeur vers le chunk audio chargé. </dd></dl>
+
+</div>
+</div>
+<a id="a3f70acdbb900e521328c1c6ce2d05fa6" name="a3f70acdbb900e521328c1c6ce2d05fa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f70acdbb900e521328c1c6ce2d05fa6">&#9670;&#160;</a></span>chargementImg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture * chargementImg </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge une image à partir d'un fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le renderer associé à la fenêtre. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>La fenêtre où afficher le texte. </td></tr>
+    <tr><td class="paramname">path</td><td>Le chemin vers le fichier image. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une texture contenant l'image chargée. </dd></dl>
+
+</div>
+</div>
+<a id="a69ac6d7b76a3f9c3441f3c58e7908dc8" name="a69ac6d7b76a3f9c3441f3c58e7908dc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69ac6d7b76a3f9c3441f3c58e7908dc8">&#9670;&#160;</a></span>chargementPolice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TTF_Font * chargementPolice </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>textureFond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>taille</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge une police à partir d'un fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rendu</td><td>Le renderer associé à la fenêtre. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>La fenêtre où afficher le texte. </td></tr>
+    <tr><td class="paramname">textureFond</td><td>La texture de fond de l'interface. </td></tr>
+    <tr><td class="paramname">path</td><td>Le chemin vers le fichier de la police. </td></tr>
+    <tr><td class="paramname">taille</td><td>La taille de la police à charger. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un pointeur vers la police chargée. </dd></dl>
+
+</div>
+</div>
+<a id="a8a5452dffe4041ff59dc015d9ddbf30b" name="a8a5452dffe4041ff59dc015d9ddbf30b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a5452dffe4041ff59dc015d9ddbf30b">&#9670;&#160;</a></span>creationRectangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Rect creationRectangle </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>largeur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hauteur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crée un rectangle dynamique en fonction des dimensions de la fenêtre. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fenetre</td><td>La fenêtre où afficher le rectangle. </td></tr>
+    <tr><td class="paramname">x</td><td>La position horizontale du rectangle. </td></tr>
+    <tr><td class="paramname">y</td><td>La position verticale du rectangle. </td></tr>
+    <tr><td class="paramname">largeur</td><td>La largeur du rectangle. </td></tr>
+    <tr><td class="paramname">hauteur</td><td>La hauteur du rectangle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le rectangle créé. </dd></dl>
+
+</div>
+</div>
+<a id="afa3dbabce03b9cf77796891b5f212b36" name="afa3dbabce03b9cf77796891b5f212b36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa3dbabce03b9cf77796891b5f212b36">&#9670;&#160;</a></span>destruction_SDL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destruction_SDL </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>parametre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>gold</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>xp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>textureFond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>prehistoire</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>antiquite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>moyen_age</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>moderne</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>futuriste</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police_texte</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>fenetre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mix_Chunk *&#160;</td>
+          <td class="paramname"><em>click</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mix_Chunk *&#160;</td>
+          <td class="paramname"><em>music</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>sprite_hud</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>building</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>win</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>lose</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère la mémoire allouée pour les variables SDL et ferme SDL. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parametre</td><td>La texture du paramètre. </td></tr>
+    <tr><td class="paramname">gold</td><td>La texture de l'or. </td></tr>
+    <tr><td class="paramname">xp</td><td>La texture de l'expérience. </td></tr>
+    <tr><td class="paramname">textureFond</td><td>La texture de fond de l'interface. </td></tr>
+    <tr><td class="paramname">prehistoire</td><td>La texture pour la période préhistorique. </td></tr>
+    <tr><td class="paramname">antiquite</td><td>La texture pour la période de l'Antiquité. </td></tr>
+    <tr><td class="paramname">moyen_age</td><td>La texture pour la période du Moyen Âge. </td></tr>
+    <tr><td class="paramname">moderne</td><td>La texture pour la période moderne. </td></tr>
+    <tr><td class="paramname">futuriste</td><td>La texture pour la période futuriste. </td></tr>
+    <tr><td class="paramname">police</td><td>La police de caractères utilisée. </td></tr>
+    <tr><td class="paramname">police_texte</td><td>La police de caractères pour le texte. </td></tr>
+    <tr><td class="paramname">rendu</td><td>Le renderer associé à la fenêtre. </td></tr>
+    <tr><td class="paramname">fenetre</td><td>La fenêtre principale. </td></tr>
+    <tr><td class="paramname">click</td><td>Le son du clic. </td></tr>
+    <tr><td class="paramname">music</td><td>La musique du jeu. </td></tr>
+    <tr><td class="paramname">sprite_hud</td><td>Le tableau de textures pour l'interface HUD. </td></tr>
+    <tr><td class="paramname">building</td><td>Le tableau de textures pour les bâtiments. </td></tr>
+    <tr><td class="paramname">win</td><td>La texture pour l'écran de victoire. </td></tr>
+    <tr><td class="paramname">lose</td><td>La texture pour l'écran de défaite. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4e83a974c0408e12c591b63c5530231c" name="a4e83a974c0408e12c591b63c5530231c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e83a974c0408e12c591b63c5530231c">&#9670;&#160;</a></span>initialisation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int initialisation </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise SDL, SDL_image, SDL_ttf, et SDL_Mixer. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>0 en cas de succès, 1 en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
