@@ -3,7 +3,6 @@
 ########!!!!!!!!!!!!!!########
 ####-VARIABLES À MODIFIER-####
 ########!!!!!!!!!!!!!!########
-
 #Nom du projet
 TARGET = prog
 
@@ -15,11 +14,9 @@ DEBUG=yes
 
 
 
-
 ######!!!!!!!!!!!!!######
 ####-NE PAS TOUCHER-#####
 ######!!!!!!!!!!!!!######
-
 #Compilateur utilisé
 CC = gcc
 #Éditeur de liens
@@ -43,12 +40,11 @@ endif
 
 #Si sous linux
 ifeq ($(ARCH),linux)
-
-
     #Option de l'éditeur de liens
     LFLAGS = -Wall $(shell sdl2-config --libs) -lm -lSDL2_image -lSDL2_ttf -lSDL2_mixer -I.
 
-
+	#Pour l'option de dégogage
+    #Option de compilation
 	ifeq ($(DEBUG),yes)
 	      CFLAGS= -Wall -std=c99 -g -D_DEBUG_ -D_LINUX_ $(shell sdl2-config --cflags) -I. 
 	else
