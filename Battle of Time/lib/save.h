@@ -14,8 +14,8 @@
 /*
  * Chemin fichier de sauvagerde / chargement
  */
-#define FICHIER_1 "save/save1.txt"
-#define FICHIER_2 "save/save2.txt"
+#define FICHIER_1 "save/joueur.txt"
+#define FICHIER_2 "save/ordi.txt"
 
 booleen_t save(ordi_t * ordi, player_t * player);
 booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab);
