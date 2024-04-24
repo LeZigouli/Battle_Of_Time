@@ -3,24 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battle of Time:  Fichier source de /Users/vic/Documents/Battle_Of_Time/Battle of Time/lib/attaque.h</title>
+<title>Battle of Time:  Fichier source de /info/etu/l2info/s2205576/Documents/Projet/Battle_Of_Time/Battle of Time/lib/attaque.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-  $(function() { init_search(); });
+  $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -54,7 +52,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.10.0 -->
+<!-- Généré par Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -73,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('attaque_8h_source.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('attaque_8h_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -102,29 +100,31 @@ $(function(){initNavTree('attaque_8h_source.html',''); initResizable(); });
   <div class="headertitle"><div class="title">attaque.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef _ATTAQUE_H_</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define _ATTAQUE_H_</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;ordinateur.h&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keywordtype">void</span> <a class="code hl_function" href="attaque_8c.html#aaacffc73a5be0be6a73235e7139b0dbc">resize_dep</a>(SDL_Rect * atimg,SDL_Rect * position, <a class="code hl_struct" href="structcharacter__s.html">character_t</a> * c);</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordtype">void</span> <a class="code hl_function" href="attaque_8c.html#a4f89ba392c2c37ba4a891d3b71f37f1c">resize_att</a>(SDL_Rect * atimg,SDL_Rect * position, <a class="code hl_struct" href="structcharacter__s.html">character_t</a> * c);</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">void</span> <a class="code hl_function" href="attaque_8c.html#a1842d4fafa028363c24769a01ec4b4c5">ataquage</a>(SDL_Rect * atimg, <a class="code hl_struct" href="structcharacter__s.html">character_t</a> * c, <span class="keywordtype">int</span> * attaque, <span class="keywordtype">int</span> owner);</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><a class="code hl_typedef" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> <a class="code hl_function" href="attaque_8c.html#a85223cf108569c0dbe46b514aec84d21">animation_mort</a>(SDL_Rect * atimg, <a class="code hl_struct" href="structcharacter__s.html">character_t</a> * c);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aattaque_8c_html_a1842d4fafa028363c24769a01ec4b4c5"><div class="ttname"><a href="attaque_8c.html#a1842d4fafa028363c24769a01ec4b4c5">ataquage</a></div><div class="ttdeci">void ataquage(SDL_Rect *atimg, character_t *c, int *attaque, int owner)</div><div class="ttdoc">Gère l'animation de l'attaque du personnage.</div><div class="ttdef"><b>Definition</b> attaque.c:129</div></div>
-<div class="ttc" id="aattaque_8c_html_a4f89ba392c2c37ba4a891d3b71f37f1c"><div class="ttname"><a href="attaque_8c.html#a4f89ba392c2c37ba4a891d3b71f37f1c">resize_att</a></div><div class="ttdeci">void resize_att(SDL_Rect *atimg, SDL_Rect *position, character_t *c)</div><div class="ttdoc">Redimensionne la position et l'image du personnage pour l'animation d'attaque.</div><div class="ttdef"><b>Definition</b> attaque.c:69</div></div>
-<div class="ttc" id="aattaque_8c_html_a85223cf108569c0dbe46b514aec84d21"><div class="ttname"><a href="attaque_8c.html#a85223cf108569c0dbe46b514aec84d21">animation_mort</a></div><div class="ttdeci">booleen_t animation_mort(SDL_Rect *atimg, character_t *c)</div><div class="ttdoc">Gère l'animation de la mort du personnage.</div><div class="ttdef"><b>Definition</b> attaque.c:237</div></div>
-<div class="ttc" id="aattaque_8c_html_aaacffc73a5be0be6a73235e7139b0dbc"><div class="ttname"><a href="attaque_8c.html#aaacffc73a5be0be6a73235e7139b0dbc">resize_dep</a></div><div class="ttdeci">void resize_dep(SDL_Rect *atimg, SDL_Rect *position, character_t *c)</div><div class="ttdoc">Redimensionne la position et l'image du personnage pour la taille par défaut.</div><div class="ttdef"><b>Definition</b> attaque.c:22</div></div>
+<a href="attaque_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef _ATTAQUE_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define _ATTAQUE_H_</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="ordinateur_8h.html">ordinateur.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keywordtype">void</span> <a class="code hl_function" href="attaque_8h.html#aaacffc73a5be0be6a73235e7139b0dbc">resize_dep</a>(SDL_Rect * atimg,SDL_Rect * position, <a class="code hl_struct" href="structcharacter__t.html">character_t</a> * c);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keywordtype">void</span> <a class="code hl_function" href="attaque_8h.html#a4f89ba392c2c37ba4a891d3b71f37f1c">resize_att</a>(SDL_Rect * atimg,SDL_Rect * position, <a class="code hl_struct" href="structcharacter__t.html">character_t</a> * c);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">void</span> <a class="code hl_function" href="attaque_8h.html#a1842d4fafa028363c24769a01ec4b4c5">ataquage</a>(SDL_Rect * atimg, <a class="code hl_struct" href="structcharacter__t.html">character_t</a> * c, <span class="keywordtype">int</span> * attaque, <span class="keywordtype">int</span> owner);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><a class="code hl_typedef" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> <a class="code hl_function" href="attaque_8h.html#a85223cf108569c0dbe46b514aec84d21">animation_mort</a>(SDL_Rect * atimg, <a class="code hl_struct" href="structcharacter__t.html">character_t</a> * c);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aattaque_8h_html_a1842d4fafa028363c24769a01ec4b4c5"><div class="ttname"><a href="attaque_8h.html#a1842d4fafa028363c24769a01ec4b4c5">ataquage</a></div><div class="ttdeci">void ataquage(SDL_Rect *atimg, character_t *c, int *attaque, int owner)</div><div class="ttdoc">Gère l'animation de l'attaque du personnage.</div><div class="ttdef"><b>Definition</b> attaque.c:125</div></div>
+<div class="ttc" id="aattaque_8h_html_a4f89ba392c2c37ba4a891d3b71f37f1c"><div class="ttname"><a href="attaque_8h.html#a4f89ba392c2c37ba4a891d3b71f37f1c">resize_att</a></div><div class="ttdeci">void resize_att(SDL_Rect *atimg, SDL_Rect *position, character_t *c)</div><div class="ttdoc">Redimensionne la position et l'image du personnage pour l'animation d'attaque.</div><div class="ttdef"><b>Definition</b> attaque.c:67</div></div>
+<div class="ttc" id="aattaque_8h_html_a85223cf108569c0dbe46b514aec84d21"><div class="ttname"><a href="attaque_8h.html#a85223cf108569c0dbe46b514aec84d21">animation_mort</a></div><div class="ttdeci">booleen_t animation_mort(SDL_Rect *atimg, character_t *c)</div><div class="ttdoc">Gère l'animation de la mort du personnage.</div><div class="ttdef"><b>Definition</b> attaque.c:225</div></div>
+<div class="ttc" id="aattaque_8h_html_aaacffc73a5be0be6a73235e7139b0dbc"><div class="ttname"><a href="attaque_8h.html#aaacffc73a5be0be6a73235e7139b0dbc">resize_dep</a></div><div class="ttdeci">void resize_dep(SDL_Rect *atimg, SDL_Rect *position, character_t *c)</div><div class="ttdoc">Redimensionne la position et l'image du personnage pour la taille par défaut.</div><div class="ttdef"><b>Definition</b> attaque.c:23</div></div>
 <div class="ttc" id="acommon_8h_html_afd19d995e55194c70a06080ef3ceb5a8"><div class="ttname"><a href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a></div><div class="ttdeci">enum booleen_s booleen_t</div><div class="ttdoc">Définition d'un type booléen.</div></div>
-<div class="ttc" id="astructcharacter__s_html"><div class="ttname"><a href="structcharacter__s.html">character_s</a></div><div class="ttdoc">Structure représentant un personnage.</div><div class="ttdef"><b>Definition</b> character.h:38</div></div>
+<div class="ttc" id="aordinateur_8h_html"><div class="ttname"><a href="ordinateur_8h.html">ordinateur.h</a></div><div class="ttdoc">Contient les fonction permettant à l'ordinateur de jouer.</div></div>
+<div class="ttc" id="astructcharacter__t_html"><div class="ttname"><a href="structcharacter__t.html">character_t</a></div><div class="ttdoc">Structure représentant un personnage.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><b>attaque.h</b></li>
-    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="attaque_8h.html">attaque.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

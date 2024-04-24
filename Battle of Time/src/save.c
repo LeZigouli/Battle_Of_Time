@@ -258,8 +258,6 @@ booleen_t load(ordi_t ** ordi, player_t ** player, character_t * tab)
      * pour lire
      */
 
-    afficher_player(*player);
-
     fscanf(fd_player,"%d\n",&(*player)->characters->nb);
     int pv, x, y, x_pred;
     for (int i = 0; i < (*player)->characters->nb; i++) {

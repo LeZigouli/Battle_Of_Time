@@ -1,0 +1,123 @@
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Battle of Time/lib/attaque.h}
+\hypertarget{attaque_8h}{}\label{attaque_8h}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Battle of Time/lib/attaque.h@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Battle of Time/lib/attaque.h}}
+
+
+Contient les élements utilisés par \doxylink{attaque_8c}{attaque.\+c}.  
+
+
+{\ttfamily \#include \"{}ordinateur.\+h\"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{attaque_8h_aaacffc73a5be0be6a73235e7139b0dbc}{resize\+\_\+dep}} (SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}atimg, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}position, \mbox{\hyperlink{structcharacter__t}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}c)
+\begin{DoxyCompactList}\small\item\em Redimensionne la position et l\textquotesingle{}image du personnage pour la taille par défaut. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{attaque_8h_a4f89ba392c2c37ba4a891d3b71f37f1c}{resize\+\_\+att}} (SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}atimg, SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}position, \mbox{\hyperlink{structcharacter__t}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}c)
+\begin{DoxyCompactList}\small\item\em Redimensionne la position et l\textquotesingle{}image du personnage pour l\textquotesingle{}animation d\textquotesingle{}attaque. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{attaque_8h_a1842d4fafa028363c24769a01ec4b4c5}{ataquage}} (SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}atimg, \mbox{\hyperlink{structcharacter__t}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}c, int \texorpdfstring{$\ast$}{*}attaque, int owner)
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}animation de l\textquotesingle{}attaque du personnage. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{attaque_8h_a85223cf108569c0dbe46b514aec84d21}{animation\+\_\+mort}} (SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}atimg, \mbox{\hyperlink{structcharacter__t}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}c)
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}animation de la mort du personnage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les élements utilisés par \doxylink{attaque_8c}{attaque.\+c}. 
+
+\begin{DoxyAuthor}{Auteur}
+Proudy Vincent 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+02 avril 2024 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{attaque_8h_a85223cf108569c0dbe46b514aec84d21}\label{attaque_8h_a85223cf108569c0dbe46b514aec84d21} 
+\index{attaque.h@{attaque.h}!animation\_mort@{animation\_mort}}
+\index{animation\_mort@{animation\_mort}!attaque.h@{attaque.h}}
+\doxysubsubsection{\texorpdfstring{animation\_mort()}{animation\_mort()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} animation\+\_\+mort (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{atimg,  }\item[{\mbox{\hyperlink{structcharacter__t}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{c }\end{DoxyParamCaption})}
+
+
+
+Gère l\textquotesingle{}animation de la mort du personnage. 
+
+Cette fonction gère l\textquotesingle{}animation de la mort du personnage en ajustant l\textquotesingle{}image affichée pour simuler le processus de la mort.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em atimg} & Pointeur vers la structure SDL\+\_\+\+Rect représentant la position de l\textquotesingle{}image du personnage en train de mourir. \\
+\hline
+{\em c} & Pointeur vers la structure \doxylink{structcharacter__t}{character\+\_\+t} représentant le personnage. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Valeur booléenne indiquant si l\textquotesingle{}animation de la mort est terminée (TRUE) ou non (FALSE). 
+\end{DoxyReturn}
+\Hypertarget{attaque_8h_a1842d4fafa028363c24769a01ec4b4c5}\label{attaque_8h_a1842d4fafa028363c24769a01ec4b4c5} 
+\index{attaque.h@{attaque.h}!ataquage@{ataquage}}
+\index{ataquage@{ataquage}!attaque.h@{attaque.h}}
+\doxysubsubsection{\texorpdfstring{ataquage()}{ataquage()}}
+{\footnotesize\ttfamily void ataquage (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{atimg,  }\item[{\mbox{\hyperlink{structcharacter__t}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{c,  }\item[{int \texorpdfstring{$\ast$}{*}}]{attaque,  }\item[{int}]{owner }\end{DoxyParamCaption})}
+
+
+
+Gère l\textquotesingle{}animation de l\textquotesingle{}attaque du personnage. 
+
+Cette fonction gère l\textquotesingle{}animation de l\textquotesingle{}attaque du personnage en ajustant l\textquotesingle{}image affichée pour simuler le mouvement d\textquotesingle{}attaque.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em atimg} & Pointeur vers la structure SDL\+\_\+\+Rect représentant la position de l\textquotesingle{}image d\textquotesingle{}attaque du personnage. \\
+\hline
+{\em c} & Pointeur vers la structure \doxylink{structcharacter__t}{character\+\_\+t} représentant le personnage. \\
+\hline
+{\em attaque} & Pointeur vers un entier indiquant si une attaque est en cours. \\
+\hline
+{\em owner} & Indicateur du propriétaire de l\textquotesingle{}attaque (OWNER\+\_\+1 ou OWNER\+\_\+2). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{attaque_8h_a4f89ba392c2c37ba4a891d3b71f37f1c}\label{attaque_8h_a4f89ba392c2c37ba4a891d3b71f37f1c} 
+\index{attaque.h@{attaque.h}!resize\_att@{resize\_att}}
+\index{resize\_att@{resize\_att}!attaque.h@{attaque.h}}
+\doxysubsubsection{\texorpdfstring{resize\_att()}{resize\_att()}}
+{\footnotesize\ttfamily void resize\+\_\+att (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{atimg,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{position,  }\item[{\mbox{\hyperlink{structcharacter__t}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{c }\end{DoxyParamCaption})}
+
+
+
+Redimensionne la position et l\textquotesingle{}image du personnage pour l\textquotesingle{}animation d\textquotesingle{}attaque. 
+
+Cette fonction ajuste la position et l\textquotesingle{}image du personnage pour l\textquotesingle{}animation d\textquotesingle{}attaque, en raison de la différence de dimensions des sprites d\textquotesingle{}animation.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em atimg} & Pointeur vers la structure SDL\+\_\+\+Rect représentant la position de l\textquotesingle{}image du personnage en attaque. \\
+\hline
+{\em position} & Pointeur vers la structure SDL\+\_\+\+Rect représentant la position du personnage. \\
+\hline
+{\em c} & Pointeur vers la structure \doxylink{structcharacter__t}{character\+\_\+t} représentant le personnage. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{attaque_8h_aaacffc73a5be0be6a73235e7139b0dbc}\label{attaque_8h_aaacffc73a5be0be6a73235e7139b0dbc} 
+\index{attaque.h@{attaque.h}!resize\_dep@{resize\_dep}}
+\index{resize\_dep@{resize\_dep}!attaque.h@{attaque.h}}
+\doxysubsubsection{\texorpdfstring{resize\_dep()}{resize\_dep()}}
+{\footnotesize\ttfamily void resize\+\_\+dep (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{atimg,  }\item[{SDL\+\_\+\+Rect \texorpdfstring{$\ast$}{*}}]{position,  }\item[{\mbox{\hyperlink{structcharacter__t}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{c }\end{DoxyParamCaption})}
+
+
+
+Redimensionne la position et l\textquotesingle{}image du personnage pour la taille par défaut. 
+
+Si le personnage n\textquotesingle{}est pas en train d\textquotesingle{}attaquer, cette fonction ajuste sa position et son image à leur taille d\textquotesingle{}origine pour correspondre à la taille des sprites lors des animations différentes.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em atimg} & Pointeur vers la structure SDL\+\_\+\+Rect représentant la position de l\textquotesingle{}image du personnage. \\
+\hline
+{\em position} & Pointeur vers la structure SDL\+\_\+\+Rect représentant la position du personnage. \\
+\hline
+{\em c} & Pointeur vers la structure \doxylink{structcharacter__t}{character\+\_\+t} représentant le personnage. \\
+\hline
+\end{DoxyParams}

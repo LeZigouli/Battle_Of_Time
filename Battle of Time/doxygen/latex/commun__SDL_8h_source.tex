@@ -1,5 +1,5 @@
 \doxysection{commun\+\_\+\+SDL.\+h}
-\hypertarget{commun__SDL_8h_source}{}\label{commun__SDL_8h_source}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/commun\_SDL.h@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Conception/bot/lib/commun\_SDL.h}}
+\hypertarget{commun__SDL_8h_source}{}\label{commun__SDL_8h_source}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Battle of Time/lib/commun\_SDL.h@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Battle of Time/lib/commun\_SDL.h}}
 \mbox{\hyperlink{commun__SDL_8h}{Aller à la documentation de ce fichier.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
@@ -15,104 +15,103 @@
 \DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_mixer.h>}}
 \DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <regex.h>}}
 \DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{comment}{/************/}}
-\DoxyCodeLine{00022\ \textcolor{comment}{/*-\/-\/Macros-\/-\/*/}}
-\DoxyCodeLine{00023\ \textcolor{comment}{/************/}}
-\DoxyCodeLine{00024\ \textcolor{comment}{/*Dimensions\ des\ images\ de\ fonds*/}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ IMAGE\_WIDTH\ 3840\ }}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ IMAGE\_HEIGHT\ 720}}
-\DoxyCodeLine{00027\ \textcolor{comment}{/*Vitesse\ de\ du\ déplacement\ de\ la\ caméra*/}}
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ SCROLL\_SPEED\ 30}}
-\DoxyCodeLine{00029\ \textcolor{comment}{/*Dimensions\ de\ base\ de\ la\ fenêtre*/}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ WINDOW\_WIDTH\ 1080}}
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ WINDOW\_HEIGHT\ 720}}
-\DoxyCodeLine{00032\ \textcolor{comment}{/*Taille\ des\ éléments\ du\ menu*/}}
-\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ MENU\_WIDTH\ 250}}
-\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ MENU\_HEIGHT\ 60}}
-\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ MENU\_DECALAGE\ 50\ }\textcolor{comment}{/*Décalage\ pour\ abaisser\ le\ menu*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ SPACING\ 30\ \ \ }\textcolor{comment}{/*Espace\ entre\ chaque\ sous-\/menu*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ ELEMENT\_WIDTH\ 100\ }\textcolor{comment}{/*Largeur\ d'un\ élément*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ ELEMENT\_HEIGHT\ 50\ }\textcolor{comment}{/*Hauteur\ d'un\ élément*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ ELEMENT\_SPACING\ 20\ }\textcolor{comment}{/*Espacement\ entre\ les\ éléments*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ POS\_DEP\ 170\ }\textcolor{comment}{/*Spawn\ des\ caractères\ du\ joueur*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ POS\_DEP\_AD\ IMAGE\_WIDTH\ -\/\ 300\ }\textcolor{comment}{/*Spawn\ des\ caractères\ de\ l'adversaire*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ MOVEMENT\_DURATION\ 100\ }\textcolor{comment}{/*Durée\ du\ mouvement\ en\ millisecondes\ des\ sprites*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{comment}{/*Code\ couleur\ */}}
-\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ BLACK\ (SDL\_Color)\{0,\ 0,\ 0\}}}
-\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ WHITE\ (SDL\_Color)\{255,\ 255,\ 255\}}}
-\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ GREEN\ (SDL\_Color)\{0,\ 255,\ 0\}}}
-\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ RED\ \ \ (SDL\_Color)\{255,\ 0,\ 0\}}}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \textcolor{comment}{/*Structure\ menu\ Resolution*/}}
-\DoxyCodeLine{00054\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00055\ \ \ \ \ SDL\_Rect\ rect;\ \textcolor{comment}{//\ Rectangle\ représentant\ l'élément}}
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{char}*\ info;\ \textcolor{comment}{//\ Informations\ spécifiques\ à\ l'élément}}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ w;}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ h;}
-\DoxyCodeLine{00059\ \}\ \mbox{\hyperlink{structelement__t}{element\_t}};}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \textcolor{comment}{/*Énumération\ des\ états\ de\ menu*/}}
-\DoxyCodeLine{00062\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ etat\_s\ \{}
-\DoxyCodeLine{00063\ \ \ \ \ PAGE\_ACCUEIL,}
-\DoxyCodeLine{00064\ \ \ \ \ MENU\_PRINCIPAL,}
-\DoxyCodeLine{00065\ \ \ \ \ MENU\_SOUS\_JOUER,}
-\DoxyCodeLine{00066\ \ \ \ \ MENU\_SOUS\_OPTIONS,}
-\DoxyCodeLine{00067\ \ \ \ \ MENU\_SOUS\_RESOLUTION,}
-\DoxyCodeLine{00068\ \ \ \ \ MENU\_SOUS\_CREDITS,}
-\DoxyCodeLine{00069\ \ \ \ \ MENU\_SOUS\_SON,}
-\DoxyCodeLine{00070\ \ \ \ \ MENU\_SOUS\_SOLO,}
-\DoxyCodeLine{00071\ \ \ \ \ MENU\_SOUS\_ENLIGNE,}
-\DoxyCodeLine{00072\ \ \ \ \ MENU\_SOUS\_REJOINDRE,}
-\DoxyCodeLine{00073\ \ \ \ \ MENU\_SOUS\_CREER,}
-\DoxyCodeLine{00074\ \ \ \ \ MENU\_SOUS\_CREER\_VALIDE,}
-\DoxyCodeLine{00075\ \ \ \ \ MENU\_DIFFICULTE,}
-\DoxyCodeLine{00076\ \ \ \ \ JOUER,}
-\DoxyCodeLine{00077\ \ \ \ \ OPTION\_JEU,}
-\DoxyCodeLine{00078\ \ \ \ \ MENU\_SAUVEGARDER,}
-\DoxyCodeLine{00079\ \ \ \ \ JOUER\_RESEAU\_CREER,}
-\DoxyCodeLine{00080\ \ \ \ \ JOUER\_CHARGER,}
-\DoxyCodeLine{00081\ \ \ \ \ JOUER\_RESEAU\_REJOINDRE,}
-\DoxyCodeLine{00082\ \ \ \ \ FIN\_PARTIE}
-\DoxyCodeLine{00083\ \}etat\_t;}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \textcolor{comment}{/*Énumération\ pour\ le\ survol\ des\ éléments*/}}
-\DoxyCodeLine{00086\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ survol\_s\ \{}
-\DoxyCodeLine{00087\ \ \ \ \ PERSO1,}
-\DoxyCodeLine{00088\ \ \ \ \ PERSO2,}
-\DoxyCodeLine{00089\ \ \ \ \ PERSO3,}
-\DoxyCodeLine{00090\ \ \ \ \ PERSO4,}
-\DoxyCodeLine{00091\ \ \ \ \ XP,}
-\DoxyCodeLine{00092\ \ \ \ \ ULTIM}
-\DoxyCodeLine{00093\ \}survol\_t;}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \textcolor{comment}{/*Énumération\ des\ ages\ du\ jeu*/}}
-\DoxyCodeLine{00096\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ age\_s\ \{\ Prehistoire,\ Antiquite,\ Moyen\_Age,\ Ere\_Moderne,\ Ere\_Futuriste\ \}age\_t;}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \textcolor{comment}{/*Pour\ la\ gestion\ du\ volume*/}}
-\DoxyCodeLine{00099\ SDL\_bool\ estLache;}
-\DoxyCodeLine{00100\ \textcolor{keywordtype}{int}\ volume;\ \ \ \ }
-\DoxyCodeLine{00101\ SDL\_Rect*\ volumeBar;}
-\DoxyCodeLine{00102\ SDL\_Rect*\ volumeCursor;}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ \textcolor{comment}{/***************/}}
-\DoxyCodeLine{00106\ \textcolor{comment}{/*-\/-\/Fonctions-\/-\/*/}}
-\DoxyCodeLine{00107\ \textcolor{comment}{/***************/}}
-\DoxyCodeLine{00108\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{commun__SDL_8h_a60c174e8d64337550d3709f147a4a4a5}{initialisation}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00109\ TTF\_Font*\ \mbox{\hyperlink{commun__SDL_8h_a69ac6d7b76a3f9c3441f3c58e7908dc8}{chargementPolice}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ SDL\_Texture*\ textureFond,\ \textcolor{keywordtype}{char}*\ path,\ \textcolor{keywordtype}{int}\ taille);}
-\DoxyCodeLine{00110\ Mix\_Chunk*\ \mbox{\hyperlink{commun__SDL_8h_a0085ef37e4df688c076c56ff5223f654}{chargementAudio}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ SDL\_Texture*\ textureFond,\ \textcolor{keywordtype}{char}*\ path);}
-\DoxyCodeLine{00111\ SDL\_Texture*\ \mbox{\hyperlink{commun__SDL_8h_a3f70acdbb900e521328c1c6ce2d05fa6}{chargementImg}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ \textcolor{keywordtype}{char}*\ path);}
-\DoxyCodeLine{00112\ SDL\_Rect\ \mbox{\hyperlink{commun__SDL_8h_a8a5452dffe4041ff59dc015d9ddbf30b}{creationRectangle}}(SDL\_Window*\ fenetre,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur);}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{commun__SDL_8h_afa3dbabce03b9cf77796891b5f212b36}{destruction\_SDL}}(SDL\_Texture*\ parametre,\ SDL\_Texture*\ gold,\ SDL\_Texture*\ xp,\ SDL\_Texture*\ textureFond,\ }
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ prehistoire,\ SDL\_Texture*\ antiquite,\ SDL\_Texture*\ moyen\_age,\ SDL\_Texture*\ moderne,}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ futuriste,\ TTF\_Font*\ police,\ TTF\_Font*\ police\_texte,\ SDL\_Renderer*\ rendu,}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Window*\ fenetre,\ Mix\_Chunk*\ click,\ Mix\_Chunk*\ music,\ SDL\_Texture*\ sprite\_hud[],\ SDL\_Texture*\ building[],\ SDL\_Texture*\ win,\ SDL\_Texture*\ lose);}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*Dimensions\ des\ images\ de\ fonds*/}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ IMAGE\_WIDTH\ 3840\ }}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ IMAGE\_HEIGHT\ 720\ }}
+\DoxyCodeLine{00025\ \textcolor{comment}{/*Vitesse\ du\ déplacement\ de\ la\ caméra*/}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ SCROLL\_SPEED\ 30\ }}
+\DoxyCodeLine{00027\ \textcolor{comment}{/*Dimensions\ de\ base\ de\ la\ fenêtre*/}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ WINDOW\_WIDTH\ 1080\ }}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ WINDOW\_HEIGHT\ 720\ }}
+\DoxyCodeLine{00030\ \textcolor{comment}{/*Taille\ des\ éléments\ du\ menu*/}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ MENU\_WIDTH\ 250\ }}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ MENU\_HEIGHT\ 60\ }}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ MENU\_DECALAGE\ 50\ }}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ SPACING\ 30\ }}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ ELEMENT\_WIDTH\ 100\ }}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ ELEMENT\_HEIGHT\ 50\ }}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ ELEMENT\_SPACING\ 20\ }}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ POS\_DEP\ 170\ }}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ POS\_DEP\_AD\ IMAGE\_WIDTH\ -\/\ 300\ }}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ MOVEMENT\_DURATION\ 100\ }}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ DELAI\_ULTI\ 180000\ }}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ AUCUN\_ACTION\ -\/1\ }}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ ACHAT\_CHARACTER\ 0\ }}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ PASSAGE\_AGE\ 1\ }}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ ULTI\ 2\ }}
+\DoxyCodeLine{00051\ \textcolor{comment}{/*Couleurs\ */}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ BLACK\ (SDL\_Color)\{0,\ 0,\ 0\}\ }}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ WHITE\ (SDL\_Color)\{255,\ 255,\ 255\}\ }}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ GREEN\ (SDL\_Color)\{0,\ 255,\ 0\}\ }}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ RED\ (SDL\_Color)\{255,\ 0,\ 0\}\ }}
+\DoxyCodeLine{00057\ \textcolor{comment}{/*Structure\ du\ menu\ Resolution*/}}
+\DoxyCodeLine{00062\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00063\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structelement__t_a324ac4e80615b8f2d22e984058365a8d}{rect}};\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structelement__t_a9350593d6972b79aaf9bf9229d7cb33d}{info}};\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structelement__t_a1718fcb02b8d54093c5f11e7260ae614}{w}};\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structelement__t_a3307b2abca9ad5e82f651637c8a79f79}{h}};\ }
+\DoxyCodeLine{00067\ \}\ \mbox{\hyperlink{structelement__t}{element\_t}};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{comment}{/*Énumération\ des\ états\ de\ menu*/}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4}{etat\_s}}\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4a7d54ad16ab5c77efe906bcabe668650e}{PAGE\_ACCUEIL}},\ }
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4ad84154820fb7cc5480aa99b8e888ef2e}{MENU\_PRINCIPAL}},\ }
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4a1de3de8a9478e34a84277ba4a19efd4c}{MENU\_SOUS\_JOUER}},\ }
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4ac324f58b8f5a6a83c5e6d67a3da5d97c}{MENU\_SOUS\_OPTIONS}},\ }
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4a669b2f55dc929cc9b13161fb9e7856de}{MENU\_SOUS\_RESOLUTION}},\ }
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4a95893990a13323b8d5f3346fe900008c}{MENU\_SOUS\_CREDITS}},\ }
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4a7de6f497f5938531a207a8a43601e054}{MENU\_SOUS\_SON}},\ }
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4a414b63162ac931c29785c4fbaecbc698}{MENU\_SOUS\_SOLO}},\ }
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4a437a530509ad607112991c9a341320bc}{MENU\_SOUS\_ENLIGNE}},\ }
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4a5ff4ecd118e89ee0bbabfb4d2a4a20bd}{MENU\_SOUS\_REJOINDRE}},\ }
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4a6695197f1dd7f5da7e7c80af5c7022e2}{MENU\_SOUS\_CREER}},\ }
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4a0bfcec1443a3a746c344a0f3a468276d}{MENU\_SOUS\_CREER\_VALIDE}},\ }
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4a88ad7bc164bcc95b131ded4218e3e247}{MENU\_DIFFICULTE}},\ }
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4a11c0030686546137427ffc25a5471e15}{JOUER}},\ }
+\DoxyCodeLine{00090\ \ \ \ \ ULTIME,}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4ab52f768176ff40dcb03bb3cd72a2046d}{OPTION\_JEU}},\ }
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4af0961bc4806c2677d12379350a567471}{MENU\_SAUVEGARDER}},\ }
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4adb1ccb51252405ce3a4ee845f0105a40}{JOUER\_RESEAU\_CREER}},\ }
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4ac6a36abe8536fe73d4a220f329932a20}{JOUER\_CHARGER}},\ }
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4a9aae8cc5c57dd38595b52ba234739c77}{JOUER\_RESEAU\_REJOINDRE}},\ }
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a972d4967d9899b37461647b0ff5758b4a277608a4e000aceb742df0603d5c0a5e}{FIN\_PARTIE}}\ }
+\DoxyCodeLine{00097\ \}\ \mbox{\hyperlink{structetat__t}{etat\_t}};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{comment}{/*Énumération\ pour\ le\ survol\ des\ éléments*/}}
+\DoxyCodeLine{00104\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{commun__SDL_8h_a86442f5d32a5d794115cdb5ad7ac04a7}{survol\_s}}\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a86442f5d32a5d794115cdb5ad7ac04a7ab24f4fec5421c31ebdc0366beeca9cd4}{PERSO1}},\ }
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a86442f5d32a5d794115cdb5ad7ac04a7a4de4fb22a2124f8a28b6077881f82a1f}{PERSO2}},\ }
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a86442f5d32a5d794115cdb5ad7ac04a7a46e2e3469983c0551a25d59bece8282b}{PERSO3}},\ }
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a86442f5d32a5d794115cdb5ad7ac04a7af22393a1f21aa478236531703c0c7464}{PERSO4}},\ }
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a86442f5d32a5d794115cdb5ad7ac04a7a63ef690a7e72115fc42de25fefb93d83}{XP}},\ }
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{commun__SDL_8h_a86442f5d32a5d794115cdb5ad7ac04a7ae282f5234f80533d322d56fcfc7b203a}{ULTIM}}\ }
+\DoxyCodeLine{00111\ \}\ \mbox{\hyperlink{structsurvol__t}{survol\_t}};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{comment}{/*Énumération\ des\ âges\ du\ jeu*/}}
+\DoxyCodeLine{00118\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ age\_s\ \{Prehistoire,\ Antiquite,\ Moyen\_Age,\ Ere\_Moderne,\ Ere\_Futuriste\}\ \mbox{\hyperlink{structage__t}{age\_t}};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{comment}{/*Pour\ la\ gestion\ du\ volume*/}}
+\DoxyCodeLine{00121\ SDL\_bool\ \mbox{\hyperlink{commun__SDL_8h_a5a834340eae0614a9961a897aff8221a}{estLache}};\ }
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{commun__SDL_8h_aed48ca0bcd2162fd4fd495873e2631f5}{volume}};\ }
+\DoxyCodeLine{00123\ SDL\_Rect\ *\mbox{\hyperlink{commun__SDL_8h_a23fdfa4071e7fd6425af1797df878410}{volumeBar}};\ }
+\DoxyCodeLine{00124\ SDL\_Rect\ *\mbox{\hyperlink{commun__SDL_8h_a75ce85f017959d188000d6abb5b3709b}{volumeCursor}};\ }
+\DoxyCodeLine{00127\ \textcolor{comment}{/***************/}}
+\DoxyCodeLine{00128\ \textcolor{comment}{/*-\/-\/Fonctions-\/-\/*/}}
+\DoxyCodeLine{00129\ \textcolor{comment}{/***************/}}
+\DoxyCodeLine{00130\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{commun__SDL_8h_a60c174e8d64337550d3709f147a4a4a5}{initialisation}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00131\ TTF\_Font*\ \mbox{\hyperlink{commun__SDL_8h_a69ac6d7b76a3f9c3441f3c58e7908dc8}{chargementPolice}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ SDL\_Texture*\ textureFond,\ \textcolor{keywordtype}{char}*\ path,\ \textcolor{keywordtype}{int}\ taille);}
+\DoxyCodeLine{00132\ Mix\_Chunk*\ \mbox{\hyperlink{commun__SDL_8h_a0085ef37e4df688c076c56ff5223f654}{chargementAudio}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ SDL\_Texture*\ textureFond,\ \textcolor{keywordtype}{char}*\ path);}
+\DoxyCodeLine{00133\ SDL\_Texture*\ \mbox{\hyperlink{commun__SDL_8h_a3f70acdbb900e521328c1c6ce2d05fa6}{chargementImg}}(SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ \textcolor{keywordtype}{char}*\ path);}
+\DoxyCodeLine{00134\ SDL\_Rect\ \mbox{\hyperlink{commun__SDL_8h_a8a5452dffe4041ff59dc015d9ddbf30b}{creationRectangle}}(SDL\_Window*\ fenetre,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{commun__SDL_8h_a9d0b66e186b19e6dbee32b534d8e6bde}{destruction\_SDL}}(SDL\_Texture*\ parametre,\ SDL\_Texture*\ gold,\ SDL\_Texture*\ xp,\ SDL\_Texture*\ textureFond,\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ prehistoire,\ SDL\_Texture*\ antiquite,\ SDL\_Texture*\ moyen\_age,\ SDL\_Texture*\ moderne,}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ futuriste,\ TTF\_Font*\ police,\ TTF\_Font*\ police\_texte,\ SDL\_Renderer*\ rendu,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Window*\ fenetre,\ Mix\_Chunk*\ click,\ Mix\_Chunk*\ music,\ SDL\_Texture*\ sprite\_hud[],\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ building[],\ SDL\_Texture*\ win,\ SDL\_Texture*\ lose,\ SDL\_Texture*\ boum);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

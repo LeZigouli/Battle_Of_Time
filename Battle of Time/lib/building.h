@@ -12,7 +12,8 @@
 #include "common.h"
 
 /**
- * @brief Structure représentant un bâtiment.
+ * \struct building_t
+ * \brief Structure représentant un bâtiment.
  */
 typedef struct building_s {
     int pv;         /**< Points de vie du bâtiment. */

@@ -691,7 +691,7 @@ void afficherSousMenuCreer(SDL_Renderer* rendu, SDL_Window* fenetre, TTF_Font* p
 
     SDL_Surface* IPSurface = TTF_RenderText_Solid(police, IP, BLACK);
     SDL_Texture* IPTexture = SDL_CreateTextureFromSurface(rendu, IPSurface);
-
+     printf("OUI 2222é");
     SDL_Rect textRect = creationRectangle(fenetre, menuX - 70, menuY + 60, IPSurface->w, IPSurface->h);
     SDL_RenderCopy(rendu, IPTexture, NULL, &textRect);
     SDL_DestroyTexture(IPTexture);

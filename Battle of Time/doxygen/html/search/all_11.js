@@ -4,7 +4,7 @@ var searchData=
   ['tab_5fcharacter_2ec_1',['tab_character.c',['../tab__character_8c.html',1,'']]],
   ['tab_5fcharacter_2eh_2',['tab_character.h',['../tab__character_8h.html',1,'']]],
   ['tab_5fcharactere_5fs_3',['tab_charactere_s',['../structtab__charactere__s.html',1,'']]],
-  ['tab_5fcharactere_5ft_4',['tab_charactere_t',['../tab__character_8h.html#a6a21ebdbc23a81b622e7aec0b72e94ae',1,'tab_character.h']]],
+  ['tab_5fcharactere_5ft_4',['tab_charactere_t',['../structtab__charactere__t.html',1,'']]],
   ['taille_5fattaque_5',['TAILLE_ATTAQUE',['../character_8h.html#ad56f2d3fff8366567db3df903285dde9',1,'character.h']]],
   ['taille_5fsprite_6',['TAILLE_SPRITE',['../character_8h.html#a39f85a01939e4b4ec928d4c6a90e45c2',1,'character.h']]],
   ['tank_7',['tank',['../common_8h.html#aa92d6a1d34d51fad72dee6b89b86269ca5970642cf6e8bb17100a6ac4ecfa0a36',1,'common.h']]],

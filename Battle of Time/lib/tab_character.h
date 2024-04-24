@@ -15,7 +15,8 @@
 
 
 /**
- * @brief Structure représentant un tableau de personnages.
+ * \struct tab_charactere_t
+ * \brief Structure qui contient un tableau de charactere.
  */
 typedef struct tab_charactere_s {
     character_t * tab[MAX_POSSESSED]; /**< Tableau de personnages */

@@ -1,5 +1,5 @@
 \doxysection{affichage\+\_\+menu.\+h}
-\hypertarget{affichage__menu_8h_source}{}\label{affichage__menu_8h_source}\index{/Users/vic/Documents/Battle\_Of\_Time/Battle of Time/lib/affichage\_menu.h@{/Users/vic/Documents/Battle\_Of\_Time/Battle of Time/lib/affichage\_menu.h}}
+\hypertarget{affichage__menu_8h_source}{}\label{affichage__menu_8h_source}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Battle of Time/lib/affichage\_menu.h@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Battle of Time/lib/affichage\_menu.h}}
 \mbox{\hyperlink{affichage__menu_8h}{Aller à la documentation de ce fichier.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
@@ -9,23 +9,23 @@
 \DoxyCodeLine{00012\ \textcolor{comment}{/**************/}}
 \DoxyCodeLine{00013\ \textcolor{comment}{/*-\/-\/Includes-\/-\/*/}}
 \DoxyCodeLine{00014\ \textcolor{comment}{/**************/}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{commun___s_d_l_8h}{commun\_SDL.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{commun__SDL_8h}{commun\_SDL.h}}"{}}}
 \DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gestion_8h}{gestion.h}}"{}}}
 \DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{player_8h}{player.h}}"{}}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}ordinateur.h"{}}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{serveur_8h}{../socket/serveur.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ordinateur_8h}{ordinateur.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}../socket/serveur.h"{}}}
 \DoxyCodeLine{00020\ }
 \DoxyCodeLine{00021\ \textcolor{comment}{/***************/}}
 \DoxyCodeLine{00022\ \textcolor{comment}{/*-\/-\/Fonctions-\/-\/*/}}
 \DoxyCodeLine{00023\ \textcolor{comment}{/***************/}}
-\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_af437f883fab4050e46662786b353e5ec}{affichage}}(etat\_t\ etat,\ \textcolor{keywordtype}{int}*\ etatAge,\ SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police\ ,\ TTF\_Font*\ police\_texte,\ }
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a3f4120895cfd15356965dc0b3ec5c8a8}{affichage}}(\mbox{\hyperlink{structetat__t}{etat\_t}}*\ etat,\ \textcolor{keywordtype}{int}*\ etatAge,\ SDL\_Renderer*\ rendu,\ SDL\_Window*\ fenetre,\ TTF\_Font*\ police\ ,\ TTF\_Font*\ police\_texte,\ }
 \DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ menuX,\ \textcolor{keywordtype}{int}\ menuY,\ \mbox{\hyperlink{structelement__t}{element\_t}}*\ elm\_reso,\ \textcolor{keywordtype}{int}*\ selecElement,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ effet,\ \textcolor{keywordtype}{char}*\ textInput,\ }
 \DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ isValid,\ \textcolor{keywordtype}{int}*\ keyCounts,\ SDL\_Texture*\ parametre,\ SDL\_Texture*\ gold,\ SDL\_Texture*\ xp,}
 \DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ prehistoire,\ SDL\_Texture*\ antiquite,\ SDL\_Texture*\ moyen\_age,}
 \DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture*\ moderne,\ SDL\_Texture*\ futuriste,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ joueur,\ SDL\_Texture**\ sprite\_hud,\ SDL\_Texture*\ upgrade,}
 \DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structordi__t}{ordi\_t}}*\ ordi,\ \textcolor{keywordtype}{int}*\ cameraX,\ \textcolor{keywordtype}{int}*\ cameraY,\ SDL\_Texture*\ ultim,\ SDL\_Texture*\ building[],\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gestion_8c_afecde47e916a8831710f18286b346ed8}{fin\_partie}},\ SDL\_Texture\ *\ win,}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ *\ lose,\ \mbox{\hyperlink{structcharacter__s}{character\_t}}*\ tab\_charactere,\ \textcolor{keywordtype}{int}\ survol,\ Uint32\ delai\_ulti,\ Uint32\ diff\_time,\ \textcolor{keywordtype}{int}**\ troupe\_formee,}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Uint32\ currentTime,\ Uint32**\ lastTroupe,\ \textcolor{keywordtype}{int}**\ nb,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ j2);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ *\ lose,\ \mbox{\hyperlink{structcharacter__t}{character\_t}}*\ tab\_charactere,\ \textcolor{keywordtype}{int}\ survol,\ Uint32\ delai\_ulti,\ Uint32\ diff\_time,\ \textcolor{keywordtype}{int}**\ troupe\_formee,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Uint32\ currentTime,\ Uint32**\ lastTroupe,\ \textcolor{keywordtype}{int}**\ nb,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ j2,\ SDL\_Texture*\ image\_ultim,\ \textcolor{keywordtype}{float}*\ alpha);}
 \DoxyCodeLine{00032\ }
 \DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_ab3803cc70b7009b9ce07f791df15977b}{afficherMenu}}(SDL\_Renderer*\ rendu,\ TTF\_Font*\ police,\ SDL\_Window*\ fenetre,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ largeur,\ \textcolor{keywordtype}{int}\ hauteur);}
 \DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{affichage__menu_8h_a6a859b475bacc2b8d4b63fe638a9ed62}{afficherSousMenu}}(SDL\_Renderer*\ rendu,\ TTF\_Font*\ police,\ SDL\_Window*\ fenetre,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte2,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte3,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ texte4);}

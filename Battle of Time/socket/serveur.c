@@ -10,11 +10,12 @@
 #include "serveur.h"
 
 /**
- * @brief Résout le nom d'hôte en adresse IP.
+ * \fn int hostname_to_ip(char * hostname , char* ip)
+ * \brief Résout le nom d'hôte en adresse IP.
  * 
- * @param hostname Nom d'hôte à résoudre.
- * @param ip Chaîne de caractères pour stocker l'adresse IP résolue.
- * @return Retourne 0 en cas de succès, sinon 1.
+ * \param hostname Nom d'hôte à résoudre.
+ * \param ip Chaîne de caractères pour stocker l'adresse IP résolue.
+ * \return Retourne 0 en cas de succès, sinon 1.
  */
 int hostname_to_ip(char * hostname , char* ip)
 {
@@ -42,7 +43,8 @@ int hostname_to_ip(char * hostname , char* ip)
 }
 
 /**
- * @brief Affiche l'adresse IP de l'hôte local.
+ * \fn void view_ip()
+ * \brief Affiche l'adresse IP de l'hôte local.
  */
 void view_ip()
 {
@@ -56,9 +58,10 @@ void view_ip()
 }
 
 /**
- * @brief Initialise le serveur pour écouter les connexions entrantes.
+ * \fn int init_reseau_serveur()
+ * \brief Initialise le serveur pour écouter les connexions entrantes.
  * 
- * @return Retourne 1 si l'initialisation est réussie, sinon 0.
+ * \return Retourne 1 si l'initialisation est réussie, sinon 0.
  */
 int init_reseau_serveur()
 {
@@ -99,9 +102,10 @@ int init_reseau_serveur()
 }
 
 /**
- * @brief Récupère l'adresse IP du serveur.
+ * \fn char* get_ip_serveur()
+ * \brief Récupère l'adresse IP du serveur.
  * 
- * @return Retourne une chaîne de caractères représentant l'adresse IP du serveur.
+ * \return Retourne une chaîne de caractères représentant l'adresse IP du serveur.
  */
 char* get_ip_serveur()
 {
@@ -137,9 +141,10 @@ char* get_ip_serveur()
 }
  
 /**
- * @brief Ferme la connexion au serveur.
+ * \fn void serveur_fermeture(int * socket)
+ * \brief Ferme la connexion au serveur.
  * 
- * @param socket Pointeur vers la socket à fermer.
+ * \param socket Pointeur vers la socket à fermer.
  */
 void serveur_fermeture(int * socket)
 {

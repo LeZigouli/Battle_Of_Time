@@ -10,11 +10,12 @@
 #include "client.h"
 
 /**
- * @brief Envoie des données via le socket spécifié.
+ * \fn void envoyer( int to, int * action, int * action2 )
+ * \brief Envoie des données via le socket spécifié.
  *
- * @param to Le socket destinataire.
- * @param action Pointeur vers la première action à envoyer.
- * @param action2 Pointeur vers la deuxième action à envoyer.
+ * \param to Le socket destinataire.
+ * \param action Pointeur vers la première action à envoyer.
+ * \param action2 Pointeur vers la deuxième action à envoyer.
  */
 void envoyer( int to, int * action, int * action2 )
 {
@@ -23,11 +24,12 @@ void envoyer( int to, int * action, int * action2 )
 }
 
 /**
- * @brief Réception des données depuis le socket spécifié.
+ * \fn void recevoir( int to, int * action, int * action2 )
+ * \brief Réception des données depuis le socket spécifié.
  *
- * @param to Le socket destinataire.
- * @param action Pointeur vers la première action à recevoir.
- * @param action2 Pointeur vers la deuxième action à recevoir.
+ * \param to Le socket destinataire.
+ * \param action Pointeur vers la première action à recevoir.
+ * \param action2 Pointeur vers la deuxième action à recevoir.
  */
 void recevoir( int to, int * action, int * action2 )
 {
@@ -36,10 +38,11 @@ void recevoir( int to, int * action, int * action2 )
 }
 
 /**
- * @brief Initialise la connexion au serveur.
+ * \fn int init_reseau_client(char serveurname[MAX_IP])
+ * \brief Initialise la connexion au serveur.
  * 
- * @param serveurname Nom ou adresse IP du serveur.
- * @return Retourne 1 si l'initialisation est réussie, sinon 0.
+ * \param serveurname Nom ou adresse IP du serveur.
+ * \return Retourne 1 si l'initialisation est réussie, sinon 0.
  */
 int init_reseau_client(char serveurname[MAX_IP])
 {
@@ -123,9 +126,10 @@ int init_reseau_client(char serveurname[MAX_IP])
 }
 
 /**
- * @brief Ferme la connexion au serveur.
+ * \fn void client_fermeture(int * socket)
+ * \brief Ferme la connexion au serveur.
  * 
- * @param socket Pointeur vers la socket à fermer.
+ * \param socket Pointeur vers la socket à fermer.
  */
 void client_fermeture(int * socket)
 {

@@ -3,24 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battle of Time:  Fichier source de /Users/vic/Documents/Battle_Of_Time/Battle of Time/socket/serveur.h</title>
+<title>Battle of Time:  Fichier source de /info/etu/l2info/s2205576/Documents/Projet/Battle_Of_Time/Battle of Time/socket/serveur.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-  $(function() { init_search(); });
+  $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -54,7 +52,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.10.0 -->
+<!-- Généré par Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -73,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('serveur_8h_source.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('serveur_8h_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -114,7 +112,7 @@ $(function(){initNavTree('serveur_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;signal.h&gt;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;ifaddrs.h&gt;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">../lib/common.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;../lib/common.h&quot;</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define PORT 30000</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="serveur_8h.html#a635a6e9bfed455bf02a9eab184d9d52a">   27</a></span><span class="keywordtype">int</span> <a class="code hl_variable" href="serveur_8h.html#a635a6e9bfed455bf02a9eab184d9d52a">ma_socket</a>;</div>
@@ -136,17 +134,16 @@ $(function(){initNavTree('serveur_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keywordtype">char</span>* <a class="code hl_function" href="serveur_8h.html#ab60185638299eec6f8f34fcdeb8febba">get_ip_serveur</a>();</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keywordtype">void</span> <a class="code hl_function" href="serveur_8h.html#a0560393a69bf164b3d68094ea528e8c6">serveur_fermeture</a>(<span class="keywordtype">int</span> * socket);</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="acommon_8h_html"><div class="ttname"><a href="common_8h.html">common.h</a></div><div class="ttdoc">Contient les élements utilisés par les autres fichiers.</div></div>
-<div class="ttc" id="aserveur_8h_html_a0560393a69bf164b3d68094ea528e8c6"><div class="ttname"><a href="serveur_8h.html#a0560393a69bf164b3d68094ea528e8c6">serveur_fermeture</a></div><div class="ttdeci">void serveur_fermeture(int *socket)</div><div class="ttdoc">Ferme la connexion au serveur.</div><div class="ttdef"><b>Definition</b> serveur.c:144</div></div>
-<div class="ttc" id="aserveur_8h_html_a077a8f2753012be48135d87764bdc0ee"><div class="ttname"><a href="serveur_8h.html#a077a8f2753012be48135d87764bdc0ee">view_ip</a></div><div class="ttdeci">void view_ip()</div><div class="ttdoc">Affiche l'adresse IP de l'hôte local.</div><div class="ttdef"><b>Definition</b> serveur.c:47</div></div>
-<div class="ttc" id="aserveur_8h_html_a0d5e428ead5875e99663a6bb673fa0a8"><div class="ttname"><a href="serveur_8h.html#a0d5e428ead5875e99663a6bb673fa0a8">hostname_to_ip</a></div><div class="ttdeci">int hostname_to_ip(char *hostname, char *ip)</div><div class="ttdoc">Résout le nom d'hôte en adresse IP.</div><div class="ttdef"><b>Definition</b> serveur.c:19</div></div>
-<div class="ttc" id="aserveur_8h_html_a0dc0fcc6e5ed53b493ffde2842788391"><div class="ttname"><a href="serveur_8h.html#a0dc0fcc6e5ed53b493ffde2842788391">init_reseau_serveur</a></div><div class="ttdeci">int init_reseau_serveur()</div><div class="ttdoc">Initialise le serveur pour écouter les connexions entrantes.</div><div class="ttdef"><b>Definition</b> serveur.c:63</div></div>
+<div class="ttc" id="aserveur_8h_html_a0560393a69bf164b3d68094ea528e8c6"><div class="ttname"><a href="serveur_8h.html#a0560393a69bf164b3d68094ea528e8c6">serveur_fermeture</a></div><div class="ttdeci">void serveur_fermeture(int *socket)</div><div class="ttdoc">Ferme la connexion au serveur.</div><div class="ttdef"><b>Definition</b> serveur.c:149</div></div>
+<div class="ttc" id="aserveur_8h_html_a077a8f2753012be48135d87764bdc0ee"><div class="ttname"><a href="serveur_8h.html#a077a8f2753012be48135d87764bdc0ee">view_ip</a></div><div class="ttdeci">void view_ip()</div><div class="ttdoc">Affiche l'adresse IP de l'hôte local.</div><div class="ttdef"><b>Definition</b> serveur.c:49</div></div>
+<div class="ttc" id="aserveur_8h_html_a0d5e428ead5875e99663a6bb673fa0a8"><div class="ttname"><a href="serveur_8h.html#a0d5e428ead5875e99663a6bb673fa0a8">hostname_to_ip</a></div><div class="ttdeci">int hostname_to_ip(char *hostname, char *ip)</div><div class="ttdoc">Résout le nom d'hôte en adresse IP.</div><div class="ttdef"><b>Definition</b> serveur.c:20</div></div>
+<div class="ttc" id="aserveur_8h_html_a0dc0fcc6e5ed53b493ffde2842788391"><div class="ttname"><a href="serveur_8h.html#a0dc0fcc6e5ed53b493ffde2842788391">init_reseau_serveur</a></div><div class="ttdeci">int init_reseau_serveur()</div><div class="ttdoc">Initialise le serveur pour écouter les connexions entrantes.</div><div class="ttdef"><b>Definition</b> serveur.c:66</div></div>
 <div class="ttc" id="aserveur_8h_html_a12d18e482b6299c3a716d193ef933232"><div class="ttname"><a href="serveur_8h.html#a12d18e482b6299c3a716d193ef933232">mon_address_longueur</a></div><div class="ttdeci">unsigned int mon_address_longueur</div><div class="ttdoc">Longueur de l'adresse du serveur.</div><div class="ttdef"><b>Definition</b> serveur.h:48</div></div>
 <div class="ttc" id="aserveur_8h_html_a3de73a6c1b9e1f9ee928407748744be8"><div class="ttname"><a href="serveur_8h.html#a3de73a6c1b9e1f9ee928407748744be8">mon_address</a></div><div class="ttdeci">struct sockaddr_in mon_address</div><div class="ttdoc">Adresse du serveur et Adresse du client.</div><div class="ttdef"><b>Definition</b> serveur.h:38</div></div>
 <div class="ttc" id="aserveur_8h_html_a432a3238b8a5dc9c809284367705cbf5"><div class="ttname"><a href="serveur_8h.html#a432a3238b8a5dc9c809284367705cbf5">client_address</a></div><div class="ttdeci">struct sockaddr_in client_address</div><div class="ttdoc">Adresse du client.</div><div class="ttdef"><b>Definition</b> serveur.h:43</div></div>
 <div class="ttc" id="aserveur_8h_html_a635a6e9bfed455bf02a9eab184d9d52a"><div class="ttname"><a href="serveur_8h.html#a635a6e9bfed455bf02a9eab184d9d52a">ma_socket</a></div><div class="ttdeci">int ma_socket</div><div class="ttdoc">Socket du serveur.</div><div class="ttdef"><b>Definition</b> serveur.h:27</div></div>
 <div class="ttc" id="aserveur_8h_html_a9c434a7a034140d98c96221b0c908ede"><div class="ttname"><a href="serveur_8h.html#a9c434a7a034140d98c96221b0c908ede">lg</a></div><div class="ttdeci">unsigned int lg</div><div class="ttdoc">Taille des données à lire/écrire.</div><div class="ttdef"><b>Definition</b> serveur.h:53</div></div>
-<div class="ttc" id="aserveur_8h_html_ab60185638299eec6f8f34fcdeb8febba"><div class="ttname"><a href="serveur_8h.html#ab60185638299eec6f8f34fcdeb8febba">get_ip_serveur</a></div><div class="ttdeci">char * get_ip_serveur()</div><div class="ttdoc">Récupère l'adresse IP du serveur.</div><div class="ttdef"><b>Definition</b> serveur.c:106</div></div>
+<div class="ttc" id="aserveur_8h_html_ab60185638299eec6f8f34fcdeb8febba"><div class="ttname"><a href="serveur_8h.html#ab60185638299eec6f8f34fcdeb8febba">get_ip_serveur</a></div><div class="ttdeci">char * get_ip_serveur()</div><div class="ttdoc">Récupère l'adresse IP du serveur.</div><div class="ttdef"><b>Definition</b> serveur.c:110</div></div>
 <div class="ttc" id="aserveur_8h_html_ae887b77f939a43b6387aa460f46836eb"><div class="ttname"><a href="serveur_8h.html#ae887b77f939a43b6387aa460f46836eb">client_socket</a></div><div class="ttdeci">int client_socket</div><div class="ttdoc">Socket du client.</div><div class="ttdef"><b>Definition</b> serveur.h:33</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -154,7 +151,7 @@ $(function(){initNavTree('serveur_8h_source.html',''); initResizable(); });
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_81c2d611c6881768367d907d08eea305.html">socket</a></li><li class="navelem"><a class="el" href="serveur_8h.html">serveur.h</a></li>
-    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

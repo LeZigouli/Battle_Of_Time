@@ -104,6 +104,7 @@ booleen_t give_ressources(player_t * player,ordi_t * ordi)
             player->gold+= gain/3;
             player->xp += gain;
             ordi->xp+=gain;
+            return TRUE;
         }
     }
     return FALSE;

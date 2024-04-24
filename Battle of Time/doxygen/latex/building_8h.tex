@@ -1,30 +1,30 @@
-\doxysection{Référence du fichier /\+Users/vic/\+Documents/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Battle of Time/lib/building.h}
-\hypertarget{building_8h}{}\label{building_8h}\index{/Users/vic/Documents/Battle\_Of\_Time/Battle of Time/lib/building.h@{/Users/vic/Documents/Battle\_Of\_Time/Battle of Time/lib/building.h}}
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Battle of Time/lib/building.h}
+\hypertarget{building_8h}{}\label{building_8h}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Battle of Time/lib/building.h@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Battle of Time/lib/building.h}}
 
 
 Contient les élements utilisés par le \doxylink{building_8c}{building.\+c}.  
 
 
-{\ttfamily \#include "{}common.\+h"{}}\newline
+{\ttfamily \#include \"{}common.\+h\"{}}\newline
 \doxysubsubsection*{Structures de données}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structbuilding__s}{building\+\_\+s}}
-\begin{DoxyCompactList}\small\item\em Structure représentant un bâtiment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Définitions de type}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{building_8h_aee655befad3b1afa60c5fdd49663ae66}\label{building_8h_aee655befad3b1afa60c5fdd49663ae66} 
 typedef struct \mbox{\hyperlink{structbuilding__s}{building\+\_\+s}} {\bfseries building\+\_\+t}
-\begin{DoxyCompactList}\small\item\em Structure représentant un bâtiment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{building_8h_a34c3316790eae9eed08cba0d26a097bd}{init\+\_\+building}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}building, int owner)
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{building_8h_a34c3316790eae9eed08cba0d26a097bd}{init\+\_\+building}} (\mbox{\hyperlink{structbuilding__t}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}building, int owner)
 \begin{DoxyCompactList}\small\item\em Initialise le bâtiment d\textquotesingle{}un joueur avec des valeurs par défaut. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{building_8h_ab057ff98ceccfbb956f66c7d942ab8f1}{upgrade\+\_\+building}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}building, int \texorpdfstring{$\ast$}{*}xp)
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{building_8h_ab057ff98ceccfbb956f66c7d942ab8f1}{upgrade\+\_\+building}} (\mbox{\hyperlink{structbuilding__t}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}building, int \texorpdfstring{$\ast$}{*}xp)
 \begin{DoxyCompactList}\small\item\em Améliore le bâtiment d\textquotesingle{}un joueur en fonction de l\textquotesingle{}expérience accumulée. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{building_8h_ad6e6f248ce5dd4664f4d3597a6141d7b}{afficher\+\_\+building}} (\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}building)
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{building_8h_ad6e6f248ce5dd4664f4d3597a6141d7b}{afficher\+\_\+building}} (\mbox{\hyperlink{structbuilding__t}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}building)
 \begin{DoxyCompactList}\small\item\em Affiche les caractéristiques du bâtiment. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{building_8h_af082905f7eac6d03e92015146bbc1925}{max}} (int a, int b)
 \begin{DoxyCompactList}\small\item\em Détermine le maximum entre deux entiers. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -49,7 +49,7 @@ Proudy Vincent
 \index{building.h@{building.h}!afficher\_building@{afficher\_building}}
 \index{afficher\_building@{afficher\_building}!building.h@{building.h}}
 \doxysubsubsection{\texorpdfstring{afficher\_building()}{afficher\_building()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} afficher\+\_\+building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{building }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} afficher\+\_\+building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__t}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{building }\end{DoxyParamCaption})}
 
 
 
@@ -67,7 +67,7 @@ TRUE si l\textquotesingle{}affichage s\textquotesingle{}est déroulé avec succ�
 \index{building.h@{building.h}!init\_building@{init\_building}}
 \index{init\_building@{init\_building}!building.h@{building.h}}
 \doxysubsubsection{\texorpdfstring{init\_building()}{init\_building()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} init\+\_\+building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{building,  }\item[{int}]{owner }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} init\+\_\+building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__t}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{building,  }\item[{int}]{owner }\end{DoxyParamCaption})}
 
 
 
@@ -107,7 +107,7 @@ La valeur maximale entre a et b.
 \index{building.h@{building.h}!upgrade\_building@{upgrade\_building}}
 \index{upgrade\_building@{upgrade\_building}!building.h@{building.h}}
 \doxysubsubsection{\texorpdfstring{upgrade\_building()}{upgrade\_building()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} upgrade\+\_\+building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{building_8h_aee655befad3b1afa60c5fdd49663ae66}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{building,  }\item[{int \texorpdfstring{$\ast$}{*}}]{xp }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} upgrade\+\_\+building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbuilding__t}{building\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{building,  }\item[{int \texorpdfstring{$\ast$}{*}}]{xp }\end{DoxyParamCaption})}
 
 
 

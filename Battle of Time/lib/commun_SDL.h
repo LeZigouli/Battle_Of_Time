@@ -55,6 +55,10 @@
 #define RED (SDL_Color){255, 0, 0} /**< Couleur rouge */
 
 /*Structure du menu Resolution*/
+/**
+ * \struct element_t
+ * \brief Structure représentant un element ici un rectangle.
+ */
 typedef struct {
     SDL_Rect rect; /**< Rectangle représentant l'élément */
     char *info; /**< Informations spécifiques à l'élément */
@@ -63,6 +67,11 @@ typedef struct {
 } element_t;
 
 /*Énumération des états de menu*/
+
+/**
+ * \struct etat_t
+ * \brief enumération pour decrire l'etat actuel du jeu.
+ */
 typedef enum etat_s {
     PAGE_ACCUEIL, /**< Page d'accueil */
     MENU_PRINCIPAL, /**< Menu principal */
@@ -88,6 +97,10 @@ typedef enum etat_s {
 } etat_t;
 
 /*Énumération pour le survol des éléments*/
+/**
+ * \struct survol_t
+ * \brief énumération pour savoir qu'elle élement du HUD est activé.
+ */
 typedef enum survol_s {
     PERSO1, /**< Personnage 1 */
     PERSO2, /**< Personnage 2 */
@@ -98,6 +111,10 @@ typedef enum survol_s {
 } survol_t;
 
 /*Énumération des âges du jeu*/
+/**
+ * \struct age_t
+ * \brief énumération pour chaque age.
+ */
 typedef enum age_s {Prehistoire, Antiquite, Moyen_Age, Ere_Moderne, Ere_Futuriste} age_t;
 
 /*Pour la gestion du volume*/

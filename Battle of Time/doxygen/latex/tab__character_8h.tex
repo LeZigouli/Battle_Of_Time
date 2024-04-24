@@ -1,42 +1,42 @@
-\doxysection{Référence du fichier /\+Users/vic/\+Documents/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Battle of Time/lib/tab\+\_\+character.h}
-\hypertarget{tab__character_8h}{}\label{tab__character_8h}\index{/Users/vic/Documents/Battle\_Of\_Time/Battle of Time/lib/tab\_character.h@{/Users/vic/Documents/Battle\_Of\_Time/Battle of Time/lib/tab\_character.h}}
+\doxysection{Référence du fichier /info/etu/l2info/s2205576/\+Documents/\+Projet/\+Battle\+\_\+\+Of\+\_\+\+Time/\+Battle of Time/lib/tab\+\_\+character.h}
+\hypertarget{tab__character_8h}{}\label{tab__character_8h}\index{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Battle of Time/lib/tab\_character.h@{/info/etu/l2info/s2205576/Documents/Projet/Battle\_Of\_Time/Battle of Time/lib/tab\_character.h}}
 
 
-Definition de la structure contenant plusieur character\+\_\+t et ses fonction d\textquotesingle{}accès.  
+Definition de la structure contenant plusieur \doxylink{structcharacter__t}{character\+\_\+t} et ses fonction d\textquotesingle{}accès.  
 
 
-{\ttfamily \#include "{}character.\+h"{}}\newline
+{\ttfamily \#include \"{}character.\+h\"{}}\newline
 \doxysubsubsection*{Structures de données}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+s}}
-\begin{DoxyCompactList}\small\item\em Structure représentant un tableau de personnages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Définitions de type}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}\label{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae} 
 typedef struct \mbox{\hyperlink{structtab__charactere__s}{tab\+\_\+charactere\+\_\+s}} {\bfseries tab\+\_\+charactere\+\_\+t}
-\begin{DoxyCompactList}\small\item\em Structure représentant un tableau de personnages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{tab__character_8h_ae803d355d3d1e31a32c228a31d8d5d30}{deplacement}} (\mbox{\hyperlink{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}characters, \mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}first\+\_\+\+Adverser, int x\+\_\+building\+\_\+adverser)
+void \mbox{\hyperlink{tab__character_8h_ae803d355d3d1e31a32c228a31d8d5d30}{deplacement}} (\mbox{\hyperlink{structtab__charactere__t}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}characters, \mbox{\hyperlink{structcharacter__t}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}first\+\_\+\+Adverser, int x\+\_\+building\+\_\+adverser)
 \begin{DoxyCompactList}\small\item\em Effectue le déplacement des personnages. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{tab__character_8h_a623509b35d94c72fd711b497ff5fd20b}{delete\+\_\+character}} (\mbox{\hyperlink{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}characters)
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{tab__character_8h_a623509b35d94c72fd711b497ff5fd20b}{delete\+\_\+character}} (\mbox{\hyperlink{structtab__charactere__t}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}characters)
 \begin{DoxyCompactList}\small\item\em Supprime les personnages ayant des points de vie nuls ou négatifs. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{tab__character_8h_a7385dcda8ffa6298eef3e75eb4030df7}{tasser\+\_\+tab}} (\mbox{\hyperlink{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}characters, int nb\+\_\+mort)
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{tab__character_8h_a7385dcda8ffa6298eef3e75eb4030df7}{tasser\+\_\+tab}} (\mbox{\hyperlink{structtab__charactere__t}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}characters, int nb\+\_\+mort)
 \begin{DoxyCompactList}\small\item\em Tasse le tableau de personnages après suppression. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{tab__character_8h_a9cdbdc324a94a9fb7469a7429b12896b}{afficher\+\_\+characters}} (\mbox{\hyperlink{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}characters)
-\begin{DoxyCompactList}\small\item\em Affiche les personnages possédés. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{tab__character_8h_a307ff31aed68e9ebab26e9b79d48a03d}{ulti}} (\mbox{\hyperlink{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}cible)
+\Hypertarget{tab__character_8h_a9cdbdc324a94a9fb7469a7429b12896b}\label{tab__character_8h_a9cdbdc324a94a9fb7469a7429b12896b} 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} {\bfseries afficher\+\_\+characters} (\mbox{\hyperlink{structtab__charactere__t}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}characters)
+\item 
+\mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} \mbox{\hyperlink{tab__character_8h_a307ff31aed68e9ebab26e9b79d48a03d}{ulti}} (\mbox{\hyperlink{structtab__charactere__t}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}cible)
 \begin{DoxyCompactList}\small\item\em Réalise l\textquotesingle{}ultime attaque, mettant les personnages cibles à 0 points de vie. \end{DoxyCompactList}\item 
-\Hypertarget{tab__character_8h_a52c7e3322f01a266b0a8ddf08854696b}\label{tab__character_8h_a52c7e3322f01a266b0a8ddf08854696b} 
-void {\bfseries maj\+\_\+first\+\_\+vivant} (\mbox{\hyperlink{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}player, \mbox{\hyperlink{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}ordi)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{tab__character_8h_a52c7e3322f01a266b0a8ddf08854696b}{maj\+\_\+first\+\_\+vivant}} (\mbox{\hyperlink{structtab__charactere__t}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}player, \mbox{\hyperlink{structtab__charactere__t}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}ordi)
+\begin{DoxyCompactList}\small\item\em Met à jour l\textquotesingle{}indice du premier personnage dans le tableau du joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
-Definition de la structure contenant plusieur character\+\_\+t et ses fonction d\textquotesingle{}accès. 
+Definition de la structure contenant plusieur \doxylink{structcharacter__t}{character\+\_\+t} et ses fonction d\textquotesingle{}accès. 
 
 \begin{DoxyAuthor}{Auteur}
 Proudy Vincent et Roquain Louison 
@@ -50,29 +50,11 @@ Proudy Vincent et Roquain Louison
 
 
 \doxysubsection{Documentation des fonctions}
-\Hypertarget{tab__character_8h_a9cdbdc324a94a9fb7469a7429b12896b}\label{tab__character_8h_a9cdbdc324a94a9fb7469a7429b12896b} 
-\index{tab\_character.h@{tab\_character.h}!afficher\_characters@{afficher\_characters}}
-\index{afficher\_characters@{afficher\_characters}!tab\_character.h@{tab\_character.h}}
-\doxysubsubsection{\texorpdfstring{afficher\_characters()}{afficher\_characters()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} afficher\+\_\+characters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{characters }\end{DoxyParamCaption})}
-
-
-
-Affiche les personnages possédés. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em characters} & Pointeur vers le tableau de personnages. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-Retourne TRUE si l\textquotesingle{}affichage est réussi, sinon FALSE. 
-\end{DoxyReturn}
 \Hypertarget{tab__character_8h_a623509b35d94c72fd711b497ff5fd20b}\label{tab__character_8h_a623509b35d94c72fd711b497ff5fd20b} 
 \index{tab\_character.h@{tab\_character.h}!delete\_character@{delete\_character}}
 \index{delete\_character@{delete\_character}!tab\_character.h@{tab\_character.h}}
 \doxysubsubsection{\texorpdfstring{delete\_character()}{delete\_character()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} delete\+\_\+character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{characters }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} delete\+\_\+character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtab__charactere__t}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{characters }\end{DoxyParamCaption})}
 
 
 
@@ -90,7 +72,7 @@ Retourne TRUE si les personnages ont été supprimés avec succès, sinon FALSE.
 \index{tab\_character.h@{tab\_character.h}!deplacement@{deplacement}}
 \index{deplacement@{deplacement}!tab\_character.h@{tab\_character.h}}
 \doxysubsubsection{\texorpdfstring{deplacement()}{deplacement()}}
-{\footnotesize\ttfamily void deplacement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{characters,  }\item[{\mbox{\hyperlink{character_8h_ab24f44887164d006cb3be7f21e4f4d76}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{first\+\_\+\+Adverser,  }\item[{int}]{x\+\_\+building\+\_\+adverser }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void deplacement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtab__charactere__t}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{characters,  }\item[{\mbox{\hyperlink{structcharacter__t}{character\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{first\+\_\+\+Adverser,  }\item[{int}]{x\+\_\+building\+\_\+adverser }\end{DoxyParamCaption})}
 
 
 
@@ -105,11 +87,28 @@ Effectue le déplacement des personnages.
 {\em x\+\_\+building\+\_\+adverser} & Position X du bâtiment adversaire. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{tab__character_8h_a52c7e3322f01a266b0a8ddf08854696b}\label{tab__character_8h_a52c7e3322f01a266b0a8ddf08854696b} 
+\index{tab\_character.h@{tab\_character.h}!maj\_first\_vivant@{maj\_first\_vivant}}
+\index{maj\_first\_vivant@{maj\_first\_vivant}!tab\_character.h@{tab\_character.h}}
+\doxysubsubsection{\texorpdfstring{maj\_first\_vivant()}{maj\_first\_vivant()}}
+{\footnotesize\ttfamily void maj\+\_\+first\+\_\+vivant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtab__charactere__t}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{player,  }\item[{\mbox{\hyperlink{structtab__charactere__t}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ordi }\end{DoxyParamCaption})}
+
+
+
+Met à jour l\textquotesingle{}indice du premier personnage dans le tableau du joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player} & Pointeur sur un joueur. \\
+\hline
+{\em ordi} & Pointeur sur un ordi. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{tab__character_8h_a7385dcda8ffa6298eef3e75eb4030df7}\label{tab__character_8h_a7385dcda8ffa6298eef3e75eb4030df7} 
 \index{tab\_character.h@{tab\_character.h}!tasser\_tab@{tasser\_tab}}
 \index{tasser\_tab@{tasser\_tab}!tab\_character.h@{tab\_character.h}}
 \doxysubsubsection{\texorpdfstring{tasser\_tab()}{tasser\_tab()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} tasser\+\_\+tab (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{characters,  }\item[{int}]{nb\+\_\+mort }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} tasser\+\_\+tab (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtab__charactere__t}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{characters,  }\item[{int}]{nb\+\_\+mort }\end{DoxyParamCaption})}
 
 
 
@@ -129,7 +128,7 @@ Retourne TRUE si le tassement est réussi, sinon FALSE.
 \index{tab\_character.h@{tab\_character.h}!ulti@{ulti}}
 \index{ulti@{ulti}!tab\_character.h@{tab\_character.h}}
 \doxysubsubsection{\texorpdfstring{ulti()}{ulti()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} ulti (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tab__character_8h_a6a21ebdbc23a81b622e7aec0b72e94ae}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{cible }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_afd19d995e55194c70a06080ef3ceb5a8}{booleen\+\_\+t}} ulti (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtab__charactere__t}{tab\+\_\+charactere\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{cible }\end{DoxyParamCaption})}
 
 
 

@@ -3,24 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battle of Time:  Fichier source de /Users/vic/Documents/Battle_Of_Time/Battle of Time/lib/save.h</title>
+<title>Battle of Time:  Fichier source de /info/etu/l2info/s2205576/Documents/Projet/Battle_Of_Time/Battle of Time/lib/save.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-  $(function() { init_search(); });
+  $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -54,7 +52,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.10.0 -->
+<!-- Généré par Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -73,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('save_8h_source.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('save_8h_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -106,32 +104,33 @@ $(function(){initNavTree('save_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef _SAVE_H_</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define _SAVE_H_</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;ordinateur.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="ordinateur_8h.html">ordinateur.h</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define MAX_SAVE 5</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * Chemin fichier de sauvagerde / chargement</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define FICHIER_1 &quot;save/save1.txt&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define FICHIER_2 &quot;save/save2.txt&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define FICHIER_1 &quot;save/joueur.txt&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define FICHIER_2 &quot;save/ordi.txt&quot;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><a class="code hl_typedef" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> <a class="code hl_function" href="save_8h.html#acc784b5e515ee21674bd4707029d32f2">save</a>(<a class="code hl_struct" href="structordi__t.html">ordi_t</a> * ordi, <a class="code hl_struct" href="structplayer__t.html">player_t</a> * player);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><a class="code hl_typedef" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> <a class="code hl_function" href="save_8h.html#aa4e5da4339c45779c84631172acbf87a">load</a>(<a class="code hl_struct" href="structordi__t.html">ordi_t</a> ** ordi, <a class="code hl_struct" href="structplayer__t.html">player_t</a> ** player, <a class="code hl_struct" href="structcharacter__s.html">character_t</a> * tab);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><a class="code hl_typedef" href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a> <a class="code hl_function" href="save_8h.html#aa4e5da4339c45779c84631172acbf87a">load</a>(<a class="code hl_struct" href="structordi__t.html">ordi_t</a> ** ordi, <a class="code hl_struct" href="structplayer__t.html">player_t</a> ** player, <a class="code hl_struct" href="structcharacter__t.html">character_t</a> * tab);</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="acommon_8h_html_afd19d995e55194c70a06080ef3ceb5a8"><div class="ttname"><a href="common_8h.html#afd19d995e55194c70a06080ef3ceb5a8">booleen_t</a></div><div class="ttdeci">enum booleen_s booleen_t</div><div class="ttdoc">Définition d'un type booléen.</div></div>
-<div class="ttc" id="asave_8h_html_aa4e5da4339c45779c84631172acbf87a"><div class="ttname"><a href="save_8h.html#aa4e5da4339c45779c84631172acbf87a">load</a></div><div class="ttdeci">booleen_t load(ordi_t **ordi, player_t **player, character_t *tab)</div><div class="ttdoc">Charge le joueur et l'ordinateur depuis un fichier.</div><div class="ttdef"><b>Definition</b> save.c:150</div></div>
-<div class="ttc" id="asave_8h_html_acc784b5e515ee21674bd4707029d32f2"><div class="ttname"><a href="save_8h.html#acc784b5e515ee21674bd4707029d32f2">save</a></div><div class="ttdeci">booleen_t save(ordi_t *ordi, player_t *player)</div><div class="ttdoc">Sauvegarde le joueur et l'ordinateur dans un fichier.</div><div class="ttdef"><b>Definition</b> save.c:17</div></div>
-<div class="ttc" id="astructcharacter__s_html"><div class="ttname"><a href="structcharacter__s.html">character_s</a></div><div class="ttdoc">Structure représentant un personnage.</div><div class="ttdef"><b>Definition</b> character.h:38</div></div>
-<div class="ttc" id="astructordi__t_html"><div class="ttname"><a href="structordi__t.html">ordi_t</a></div><div class="ttdoc">Structure représentant un adversaire contrôlé par l'ordinateur.</div><div class="ttdef"><b>Definition</b> ordinateur.h:22</div></div>
-<div class="ttc" id="astructplayer__t_html"><div class="ttname"><a href="structplayer__t.html">player_t</a></div><div class="ttdoc">Structure représentant un joueur.</div><div class="ttdef"><b>Definition</b> player.h:18</div></div>
+<div class="ttc" id="aordinateur_8h_html"><div class="ttname"><a href="ordinateur_8h.html">ordinateur.h</a></div><div class="ttdoc">Contient les fonction permettant à l'ordinateur de jouer.</div></div>
+<div class="ttc" id="asave_8h_html_aa4e5da4339c45779c84631172acbf87a"><div class="ttname"><a href="save_8h.html#aa4e5da4339c45779c84631172acbf87a">load</a></div><div class="ttdeci">booleen_t load(ordi_t **ordi, player_t **player, character_t *tab)</div><div class="ttdoc">Charge le joueur et l'ordinateur depuis un fichier.</div><div class="ttdef"><b>Definition</b> save.c:152</div></div>
+<div class="ttc" id="asave_8h_html_acc784b5e515ee21674bd4707029d32f2"><div class="ttname"><a href="save_8h.html#acc784b5e515ee21674bd4707029d32f2">save</a></div><div class="ttdeci">booleen_t save(ordi_t *ordi, player_t *player)</div><div class="ttdoc">Sauvegarde le joueur et l'ordinateur dans un fichier.</div><div class="ttdef"><b>Definition</b> save.c:18</div></div>
+<div class="ttc" id="astructcharacter__t_html"><div class="ttname"><a href="structcharacter__t.html">character_t</a></div><div class="ttdoc">Structure représentant un personnage.</div></div>
+<div class="ttc" id="astructordi__t_html"><div class="ttname"><a href="structordi__t.html">ordi_t</a></div><div class="ttdoc">Structure représentant un adversaire contrôlé par l'ordinateur.</div><div class="ttdef"><b>Definition</b> ordinateur.h:23</div></div>
+<div class="ttc" id="astructplayer__t_html"><div class="ttname"><a href="structplayer__t.html">player_t</a></div><div class="ttdoc">Structure représentant un joueur.</div><div class="ttdef"><b>Definition</b> player.h:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="save_8h.html">save.h</a></li>
-    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -97,7 +97,6 @@ booleen_t ulti(tab_charactere_t ** cible)
 		return FALSE;
 	int i;
 	for(i=0;i < (*cible)->nb;i++){
-		printf("FOR\n");
 		(*cible)->tab[i]->pv=0;
 	}
 	return TRUE;

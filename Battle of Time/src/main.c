@@ -4,6 +4,7 @@
  * \author Proudy Vincent, Roquain Louison, Poirier Victor et Wolter Thomas
  * \date 18 avril 2024
  * \version 1.0
+ * 
 */
 
 /**************/
@@ -12,7 +13,6 @@
 #include "../lib/affichage_menu.h"
 #include "../lib/gestion.h"
 #include "../lib/ordinateur.h"
-#include "../lib/help.h"
 #include "../lib/commun_SDL.h"
 #include "../socket/serveur.h"
 #include "../socket/client.h"
@@ -22,6 +22,12 @@
 /*--Programme Principal--*/
 /*************************/
 
+/**
+ * \fn int main (void)
+ * \brief Entrée du programme.
+ *
+ * \return EXIT_SUCCESS - Arrêt normal du programme.
+ */
 int main(int argc, char* argv[]) {
     
     /*Initialisation des modules SDL*/
@@ -398,7 +404,7 @@ int main(int argc, char* argv[]) {
                   moyen_age, moderne, futuriste, j1, sprite_hud, upgrade, o, cameraX, cameraY, ultim, building, resultat, 
                   fin_partie_win, fin_partie_lose, tab_de_charactere, (*survol), (*delai_ulti), (*diff_time), troupe_formee,
                   currentTime, lastTroupe, nb, j2_distant, boum, &alpha);
-
+        
         /* traitement avant de lancer une partie */
         traitement_pre_jeu(etat, &a_deja_lancer_partie, &j1, &o, j2_distant, image, ancien_lvl,
                                 tab_de_charactere, &connexion_reussi, &valide, &resultat, rendu);

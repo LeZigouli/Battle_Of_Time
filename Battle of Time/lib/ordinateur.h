@@ -1,5 +1,5 @@
 /**
- * \file ordinateur.c
+ * \file ordinateur.h
  * \brief Contient les fonction permettant à l'ordinateur de jouer.
  * \author Roquain Louison
  * \date 12 avril 2024
@@ -17,7 +17,8 @@
 #define MIN_DELAI_ULTI 300 /*  5 min*/
 
 /**
- * @brief Structure représentant un adversaire contrôlé par l'ordinateur.
+ * \struct ordi_t
+ * \brief Structure représentant un adversaire contrôlé par l'ordinateur.
  */
 typedef struct {
     int owner; /**< Numéro du propriétaire */

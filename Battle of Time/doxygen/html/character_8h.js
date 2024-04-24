@@ -5,7 +5,7 @@ var character_8h =
     [ "RATIO_RESSOURCES", "character_8h.html#a2f480ff3434a1fbff489ef77f283eab0", null ],
     [ "TAILLE_ATTAQUE", "character_8h.html#ad56f2d3fff8366567db3df903285dde9", null ],
     [ "TAILLE_SPRITE", "character_8h.html#a39f85a01939e4b4ec928d4c6a90e45c2", null ],
-    [ "character_t", "character_8h.html#ab24f44887164d006cb3be7f21e4f4d76", null ],
+    [ "building_attack_chatacter", "character_8h.html#a239e2315f3d820fd4ad521e7c7558b26", null ],
     [ "character_attack_building", "character_8h.html#ade98f572cf5953151368ff1593a0af34", null ],
     [ "character_attack_character", "character_8h.html#a3155d8dcc6d85be3c23f92e40d471e3f", null ],
     [ "copie_character", "character_8h.html#a267b4812ff2bf5ae7d6ca81196f35bf7", null ],

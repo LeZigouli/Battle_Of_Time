@@ -33,7 +33,8 @@
 #define TAILLE_ATTAQUE (TAILLE_SPRITE * 3)
 
 /**
- * @brief Structure représentant un personnage.
+ * \struct character_t
+ * \brief Structure représentant un personnage.
  */
 typedef struct character_s {
     int age;                        /**< Âge du personnage. */

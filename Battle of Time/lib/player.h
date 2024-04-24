@@ -13,7 +13,8 @@
 
 
 /**
- * @brief Structure représentant un joueur.
+ * \struct player_t
+ * \brief Structure représentant un joueur.
  */
 typedef struct {
     char name[MAX_STR]; /**< Nom du joueur */
